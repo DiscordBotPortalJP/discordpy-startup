@@ -16,7 +16,7 @@ async def on_message(message):
         await message.channel.send(f'```\n{traceback.format_exc()}\n```')
 
 
-@bot.commands
+@bot.command()
 async def ping(ctx):
     await ctx.send('pong')
 
