@@ -1,8 +1,9 @@
 #インストールしたdiscord.pyの読み込み
 import discord 
+import os
 
 #翠のトークン
-TOKEN = 'NTgzMzA0NjA1NDUxMTU3NTM0.XPD3oA.fUw8mMInu2kKTEHez0Wj53QKElg'
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 #接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -34,16 +35,8 @@ async def on_message(message):
 			return 
 	#「おやすみ」と発言したら「おやすみなさい！」と返す処理
 	if message.content == 'おやすみ':
-			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(*>∀<)ﾉ))★')						
-			
-#会話する
-
-			
-						
-									
-												
-																		
-			
+			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(*>∀<)ﾉ))★')										
+															
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
 			
