@@ -31,8 +31,8 @@ async def on_message(message):
 			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')										
 #会話する
         #「にゃあ」と言ったら猫の真似をする
-        if message.content == 'にゃあ':
-			await message.content.send('ฅ(*^・ω・^)ฅﾆｬ-')													
+    if message.content == 'にゃあ':
+	await message.content.send('ฅ(*^・ω・^)ฅﾆｬ-')												
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
 			
