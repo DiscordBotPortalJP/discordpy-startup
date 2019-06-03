@@ -24,11 +24,11 @@ async def on_message(message):
 			return 
 	#「おはよう」と発言したら「おはようございます、(送信したユーザーネーム)様！」と返す処理
 	if message.content == 'おはよう':
-			await message.channel.send('おはようございます、' + message.author.name + '様！٩(*´꒳`*)۶')			
+			await message.channel.send('おはようございます、' + message.author.name + '様！( ⑉¯ ꇴ ¯⑉ )')			
 #おやすみ		
 	#「おやすみ」と発言したら「おやすみなさい！」と返す処理
 	if message.content == 'おやすみ':
-			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(*>∀<)ﾉ))★')										
+			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')										
 															
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
