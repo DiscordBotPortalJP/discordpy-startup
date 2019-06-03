@@ -24,15 +24,8 @@ async def on_message(message):
 			return 
 	#「おはよう」と発言したら「おはようございます、(送信したユーザーネーム)様！」と返す処理
 	if message.content == 'おはよう':
-			await message.channel.send('おはようございます、' + message.author.name + '様！٩(*´꒳`*)۶')
-			
+			await message.channel.send('おはようございます、' + message.author.name + '様！٩(*´꒳`*)۶')			
 #おやすみ		
-#メッセージ受信時に動作する処理
-@client.event
-async def on_message(message):
-	#メッセージ送信者がbotだった場合の無視処理
-	if message.author.bot:
-			return 
 	#「おやすみ」と発言したら「おやすみなさい！」と返す処理
 	if message.content == 'おやすみ':
 			await message.channel.send('おやすみなさい、良い夢を見てくださいね！(*>∀<)ﾉ))★')										
