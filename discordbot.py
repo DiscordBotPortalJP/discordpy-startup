@@ -21,7 +21,7 @@ async def on_message(message):
     if message.author.bot:
             return 
     #「おはよう」と発言したら「おはようございます、(送信したユーザーネーム)様！」と返す処理
-    if message.content == 'おはよう':
+    if message.content.startswith('おは') or message.content == 'ぐっもーにん':
         await message.channel.send('おはようございます、' + message.author.name + '様！( ⑉¯ ꇴ ¯⑉ )')
 #おやすみ		
     #「おやすみ」と発言したら「おやすみなさい！」と返す処理
@@ -29,7 +29,7 @@ async def on_message(message):
         await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')		
 #会話する
     #「にゃあ」と言ったら猫の真似をする			
-    if message.content == '翠、猫の真似して欲しい！':
+    if message.content == '翠、猫の真似して欲しい！' or message.content == '翠、癒して！':
         await message.channel.send('ฅ(๑>ㅅ<๑)ฅﾆｬｰ')
 												
 #botの起動とdiscordサーバーへの接続
