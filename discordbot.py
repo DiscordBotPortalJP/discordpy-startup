@@ -2,6 +2,9 @@
 import discord 
 import os
 
+#randomモジュールの読み込み
+import random
+
 #翠のトークン
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
