@@ -46,6 +46,13 @@ async def on_message(message):
     #「起きてる？」と言ったら返事する
     if message.content == '翠、起きてる？':
         await message.channel.send('私はいつも起きてますよ！何かご用ですか？((っ•ω•⊂))')												
+ #褒め
+    #メッセージ送信者がbotだった場合の無視処理    
+    if message.author.bot:
+            return 
+    #「可愛い」と言うと照れる
+    if message.content == '翠、可愛い！' or message.content == '翠、かわいい！':
+        await message.channel.send('( ﻿˶﻿ˆ꒳ˆ˵﻿ )ｴﾍﾍ、ありがとうございます！スイ、頑張りますね！')
 
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
