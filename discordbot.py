@@ -66,6 +66,13 @@ async def on_message(message):
     
     if message.content == '翠、おみくじ引かせて！':
         await message.channel.send(result)
+#役職付与
+    if message.content.startswith('同意します'):
+        role = discord.utils.get(message.guild.roles, name='FRONt LINe所属メンバー')
+        await message.author.add_roles(role)
+        
+        reply = f'ゲームクランFRONt LINeへようこそ、{message.author.mention} さん！あなたの活躍に期待します！'
+        await message.channel.send(reply)
 
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
