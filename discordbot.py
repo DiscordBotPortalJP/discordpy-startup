@@ -24,7 +24,7 @@ async def on_message(message):
     if message.author.bot:
             return 
     #「おはよう」と発言したら「おはようございます、(送信したユーザーネーム)様！」と返す処理
-    if message.content.startswith('おは') or message.content == 'ぐっもーにん':
+    if message.content.startswith('おはよ') or message.content == 'ぐっもーにん':
         await message.channel.send('おはようございます、' + message.author.name + '様！( ⑉¯ ꇴ ¯⑉ )')
 #おやすみ	
     #メッセージ送信者がbotだった場合の無視処理
@@ -64,7 +64,7 @@ async def on_message(message):
     omikuji = ['おめでとうございます！大吉ですよ！(๑>∀<๑)♥', '中吉！あなたの運はそこそこですね！( ᐢ˙꒳​˙ᐢ )♡', '小吉ですけど、吉なだけマシと思いましょう！(｡•̀ᴗ-)✧','凶です…今日は外出を控えることをオススメします(´・ω・｀)','うーむ、今日のあなたの運勢は中凶ですね…気分転換にアイスでもいかがですか？(´ ｡•ω•｡)っ','大凶………最悪の運勢です、何もしないで寝ましょう(   ･᷅ὢ･᷄ )']
     result = random.choice(omikuji)
     
-    if message.content == '翠、おみくじ引かせて！':
+    if message.content == '翠、おみくじ引かせて！' or '翠、今日の運勢は？':
         await message.channel.send(result)
 #役職付与
     if message.content == '同意します':
