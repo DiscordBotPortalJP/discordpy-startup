@@ -41,7 +41,7 @@ async def on_message(message):
  
  #起きてる？
     #メッセージ送信者がbotだった場合の無視処理
-    if message.auther.bot:
+    if message.author.bot:
             return 
     #「起きてる？」と言ったら返事する
     if message.content == '翠、起きてる？':
