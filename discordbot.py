@@ -53,6 +53,16 @@ async def on_message(message):
     #「可愛い」と言うと照れる
     if message.content == '翠、可愛い！' or message.content == '翠、かわいい！':
         await message.channel.send('( ﻿˶﻿ˆ꒳ˆ˵﻿ )ｴﾍﾍ、ありがとうございます！スイ、頑張りますね！')
+ #御籤
+    #メッセージ送信者がbotだった場合の無視処理
+    if message.author.bot:
+            return 
+    #「翠、おみくじ引かせて！」って言うとおみくじ引く
+    omikuji = ["大吉", "中吉", "小吉", "吉", "凶", "大凶"]
+    result = random.choice(omikuji)
+    
+    if message.content == '翠、おみくじ引かせて！':
+        await message.channel.send(result)
 
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
