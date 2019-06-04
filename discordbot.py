@@ -30,7 +30,7 @@ async def on_message(message):
 #会話する
     #「にゃあ」と言ったら猫の真似をする			
     if message.content == 'にゃあ':
-        await message.content.send('ฅ(๑>ㅅ<๑)ฅﾆｬｰ')
+        await message.channel.send('ฅ(๑>ㅅ<๑)ฅﾆｬｰ')
 												
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
