@@ -1,4 +1,4 @@
-#インストールしたdiscord.pyの読み込み
+ご#インストールしたdiscord.pyの読み込み
 import discord 
 import os
 
