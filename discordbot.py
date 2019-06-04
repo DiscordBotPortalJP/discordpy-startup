@@ -11,7 +11,7 @@ client = discord.Client()
 #起動時に動作する処理
 @client.event
 async def on_ready():
-    print('Hello World,FRONt LINeナビゲーションbotプログラム「翠ｰスイｰ」、起動しました')
+    print('Hello World,FRONt LINeナビゲーションbotプログラム「Project-SUI-」、起動しました')
 
 #おはよう				
 #メッセージ受信時に動作する処理
