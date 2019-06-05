@@ -22,13 +22,14 @@ async def on_message(message):
     #メッセージ送信者がbotだった場合の無視処理
     if message.author.bot:
             return 
+#会話
  #おはよう
     #「おはよう」と発言したら「おはようございます、(送信したユーザーネーム)様！」と返す処理
     if message.content.startswith('おはよ') or message.content == 'ぐっもーにん':
         await message.channel.send('おはようございます、' + message.author.name + '様！( ⑉¯ ꇴ ¯⑉ )')
- #おやすみ	
+ #おやすみ
     #「おやすみ」と発言したら「おやすみなさい！」と返す処理
-    if message.content == 'おやすみ':
+    if message.content.startswith('おやすみ'):
         await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')		
  #にゃあ
     #「にゃあ」と言ったら猫の真似をする			
