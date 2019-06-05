@@ -30,7 +30,11 @@ async def on_message(message):
  #おやすみ
     #「おやすみ」と発言したら「おやすみなさい！」と返す処理
     if message.content.startswith('おやすみ'):
-        await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')		
+        await message.channel.send('おやすみなさい、良い夢を見てくださいね！(｡•̀ᴗ-)✧')	
+ #おわ
+    #「おわ」でメッセージが終わった場合労う
+    if message.content.endswith('おわ'):
+        await message.channel.send('お疲れ様です！∠(｀･ω･´)')	
  #にゃあ
     #「にゃあ」と言ったら猫の真似をする			
     if message.content == '翠、猫の真似して欲しい！' or message.content == '翠、癒して！':
