@@ -48,7 +48,7 @@ async def on_message(message):
     omikuji = ['おめでとうございます！大吉ですよ！(๑>∀<๑)♥', '中吉！あなたの運はそこそこですね！( ᐢ˙꒳​˙ᐢ )♡', '小吉ですけど、吉なだけマシと思いましょう！(｡•̀ᴗ-)✧','凶です…今日は外出を控えることをオススメします(´・ω・｀)','うーむ、今日のあなたの運勢は中凶ですね…気分転換にアイスでもいかがですか？(´ ｡•ω•｡)っ','大凶………最悪の運勢です、何もしないで寝ましょう(   ･᷅ὢ･᷄ )']
     result = random.choice(omikuji)
     
-    if message.content == '翠、おみくじ引かせて！'or  '翠、今日の運勢は？':
+    if message.content == '翠、おみくじ引かせて！' or message.content == '翠、今日の運勢は？':
         await message.channel.send(result)
         
 #役職付与
