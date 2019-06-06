@@ -60,7 +60,7 @@ async def on_message(message):
  #笑
     lis = ['笑うのは体にいいことですよ！','ꉂꉂ(>ᗜ<*)']
     res = random.choice(lis)
-    if '笑' in message.content or 'w' in message.content
+    if '笑' in message.content or 'w' in message.content:
     await message.channel.send(res)
         
 #役職付与
