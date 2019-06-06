@@ -55,6 +55,13 @@ async def on_message(message):
     
     if message.content == '翠、おみくじ引かせて！' or message.content == '翠、今日の運勢は？':
         await message.channel.send(result)
+
+#自動会話
+ #笑
+    if '笑' in message.content or 'w' in message.content
+    await message.channel.send(res)
+    
+    res = ['笑うのは体にいいことですよ！','ꉂꉂ(>ᗜ<*)']
         
 #役職付与
     if message.content.startswith('同意します'):
