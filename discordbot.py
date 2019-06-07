@@ -61,7 +61,7 @@ async def on_message(message):
     lis = ['笑うのは体にいいことですよ！','ꉂꉂ(>ᗜ<*)','何か楽しいことでもありましたか？|*･ω･)']
     res = random.choice(lis)
     
-    if message.content.endswith('笑') or message.content.endswith('w'):
+    if (message.content.endswith('笑') or message.content.endswith('w') and random.uniform(0,1) > 0.75):
         await message.channel.send(res)
         
 #役職付与
