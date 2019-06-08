@@ -74,8 +74,8 @@ async def on_message(message):
 
 #ウェルカムメッセージ
 @client.event
-    async def on_member_join(member):
-       await client.get_channel(553825840241311775).send(f'ようこそ、{message.author.mention} さん！あなたの訪問を歓迎させていただきます、FLナビゲーションbotの翠と申します！ まずは #サーバー説明・ルール を見ることをオススメしますよ！楽しんでくださいね！')
+async def on_member_join(member):
+   await client.get_channel(553825840241311775).send(f'ようこそ、{message.author.mention} さん！あなたの訪問を歓迎させていただきます、FLナビゲーションbotの翠と申します！ まずは #サーバー説明・ルール を見ることをオススメしますよ！楽しんでくださいね！')
 
 #botの起動とdiscordサーバーへの接続
 client.run(TOKEN)
