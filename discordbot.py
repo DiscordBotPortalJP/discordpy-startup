@@ -82,6 +82,7 @@ async def on_member_join(member):
    await client.get_channel(553825840866131989).send(f'ようこそ、{member.mention} さん！あなたの訪問を歓迎させていただきます、FLナビゲーションbotの翠と申します！ まずは<#553911862933323786>を見ることをオススメしますよ！楽しんでくださいね！')
 
 #リムーブメッセージ
+@client.event
 async def on_member_remove(member):
     await    client.get_channel(553825840866131989).send(f'{member.name}が前線を離れました。またの訪問をお待ちしております！')
 
