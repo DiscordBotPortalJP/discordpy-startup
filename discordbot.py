@@ -50,11 +50,28 @@ async def on_message(message):
  
  #御籤 
     #「翠、おみくじ引かせて！」って言うとおみくじ引く
-    omikuji = ['おめでとうございます！大吉ですよ！(๑>∀<๑)♥', '中吉！あなたの運はそこそこですね！( ᐢ˙꒳​˙ᐢ )♡', '小吉ですけど、吉なだけマシと思いましょう！(｡•̀ᴗ-)✧','凶です…今日は外出を控えることをオススメします(´・ω・｀)','うーむ、今日のあなたの運勢は中凶ですね…気分転換にアイスでもいかがですか？(´ ｡•ω•｡)っ','大凶………最悪の運勢です、何もしないで寝ましょう(   ･᷅ὢ･᷄ )']
-    result = random.choice(omikuji)
+    prob = random.random()
+
+    if (message.content == '今日の運勢' and 0.0 <= prob < 0.3):
+        await message.channel.send('凶')
+
+    elif (message.content == '今日の運勢' and 0.3 <= prob < 0.65):
+        await message.channel.send('吉')
     
-    if message.content == '翠、おみくじ引かせて！' or message.content == '翠、今日の運勢は？':
-        await message.channel.send(result)
+    elif (message.content == '今日の運勢' and 0.65 <= prob < 0.71):
+        await message.channel.send('末吉')
+
+    elif (message.content == '今日の運勢' and 0.71 <= prob < 0.76):
+        await message.channel.send('半吉')
+    
+    elif (message.content == '今日の運勢' and 0.76 <= prob < 0.80):
+        await message.channel.send('小吉')
+    
+    elif (message.content == '今日の運勢' and 0.80 <= prob < 0.83):
+        await message.channel.send('末小吉')
+    
+    elif (message.content == '今日の運勢' and 0.83 <= prob < 1.0):
+        await message.channel.send('大吉')
 
  #忍殺語
     if message.content == '変わり身のジツ！':
