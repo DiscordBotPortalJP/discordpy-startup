@@ -1,1 +1,1 @@
-web: gunicorn discordbot:app --log-file -
+discordbot: python discordbot.py
