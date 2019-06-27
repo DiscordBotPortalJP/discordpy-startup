@@ -33,7 +33,7 @@ async def on_ready():
 async def on_message(message):
     print(message.content)
 
-thread1 = threading.Thread(target=startHook)
+t = threading.Thread(target=startHook)
 
-thread1.start()
+t.start()
 client.run(token)
