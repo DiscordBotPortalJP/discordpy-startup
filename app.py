@@ -14,7 +14,7 @@ def webhook():
 
     return 'OK'
 
-t = threading.Thread(target=m.run, args=os.environ['DISCORD_BOT_TOKEN'])
+t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN']])
 t.start()
 if __name__ == "__main__":
 
