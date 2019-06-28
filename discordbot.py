@@ -10,15 +10,14 @@ def run(token):
     m.run(token)
 
 class Mariage:
-    client = None
+    client = discord.Client()
 
     def run(self, token):
-        self.client = discord.Client()
         @self.client.event
         async def on_ready():
             print('Logged in as')
-            #print(client.user.name)
-            #print(client.user.id)
+            print(self.client.user.name)
+            print(self.client.user.id)
             print('------')
 
         @self.client.event

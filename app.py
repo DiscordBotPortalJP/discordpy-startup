@@ -13,17 +13,19 @@ def webhook():
 
     return 'OK'
 
-def worker(ws, token, loop):
-    asyncio.set_event_loop(loop)
-    ws.run(token)
-    #loop = asyncio.new_event_loop()
-    #future = loop.create_future()
-    #loop.call_soon(ws.run, token)
-    #loop.run_forever()
+async def start():
+    await m.run(os.environ['DISCORD_BOT_TOKEN']) # use client.start instead of client.run
 
-loop = asyncio.new_event_loop()
-p = threading.Thread(target=worker, args=(m, os.environ['DISCORD_BOT_TOKEN'], loop,))
-p.start()
+def run_it_forever(loop):
+    loop.run_forever()
+
+#asyncio.get_child_watcher() # I still don't know if I need this method. It works without it.
+
+loop = asyncio.get_event_loop()
+loop.create_task(start())
+
+thread = threading.Thread(target=run_it_forever, args=(loop,))
+thread.start()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
