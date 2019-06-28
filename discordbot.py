@@ -1,4 +1,5 @@
 from flask import Flask, request
+import app
 import discord
 import os
 import traceback
@@ -26,3 +27,11 @@ class Mariage:
     @client.event
     async def on_message(message):
         print(message.content)
+
+m = Mariage()
+app.m = m
+
+t = threading.Thread(target=app.run)
+
+t.start()
+m.run(os.environ['DISCORD_BOT_TOKEN'])
