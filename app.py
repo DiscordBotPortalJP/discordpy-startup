@@ -25,5 +25,10 @@ m = Mariage()
 w = WebApp(m)
 
 t = threading.Thread(target=w.run)
-t.start()
-m.run(os.environ['DISCORD_BOT_TOKEN'])
+
+def main():
+    t.start()
+    m.run(os.environ['DISCORD_BOT_TOKEN'])
+
+if __name__ == '__main__':
+    main()
