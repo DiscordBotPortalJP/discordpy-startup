@@ -15,7 +15,11 @@ def webhook():
 
 def worker(ws, token, loop):
     asyncio.set_event_loop(loop)
-    loop.run_until_complete(ws.run(token))
+    ws.run(token)
+    #loop = asyncio.new_event_loop()
+    #future = loop.create_future()
+    #loop.call_soon(ws.run, token)
+    #loop.run_forever()
 
 loop = asyncio.new_event_loop()
 p = threading.Thread(target=worker, args=(m, os.environ['DISCORD_BOT_TOKEN'], loop,))
