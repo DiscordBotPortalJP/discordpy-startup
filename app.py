@@ -13,9 +13,13 @@ def webhook():
 
     return 'OK'
 
-loop = asyncio.get_event_loop()
-t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN'], loop], daemon=True)
-t.start()
+def worker(ws, token, loop):
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(ws.run(token))
+
+loop = asyncio.new_event_loop()
+p = threading.Thread(target=worker, args=(m, os.environ['DISCORD_BOT_TOKEN'], loop,))
+p.start()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
