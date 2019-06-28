@@ -4,19 +4,26 @@ import os
 import asyncio
 import threading
 
-app = Flask(__name__)
+class WebApp:
+    app = Flask(__name__)
+
+    def __init__(self, m):
+        self.m = m
+    
+    @app.route("/news/events", methods=['POST'])
+    def webhook():
+        print(request.get_data())
+        m.broadcast(request.get_data())
+
+        return 'OK'
+    
+    def run(self):
+        port = int(os.environ.get("PORT", 5000))
+        self.app.run(host='0.0.0.0', port=port)
+
 m = Mariage()
+w = WebApp(m)
 
-@app.route("/news/events", methods=['POST'])
-def webhook():
-    print(request.get_data())
-    m.broadcast(request.get_data())
-
-    return 'OK'
-
-t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN']])
+t = threading.Thread(target=w.run)
 t.start()
-if __name__ == "__main__":
-
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+m.run(os.environ['DISCORD_BOT_TOKEN'])
