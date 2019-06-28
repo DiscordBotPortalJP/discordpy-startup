@@ -9,12 +9,11 @@ m = Mariage()
 
 @app.route("/news/events", methods=['POST'])
 def webhook():
-    print(request.get_data())
     m.broadcast(request.get_data())
 
     return 'OK'
 
-t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN']])
+t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN']], daemon=True)
 t.start()
 
 if __name__ == "__main__":

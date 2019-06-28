@@ -5,6 +5,10 @@ import traceback
 import threading
 import asyncio
 
+def run(token):
+    m = Mariage()
+    m.run(token)
+
 class Mariage:
     client = discord.Client()
 
