@@ -13,7 +13,8 @@ def webhook():
 
     return 'OK'
 
-t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN']], daemon=True)
+loop = asyncio.get_event_loop()
+t = threading.Thread(target=m.run, args=[os.environ['DISCORD_BOT_TOKEN'], loop], daemon=True)
 t.start()
 
 if __name__ == "__main__":

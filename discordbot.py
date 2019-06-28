@@ -12,7 +12,8 @@ def run(token):
 class Mariage:
     client = discord.Client()
 
-    def run(self, token):
+    def run(self, token, loop):
+        asyncio.set_event_loop(loop)
         self.client.run(token)
     
     def broadcast(self, message):
