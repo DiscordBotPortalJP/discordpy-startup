@@ -10,9 +10,12 @@ def run(token):
     m.run(token)
 
 class Mariage:
-    client = discord.Client()
+    client = None
 
     def run(self, token):
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        self.client = discord.Client()
         @self.client.event
         async def on_ready():
             print('Logged in as')
@@ -24,7 +27,8 @@ class Mariage:
         async def on_message(message):
             print(message.content)
         
-        self.client.run(token)
+        asyncio.ensure_future(self.client.start(token))
+        loop.run_forever()
     
     def broadcast(self, message):
         print(request.get_data())

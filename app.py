@@ -13,18 +13,7 @@ def webhook():
 
     return 'OK'
 
-async def start():
-    await m.run(os.environ['DISCORD_BOT_TOKEN']) # use client.start instead of client.run
-
-def run_it_forever(loop):
-    loop.run_forever()
-
-#asyncio.get_child_watcher() # I still don't know if I need this method. It works without it.
-
-loop = asyncio.get_event_loop()
-loop.create_task(start())
-
-thread = threading.Thread(target=run_it_forever, args=(loop,))
+thread = threading.Thread(target=m.run, args=(os.environ['DISCORD_BOT_TOKEN'],))
 thread.start()
 
 if __name__ == "__main__":
