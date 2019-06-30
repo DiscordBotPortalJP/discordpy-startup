@@ -1,6 +1,8 @@
 from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
 from discordbot import Mariage
 import discord
+import discordbot
 import bs4
 import os
 import asyncio
@@ -8,7 +10,8 @@ import threading
 import re
 
 app = Flask(__name__)
-m = Mariage()
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+m = Mariage(app)
 
 @app.route("/alive", methods=['GET'])
 def alive():
@@ -19,7 +22,7 @@ def webhook():
     print(request.json)
    
     soup = bs4.BeautifulSoup(request.json['content'], "html.parser")
-    
+    embeds=[]
     for h2 in soup.find_all("h2", id=re.compile("^detail_")):
         print(h2)
         
@@ -37,7 +40,8 @@ def webhook():
         for img in filter(lambda e : e.name=="img", findConntents(h2, lambda x : x.name != "h2" and x.name != "h3")):
             embed.set_image(url=img.attrs["src"])
             break
-        m.broadcastEmbed(embed)
+        embeds.append(embed)
+    m.sendNews(embeds)
 
     return 'OK'
 

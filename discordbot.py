@@ -1,16 +1,28 @@
-from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, String
 import discord
 import os
 import traceback
 import threading
 import asyncio
 
-def run(token):
-    m = Mariage()
-    m.run(token)
-
 class Mariage:
     client = None
+    app = None
+    db = SQLAlchemy()
+
+    def __init__(self, app):
+        self.db.init_app(app)
+        self.app = app
+    
+    class Event(db.Model):
+        channel_id = Column(String(18), primary_key=True)
+
+        def __init__(self, channel_id):
+            self.channel_id = channel_id
+
+        def __repr__(self):
+            return '<Event %r>' % self.channel_id
 
     def run(self, token):
         loop = asyncio.new_event_loop()
@@ -51,6 +63,34 @@ class Mariage:
             # カテゴリチャンネルのリストを取得して表示
             if message.content == '/category_channels':
                 print(message.guild.categories)
+            # イベント配信チャンネル登録
+            if message.content == '/join_news':
+                if (not message.author.guild_permissions.administrator):
+                    await message.channel.send('何様のつもり？')
+                    return
+                with self.app.app_context():
+                    event = self.db.session.query(self.Event).filter_by(channel_id=str(message.channel.id)).first()
+                    if (event != None):
+                        await message.channel.send('もう入ってるよっ！')
+                        return
+                    else:
+                        event = self.Event(message.channel.id)
+                        self.db.session.add(event)
+                        self.db.session.commit()
+                        await message.channel.send('こんどからお知らせするよっ！')
+            if message.content == '/defect_news':
+                if (not message.author.guild_permissions.administrator):
+                    await message.channel.send('何様のつもり？')
+                    return
+                with self.app.app_context():
+                    event = self.db.session.query(self.Event).filter_by(channel_id=str(message.channel.id)).first()
+                    if (event != None):
+                        self.db.session.delete(event)
+                        self.db.session.commit()
+                        await message.channel.send('さよならだね...')
+                        return
+                    else:
+                        await message.channel.send('お知らせしてないよ？？？')
 
         asyncio.ensure_future(self.client.start(token))
         loop.run_forever()
@@ -63,3 +103,10 @@ class Mariage:
          for channel in filter(lambda x : x.type == discord.ChannelType.text, self.client.get_all_channels()):
             asyncio.ensure_future(channel.send(embed=embed), loop=self.client.loop)
     
+    def sendNews(self, embeds):
+        with self.app.app_context():
+            for event in self.Event.query.all():
+                channel=self.client.get_channel(int(event.channel_id))
+                if (channel!=None):
+                    for embed in embeds:
+                        asyncio.ensure_future(channel.send(embed=embed), loop=self.client.loop)
