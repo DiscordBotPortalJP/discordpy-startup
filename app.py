@@ -17,6 +17,11 @@ m = Mariage(app)
 def alive():
     return "OK"
 
+@app.route("/test/news/events", methods=['POST'])
+def test():
+    print(request.json)
+    return "OK"
+    
 @app.route("/news/events", methods=['POST'])
 def webhook():
     print(request.json)
