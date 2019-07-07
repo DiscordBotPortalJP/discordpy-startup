@@ -23,7 +23,7 @@ def test():
     return "OK"
     
 @app.route("/news/events", methods=['POST'])
-def webhook():
+def news_events():
     print(request.json)
    
     soup = bs4.BeautifulSoup(request.json['content'], "html.parser")
@@ -49,6 +49,22 @@ def webhook():
     m.sendNews(embeds)
 
     return 'OK'
+
+@app.route("/news/tweets", methods=['POST'])
+def news_tweets():
+    print(request.json)
+
+    embed = discord.Embed(
+            url=request.json['link'],
+            description=request.json['tweet'])
+    embed.set_author(
+            name=request.json['name'],
+            icon_url=request.json['author'])
+    
+    m.sendNews([embed])
+
+    return 'OK'
+    
 
 def findConntents(elm, pre):
     for nx in elm.find_all_next():
