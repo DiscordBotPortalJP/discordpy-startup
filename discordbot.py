@@ -8,7 +8,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
 async def on_command_error(ctx, error):
-    await ctx.send(traceback.format_exc())
+    orig_error = getattr(error, "original", error)
+    error_msg = traceback.format_exception(type(orig_error), orig_error, orig_error.__traceback__)
+    await ctx.send(error_msg)
 
 
 @bot.command()
