@@ -61,7 +61,7 @@ def news_tweets():
             name=request.json['name'],
             icon_url=request.json['author'])
     
-    m.sendNews([embed])
+    m.sendTweet(embed)
 
     return 'OK'
     
