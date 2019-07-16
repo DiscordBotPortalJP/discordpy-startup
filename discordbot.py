@@ -23,6 +23,12 @@ class Mariage:
 
         def __repr__(self):
             return '<Event %r>' % self.channel_id
+    
+    class News(db.Model):
+        url = Column(String(128), primary_key=True)
+
+        def __init__(self, url):
+            self.url = url
 
     def run(self, token):
         loop = asyncio.new_event_loop()
@@ -105,8 +111,14 @@ class Mariage:
     
     def sendNews(self, embeds):
         with self.app.app_context():
+            news = list(map(lambda x : x.url, self.News.query.all()))
             for event in self.Event.query.all():
                 channel=self.client.get_channel(int(event.channel_id))
                 if (channel!=None):
                     for embed in embeds:
-                        asyncio.ensure_future(channel.send(embed=embed), loop=self.client.loop)
+                        if (embed.url not in news):
+                            asyncio.ensure_future(channel.send(embed=embed), loop=self.client.loop)
+                            entry = self.News(embed.url)
+                            self.db.session.add(entry)
+                            news.append(embed.url)
+            self.db.session.commit()
