@@ -1,15 +1,22 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, or_, and_
+from sqlalchemy.orm import relationship
+from one_time_scheduler import OneTimeScheduler
 import discord
 import os
 import traceback
 import threading
 import asyncio
+import re
+import datetime
+import pytz
+import math
 
 class Mariage:
     client = None
     app = None
     db = SQLAlchemy()
+    __scheduler = OneTimeScheduler()
 
     def __init__(self, app):
         self.db.init_app(app)
@@ -41,11 +48,67 @@ class Mariage:
         
         def __repr__(self):
             return '<News %r>' % self.url
+    
+    class Boss(db.Model):
+        id = Column(Integer, primary_key=True, autoincrement=True)
+        name = Column(String(256))
+        fluctuation = Column(String(512))
+        field = Column(String(256))
+        pop_interval_minutes = Column(Integer)
+        schedules = relationship("Schedule", backref="boss")
+        
+        def __init__(self, name, fluctuation, field, pop_interval_minutes):
+            self.name = name
+            self.fluctuation = fluctuation
+            self.field = field
+            self.pop_interval_minutes = pop_interval_minutes
 
+        def __repr__(self):
+            return '<Boss %r>' % self.name
+    
+    class Schedule(db.Model):
+        # メッセージIDそのまま使う
+        id = Column(Integer, primary_key=True)
+        channel_id = Column(String(18), nullable=False, index=True)
+        boss_id = Column(Integer, ForeignKey('boss.id'), nullable=False)
+        pop_time= Column(DateTime)
+        status =  Column(String(32), index=True)
+        user_id = Column(Integer)
+
+        def get_jst_pop_time(self):
+            return pytz.timezone('Asia/Tokyo').localize(self.pop_time)
+
+        def __init__(self, id, channel_id, boss_id):
+            self.channel_id = channel_id
+            self.id = id
+            self.boss_id = boss_id
+        
+        def __repr__(self):
+            return '<Schedule %r>' % self.pop_time
+        
     def run(self, token):
+        self.__scheduler.run()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         self.client = discord.Client()
+
+        with self.app.app_context():
+            for schedule in self.db.session.query(self.Schedule).filter(or_(self.Schedule.status=='remind'), or_(self.Schedule.status=='alerm')):
+                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                if schedule.status == 'remind':
+                    remind_seconds = (schedule.get_jst_pop_time() - now - datetime.timedelta(minutes=5)).total_seconds()
+                    if remind_seconds > 0:
+                        __set_remind(schedule.id, schedule.get_jst_pop_time(), now)
+                    else:
+                        schedule.status = 'end'
+                        self.db.session.commit()
+                elif schedule.status == 'alerm':
+                    alerm_seconds = (schedule.get_jst_pop_time() - now).total_seconds()
+                    if alerm_seconds > 0:
+                        __set_alerm(schedule.id, schedule.get_jst_pop_time(), now)
+                    else:
+                        schedule.status = 'end'
+                        self.db.session.commit()
 
         @self.client.event
         async def on_ready():
@@ -53,6 +116,75 @@ class Mariage:
             print(self.client.user.name)
             print(self.client.user.id)
             print('------')
+        
+        def __set_remind(message_id, pop_time, now):
+            remind_minites = (pop_time - now - datetime.timedelta(minutes=5)).total_seconds() / 60
+            self.__scheduler.after_minutes(remind_minites, lambda : asyncio.ensure_future(remind(message_id), loop=self.client.loop), job_id=message_id)
+            return remind_minites
+        
+        async def remind(message_id):
+            with self.app.app_context():
+                schedule = self.db.session.query(self.Schedule).filter_by(id=message_id, status='remind').first()
+                if schedule == None:
+                    return
+                schedule.status = 'alerm'
+                self.db.session.commit()
+                channel = self.client.get_channel(int(schedule.channel_id))
+                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                remind_minites = __set_alerm(schedule.id, schedule.get_jst_pop_time(), now)
+                await channel.send(str(math.ceil(remind_minites)) + '分後(' + schedule.get_jst_pop_time().strftime("%H:%M:%S") +')に' + schedule.boss.name + 'が湧きます。')
+                
+        def __set_alerm(message_id, pop_time, now):
+            remind_minites = (pop_time - now).total_seconds() / 60
+            self.__scheduler.after_minutes(remind_minites, lambda : asyncio.ensure_future(alerm(message_id), loop=self.client.loop), message_id)
+            return remind_minites
+
+        async def alerm(message_id):
+            with self.app.app_context():
+                schedule = self.db.session.query(self.Schedule).filter_by(id=message_id, status='alerm').first()
+                if schedule == None:
+                    return
+                schedule.status = 'end'
+                self.db.session.commit()
+                channel = self.client.get_channel(int(schedule.channel_id))
+                msg = await channel.send(schedule.boss.name + 'が湧くよ！！！End報告お待ちしております。')
+                next_schedule = self.Schedule(msg.id, str(channel.id), schedule.boss_id)
+                next_schedule.status = 'registed'
+                self.db.session.add(next_schedule)
+                self.db.session.commit()
+                await msg.add_reaction('🔚')
+                await msg.add_reaction('❌')
+
+        @self.client.event
+        async def on_reaction_add(reaction, user):
+            # リアクション送信者がBotだった場合は無視する
+            if user.bot:
+                return
+            if reaction.emoji == '🔚':
+                with self.app.app_context():
+                    schedule = self.db.session.query(self.Schedule).filter_by(id=reaction.message.id, status='registed').first()
+                    if schedule != None:
+                        now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                        # 倒してからEND押すまでの時間を考慮して30秒ほど手前にしておく
+                        pop_time = now + datetime.timedelta(minutes=schedule.boss.pop_interval_minutes) - datetime.timedelta(seconds=30)
+                        schedule.pop_time = pop_time
+                        schedule.status = 'remind'
+                        schedule.user_id = user.id
+                        self.db.session.commit()
+                        
+                        await reaction.message.channel.send(schedule.boss.name + ' END 次は' + schedule.pop_time.strftime("%H:%M:%S"))
+
+                        __set_remind(schedule.id, pop_time, now)
+            elif reaction.emoji == '❌':
+                with self.app.app_context():
+                    schedule = self.db.session.query(self.Schedule).filter_by(id=reaction.message.id).filter(and_(self.Schedule.status!='end')).first()
+                    if schedule != None:
+                        if schedule.status != 'registed':
+                            self.__scheduler.cancel(schedule.id)
+                        schedule.status = 'end'
+                        self.db.session.commit()
+                        
+                        await reaction.message.channel.send(schedule.boss.name + '討伐リマインドを取り消しました。')
 
         @self.client.event
         async def on_message(message):
@@ -137,6 +269,60 @@ class Mariage:
                         return
                     else:
                         await message.channel.send('お知らせしてないよ？？？')
+            # 「/hunt」と発言したらボス時間登録する
+            if message.content.startswith('/hunt '):
+                items = message.content.split()
+                with self.app.app_context():
+                    boss = None
+                    bosses = self.Boss.query.all()
+                    for item in bosses:
+                        if re.match(item.fluctuation, items[1], re.IGNORECASE):
+                            boss = item
+                            break
+                    if boss != None:
+                        schedule = self.db.session.query(self.Schedule).filter_by(boss_id=boss.id, channel_id=str(message.channel.id)).filter(and_(self.Schedule.status!='end')).first()
+                        if schedule != None :
+                            await message.channel.send(boss.name + 'は未消化のリマインダーがあります。')
+                            return
+                        
+                        if len(items) > 2:
+                            if not re.match('^[0-2]?[0-3]:[0-5]?[0-9]:[0-5]?[0-9]$', items[2]):
+                                await message.channel.send('時刻が不正です。')
+                                return
+                            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                            end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + items[2] + '+0900', '%Y/%m/%d %H:%M:%S%z')
+                            if end_time > now:
+                                end_time = end_time - datetime.timedelta(days=1)
+                            pop_time = end_time + datetime.timedelta(minutes=boss.pop_interval_minutes)
+                            if pop_time < now:
+                                await message.channel.send('手遅れです。' + boss.name + 'は' + pop_time.strftime("%H:%M:%S") + 'にENDしています。')
+                                return
+                            msg = await message.channel.send(boss.name + ' END 次は' + pop_time.strftime("%H:%M:%S"))
+                            schedule = self.Schedule(msg.id, str(message.channel.id), boss.id)
+                            schedule.pop_time = pop_time
+                            schedule.user_id = message.author.id
+                            remind_seconds = (pop_time - now - datetime.timedelta(minutes=5)).total_seconds()
+                            if remind_seconds > 0:
+                                schedule.status = 'remind'
+                                self.db.session.add(schedule)
+                                self.db.session.commit()
+                                __set_remind(schedule.id, pop_time, now)
+                            else:
+                                schedule.status = 'alerm'
+                                self.db.session.add(schedule)
+                                self.db.session.commit()
+                                __set_alerm(schedule.id, pop_time, now)
+                            await msg.add_reaction('❌')
+                        else:
+                            msg = await message.channel.send(boss.name + 'を狩るんですね！END報告お待ちしております。')
+                            schedule = self.Schedule(msg.id, str(message.channel.id), boss.id)
+                            schedule.status = 'registed'
+                            self.db.session.add(schedule)
+                            self.db.session.commit()
+                            await msg.add_reaction('🔚')
+                            await msg.add_reaction('❌')
+                    else:
+                        await message.channel.send('なんだそりゃ？？？')
 
         asyncio.ensure_future(self.client.start(token))
         loop.run_forever()

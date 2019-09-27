@@ -8,6 +8,7 @@ import os
 import asyncio
 import threading
 import re
+import pytz
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
@@ -73,11 +74,16 @@ def findConntents(elm, pre):
         else:
             break
 
+if __name__ == "__main__":
+    with app.app_context():
+        m.db.create_all()
+        boss = m.Boss('カスパ', '([かカ][すス][パぱ])|(caspa)', '68', 6)
+        m.db.session.add(boss)
+        m.db.session.commit()
+
 thread = threading.Thread(target=m.run, args=(os.environ['DISCORD_BOT_TOKEN'],))
 thread.start()
 
 if __name__ == "__main__":
-    with app.app_context():
-        m.db.create_all()
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
