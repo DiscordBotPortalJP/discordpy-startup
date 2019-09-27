@@ -280,13 +280,17 @@ class Mariage:
                             boss = item
                             break
                     if boss != None:
-                        schedule = self.db.session.query(self.Schedule).filter_by(boss_id=boss.id, channel_id=str(message.channel.id)).filter(and_(self.Schedule.status!='end')).first()
-                        if schedule != None :
-                            await message.channel.send(boss.name + 'は未消化のリマインダーがあります。')
-                            return
+                        before = self.db.session.query(self.Schedule).filter_by(boss_id=boss.id, channel_id=str(message.channel.id)).filter(and_(self.Schedule.status!='end')).first()
+                        if before != None :
+                            if before.status == 'registed':
+                                before.status = 'end'
+                                self.db.session.commit()
+                            else:
+                                await message.channel.send(boss.name + 'は未消化のリマインダーがあります。')
+                                return
                         
                         if len(items) > 2:
-                            if not re.match('^[0-2]?[0-3]:[0-5]?[0-9]:[0-5]?[0-9]$', items[2]):
+                            if not re.match('^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$', items[2]):
                                 await message.channel.send('時刻が不正です。')
                                 return
                             now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
