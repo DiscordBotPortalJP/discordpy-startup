@@ -93,25 +93,6 @@ class Mariage:
         asyncio.set_event_loop(loop)
         self.client = discord.Client()
 
-        with self.app.app_context():
-            for schedule in self.db.session.query(self.Schedule).filter(or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')):
-                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
-                if schedule.status == 'remind':
-                    remind_seconds = (schedule.get_jst_pop_time() - now - datetime.timedelta(minutes=5)).total_seconds()
-                    if remind_seconds > 0:
-                        __set_remind(schedule.id, schedule.get_jst_pop_time(), now)
-                    else:
-                        schedule.status = 'end'
-                        self.db.session.commit()
-                elif schedule.status == 'alerm':
-                    alerm_seconds = (schedule.get_jst_pop_time() - now).total_seconds()
-                    if alerm_seconds > 0:
-                        __set_alerm(schedule.id, schedule.get_jst_pop_time(), now)
-                    else:
-                        schedule.status = 'end'
-                        self.db.session.commit()
-        self.__scheduler.never_hour(1, lambda : asyncio.ensure_future(__remind_report(), loop=self.client.loop))
-
         @self.client.event
         async def on_ready():
             print('Logged in as')
@@ -347,6 +328,26 @@ class Mariage:
                         await message.channel.send('なんだそりゃ？？？')
 
         asyncio.ensure_future(self.client.start(token))
+
+        with self.app.app_context():
+            for schedule in self.db.session.query(self.Schedule).filter(or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')):
+                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                if schedule.status == 'remind':
+                    remind_seconds = (schedule.get_jst_pop_time() - now - datetime.timedelta(minutes=5)).total_seconds()
+                    if remind_seconds > 0:
+                        __set_remind(schedule.id, schedule.get_jst_pop_time(), now)
+                    else:
+                        schedule.status = 'end'
+                        self.db.session.commit()
+                elif schedule.status == 'alerm':
+                    alerm_seconds = (schedule.get_jst_pop_time() - now).total_seconds()
+                    if alerm_seconds > 0:
+                        __set_alerm(schedule.id, schedule.get_jst_pop_time(), now)
+                    else:
+                        schedule.status = 'end'
+                        self.db.session.commit()
+        self.__scheduler.never_hour(1, lambda : asyncio.ensure_future(__remind_report(), loop=self.client.loop))
+
         loop.run_forever()
     
     def broadcast(self, message):
