@@ -283,6 +283,9 @@ class Mariage:
                         return
                     else:
                         await message.channel.send('お知らせしてないよ？？？')
+            # 「/hunt_report」と発言したらボス時間登録する
+            if message.content.startswith('/hunt_report'):
+                await __remind_report()
             # 「/hunt」と発言したらボス時間登録する
             if message.content.startswith('/hunt '):
                 items = message.content.split()
