@@ -108,7 +108,7 @@ class Mariage:
                     report = ''
                     for schedule in group:
                         if schedule.get_jst_pop_time() > now:
-                            report = report + schedule.boss.name + ' ' + schedule.get_jst_pop_time().strftime("%H:%M:%S") + '\n'
+                            report = report + schedule.get_jst_pop_time().strftime("%H:%M:%S") + ' ' + schedule.boss.name + '\n'
                     if report != '':
                         channel = self.client.get_channel(int(schedule.channel_id))
                         await channel.send(report)
