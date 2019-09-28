@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, or_, and_
 from sqlalchemy.orm import relationship
 from one_time_scheduler import OneTimeScheduler
+from itertools import groupby
 import discord
 import os
 import traceback
@@ -109,6 +110,7 @@ class Mariage:
                     else:
                         schedule.status = 'end'
                         self.db.session.commit()
+        self.__scheduler.never_hour(1, lambda : asyncio.ensure_future(__remind_report(), loop=self.client.loop))
 
         @self.client.event
         async def on_ready():
@@ -116,6 +118,18 @@ class Mariage:
             print(self.client.user.name)
             print(self.client.user.id)
             print('------')
+        
+        async def __remind_report():
+            with self.app.app_context():
+                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                schedules = self.db.session.query(self.Schedule).filter(and_(self.Schedule.pop_time > now)).filter(or_(self.Schedule.status=='remind'), or_(self.Schedule.status=='alerm')).order_by(self.Schedule.channel_id.asc(), self.Schedule.pop_time.asc())
+                for channel_id, group in groupby(schedules, key=lambda s: s.channel_id):
+                    report = ''
+                    for schedule in group:
+                        report = report + schedule.boss.name + ' ' + schedule.get_jst_pop_time().strftime("%H:%M:%S") + '\n'
+                    if report != '':
+                        channel = self.client.get_channel(int(schedule.channel_id))
+                        await channel.send(report)
         
         def __set_remind(message_id, pop_time, now):
             remind_minites = (pop_time - now - datetime.timedelta(minutes=5)).total_seconds() / 60
@@ -165,8 +179,8 @@ class Mariage:
                     schedule = self.db.session.query(self.Schedule).filter_by(id=reaction.message.id, status='registed').first()
                     if schedule != None:
                         now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
-                        # 倒してからEND押すまでの時間を考慮して30秒ほど手前にしておく
-                        pop_time = now + datetime.timedelta(minutes=schedule.boss.pop_interval_minutes) - datetime.timedelta(seconds=30)
+                        # 倒してからEND押すまでの時間を考慮して10秒ほど手前にしておく
+                        pop_time = now + datetime.timedelta(minutes=schedule.boss.pop_interval_minutes) - datetime.timedelta(seconds=10)
                         schedule.pop_time = pop_time
                         schedule.status = 'remind'
                         schedule.user_id = user.id
@@ -280,9 +294,10 @@ class Mariage:
                             boss = item
                             break
                     if boss != None:
+                        now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
                         before = self.db.session.query(self.Schedule).filter_by(boss_id=boss.id, channel_id=str(message.channel.id)).filter(and_(self.Schedule.status!='end')).first()
                         if before != None :
-                            if before.status == 'registed':
+                            if before.status == 'registed' or now > before.get_jst_pop_time():
                                 before.status = 'end'
                                 self.db.session.commit()
                             else:
@@ -293,7 +308,6 @@ class Mariage:
                             if not re.match('^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$', items[2]):
                                 await message.channel.send('時刻が不正です。')
                                 return
-                            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
                             end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + items[2] + '+0900', '%Y/%m/%d %H:%M:%S%z')
                             if end_time > now:
                                 end_time = end_time - datetime.timedelta(days=1)
