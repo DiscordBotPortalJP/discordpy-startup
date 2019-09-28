@@ -94,7 +94,7 @@ class Mariage:
         self.client = discord.Client()
 
         with self.app.app_context():
-            for schedule in self.db.session.query(self.Schedule).filter(or_(self.Schedule.status=='remind'), or_(self.Schedule.status=='alerm')):
+            for schedule in self.db.session.query(self.Schedule).filter(or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')):
                 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
                 if schedule.status == 'remind':
                     remind_seconds = (schedule.get_jst_pop_time() - now - datetime.timedelta(minutes=5)).total_seconds()
@@ -120,13 +120,14 @@ class Mariage:
             print('------')
         
         async def __remind_report():
+            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
             with self.app.app_context():
-                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
-                schedules = self.db.session.query(self.Schedule).filter(and_(self.Schedule.pop_time > now)).filter(or_(self.Schedule.status=='remind'), or_(self.Schedule.status=='alerm')).order_by(self.Schedule.channel_id.asc(), self.Schedule.pop_time.asc())
+                schedules = self.db.session.query(self.Schedule).filter(self.Schedule.pop_time > now, or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')).order_by(self.Schedule.channel_id.asc(), self.Schedule.pop_time.asc())
                 for channel_id, group in groupby(schedules, key=lambda s: s.channel_id):
                     report = ''
                     for schedule in group:
-                        report = report + schedule.boss.name + ' ' + schedule.get_jst_pop_time().strftime("%H:%M:%S") + '\n'
+                        if schedule.get_jst_pop_time() > now:
+                            report = report + schedule.boss.name + ' ' + schedule.get_jst_pop_time().strftime("%H:%M:%S") + '\n'
                     if report != '':
                         channel = self.client.get_channel(int(schedule.channel_id))
                         await channel.send(report)
