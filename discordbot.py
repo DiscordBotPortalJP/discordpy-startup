@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, or_, and_
+from sqlalchemy import Column, String, Integer, DateTime, Boolean, ForeignKey, or_, and_
 from sqlalchemy.orm import relationship
 from one_time_scheduler import OneTimeScheduler
 from itertools import groupby
@@ -56,6 +56,7 @@ class Mariage:
         fluctuation = Column(String(512))
         field = Column(String(256))
         pop_interval_minutes = Column(Integer)
+        random = Column(Boolean, default=False)
         schedules = relationship("Schedule", backref="boss")
         
         def __init__(self, name, fluctuation, field, pop_interval_minutes):
@@ -100,18 +101,30 @@ class Mariage:
             print(self.client.user.id)
             print('------')
         
+        async def __report(schedules, target_id=None):
+            for channel_id, group in groupby(schedules, key=lambda s: s.channel_id):
+                report = ''
+                for schedule in group:
+                    report = report + schedule.get_jst_pop_time().strftime("%H:%M:%S") + ' ' + schedule.boss.name
+                    if target_id != None and schedule.id == target_id:
+                        report = report + ' ← New\n'
+                    else:
+                        report = report + '\n'
+                if report != '':
+                    channel = self.client.get_channel(int(schedule.channel_id))
+                    await channel.send(report)
+        
+        async def __hunt_report(channel_id, target_id=None):
+            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+            with self.app.app_context():
+                schedules = self.db.session.query(self.Schedule).filter(self.Schedule.channel_id==channel_id, self.Schedule.pop_time > now, or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')).order_by(self.Schedule.pop_time.asc())
+                await __report(schedules, target_id=target_id)
+        
         async def __remind_report():
             now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
             with self.app.app_context():
                 schedules = self.db.session.query(self.Schedule).filter(self.Schedule.pop_time > now, or_(self.Schedule.status=='remind', self.Schedule.status=='alerm')).order_by(self.Schedule.channel_id.asc(), self.Schedule.pop_time.asc())
-                for channel_id, group in groupby(schedules, key=lambda s: s.channel_id):
-                    report = ''
-                    for schedule in group:
-                        if schedule.get_jst_pop_time() > now:
-                            report = report + schedule.get_jst_pop_time().strftime("%H:%M:%S") + ' ' + schedule.boss.name + '\n'
-                    if report != '':
-                        channel = self.client.get_channel(int(schedule.channel_id))
-                        await channel.send(report)
+                await __report(schedules)
         
         def __set_remind(message_id, pop_time, now):
             remind_minites = (pop_time - now - datetime.timedelta(minutes=5)).total_seconds() / 60
@@ -146,10 +159,13 @@ class Mariage:
                 msg = await channel.send(schedule.boss.name + 'が湧くよ！！！End報告お待ちしております。')
                 next_schedule = self.Schedule(msg.id, str(channel.id), schedule.boss_id)
                 next_schedule.status = 'registed'
+                next_schedule.pop_time = schedule.get_jst_pop_time()
                 self.db.session.add(next_schedule)
                 self.db.session.commit()
                 await msg.add_reaction('🔚')
                 await msg.add_reaction('❌')
+                if schedule.boss.random:
+                    await msg.add_reaction('🔄')
 
         @self.client.event
         async def on_reaction_add(reaction, user):
@@ -168,8 +184,7 @@ class Mariage:
                         schedule.user_id = user.id
                         self.db.session.commit()
                         
-                        await reaction.message.channel.send(schedule.boss.name + ' END 次は' + schedule.pop_time.strftime("%H:%M:%S"))
-
+                        await __hunt_report(schedule.channel_id, schedule.id)
                         __set_remind(schedule.id, pop_time, now)
             elif reaction.emoji == '❌':
                 with self.app.app_context():
@@ -181,6 +196,27 @@ class Mariage:
                         self.db.session.commit()
                         
                         await reaction.message.channel.send(schedule.boss.name + '討伐リマインドを取り消しました。')
+            elif reaction.emoji == '🔄':
+                with self.app.app_context():
+                    schedule = self.db.session.query(self.Schedule).filter_by(id=reaction.message.id, status='registed').filter(self.Schedule.pop_time!=None).first()
+                    if schedule != None:
+                        pop_time = schedule.get_jst_pop_time() + datetime.timedelta(minutes=schedule.boss.pop_interval_minutes)
+                        schedule.pop_time = pop_time
+                        now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
+                        remind_seconds = (pop_time - now - datetime.timedelta(minutes=5)).total_seconds()
+                        if now > pop_time:
+                            schedule.status = 'end'
+                            self.db.session.commit()
+                        elif remind_seconds > 0:
+                            schedule.status = 'remind'
+                            self.db.session.commit()
+                            __set_remind(schedule.id, pop_time, now)
+                            await __hunt_report(schedule.channel_id, schedule.id)
+                        else:
+                            schedule.status = 'alerm'
+                            self.db.session.commit()
+                            __set_alerm(schedule.id, pop_time, now)
+                            await __hunt_report(schedule.channel_id, schedule.id)
 
         @self.client.event
         async def on_message(message):
@@ -267,7 +303,7 @@ class Mariage:
                         await message.channel.send('お知らせしてないよ？？？')
             # 「/hunt_report」と発言したらボス時間登録する
             if message.content.startswith('/hunt_report'):
-                await __remind_report()
+                await __hunt_report(str(message.channel.id))
             # 「/hunt」と発言したらボス時間登録する
             if message.content.startswith('/hunt '):
                 items = message.content.split()
@@ -290,17 +326,15 @@ class Mariage:
                                 return
                         
                         if len(items) > 2:
-                            if not re.match('^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$', items[2]):
+                            end_time = __get_end_time(items[2], now)
+                            if end_time == None:
                                 await message.channel.send('時刻が不正です。')
                                 return
-                            end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + items[2] + '+0900', '%Y/%m/%d %H:%M:%S%z')
-                            if end_time > now:
-                                end_time = end_time - datetime.timedelta(days=1)
                             pop_time = end_time + datetime.timedelta(minutes=boss.pop_interval_minutes)
                             if pop_time < now:
-                                await message.channel.send('手遅れです。' + boss.name + 'は' + pop_time.strftime("%H:%M:%S") + 'にENDしています。')
+                                await message.channel.send('手遅れです。' + boss.name + 'は' + pop_time.strftime("%H:%M:%S") + 'にEndしています。')
                                 return
-                            msg = await message.channel.send(boss.name + ' END 次は' + pop_time.strftime("%H:%M:%S"))
+                            msg = await message.channel.send(boss.name + ' End')
                             schedule = self.Schedule(msg.id, str(message.channel.id), boss.id)
                             schedule.pop_time = pop_time
                             schedule.user_id = message.author.id
@@ -316,8 +350,9 @@ class Mariage:
                                 self.db.session.commit()
                                 __set_alerm(schedule.id, pop_time, now)
                             await msg.add_reaction('❌')
+                            await __hunt_report(schedule.channel_id, schedule.id)
                         else:
-                            msg = await message.channel.send(boss.name + 'を狩るんですね！END報告お待ちしております。')
+                            msg = await message.channel.send(boss.name + 'を狩るんですね！End報告お待ちしております。')
                             schedule = self.Schedule(msg.id, str(message.channel.id), boss.id)
                             schedule.status = 'registed'
                             self.db.session.add(schedule)
@@ -326,6 +361,25 @@ class Mariage:
                             await msg.add_reaction('❌')
                     else:
                         await message.channel.send('なんだそりゃ？？？')
+        def __get_end_time(str_date, now):
+            if re.match('^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$', str_date):
+                end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + str_date + '+0900', '%Y/%m/%d %H:%M:%S%z')
+                if end_time > now:
+                    return end_time - datetime.timedelta(days=1)
+                return end_time
+            if re.match('^[0-2]?[0-9]:[0-5]?[0-9]$', str_date):
+                end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + str_date + ':00+0900', '%Y/%m/%d %H:%M:%S%z')
+                if end_time > now:
+                    return end_time - datetime.timedelta(days=1)
+                return end_time
+            if re.match('^[0-5]?[0-9]$', str_date):
+                end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day) + ' ' + str(now.hour) + ':' + str_date + ':00+0900', '%Y/%m/%d %H:%M:%S%z')
+                if end_time > now:
+                    end_time = end_time - datetime.timedelta(hours=1)
+                if end_time > now:
+                    return end_time - datetime.timedelta(days=1)
+                return end_time
+            return None
 
         asyncio.ensure_future(self.client.start(token))
 
