@@ -89,10 +89,10 @@ class Mariage:
             return '<Schedule %r>' % self.pop_time
         
     def run(self, token):
-        self.__scheduler.run()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         self.client = discord.Client()
+        self.__scheduler.run_asyncio(loop)
 
         @self.client.event
         async def on_ready():
@@ -100,6 +100,14 @@ class Mariage:
             print(self.client.user.name)
             print(self.client.user.id)
             print('------')
+
+        def __clean_schedule():
+            target = datetime.datetime.now() - datetime.timedelta(days=7)
+            with self.app.app_context():
+                schedules = self.db.session.query(self.Schedule).filter(self.Schedule.status=='end', or_(self.Schedule.pop_time==None, self.Schedule.pop_time < target))
+                for schedule in schedules:
+                    self.db.session.delete(schedule)
+                self.db.session.commit()
         
         async def __report(schedules, target_id=None):
             for channel_id, group in groupby(schedules, key=lambda s: s.channel_id):
@@ -112,7 +120,7 @@ class Mariage:
                         report = report + '\n'
                 if report != '':
                     channel = self.client.get_channel(int(schedule.channel_id))
-                    await channel.send(report)
+                    await channel.send(report + '======================')
         
         async def __hunt_report(channel_id, target_id=None):
             now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9)))
@@ -400,8 +408,8 @@ class Mariage:
                     else:
                         schedule.status = 'end'
                         self.db.session.commit()
-        self.__scheduler.never_hour(1, lambda : asyncio.ensure_future(__remind_report(), loop=self.client.loop))
-
+        self.__scheduler.never_hour(lambda : asyncio.ensure_future(__remind_report(), loop=self.client.loop))
+        self.__scheduler.never_wednesday('06:00', __clean_schedule)
         loop.run_forever()
     
     def broadcast(self, message):
