@@ -368,11 +368,11 @@ class Mariage:
                             await msg.add_reaction('🔚')
                             await msg.add_reaction('❌')
                     else:
-                        if items[1] in map(lambda x : x.name, message.channel.members):
-                            kill = items[1]
-                            await message.channel.send(kill + 'をリアルハントするんですねっ💖💖💖')
-                        else:
-                            await message.channel.send('なんだそりゃ？？？')
+                        #if items[1] in map(lambda x : x.name, message.channel.members):
+                        #    kill = items[1]
+                        #    await message.channel.send(kill + 'をリアルハントするんですねっ💖💖💖')
+                        #else:
+                        await message.channel.send('なんだそりゃ？？？')
         def __get_end_time(str_date, now):
             if re.match('^[0-2]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9]$', str_date):
                 end_time = datetime.datetime.strptime(str(now.year) + '/'  +  str(now.month) + '/'+  str(now.day)+ ' ' + str_date + '+0900', '%Y/%m/%d %H:%M:%S%z')
