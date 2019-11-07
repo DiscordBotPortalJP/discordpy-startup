@@ -13,12 +13,7 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('pong')
-
-
-@bot.command()
-async def square(ctx):
-    await ctx.send('四角')
+    await ctx.send('pond')
 
 
 bot.run(token)
