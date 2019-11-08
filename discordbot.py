@@ -170,8 +170,7 @@ slot_embed.add_field(name="スロット説明",value="絵文字を利用した�
 url_embed = discord.Embed(title='YUI関連URL━第６頁')
 url_embed.add_field(name ='‣招待URL' ,value ='[ここをクリック🔘](https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=0&scope=bot)')
 url_embed.add_field(name ='‣YUIサポートサーバー(仮)',value ='[ここをクリック🔘](https://discord.gg/SHxgnu)')
-        ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
-        ,inline=True)
+
 
 @client.event
 async def on_ready():
