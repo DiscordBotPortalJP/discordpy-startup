@@ -310,7 +310,13 @@ async def on_message(message):
 
 
 
-
+    if message.content.startswith('y!kill'):
+        if message.author.id == 446610711230152706:
+            await client.logout()
+            await sys.exit()
+        else:
+            embed = discord.Embed(title='権限がありません!!',description='これは開発者専用コマンドです')
+            await message.channel.send(embed=embed)
 
 #🔷➖➖➖➖➖➖➖➖➖➖オートアタック➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
