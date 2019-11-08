@@ -15,8 +15,8 @@ from discord.ext import tasks
 
 #TOKEN = 'NjQyMjcxMzYwNjY3ODc3Mzg2.XcUgLg.8zwAgusBLUhu6doRpQtBC6JQxro' #testver
 #TOKEN = 'NjI3MDUyNTc2ODEwMDc0MTEy.XY3CUg.REvxOlP3bX26CbJbxFjeqldsQpY' #truever
-#TOKEN = os.environ['DISCORD_BOT_TOKEN']
-TOKEN = 'NjI3MDUyNTc2ODEwMDc0MTEy.XcU4Nw.bLQJOx4r3qz3B9iT7wH7S3HW9WU'
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
+#TOKEN = 'NjI3MDUyNTc2ODEwMDc0MTEy.XcU4Nw.bLQJOx4r3qz3B9iT7wH7S3HW9WU'
 CHANNEL_ID = 623154510662991883
 client = discord.Client()
 dateTime = datetime.datetime.now()
@@ -1215,6 +1215,7 @@ async def on_message(message):
     		y1 = ['㌼㌨㌥㌑㌝㌈㌏㌐　㌞㌞㌞㌞㌑㌆']
     		y2 = random.choice(y1)
     		await message.channel.send((y2))
+
 
 
 
