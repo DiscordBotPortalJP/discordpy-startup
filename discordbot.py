@@ -254,7 +254,7 @@ async def on_message(message):
 
         print('help was opened')
         page_count = 0 #ヘルプの現在表示しているページ数
-        page_content_list = [help_embed_0,help_embed_one,help_embed,help_special,help_two_embed,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
+        page_content_list = [help_embed_0,help_embed_one,help_embed,embed_special,help_two_embed,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
 
         send_message = await message.channel.send(embed=page_content_list[0]) #最初のページ投稿
         await send_message.add_reaction("➡")
