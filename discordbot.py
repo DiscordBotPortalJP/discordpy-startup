@@ -9,6 +9,8 @@ import datetime
 import urllib.request
 import json
 import re
+import os
+import traceback
 
 from discord.ext import tasks
 
@@ -72,7 +74,7 @@ citycodes = {
 
 help_embed_0 = discord.Embed(
 title="⚠️YUI注意事項一覧⚠️",
-description = '🔷**[]は不要です**\ny![example]→y!example\n🔷**スペースの有無は要チェック**\ny!example []→有り\ny!example[]→無し\n🔷**管理者権限を持たせてください**\n動作上必須となります\n🔷**ニックネームの変更は非推奨**\n第２項TAO系コマンドはYUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません。',color=discord.Colour.green())
+description = '🔷**[]は不要です**\ny![example]→y!example\n🔷**スペースの有無を確認**\ny!example []→有り\ny!example[]→無し\n🔷**管理者権限が必須**\n動作上必須となります\n🔷**ニックネームの変更は非推奨**\n第２項TAO系コマンドはYUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません。',color=discord.Colour.green())
 
 
 help_embed_one = discord.Embed(title="YUIヘルプガイドブック目次")
