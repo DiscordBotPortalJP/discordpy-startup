@@ -13,7 +13,7 @@ import re
 from discord.ext import tasks
 
 
-TOKEN = 'NjQyMjcxMzYwNjY3ODc3Mzg2.XcUgLg.8zwAgusBLUhu6doRpQtBC6JQxro' #testver
+#TOKEN = 'NjQyMjcxMzYwNjY3ODc3Mzg2.XcUgLg.8zwAgusBLUhu6doRpQtBC6JQxro' #testver
 TOKEN = 'NjI3MDUyNTc2ODEwMDc0MTEy.XY3CUg.REvxOlP3bX26CbJbxFjeqldsQpY' #truever
 
 CHANNEL_ID = 623154510662991883
