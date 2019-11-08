@@ -17,7 +17,8 @@ async def nn(ctx):
 
 
 @bot.command()
-async
+async def hi(ctx):
+    await ctx.send('ふふ')
 
 
 bot.run(token)
