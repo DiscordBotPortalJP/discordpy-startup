@@ -16,4 +16,8 @@ async def nn(ctx):
     await ctx.send('は？')
 
 
+@bot.command()
+async
+
+
 bot.run(token)
