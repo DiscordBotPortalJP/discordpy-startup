@@ -157,6 +157,7 @@ embed_special.add_field(name='yui起動ログ'
 embed_special.add_field(name='y!yui timelog'
         ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
 
+
 gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
 ,description="コマンドはy!gacha [ガチャ番号]"
 ,color=discord.Colour.green()
