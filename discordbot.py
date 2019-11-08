@@ -137,21 +137,6 @@ help_two_embed.add_field(name='y!myicon'
 help_two_embed.add_field(name='y!poll [タイトル] [内容] '
         ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
         ,inline=False)
-help_two_embed.add_field(name='y!dice [下限] [上限]'
-        ,value ='`下限~上限の数の間でn\サイコロをふる`'
-        ,inline=False)
-help_two_embed.add_field(name='y!sinfo'
-        ,value ='`サーバーの情報を開示するよ\nコード基礎提供者:_toni`'
-        ,inline=False)
-help_two_embed.add_field(name='y!kuji'
-        ,value ='`おみくじ`'
-        ,inline=False)
-help_two_embed.add_field(name='y!myicon'
-        ,value ='`コマンド使用者のアイコン表示`'
-        ,inline=False)
-help_two_embed.add_field(name='y!poll [タイトル] [内容] '
-        ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
-        ,inline=False)
 help_two_embed.add_field(name='y!say'
         ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
         ,inline=False)
@@ -189,39 +174,6 @@ url_embed.add_field(name
 help_two_embed.add_field(name='y!say'
         ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
         ,inline=True)
-help_two_embed.add_field(name='y!clean [数]'
-        ,value ='`鯖管理者権限持ちで使用可\n指定数のメッセージ消去`'
-        ,inline=True)
-help_two_embed.add_field(name='y!report [内容]'
-        ,value ='`開発者への\nレポート＆リクエスト`'
-        ,inline=True)
-help_two_embed.add_field(name='y!wt [都道府県名]',value='`今日、明日の天気予報\nYUI WEATHER`',inline=True)
-
-embed_special = discord.Embed(title='特殊チャンネル系━第４項',color=0x2ECC69)
-embed_special.add_field(name='`global_yui`'
-        ,value='チャンネル名を合わせるとグローバルチャット化',inline=True)
-embed_special.add_field(name='yui起動ログ'
-        ,value ='YUI起動ログch作成\n```y!yui log```で簡単にチャンネルを作成可'
-        ,inline=True)
-embed_special.add_field(name='y!yui timelog'
-        ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
-
-gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
-,description="コマンドはy!gacha [ガチャ番号]"
-,color=discord.Colour.green()
-,inline=False)
-gacha.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
-gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\ny!gacha 1\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！\ny!gacha 2")
-
-slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]")
-slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
-slot_embed.add_field(name="スロット説明",value="絵文字を利用したスロットだよ\n表示が崩れるから、スマホとパソコンPCでコマンドを分けてるよ\n`y!slot s`がスマホ\n`y!slot c`がPCだよ\nちなみに開発者のスマホ（泥）を基準にしてるからIOS勢は表記が崩れるかも！\n泥勢もテキストサイズ変えちゃったら崩れるからね")
-
-
-
-url_embed = discord.Embed(title='YUI関連URL━第６頁')
-url_embed.add_field(name ='‣招待URL' ,value ='[ここをクリック🔘](https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=0&scope=bot)')
-url_embed.add_field(name ='‣YUI公式サポート鯖URL' ,value ='[ここをクリック🔘](https://discord.gg/BjDzejw)')
 
 @client.event
 async def on_ready():
