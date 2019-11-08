@@ -136,7 +136,7 @@ embed_special = discord.Embed(title='特殊チャンネル系━第４項',color
 embed_special.add_field(name='`global_yui`'
         ,value='チャンネル名を合わせるとグローバルチャット化',inline=True)
 embed_special.add_field(name='yui起動ログ'
-        ,value ='YUI起動ログch作成\n```y!yui log```で簡単にチャンネルを作成可'
+        ,value ='YUI起動ログch作成\n```y!yui```で簡単にチャンネルを作成可'
         ,inline=True)
 embed_special.add_field(name='y!yui timelog'
         ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
