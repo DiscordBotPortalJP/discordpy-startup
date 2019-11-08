@@ -85,9 +85,6 @@ help_embed_one.add_field(name="‣ガチャ系",value='━第４頁',inline = Tr
 help_embed_one.add_field(name="‣スロット系",value='━第５頁',inline = True)
 help_embed_one.add_field(name="‣YUI関連URL",value='━第６頁',inline = True)
 
-
-
-
 help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=0x2ECC69)
 #help_embed.add_field(name="```y!ch [channel ID]```",value='このコマンドを使った後に**ゆいがんばれ**って言ってくれたら指定したチャンネルでアタックをするから\n後でスイーツおごってもらうからね\n止めてほしいときは**ゆいおつかれ**って言って')
 help_embed.add_field(
