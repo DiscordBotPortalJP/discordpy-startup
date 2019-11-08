@@ -86,7 +86,6 @@ help_embed_one.add_field(name="‣ガチャ",value='━第５頁',inline = True)
 help_embed_one.add_field(name="‣スロット",value='━第６頁',inline = True)
 help_embed_one.add_field(name="‣YUI関連URL",value='━第７頁',inline = True)
 help_embed.set_footer(icon_url=message.author.avatar_url, text=f"ヘルプ使用者│{message.author}")
-        await message.delete()
 
 
 
@@ -183,8 +182,6 @@ gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチ
 slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]")
 slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
 slot_embed.add_field(name="スロット説明",value="絵文字を利用したスロットだよ\n表示が崩れるから、スマホとパソコンPCでコマンドを分けてるよ\n`y!slot s`がスマホ\n`y!slot c`がPCだよ\nちなみに開発者のスマホ（泥）を基準にしてるからIOS勢は表記が崩れるかも！\n泥勢もテキストサイズ変えちゃったら崩れるからね")
-
-
 
 url_embed = discord.Embed(title='YUI関連URL━第６頁')
 url_embed.add_field(name ='‣招待URL' ,value ='[ここをクリック🔘](https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=0&scope=bot)')
@@ -1252,7 +1249,7 @@ async def on_message(message):
     		await message.channel.send((y2))
     if client.user != message.author:
     	if 'くさ' in message.content or '草' in message.content or 'w' in message.content:
-    		y1 = ['w','www','草']
+    		y1 = ['w','www','草','𐤔𐤔𐤔','ʬ﻿ʬʬ﻿','෴෴']
     		y2 = random.choice(y1)#(　＾ω＾)おっおっおっ
     		await message.channel.send((y2))
     	if 'おっ' in message.content:
