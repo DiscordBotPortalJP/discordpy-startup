@@ -72,20 +72,23 @@ citycodes = {
     "鹿児島": '460010',"沖縄": '471010',
 }
 
-help_embed_0 = discord.Embed(
-title="⚠️YUI注意事項一覧⚠️",
-description = '🔷**[]は不要です**\ny![example]→y!example\n🔷**スペースの有無を確認**\ny!example []→有り\ny!example[]→無し\n🔷**管理者権限が必須**\n動作上必須となります\n🔷**ニックネームの変更は非推奨**\n第２項TAO系コマンドはYUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません。',color=discord.Colour.green())
+help_embed_0 = discord.Embed(title="⚠️YUI注意事項一覧⚠️",description = '🔷**[]は不要です**\ny![example]→y!example\n🔷**スペースの有無を確認して下さい**\ny!example []→有り\ny!example[]→無し\n🔷**管理者権限必須です**YUIのコマンドにはYUIに管理者を持たせないと正常に作動しないものが多々御座います。ご注意ください\n🔷**ニックネーム変更非推奨**第２項TAO系コマンドは、YUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません。',color=discord.Colour.green())
 
 
 help_embed_one = discord.Embed(title="YUIヘルプガイドブック目次")
 help_embed_one.set_thumbnail(url=random.choice(('https://yahoo.jp/box/3faN7k','https://yahoo.jp/box/c9L236','https://yahoo.jp/box/Jxj1Jd')))
 
-help_embed_one.add_field(name="‣ガイドブック目次",value='━第１項',inline = True)
-help_embed_one.add_field(name="‣TAOコマンド系",value='━第２項',inline = True)
-help_embed_one.add_field(name="‣ゆいの機能系",value='━第３項',inline = True)
-help_embed_one.add_field(name="‣ガチャ系",value='━第４頁',inline = True)
-help_embed_one.add_field(name="‣スロット系",value='━第５頁',inline = True)
-help_embed_one.add_field(name="‣YUI関連URL",value='━第６頁',inline = True)
+help_embed_one.add_field(name="‣ヘルプ目次",value='━第１項',inline = True)
+help_embed_one.add_field(name="‣TAOコマンド",value='━第２項',inline = True)
+help_embed_one.add_field(name="‣メイン機能",value='━第３項',inline = True)
+help_embed_one.add_field(name="‣特殊チャンネル",value='━第４項',inline = True)
+help_embed_one.add_field(name="‣ガチャ",value='━第５頁',inline = True)
+help_embed_one.add_field(name="‣スロット",value='━第６頁',inline = True)
+help_embed_one.add_field(name="‣YUI関連URL",value='━第７頁',inline = True)
+help_embed.set_footer(icon_url=message.author.avatar_url, text=f"ヘルプ使用者│{message.author}")
+        await message.delete()
+
+
 
 help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=0x2ECC69)
 #help_embed.add_field(name="```y!ch [channel ID]```",value='このコマンドを使った後に**ゆいがんばれ**って言ってくれたら指定したチャンネルでアタックをするから\n後でスイーツおごってもらうからね\n止めてほしいときは**ゆいおつかれ**って言って')
@@ -121,44 +124,97 @@ help_two_embed = discord.Embed(title="ゆいの機能ヘルプ━第３項"
         ,color=0x2ECC69)
 #サーバーの情報を開示するよ\nコード基礎提供者:_toni
 help_two_embed.add_field(name='y!dice [下限] [上限]'
-        ,value ='下限~上限の数の間でn\サイコロをふる'
-        ,inline=True)
+        ,value ='`下限~上限の数の間でn\サイコロをふる`'
+        ,inline=False)
 help_two_embed.add_field(name='y!sinfo'
-        ,value ='サーバーの情報を開示するよ\nコード基礎提供者:_toni'
-        ,inline=True)
+        ,value ='`サーバーの情報を開示するよ\nコード基礎提供者:_toni`'
+        ,inline=False)
 help_two_embed.add_field(name='y!kuji'
-        ,value ='おみくじ'
-        ,inline=True)
+        ,value ='`おみくじ`'
+        ,inline=False)
 help_two_embed.add_field(name='y!myicon'
-        ,value ='コマンド使用者のアイコン表示'
-        ,inline=True)
+        ,value ='`コマンド使用者のアイコン表示`'
+        ,inline=False)
 help_two_embed.add_field(name='y!poll [タイトル] [内容] '
-        ,value ='👍👎リアクションつき\nembedメッセージ送信'
-        ,inline=True)
+        ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
+        ,inline=False)サーバーの情報を開示するよ\nコード基礎提供者:_toni
+help_two_embed.add_field(name='y!dice [下限] [上限]'
+        ,value ='`下限~上限の数の間でn\サイコロをふる`'
+        ,inline=False)
+help_two_embed.add_field(name='y!sinfo'
+        ,value ='`サーバーの情報を開示するよ\nコード基礎提供者:_toni`'
+        ,inline=False)
+help_two_embed.add_field(name='y!kuji'
+        ,value ='`おみくじ`'
+        ,inline=False)
+help_two_embed.add_field(name='y!myicon'
+        ,value ='`コマンド使用者のアイコン表示`'
+        ,inline=False)
+help_two_embed.add_field(name='y!poll [タイトル] [内容] '
+        ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
+        ,inline=False)
 help_two_embed.add_field(name='y!say'
-        ,value ='y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻'
-        ,inline=True)
+        ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
+        ,inline=False)
 help_two_embed.add_field(name='y!clean [数]'
-        ,value ='鯖管理者権限で使用可\n指定数のメッセージ消去'
-        ,inline=True)
+        ,value ='`鯖管理者権限持ちで使用可\n指定数のメッセージ消去`'
+        ,inline=False)
 help_two_embed.add_field(name='y!report [内容]'
-        ,value ='開発者への\nレポート\n　　＆\nリクエスト'
+        ,value ='`開発者への\nレポート＆リクエスト`'
+        ,inline=False)
+help_two_embed.add_field(name='y!wt [都道府県名]',value='`今日、明日の天気予報\nYUI WEATHER`',inline=True)
+
+embed_special = discord.Embed(title='特殊チャンネル系━第４項',color=0x2ECC69)
+embed_special.add_field(name='`global_yui`'
+        ,value='チャンネル名を合わせるとグローバルチャット化',inline=True)
+embed_special.add_field(name='yui起動ログ'
+        ,value ='YUI起動ログch作成\n```y!yui log```で簡単にチャンネルを作成可'
         ,inline=True)
-help_two_embed.add_field(name='y!wt [都道府県名]',value='今日、明日の天気予報\nYUI WEATHERだよ！',inline=True)
-help_two_embed.add_field(name='グローバルチャットについて'
-        ,value='チャンネル名\nglobal_yui\nでグローバルチャット化',inline=True)
-help_two_embed.add_field(name='y!yui log'
-        ,value ='YUI起動ログch作成\n場所は同カテゴリ内'
-        ,inline=True)
-help_two_embed.add_field(name='y!yui timelog'
-        ,value ='''日付変更ログch作成''')
+embed_special.add_field(name='y!yui timelog'
+        ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
 
 gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
 ,description="コマンドはy!gacha [ガチャ番号]"
 ,color=discord.Colour.green()
 ,inline=False)
 gacha.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
-gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！")
+gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\ny!gacha 1\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！\ny!gacha 2")
+
+slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]")
+slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
+slot_embed.add_field(name="スロット説明",value="絵文字を利用したスロットだよ\n表示が崩れるから、スマホとパソコンPCでコマンドを分けてるよ\n`y!slot s`がスマホ\n`y!slot c`がPCだよ\nちなみに開発者のスマホ（泥）を基準にしてるからIOS勢は表記が崩れるかも！\n泥勢もテキストサイズ変えちゃったら崩れるからね")
+
+
+
+url_embed = discord.Embed(title='YUI関連URL━第６頁')
+url_embed.add_field(name ='‣招待URL' ,value ='[ここをクリック🔘](https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=0&scope=bot)')
+url_embed.add_field(name
+help_two_embed.add_field(name='y!say'
+        ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
+        ,inline=True)
+help_two_embed.add_field(name='y!clean [数]'
+        ,value ='`鯖管理者権限持ちで使用可\n指定数のメッセージ消去`'
+        ,inline=True)
+help_two_embed.add_field(name='y!report [内容]'
+        ,value ='`開発者への\nレポート＆リクエスト`'
+        ,inline=True)
+help_two_embed.add_field(name='y!wt [都道府県名]',value='`今日、明日の天気予報\nYUI WEATHER`',inline=True)
+
+embed_special = discord.Embed(title='特殊チャンネル系━第４項',color=0x2ECC69)
+embed_special.add_field(name='`global_yui`'
+        ,value='チャンネル名を合わせるとグローバルチャット化',inline=True)
+embed_special.add_field(name='yui起動ログ'
+        ,value ='YUI起動ログch作成\n```y!yui log```で簡単にチャンネルを作成可'
+        ,inline=True)
+embed_special.add_field(name='y!yui timelog'
+        ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
+
+gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
+,description="コマンドはy!gacha [ガチャ番号]"
+,color=discord.Colour.green()
+,inline=False)
+gacha.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
+gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\ny!gacha 1\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！\ny!gacha 2")
 
 slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]")
 slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
@@ -169,7 +225,6 @@ slot_embed.add_field(name="スロット説明",value="絵文字を利用した�
 url_embed = discord.Embed(title='YUI関連URL━第６頁')
 url_embed.add_field(name ='‣招待URL' ,value ='[ここをクリック🔘](https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=0&scope=bot)')
 url_embed.add_field(name ='‣YUI公式サポート鯖URL' ,value ='[ここをクリック🔘](https://discord.gg/BjDzejw)')
-
 
 @client.event
 async def on_ready():
@@ -254,7 +309,7 @@ async def on_message(message):
     if message.content == "y!help":
         print('help was opened')
         page_count = 0 #ヘルプの現在表示しているページ数
-        page_content_list = [help_embed_0,help_embed_one,help_embed,help_two_embed,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
+        page_content_list = [help_embed_0,help_embed_one,help_embed,help_special,help_two_embed,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
 
         send_message = await message.channel.send(embed=page_content_list[0]) #最初のページ投稿
         await send_message.add_reaction("➡")
@@ -281,7 +336,7 @@ async def on_message(message):
 
             else:
 
-                if reaction.emoji == "➡" and page_count < 6:
+                if reaction.emoji == "➡" and page_count < 7:
                     page_count += 1
 
                 if reaction.emoji == "⬅" and page_count > 0:
