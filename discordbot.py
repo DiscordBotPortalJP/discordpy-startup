@@ -137,9 +137,7 @@ help_two_embed.add_field(name='y!myicon'
 help_two_embed.add_field(name='y!poll [タイトル] [内容] '
         ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
         ,inline=False)
-help_two_embed.add_field(name='y!say'
-        ,value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`'
-        ,inline=False)
+help_two_embed.add_field(name='y!say',value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`',inline=False)
 help_two_embed.add_field(name='y!clean [数]'
         ,value ='`鯖管理者権限持ちで使用可\n指定数のメッセージ消去`'
         ,inline=False)
