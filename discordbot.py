@@ -241,8 +241,8 @@ async def on_message(message):
 #🔷test運用➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
     if message.content == "y!help":
-        help_embed_one = discord.Embed(title="YUIヘルプガイドブック目次")
-        help_embed_one.set_thumbnail(url=random.choice(('https://yahoo.jp/box/3faN7k','https://yahoo.jp/box/c9L236','https://yahoo.jp/box/Jxj1Jd')),color=discord.Colour.green())
+        help_embed_one = discord.Embed(title="YUIヘルプガイドブック目次",color=discord.Colour.green())
+        help_embed_one.set_thumbnail(url=random.choice(('https://yahoo.jp/box/3faN7k','https://yahoo.jp/box/c9L236','https://yahoo.jp/box/Jxj1Jd')))
 
         help_embed_one.add_field(name="‣ヘルプ目次",value='━第１項',inline = True)
         help_embed_one.add_field(name="‣TAOコマンド",value='━第２項',inline = True)
