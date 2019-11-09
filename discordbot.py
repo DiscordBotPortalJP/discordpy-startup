@@ -72,7 +72,7 @@ citycodes = {
     "鹿児島": '460010',"沖縄": '471010',
 }
 
-help_embed_0 = discord.Embed(title="⚠️YUI注意事項一覧⚠️",description = '🔷**[]は不要です**\ny![example]→y!example\n🔷**スペースの有無を確認して下さい**\ny!example []→有り\ny!example[]→無し\n🔷**管理者権限必須です**YUIのコマンドにはYUIに管理者を持たせないと正常に作動しないものが多々御座います。ご注意ください\n🔷**ニックネーム変更非推奨**第２項TAO系コマンドは、YUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません。',color=discord.Colour.green())
+help_embed_0 = discord.Embed(title="⚠️YUI注意事項一覧⚠️",description = '🔷**[]は不要です**\n```y![example]→y!example```\n🔷**スペースの有無を確認して下さい**\n```y!example []→有り\ny!example[]→無し```\n🔷**管理者権限必須です**```YUIのコマンドにはYUIに管理者を持たせないと正常に作動しないものが多々御座います。ご注意ください```\n🔷**ニックネーム変更非推奨**```第２項TAO系コマンドは、YUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません```',color=discord.Colour.green())
 
 
 help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=0x2ECC69)
@@ -132,14 +132,14 @@ help_two_embed.add_field(name='y!report [内容]'
         ,inline=False)
 help_two_embed.add_field(name='y!wt [都道府県名]',value='`今日、明日の天気予報\nYUI WEATHER`',inline=True)
 
-embed_special = discord.Embed(title='特殊チャンネル系━第４項',color=0x2ECC69)
-embed_special.add_field(name='`global_yui`'
-        ,value='チャンネル名を合わせるとグローバルチャット化',inline=True)
-embed_special.add_field(name='yui起動ログ'
-        ,value ='YUI起動ログch作成\n```y!yui```で簡単にチャンネルを作成可'
+embed_special = discord.Embed(title='特殊チャンネル系━第４項',description='```‣チャンネル内容│チャンネル名\nチャンネル作成コマンド```',color=0x2ECC69)
+embed_special.add_field(name='‣グローバルチャット│global_yui'
+        ,value='```y!yui global```',inline=True)
+embed_special.add_field(name='‣YUIの起動ログ│yui起動ログ'
+        ,value ='```y!yui log```'
         ,inline=True)
-embed_special.add_field(name='y!yui timelog'
-        ,value ='''日付変更ログch\n```y!yui timelog```で簡単にチャンネルを作成可''')
+embed_special.add_field(name='‣日付変更ログ│yui時報ログ'
+        ,value ='```y!yui timelog```')
 
 
 gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
@@ -206,7 +206,7 @@ async def loop():
 @tasks.loop(seconds=60)
 async def looop():
     now = datetime.datetime.now().strftime('%H:%M')
-    if now == '23:59':
+    if now == '14:59':
 
         print("時刻判定おｋ")
 
@@ -254,7 +254,7 @@ async def on_message(message):
 
         print('help was opened')
         page_count = 0 #ヘルプの現在表示しているページ数
-        page_content_list = [help_embed_0,help_embed_one,help_embed,embed_special,help_two_embed,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
+        page_content_list = [help_embed_0,help_embed_one,help_embed,help_two_embed,embed_special,gacha,slot_embed,url_embed] #ヘルプの各ページ内容
 
         send_message = await message.channel.send(embed=page_content_list[0]) #最初のページ投稿
         await send_message.add_reaction("➡")
@@ -840,11 +840,18 @@ async def on_message(message):
             reply = f'{new_channel.mention} をつくったよ。私が起きたら此処で挨拶するから'
             return await message.channel.send(reply)
 
-        if message.content.split()[1] == "timelog":
+        elif message.content.split()[1] == "timelog":
             category_id = message.channel.category_id
             category = message.guild.get_channel(category_id)
             new_channel = await category.create_text_channel(name='yui時報ログ')
             reply = f'{new_channel.mention} をつくったよ。日付が変わるタイミングでここでお知らせするから'
+            
+        
+        elif message.content.split()[1] == "global":
+            category_id = message.channel.category_id
+            category = message.guild.get_channel(category_id)
+            new_channel = await category.create_text_channel(name='global_yui')
+            reply = f'{new_channel.mention} をつくったよ。globalチャットに登録完了'
             return await message.channel.send(reply)
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
