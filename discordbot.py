@@ -75,7 +75,7 @@ citycodes = {
 help_embed_0 = discord.Embed(title="⚠️YUI注意事項一覧⚠️",description = '🔷**[]は不要です**\n```y![example]→y!example```\n🔷**スペースの有無を確認して下さい**\n```y!example []→有り\ny!example[]→無し```\n🔷**管理者権限必須です**```YUIのコマンドにはYUIに管理者を持たせないと正常に作動しないものが多々御座います。ご注意ください```\n🔷**ニックネーム変更非推奨**```第２項TAO系コマンドは、YUIのニックネームが変わるとオートアタックのみ正常に動作しません。\nTAOに関連性を持たせないつもりであれば、ニックネームの変更は構いません```',color=discord.Colour.green())
 
 
-help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=0x2ECC69)
+help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=discord.Colour.green())
 #help_embed.add_field(name="```y!ch [channel ID]```",value='このコマンドを使った後に**ゆいがんばれ**って言ってくれたら指定したチャンネルでアタックをするから\n後でスイーツおごってもらうからね\n止めてほしいときは**ゆいおつかれ**って言って')
 help_embed.add_field(
 name='y!login'
@@ -106,7 +106,7 @@ name='y!nekoshima',value='`超激レア枠が出るまでTAOさなきゃいけ�
 
 help_two_embed = discord.Embed(title="ゆいの機能ヘルプ━第３項"
         ,description="その多機能"
-        ,color=0x2ECC69)
+        ,color=discord.Colour.green())
 #サーバーの情報を開示するよ\nコード基礎提供者:_toni
 help_two_embed.add_field(name='y!dice [下限] [上限]'
         ,value ='```下限~上限の数の間でサイコロをふる```'
@@ -132,7 +132,9 @@ help_two_embed.add_field(name='y!report [内容]'
         ,inline=False)
 help_two_embed.add_field(name='y!wt [都道府県名]',value='```今日、明日の天気予報「YUI WEATHER」```',inline=True)
 
-embed_special = discord.Embed(title='特殊チャンネル系━第４項',description='```‣チャンネル内容│チャンネル名\nチャンネル作成コマンド```',color=0x2ECC69)
+embed_special = discord.Embed(
+    title='特殊チャンネル系━第４項',
+    description='```‣チャンネル内容│チャンネル名\nチャンネル作成コマンド```',color=discord.Colour.green())
 embed_special.add_field(name='‣グローバルチャット│global_yui'
         ,value='```y!yui global```',inline=True)
 embed_special.add_field(name='‣YUIの起動ログ│yui起動ログ'
@@ -149,7 +151,7 @@ gacha = discord.Embed(title="ガチャ機能だよ🎯 ━第４頁"
 gacha.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
 gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\ny!gacha 1\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！\ny!gacha 2")
 
-slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]")
+slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]",color=discord.Colour.green())
 slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
 slot_embed.add_field(name="スロット説明",value="絵文字を利用したスロットだよ\n表示が崩れるから、スマホとパソコンPCでコマンドを分けてるよ\n`y!slot s`がスマホ\n`y!slot c`がPCだよ\nちなみに開発者のスマホ（泥）を基準にしてるからIOS勢は表記が崩れるかも！\n泥勢もテキストサイズ変えちゃったら崩れるからね")
 
