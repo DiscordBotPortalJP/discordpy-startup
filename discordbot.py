@@ -314,6 +314,9 @@ async def on_message(message):
                     await send_message.add_reaction("⬅")
                     await send_message.add_reaction("➡")
                 elif page_count == 7:
+                    await send_message.add_reaction("⬅")
+                    await send_message.add_reaction("➡")
+                elif page_count == 8:
                     await send_message.add_reaction("⬅")                    #各ページごとに必要なリアクション
 
 
