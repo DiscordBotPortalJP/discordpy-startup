@@ -1050,7 +1050,7 @@ async def on_message(message):
         embed.add_field(name="‣役職数", value=f"**{len(guild.roles)}職**",inline=False)
         embed.add_field(name="‣メンバー数", value=f"総メンバー:**{total}人**\nオンライン:**{online}人**\nオフライン:**{offline}人**\n退席中　　:**{idle}人**\n取り込み中:**{dnd}人**",inline=False)
         embed.add_field(name="‣サーバーのブースト状態", value=f"サーバーブーストレベル　:**Lv.{guild.premium_tier}**\nサーバーブーストユーザー:**{pmmc}人**",inline=False)
-        embed.add_field(name="‣2要素認証", value=f"**{mfamsg}**",inline=False)
+        embed.add_field(name="‣二段階認証", value=f"**{mfamsg}**",inline=False)
         await message.channel.send(embed=embed)
 
 #🔷➖➖➖➖➖➖➖➖global chat space➖➖➖➖➖➖➖➖🔷
@@ -1093,7 +1093,7 @@ async def on_message(message):
             mst = f"{user.mobile_status}".replace('online', 'オンライン').replace('offline', 'オフライン').replace('idle', '退席中').replace('dnd','取り込み中')
             wst = f"{user.web_status}".replace('online', 'オンライン').replace('offline', 'オフライン').replace('idle', '退席中').replace('dnd','取り込み中')
 
-        embed = discord.Embed(title=f"ユーザー情報", color=0x2ECC69)
+            embed = discord.Embed(title=f"ユーザー情報", color=0x2ECC69)
         embed.set_thumbnail(url=user.avatar_url)
         embed.add_field(name="ユーザー名/ID", value=f"**{user.mention}\n{user}\n({user.id})**")
         embed.add_field(name="ユーザーアイコンURL", value=f"**[アイコンURL]({user.avatar_url})**")
