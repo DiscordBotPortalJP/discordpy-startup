@@ -1232,7 +1232,7 @@ async def on_message(message):
         embed = discord.embed(title = 'YUI Information',description = f'{client.user}\nID 627052576810074112')
         embed.set_author(name=client.user,url="https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=8&scope=bot",icon_url=client.user.avatar_url)
         embed.set_footer(icon_url=message.author.avatar_url, text=f"表示者｜{message.author}")
-        await.message.channel.send(embed = embed)
+        await message.channel.send(embed = embed)
 
 client.run(TOKEN)
 
