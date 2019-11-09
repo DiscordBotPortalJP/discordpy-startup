@@ -152,7 +152,7 @@ gacha.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
 gacha.add_field(name="ガチャ種類＋番号一覧",value="‣__**通常ガチャ**　番号：1__\n色々よくわからないものが出てくるよ。\nたまに隠しコマンドが出てくるとかなんとか\ny!gacha 1\n\n‣__**おにゃのこガチャ**　番号：2__\n可愛いおにゃのこの画像がいっぱいだよ\n可愛いの純度１００％！\ny!gacha 2")
 
 slot_embed = discord.Embed(title="スロット機能だよ🎰━第５頁",description="コマンドはy!slot [s,c]",color=discord.Colour.green())
-slot_embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/636049596606316594/money_slot_machine.png?width=359&height=375")
+slot_embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/635993816297504809/642579874816720916/money_slot_machine.png")
 slot_embed.add_field(name="スロット説明",value="絵文字を利用したスロットだよ\n表示が崩れるから、スマホとパソコンPCでコマンドを分けてるよ\n`y!slot s`がスマホ\n`y!slot c`がPCだよ\nちなみに開発者のスマホ（泥）を基準にしてるからIOS勢は表記が崩れるかも！\n泥勢もテキストサイズ変えちゃったら崩れるからね")
 
 url_embed = discord.Embed(title='YUI関連URL━第６頁')
@@ -242,7 +242,7 @@ async def on_message(message):
 
     if message.content == "y!help":
         help_embed_one = discord.Embed(title="YUIヘルプガイドブック目次")
-        help_embed_one.set_thumbnail(url=random.choice(('https://yahoo.jp/box/3faN7k','https://yahoo.jp/box/c9L236','https://yahoo.jp/box/Jxj1Jd')))
+        help_embed_one.set_thumbnail(url=random.choice(('https://yahoo.jp/box/3faN7k','https://yahoo.jp/box/c9L236','https://yahoo.jp/box/Jxj1Jd')),color=discord.Colour.green())
 
         help_embed_one.add_field(name="‣ヘルプ目次",value='━第１項',inline = True)
         help_embed_one.add_field(name="‣TAOコマンド",value='━第２項',inline = True)
