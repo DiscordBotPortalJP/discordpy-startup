@@ -1184,7 +1184,7 @@ async def on_message(message):
     	if 'だよ' in message.content:
             aaa = ["そうなの？","そうだよ(便乗)"]
             AAA = random.choice(aaa)
-    		await message.channel.send(AAA)
+            await message.channel.send(int(AAA))
     	if 'した' in message.content:
     	    await message.channel.send('そうなんだ...(困惑)')
     	if 'なの' in message.content and '？' in message.content:
