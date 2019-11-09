@@ -807,35 +807,7 @@ async def on_message(message):
 
             await channel.send(oha)
 
-    if 'YUI' in message.content or 'ゆい' in message.content or 'yui' in message.content:
 
-        await message.channel.send('よんだ?')
-
-        def check(m):
-            search_words = ['ない','いや','イヤ','のー','no','No','よんだ','うん','ｳﾝ','呼んだ','ウン','yes','Yes','いぇす']
-            return any(search_word in m.content for search_word in search_words)
-
-        msg = await client.wait_for('message',check=check)
-        if 'ない' in msg.content or 'いや'in msg.content or 'イヤ'in msg.content or 'ｲﾔ'in msg.content or 'no'in msg.content:
-    #否定時の処理
-            await message.channel.send('あ,うんわかった')
-        else:
-            await message.channel.send('なぁに？')
-
-    if message.content.startswith('y!rip'):
-
-        await message.delete()
-        x = message.content.split(" ",2)
-        riptext = x[1]
-        riptext2 = x[2]
-#        riptext3 = x[3]
-#        riptext4 = x[4]
-#        riptext5 = x[5]
-        embed = discord.Embed(title = riptext,description = riptext2,color=random.randint(0x000000, 0xFFFFFF))
-#        embed.add_field(name = riptext2 , value = riptext3)
-#        embed.add_field(name = riptext4 , value = riptext5)
-
-        await message.channel.send(embed=embed)
 
 
 #🔷ログ系コード➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
@@ -1133,7 +1105,7 @@ async def on_message(message):
         embed.add_field(name="最高役職", value=f"**{tr}**")
         embed.add_field(name="音声状態", value=f"**{vc}**")
         embed.add_field(name="ステータス", value=f"状態:**{st}**\nデスクトップの状態:**{dst}**\nモバイルの状態:**{mst}**\nWebの状態:**{wst}**")
-        await message.channel.send(embed=embed)
+     　　   await message.channel.send(embed=embed)
 
 
 
