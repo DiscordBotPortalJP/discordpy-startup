@@ -109,28 +109,28 @@ help_two_embed = discord.Embed(title="ゆいの機能ヘルプ━第３項"
         ,color=0x2ECC69)
 #サーバーの情報を開示するよ\nコード基礎提供者:_toni
 help_two_embed.add_field(name='y!dice [下限] [上限]'
-        ,value ='`下限~上限の数の間でn\サイコロをふる`'
+        ,value ='```下限~上限の数の間でサイコロをふる```'
         ,inline=False)
 help_two_embed.add_field(name='y!sinfo'
-        ,value ='`サーバーの情報を開示するよ\nコード基礎提供者:_toni`'
+        ,value ='```サーバーの情報を開示するよ\nコード基礎提供者:_toni```'
         ,inline=False)
 help_two_embed.add_field(name='y!kuji'
-        ,value ='`おみくじ`'
+        ,value ='```おみくじ```'
         ,inline=False)
 help_two_embed.add_field(name='y!myicon'
-        ,value ='`コマンド使用者のアイコン表示`'
+        ,value ='```コマンド使用者のアイコン表示```'
         ,inline=False)
 help_two_embed.add_field(name='y!poll [タイトル] [内容] '
-        ,value ='`👍👎リアクションつき\nembedメッセージ送信`'
+        ,value ='```👍👎リアクションつき\nembedメッセージ送信```'
         ,inline=False)
-help_two_embed.add_field(name='y!say',value ='`y!say1 [内容]\nオウム返し\ny!say2 [題名] [内容]\nembed形式送信\ny!say3 [題名] [内容]\nembed+送信者メンション+時刻`',inline=False)
+help_two_embed.add_field(name='y!say',value ='```y!say1 [内容]│オウム返し\ny!say2 [題名] [内容]│embed形式送信\ny!say3 [題名] [内容]│embed+送信者メンション+時刻```',inline=False)
 help_two_embed.add_field(name='y!clean [数]'
-        ,value ='`鯖管理者権限持ちで使用可\n指定数のメッセージ消去`'
+        ,value ='```鯖管理者権限持ちで使用可\n指定数のメッセージ消去```'
         ,inline=False)
 help_two_embed.add_field(name='y!report [内容]'
-        ,value ='`開発者への\nレポート＆リクエスト`'
+        ,value ='```開発者への\nレポート＆リクエスト```'
         ,inline=False)
-help_two_embed.add_field(name='y!wt [都道府県名]',value='`今日、明日の天気予報\nYUI WEATHER`',inline=True)
+help_two_embed.add_field(name='y!wt [都道府県名]',value='```今日、明日の天気予報\nYUI WEATHER```',inline=True)
 
 embed_special = discord.Embed(title='特殊チャンネル系━第４項',description='```‣チャンネル内容│チャンネル名\nチャンネル作成コマンド```',color=0x2ECC69)
 embed_special.add_field(name='‣グローバルチャット│global_yui'
