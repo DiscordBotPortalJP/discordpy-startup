@@ -1076,39 +1076,6 @@ async def on_message(message):
                 if channel.name == "global_yui":
                     await channel.send(embed=embed)
 
-
-
-    if message.content == "y!test":
-        if not member:
-            user = message.user
-            user = discord.utils.get(message.guild.members, mention=member)
-            nk = f"{user.nick}".replace('None','なし')
-            ac = f"{user.activities}".replace('(','').replace(')','').replace('<','').replace('>','').replace(',','').replace('None','なし').replace('Activity type','活動タイプ').replace('Game name','ゲーム名').replace('name','名前').replace('url','URL').replace('details','詳細').replace('application_id','アプリケーションID').replace('session_id','セッションID')
-            jt = f"{user.joined_at}".replace('None','不明')
-            nt = f"{user.premium_since}".replace('None','なし')
-            tr = f"{user.top_role.mention}".replace('None','なし')
-            vc = f"{user.voice}".replace('None','なし')
-            st = f"{user.status}".replace('online','オンライン').replace('offline','オフライン').replace('idle','退席中').replace('dnd','取り込み中')
-            dst = f"{user.desktop_status}".replace('online', 'オンライン').replace('offline', 'オフライン').replace('idle', '退席中').replace('dnd','取り込み中')
-            mst = f"{user.mobile_status}".replace('online', 'オンライン').replace('offline', 'オフライン').replace('idle', '退席中').replace('dnd','取り込み中')
-            wst = f"{user.web_status}".replace('online', 'オンライン').replace('offline', 'オフライン').replace('idle', '退席中').replace('dnd','取り込み中')
-
-            embed = discord.Embed(title=f"ユーザー情報", color=0x2ECC69)
-        embed.set_thumbnail(url=user.avatar_url)
-        embed.add_field(name="ユーザー名/ID", value=f"**{user.mention}\n{user}\n({user.id})**")
-        embed.add_field(name="ユーザーアイコンURL", value=f"**[アイコンURL]({user.avatar_url})**")
-        embed.add_field(name="このサーバーのニックネーム", value=f"**{nk}**")
-        embed.add_field(name="現在実行しているアクティビティ", value=f"**{ac}**")
-        embed.add_field(name="ユーザーの作成時刻", value=f"**{user.created_at}**")
-        embed.add_field(name="このサーバーに参加した日時", value=f"**{jt}**",inline=False)
-        embed.add_field(name="このサーバーでニトロブーストを使用した日時", value=f"**{nt}**")
-        embed.add_field(name="最高役職", value=f"**{tr}**")
-        embed.add_field(name="音声状態", value=f"**{vc}**")
-        embed.add_field(name="ステータス", value=f"状態:**{st}**\nデスクトップの状態:**{dst}**\nモバイルの状態:**{mst}**\nWebの状態:**{wst}**")
-     　　   await message.channel.send(embed=embed)
-
-
-
     if message.content.startswith("y!mkch "):
         await message.delete()
         reply_one = message.content.split('y!mkch ')[1]
