@@ -20,7 +20,7 @@ client = discord.Client()
 dateTime = datetime.datetime.now()
 server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
-atk_ch_id = 642279311352791061
+atk_ch_id = 643131033092620320
 
 help_ch = 642578258743001088
 
@@ -409,8 +409,9 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description
                 title = embed.title
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-                if embed.title.find("が待ち構えている") and message.channel==m.channel:
-                    await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
+                atk_ch = client.get.channel(id = atk_ch_id)
+                if embed.title.find("が待ち構えている") and message.channel==atk_ch:
+                    await atk_ch.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
                 else:
                     pass
 
