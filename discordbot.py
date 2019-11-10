@@ -404,8 +404,6 @@ url_embed] #ヘルプの各ページ内容
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
-                name = embed.name
-                value = embed.value
                 if not embed.description:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
