@@ -398,25 +398,8 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112:
         if len(message.embeds) != 0:
             for embed in message.embeds:
-                if embed.title:
-                    title = embed.title
-
-                    if title.find("が待ち構えている...！"):
-                        await asyncio.sleep(5)
-                        await atk_ch.send('::atk さぁさぁ次!!')
-                if embed.description:
-                    title = embed.description
-
-                    return
-
-                if description.find("@ReYUI ver1.12.2はレベルアップした！"):
-                    level_up=message.content.split("@ReYUI ver1.12.2はレベルアップした!)[1]
-                    await asyncio.sleep(5)
-
-                    embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
-
-                    await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuiLvUPログ'))
-                    await atk_ch.send(embed=embed)
+                if description.find(f"{client.user.mention}はレベルアップした！"):
+                    print("level up")
 
                 else:
 
@@ -1191,6 +1174,13 @@ url_embed] #ヘルプの各ページ内容
         embed.set_author(name=client.user,url="https://discordapp.com/api/oauth2/authorize?client_id=627052576810074112&permissions=8&scope=bot",icon_url=client.user.avatar_url)
         embed.set_footer(icon_url=message.author.avatar_url, text=f"表示者｜{message.author}")
         await message.channel.send(embed = embed)
+
+
+
+
+
+
+
 
 client.run(TOKEN)
 
