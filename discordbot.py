@@ -437,7 +437,7 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
                 else:
                     pass
                     if title.find("が待ち構えている"):
-                        await message.channel.send('::atk')
+                        await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
                     else:
                         pass
 
