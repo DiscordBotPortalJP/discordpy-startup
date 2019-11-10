@@ -395,10 +395,11 @@ url_embed] #ヘルプの各ページ内容
                 await atk_ch.send(choice)
      
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
-        description = embed.description
+        
         if len(message.embeds) != 0:
+            
             for embed in message.embeds:
-                
+                description = embed.description
                 if not embed.description:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
