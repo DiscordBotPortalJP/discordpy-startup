@@ -396,7 +396,9 @@ url_embed] #ヘルプの各ページ内容
      
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         if len(message.embeds) != 0:
+            description = embed.description
             for embed in message.embeds:
+                
                 if not embed.description:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
