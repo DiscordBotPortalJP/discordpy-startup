@@ -20,7 +20,7 @@ client = discord.Client()
 dateTime = datetime.datetime.now()
 server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
-atk_ch = 642279311352791061
+atk_ch_id = 642279311352791061
 
 citycodes = {
     "北海道": '016010',"青森県": '020010',
@@ -368,7 +368,7 @@ url_embed] #ヘルプの各ページ内容
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖オートアタック改➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
 
-    global atk_ch
+    global atk_ch_id
 
     if message.content.startswith("y!atkch "):
         print('got the commond')
@@ -383,16 +383,19 @@ url_embed] #ヘルプの各ページ内容
                 await atk_ch.send('::atk 失敗失敗(;^ω^)')
 
 
-    if 'ReYUI' in message.content:
-        if "ReYUI ver1.12.2はやられてしまった" in message.content:#🔷YUIの自動復活条件
-            await asyncio.sleep(5)
-            await atk_ch.send('::i e')
-        else:
-            if 'ReYUI ver1.12.2の攻撃' in message.content:#🔷YUIの追加攻撃要条件
-                await asyncio.sleep(3)
-                atk_random = ["::atk　ｼｭﾊﾞﾊﾞﾊﾞ(・ω・ )三(・ω・)三( ・ω・)ﾊﾞﾊﾞ", "::atk　ｳﾘｳﾘ(｢･ω･)｢", "::atk　乁( ˙ω˙ 乁)ﾆｭｯ♡", "::atk　ﾍﾟｼｯ(　･ω･)ﾉｼ", "::atk　(ﾉ ・ω・){======◎波動拳!!", "::atk　ｱﾀｰｸ(*n’∀’)n","::atk ｡･*･:=(　ε:)☆)‘ω’ )･.:ﾟ｡ｺﾞｽｯ","::atk (((((((((((っ･ω･)っ ﾌﾞｰﾝ"]
-                choice = random.choice(atk_random) #randomモジュールでunseiリストからランダムに一つを選出
-                await atk_ch.send(choice)
+    if f'{client.user.display_name}' in message.content:
+        if "やられてしまった" in message.content:#🔷YUIの自動復活条件
+            def  hellocheck(m):
+                return m.content == "の攻撃" and m.author == message.author and #ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+            try:
+                reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+            except asyncio.TimeoutError:
+                await message.channel.send( "::i e refill" )
+            else:
+                await message.channel.send( "::i e refill" )
+
+
+
      
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
@@ -400,6 +403,9 @@ url_embed] #ヘルプの各ページ内容
             
             for embed in message.embeds:
                 description = embed.description
+                title = embed.title
+                name = embed.name
+                value = embed.value
                 if not embed.description:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
@@ -408,14 +414,34 @@ url_embed] #ヘルプの各ページ内容
                     if description.find(f"{client.user.mention}はレベルアップした！"):
                         print("level up")
                         lv = description.split("レベルアップした！")[1]
-                        embed = discord.Embed(title="YUILVupログ",description = str(lv),color=discord.Color.green())
+                        embed = discord.Embed(title="**━↑Lv UP↑━**",description = str(lv),color=discord.Color.green())
                         embed.set_thumbnail(
 url='https://cdn.discordapp.com/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif')
                         embed.add_field(name="LVup時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 #                        embed.add_field(name="YUI news", value="大幅に改良！\n詳しくはヘルプの第６項から公式鯖へ", inline=True)
-                        embed.set_footer(icon_url=client.user.avatar_url, text="｜")
+                        embed.set_footer(icon_url=client.user.avatar_url, text=f"{client.user}")
                         await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yui_lvupログ'))
-                                                
+                        await message.channel.send('```わーい\(* ॑꒳ ॑* \三/ * ॑꒳ ॑*)/レベルが上がったよ!!\n```'+str(lv))                       
+                    else:
+                        pass
+
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+        
+        if len(message.embeds) != 0:
+
+
+            for embed in message.embeds:
+                description = embed.description
+                title = embed.title
+                name = embed.name
+                value = embed.value
+                if not embed.description:
+                    pass
+    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
+                else:
+                    pass
+                    if title.find("が待ち構えている")
+                    await message.channel.send('::atk')
                     else:
                         pass
 
@@ -466,7 +492,6 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
                                   color=0x2ECC69)
             embed.set_thumbnail(url="https://yahoo.jp/box/JAzR8X")
             await message.channel.send(embed=embed)
-
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
