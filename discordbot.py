@@ -403,20 +403,20 @@ url_embed] #ヘルプの各ページ内容
      
 
 
+
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         if len(message.embeds) != 0:
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
-    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-                atk_ch = client.get_channel(id = atk_ch_id)
-                if not title.find:
+                if not embed.title:
                     pass
-
-                elif title.find("が待ち構えている") and message.channel==atk_ch:
-                    await atk_ch.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
                 else:
                     pass
+                    if description.find("が待ち構えている") and and message.channel==atk_ch:
+                        await message.channel.send('::atk')                       
+                    else:
+                        pass
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
