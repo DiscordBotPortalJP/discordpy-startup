@@ -394,7 +394,7 @@ url_embed] #ヘルプの各ページ内容
                 choice = random.choice(atk_random) #randomモジュールでunseiリストからランダムに一つを選出
                 await atk_ch.send(choice)
      
-    if message.author.id == 526620171658330112 or message.autho.id == 642271360667877386:
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         if len(message.embeds) != 0:
             for embed in message.embeds:
                 if not embed.description:
