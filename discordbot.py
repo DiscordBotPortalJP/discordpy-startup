@@ -411,7 +411,7 @@ url_embed] #ヘルプの各ページ内容
                     pass
                     if description.find(f"{client.user.mention}はレベルアップした！"):
                         print("level up")
-                        lv = description.split("レベルアップした！")[1]
+                        lv = embed.description.split("レベルアップした！")[1]
                         embed = discord.Embed(title="**━↑Lv UP↑━**",description = str(lv),color=discord.Color.green())
                         embed.set_thumbnail(
 url='https://cdn.discordapp.com/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif')
