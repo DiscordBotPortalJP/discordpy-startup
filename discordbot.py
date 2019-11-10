@@ -402,6 +402,7 @@ url_embed] #ヘルプの各ページ内容
                 else:
                     pass
                     if title.find("が待ち構えている") and message.channel==atk_ch:
+                        await asyncio.sleep(2)
                         await message.channel.send('::atk')                       
                     else:
                         pass
