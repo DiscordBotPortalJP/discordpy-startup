@@ -410,7 +410,7 @@ url_embed] #ヘルプの各ページ内容
                 title = embed.title
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
                 atk_ch = client.get_channel(id = atk_ch_id)
-                if not title.find
+                if not title.find:
                     pass
 
                 elif title.find("が待ち構えている") and message.channel==atk_ch:
