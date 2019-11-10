@@ -402,9 +402,7 @@ url_embed] #ヘルプの各ページ内容
 
      
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
-        
         if len(message.embeds) != 0:
-            
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
@@ -427,22 +425,14 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
                     else:
                         pass
 
+
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
-        
         if len(message.embeds) != 0:
-
-
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
-                if not embed.title:
-                    pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-
-                elif embed.title.find('((└(:D」┌)┘))ｱﾋｬﾋｬ'):
-                    pass
-
-                elif embed.title.find("が待ち構えている"):
+                if embed.title.find("が待ち構えている") and message.channel==m.channel:
                     await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
                 else:
                     pass
