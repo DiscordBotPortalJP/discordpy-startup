@@ -435,13 +435,13 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
                 title = embed.title
                 name = embed.name
                 value = embed.value
-                if not embed.description:
+                if not embed.title:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
                 else:
                     pass
-                    if title.find("が待ち構えている")
-                    await message.channel.send('::atk')
+                    if title.find("が待ち構えている"):
+                        await message.channel.send('::atk')
                     else:
                         pass
 
