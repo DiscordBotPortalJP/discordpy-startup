@@ -409,8 +409,8 @@ url_embed] #ヘルプの各ページ内容
 
                     return
 
-                if description.find("@ReYUIはレベルアップした！"):
-                    level_upmessage.content.split('@ReYUIはレベルアップした!')[1]
+                if description.find(f"{client.user}はレベルアップした！"):
+                    level_upmessage.content.split(f"{client.user}はレベルアップした!')[1]
                     await asyncio.sleep(5)
 
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
@@ -420,7 +420,7 @@ url_embed] #ヘルプの各ページ内容
 
                 else:
 
-                    passs
+                    pass
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
