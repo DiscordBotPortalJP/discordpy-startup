@@ -394,16 +394,24 @@ url_embed] #ヘルプの各ページ内容
                 choice = random.choice(atk_random) #randomモジュールでunseiリストからランダムに一つを選出
                 await atk_ch.send(choice)
 
-
+if not embed.description:
+    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
+else:
+    # 説明が存在するときはTrueを返すのでここの処理
+                
+                
     if message.author.id == 526620171658330112:
         if len(message.embeds) != 0:
             for embed in message.embeds:
-                if description.find(f"{client.user.mention}はレベルアップした！"):
-                    print("level up")
-
-                else:
-
+                if not embed.description:
                     pass
+    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
+                else:
+                    pass
+                    if description.find(f"{client.user.mention}はレベルアップした！"):
+                        print("level up")
+                    else:
+                        pass
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
@@ -1125,7 +1133,7 @@ url_embed] #ヘルプの各ページ内容
     	if 'だよ' in message.content:
             aaa = ["そうなの？","そうだよ(便乗)"]
             AAA = random.choice(aaa)
-            await message.channel.send(int(AAA))
+            await message.channel.send(AAA)
     	if 'した' in message.content:
     	    await message.channel.send('そうなんだ...(困惑)')
     	if 'なの' in message.content and '？' in message.content:
