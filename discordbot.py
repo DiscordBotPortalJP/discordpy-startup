@@ -409,7 +409,7 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description
                 title = embed.title
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-                atk_ch = client.get.channel(id = atk_ch_id)
+                atk_ch = client.get_channel(id = atk_ch_id)
                 if embed.title.find("が待ち構えている") and message.channel==atk_ch:
                     await atk_ch.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
                 else:
