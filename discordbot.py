@@ -409,8 +409,8 @@ url_embed] #ヘルプの各ページ内容
                             reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                         except asyncio.TimeoutError:
                             await message.channel.send( "::atk" )
-                    else:
-                        await message.channel.send( "::atk")                    
+                        else:
+                            await message.channel.send( "::atk")                    
                     else:
                         pass
             
