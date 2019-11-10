@@ -403,7 +403,14 @@ url_embed] #ヘルプの各ページ内容
                     pass
                     if title.find("が待ち構えている") and message.channel==atk_ch:
                         await asyncio.sleep(2)
-                        await message.channel.send('::atk')                       
+                        def  hellocheck(m):
+                            return m.content == "攻撃失敗" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                        try:
+                            reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                        except asyncio.TimeoutError:
+                            await message.channel.send( "::atk" )
+                    else:
+                        await message.channel.send( "::atk")                    
                     else:
                         pass
             
