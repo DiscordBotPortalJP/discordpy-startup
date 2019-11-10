@@ -358,11 +358,11 @@ url_embed] #ヘルプの各ページ内容
         atk_ch = client.get_channel(int(atk_ch_id))
         await atk_ch.send('check channel')
 
-        if message.channel.id == atk_ch_id:
-            if "攻撃失敗" in message.content:
-                print('a')
-                await asyncio.sleep(5)
-                await atk_ch.send('::atk 失敗失敗(;^ω^)')
+#        if message.channel.id == atk_ch_id:
+#            if "攻撃失敗" in message.content:
+#                print('a')
+#                await asyncio.sleep(5)
+#                await atk_ch.send('::atk 失敗失敗(;^ω^)')
 
 
     if f'{client.user.display_name}' in message.content:
