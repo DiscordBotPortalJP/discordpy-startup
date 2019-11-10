@@ -374,7 +374,7 @@ url_embed] #ヘルプの各ページ内容
 
 
     global atk_ch_id
-    globak atk_ch
+    global atk_ch
 
     if message.content.startswith("y!atkch "):
         print('got the commond')
