@@ -400,6 +400,16 @@ url_embed] #ヘルプの各ページ内容
             else:
                 await message.channel.send( "::i e refill" )
 
+  
+        elif の攻撃"" in message.content:#🔷YUIの自動復活条件
+            def  hellocheck(m):
+                return m.content == "の攻撃" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+            try:
+                reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+            except asyncio.TimeoutError:
+                await message.channel.send( "::atk" )
+            else:
+                await message.channel.send( "::atk" )
 
 
      
