@@ -409,7 +409,8 @@ url_embed] #ヘルプの各ページ内容
                         print("level up")
                         lv = description.split("レベルアップした！")[1]
                         embed = discord.Embed(title="YUILVupログ",description = str(lv),color=discord.Color.green())
-                        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/635993816297504809/643086285027803136/videotogif_2019.11.10_22.49.48.gif')
+                        embed.set_thumbnail(
+url='https://cdn.discordapp.com/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif')
                         embed.add_field(name="LVup時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 #                        embed.add_field(name="YUI news", value="大幅に改良！\n詳しくはヘルプの第６項から公式鯖へ", inline=True)
                         embed.set_footer(icon_url=client.user.avatar_url, text="｜")
