@@ -259,8 +259,6 @@ async def on_message(message):
         help_logch = client.get_channel(id = help_ch)
         embed=discord.Embed(title='ヘルプが開かれました',description=f'展開者│{message.author}\nＩ　Ｄ│{message.author.id}\n展開鯖│{message.author.guild}')
         await help_logch.send(embed=embed)
-        print('help was opened')
-        await 
         page_count = 0 #ヘルプの現在表示しているページ数
         page_content_list = [
 help_embed_0,
