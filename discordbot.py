@@ -401,29 +401,6 @@ url_embed] #ヘルプの各ページ内容
 
 
      
-    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
-        if len(message.embeds) != 0:
-            for embed in message.embeds:
-                description = embed.description
-                title = embed.title
-                if not embed.description:
-                    pass
-    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-                else:
-                    pass
-                    if description.find(f"{client.user.mention}はレベルアップした！"):
-                        print("level up")
-                        lv = embed.description.split("レベルアップした！")[1]
-                        embed = discord.Embed(title="**━LvUP━**",description = str(lv),color=discord.Color.green())
-                        embed.set_thumbnail(
-url='https://cdn.discordapp.com/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif')
-                        embed.add_field(name="LVup時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
-#                        embed.add_field(name="YUI news", value="大幅に改良！\n詳しくはヘルプの第６項から公式鯖へ", inline=True)
-                        embed.set_footer(icon_url=client.user.avatar_url, text=f"{client.user}")
-                        await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yui_lvupログ'))
-                        await message.channel.send('```わーい\(* ॑꒳ ॑* \三/ * ॑꒳ ॑*)/レベルが上がったよ!!\n```'+str(lv))                       
-                    else:
-                        pass
 
 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
