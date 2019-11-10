@@ -413,7 +413,7 @@ url_embed] #ヘルプの各ページ内容
                     pass
                 else:
                     pass
-                    if description.find("が待ち構えている") and message.channel==atk_ch:
+                    if title.find("が待ち構えている") and message.channel==atk_ch:
                         await message.channel.send('::atk')                       
                     else:
                         pass
