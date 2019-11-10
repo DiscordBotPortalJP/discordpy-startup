@@ -256,7 +256,7 @@ async def on_message(message):
         help_embed_one.add_field(name="‣YUI関連URL",value='━第７頁',inline = True)
         help_embed_one.set_footer(icon_url=message.author.avatar_url, text=f"ヘルプ使用者│{message.author}")
 
-        help_logch client.get_channel(id = help_ch)
+        help_logch = client.get_channel(id = help_ch)
 　      embed=discord.Embed(
 title='ヘルプが開かれました',
 description=f'展開者│{message.author}\nＩ　Ｄ│{message.author.id}\n展開鯖│{message.author.guild}')
