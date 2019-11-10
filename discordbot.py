@@ -376,9 +376,8 @@ url_embed] #ヘルプの各ページ内容
             else:
                 await message.channel.send( "::i e refill" )
 
-        elif "の攻撃" in message.content and not 'のHP' in message.content:
-            pass
-        elif "の攻撃" in message.content:#🔷YUIの自動復活条件
+        elif "の攻撃" in message.content and 'のHP' in message.content:
+      
             def  hellocheck(m):
                 return m.content == "の攻撃" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
             try:
@@ -388,7 +387,7 @@ url_embed] #ヘルプの各ページ内容
             else:
                 await message.channel.send( "::atk" )
 
-
+        
      
 
 
@@ -412,6 +411,11 @@ url_embed] #ヘルプの各ページ内容
                             await message.channel.send( "::atk" )
                         else:
                             await message.channel.send( "::atk")                    
+                    elif title.find(f"{client.user.mention}はエリクサーを使った") and message.channel==atk_ch:
+                        await asyncio.sleep(2)
+         
+                        await message.channel.send( "::atk" )
+    
                     else:
                         pass
             
