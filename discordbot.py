@@ -344,31 +344,6 @@ url_embed] #ヘルプの各ページ内容
 
 #🔷➖➖➖➖➖➖➖➖➖➖オートアタック➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
-    global yt_channel_id
-    if message.content.startswith('y!ch'):
-        try:
-            channel_id = int(message.content.split()[1])
-        except ValueError:
-            await message.channel.send('……そんなチャンネル無いんだけど（）')
-            return
-
-        channel = client.get_channel(channel_id)
-        if not channel:
-            await message.channel.send('……そんなチャンネル無いんだけど（）')
-            return
-
-        yt_channel_id = channel.id
-
-    global flag
-    # メッセージ送信者がBotだった場合は無視だぜ
-
-    if message.content == "ゆいおつかれ":
-        flag = False
-        await message.channel.send("ん......おつかれ.見返りくらいは欲しいかなって")
-    if message.content == "ゆいがんばれ":
-        flag = True
-        await message.channel.send("あとでご飯の一つでもおごってね")
-
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖オートアタック改➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
@@ -385,7 +360,8 @@ url_embed] #ヘルプの各ページ内容
 
         if message.channel.id == atk_ch_id:
             if "攻撃失敗" in message.content:
-                await asyncio.sleep(2)
+                print('a')
+                await asyncio.sleep(5)
                 await atk_ch.send('::atk 失敗失敗(;^ω^)')
 
 
@@ -401,7 +377,7 @@ url_embed] #ヘルプの各ページ内容
                 await message.channel.send( "::i e refill" )
 
   
-        elif の攻撃"" in message.content:#🔷YUIの自動復活条件
+        elif "の攻撃" in message.content:#🔷YUIの自動復活条件
             def  hellocheck(m):
                 return m.content == "の攻撃" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
             try:
