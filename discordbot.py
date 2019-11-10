@@ -21,6 +21,7 @@ dateTime = datetime.datetime.now()
 server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
 atk_ch_id = 643131033092620320
+atk_ch = client.get_channel(atk_ch_id)
 
 help_ch = 642578258743001088
 
@@ -373,6 +374,7 @@ url_embed] #ヘルプの各ページ内容
 
 
     global atk_ch_id
+    globak atk_ch
 
     if message.content.startswith("y!atkch "):
         print('got the commond')
