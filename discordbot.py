@@ -386,7 +386,7 @@ url_embed] #ヘルプの各ページ内容
     if f'{client.user.display_name}' in message.content:
         if "やられてしまった" in message.content:#🔷YUIの自動復活条件
             def  hellocheck(m):
-                return m.content == "の攻撃" and m.author == message.author and #ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                return m.content == "の攻撃" and m.author == message.author  #ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
