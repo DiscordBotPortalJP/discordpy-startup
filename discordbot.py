@@ -434,15 +434,13 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
                 if not embed.title:
                     pass
     # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
+   
+                elif embed.title.find("が待ち構えている"):
+                    await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
+                elif embed.title.find("ゲームにログインしてね") and title.find(f"{client.user.mention}"):
+                    await message.channel.send('::login ログインしてなかった') 
                 else:
                     pass
-                    if title.find("が待ち構えている"):
-                        await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
-                        pass
-                    elif title.find("ゲームにログインしてね") and title.find(f"{client.user.mention}"):
-                        await message.channel.send('::login ログインしてなかった') 
-                    else:
-                        pass
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
