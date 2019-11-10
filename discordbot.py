@@ -393,13 +393,7 @@ url_embed] #ヘルプの各ページ内容
                 atk_random = ["::atk　ｼｭﾊﾞﾊﾞﾊﾞ(・ω・ )三(・ω・)三( ・ω・)ﾊﾞﾊﾞ", "::atk　ｳﾘｳﾘ(｢･ω･)｢", "::atk　乁( ˙ω˙ 乁)ﾆｭｯ♡", "::atk　ﾍﾟｼｯ(　･ω･)ﾉｼ", "::atk　(ﾉ ・ω・){======◎波動拳!!", "::atk　ｱﾀｰｸ(*n’∀’)n","::atk ｡･*･:=(　ε:)☆)‘ω’ )･.:ﾟ｡ｺﾞｽｯ","::atk (((((((((((っ･ω･)っ ﾌﾞｰﾝ"]
                 choice = random.choice(atk_random) #randomモジュールでunseiリストからランダムに一つを選出
                 await atk_ch.send(choice)
-
-if not embed.description:
-    # descriptionは自身が_EmptyEmbedの時Falseを返すのでここの処理
-else:
-    # 説明が存在するときはTrueを返すのでここの処理
-                
-                
+     
     if message.author.id == 526620171658330112:
         if len(message.embeds) != 0:
             for embed in message.embeds:
