@@ -405,9 +405,7 @@ url_embed] #ヘルプの各ページ内容
                         await message.channel.send('::atk')                       
                     else:
                         pass
-    if "攻撃失敗" in message.content and message.channel==atk_ch:
-        await asyncio.sleep(3)
-        await message.channel.send('::atk')                    
+            
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
 
