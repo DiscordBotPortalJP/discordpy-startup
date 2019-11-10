@@ -416,7 +416,7 @@ url_embed] #ヘルプの各ページ内容
                     if description.find(f"{client.user.mention}はレベルアップした！"):
                         print("level up")
                         lv = embed.description.split("レベルアップした！")[1]
-                        embed = discord.Embed(title="**━LvUP━**",description = ':Lv: :UP:\n'+str(lv),color=discord.Color.green())
+                        embed = discord.Embed(title="**━LvUP━**",description = str(lv),color=discord.Color.green())
                         embed.set_thumbnail(
 url='https://cdn.discordapp.com/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif')
                         embed.add_field(name="LVup時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
@@ -441,8 +441,6 @@ url='https://cdn.discordapp.com/attachments/635993816297504809/64309155914291610
 
                 elif embed.title.find('((└(:D」┌)┘))ｱﾋｬﾋｬ'):
                     pass
-                elif embed.title.find("ゲームにログインしてね") and title.find(f"{client.user.mention}"):
-                    await message.channel.send('::login ログインしてなかった') 
 
                 elif embed.title.find("が待ち構えている"):
                     await message.channel.send('::atk　（＾ω＾ ≡ ＾ω＾）おっおっおっ')
