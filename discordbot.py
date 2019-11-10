@@ -413,7 +413,7 @@ url_embed] #ヘルプの各ページ内容
                         embed.add_field(name="LVup時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 #                        embed.add_field(name="YUI news", value="大幅に改良！\n詳しくはヘルプの第６項から公式鯖へ", inline=True)
                         embed.set_footer(icon_url=client.user.avatar_url, text="｜")
-                        await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yui_LVUPログ'))
+                        await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yui_lvupログ'))
                                                 
                     else:
                         pass
