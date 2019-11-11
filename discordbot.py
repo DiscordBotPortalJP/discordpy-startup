@@ -400,26 +400,17 @@ url_embed] #ヘルプの各ページ内容
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
-                if not embed.title:
-                    pass
-                elif title.find("が待ち構えている") and message.channel==atk_ch:
+                if 'が待ち構えている' in title and message.channel==atk_ch:
                     await asyncio.sleep(2)
                     await message.channel.send( "::atk 1" )                 
    
-
-    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
-        if len(message.embeds) != 0:
-           
-            for embed in message.embeds:
-                description = embed.description
-                title = embed.title
-                if not embed.description:
-                    pass
-                
-                elif description.find(f"{client.user.display_name}はエリクサーを使った") and message.channel==atk_ch:
+                elif f'{client.user.display_name}はエリクサーを使った' in description:
                     await asyncio.sleep(2)
-                    await message.channel.send( "::atk 3" )
+                    await message.channel.send( "::atk 2") 
 
+                else:
+                    pass               
+                    
     if message.content=='y!atkstop':
         atk_ch_id = '#tao-yui₀₀₀'
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
