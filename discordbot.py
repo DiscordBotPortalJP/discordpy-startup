@@ -383,9 +383,9 @@ url_embed] #ヘルプの各ページ内容
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
-                await message.channel.send( "::atk" )
+                await message.channel.send( "::atk　てい" )
             else:
-                await message.channel.send( "::atk" )
+                await message.channel.send( "::atk　てい" )
 
         
      
