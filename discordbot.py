@@ -408,7 +408,9 @@ url_embed] #ヘルプの各ページ内容
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 零-zero-" ) 
                 else:
-                    pass              
+                    pass 
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+        if len(message.embeds) != 0:             
             for field in embed.fields:
                 name = field.name
                 value = field.value
