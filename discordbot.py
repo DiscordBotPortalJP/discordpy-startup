@@ -11,7 +11,6 @@ import json
 import re
 import os
 import traceback
-from googlesearch import search
 from discord.ext import tasks
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
@@ -1189,22 +1188,7 @@ url_embed] #ヘルプの各ページ内容
         embed.set_footer(icon_url=message.author.avatar_url, text=f"表示者｜{message.author}")
         await message.channel.send(embed = embed)
 
-    global ModeFlag
-
-    if ModeFlag == 1:
-        kensaku = message.content
-        ModeFlag = 0
-        count = 0
-        # 日本語で検索した上位5件を順番に表示
-        for url in search(kensaku, lang="jp",num = 5):
-            await message.channel.send(url)
-            count += 1
-            if(count == 5):
-               break
-
-    if message.content == 'y!ggr':
-        ModeFlag = 1
-        await message.channel.send('検索ワードをこの下に入力してね')            
+        
             
 client.run(TOKEN)
 
