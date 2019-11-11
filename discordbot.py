@@ -354,13 +354,8 @@ url_embed] #ヘルプの各ページ内容
         print('got the commond')
         atk_ch_id = message.content.split('y!atkch ')[1]
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)    
-    
-    if message.content.startswith("y!atkch "):
-        print('got the commond')
-        atk_ch_id = message.content.split('y!atkch ')[1]
-        print('ch='+atk_ch_id)
-        atk_ch = client.get_channel(int(atk_ch_id))
         await atk_ch.send('check channel')
+
 
 #        if message.channel.id == atk_ch_id:
 #            if "攻撃失敗" in message.content:
