@@ -427,20 +427,19 @@ url_embed] #ヘルプの各ページ内容
                 title = embed.title
                 if not embed.description:
                     pass
-                else:
-                    pass
-                    if description.find(f"{client.user.display_name}はエリクサーを使った") and message.channel==atk_ch:
-                        await asyncio.sleep(2)
-                        def  hellocheck(m):
-                            return m.content == f"チャンネルのPETが" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
-                        try:
-                            reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
-                        except asyncio.TimeoutError:
-                            await message.channel.send( "::atk 3" )
-                        else:
-                            await message.channel.send( "::atk 4")                    
+                
+                elif description.find(f"{client.user.display_name}はエリクサーを使った") and message.channel==atk_ch:
+                    await asyncio.sleep(2)
+                    def  hellocheck(m):
+                        return m.content == f"チャンネルのPETが" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                    except asyncio.TimeoutError:
+                        await message.channel.send( "::atk 3" )
                     else:
-                        pass
+                        await message.channel.send( "::atk 4")                    
+                else:
+                     pass
 
     if message.content=='y!atkstop':
         atk_ch_id = '#tao-yui₀₀₀'
