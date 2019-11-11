@@ -419,6 +419,28 @@ url_embed] #ヘルプの各ページ内容
                     else:
                         pass
 
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+        if len(message.embeds) != 0:
+           
+            for embed in message.embeds:
+                description = embed.description
+                title = embed.title
+                if not embed.description:
+                    pass
+                else:
+                    pass
+                    if description.find("が待ち構えている") and message.channel==atk_ch:
+                        await asyncio.sleep(2)
+                        def  hellocheck(m):
+                            return m.content == f"{client.user.diplay_name}はエリクサーを使った" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                        try:
+                            reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                        except asyncio.TimeoutError:
+                            await message.channel.send( "::atk 3" )
+                        else:
+                            await message.channel.send( "::atk 4")                    
+                    else:
+                        pass
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
