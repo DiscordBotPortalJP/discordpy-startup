@@ -11,7 +11,7 @@ import json
 import re
 import os
 import traceback
-from googlesearch import searchfrom 
+from googlesearch import search
 from discord.ext import tasks
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
