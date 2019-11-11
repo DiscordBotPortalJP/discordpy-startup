@@ -411,14 +411,15 @@ url_embed] #ヘルプの各ページ内容
                             await message.channel.send( "::atk 1" )
                         else:
                             await message.channel.send( "::atk 2")                    
-                    elif title.find(f"{client.user.mention}はエリクサーを使った") and message.channel==atk_ch:
+                    elif description.find(f"{client.user.mention}はエリクサーを使った") and message.channel==atk_ch:
                         await asyncio.sleep(2)
          
                         await message.channel.send( "::atk 3" )
     
                     else:
                         pass
-            
+
+
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
 
