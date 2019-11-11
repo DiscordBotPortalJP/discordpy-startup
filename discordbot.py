@@ -432,7 +432,7 @@ url_embed] #ヘルプの各ページ内容
                     if description.find("が待ち構えている") and message.channel==atk_ch:
                         await asyncio.sleep(2)
                         def  hellocheck(m):
-                            return m.content == f"{client.user.diplay_name}はエリクサーを使った" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                            return m.content == f"{client.user.display_name}はエリクサーを使った" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
                         try:
                             reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                         except asyncio.TimeoutError:
