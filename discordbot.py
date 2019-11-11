@@ -364,7 +364,7 @@ url_embed] #ヘルプの各ページ内容
 #            if "攻撃失敗" in message.content:
 #                print('a')
 #                await asyncio.sleep(5)
-#                await atk_ch.send('::atk 失敗失敗(;^ω^)')
+#                await atk_ch.send('::atk 四-four-')
 
 
     if f'{client.user.display_name}' in message.content:
@@ -374,9 +374,9 @@ url_embed] #ヘルプの各ページ内容
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
-                await atk_ch.send( "::i e refill" )
+                await atk_ch.send( "::i e 零-zero-" )
             else:
-                await atk_ch.send( "::i e refill" )
+                await atk_ch.send( "::i e 壱-one-" )
 
         elif 'のHP' in message.content:
       
@@ -385,9 +385,9 @@ url_embed] #ヘルプの各ページ内容
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
-                await atk_ch.send( "::atk　てい" )
+                await atk_ch.send( "::atk　弐-two-" )
             else:
-                await atk_ch.send( "::atk　てい" )
+                await atk_ch.send( "::atk　参-three-" )
 
         
      
@@ -402,11 +402,11 @@ url_embed] #ヘルプの各ページ内容
                 title = embed.title
                 if 'が待ち構えている' in title and message.channel==atk_ch:
                     await asyncio.sleep(2)
-                    await atk_ch.send( "::atk 1" )                 
+                    await atk_ch.send( "::atk 零-zero-" )                 
    
                 elif f'{client.user.display_name}はエリクサーを使った' in description:
                     await asyncio.sleep(2)
-                    await atk_ch.send( "::atk 2") 
+                    await atk_ch.send( "::atk 壱-one-") 
 
                 else:
                     pass               
