@@ -400,11 +400,12 @@ url_embed] #ヘルプの各ページ内容
             for embed in message.embeds:
                 description = embed.description
                 title = embed.title
+                name = embed.name
                 if 'が待ち構えている' in title and message.channel==atk_ch:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 零-zero-" )                 
    
-                elif f'{client.user.display_name}はエリクサーを使った' in description:
+                elif f'{client.user.display_name}はエリクサーを使った' in name:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 壱-one-") 
 
