@@ -374,9 +374,9 @@ url_embed] #ヘルプの各ページ内容
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
-                await message.channel.send( "::i e refill" )
+                await atk_ch.send( "::i e refill" )
             else:
-                await message.channel.send( "::i e refill" )
+                await atk_ch.send( "::i e refill" )
 
         elif 'のHP' in message.content:
       
@@ -385,9 +385,9 @@ url_embed] #ヘルプの各ページ内容
             try:
                 reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
             except asyncio.TimeoutError:
-                await message.channel.send( "::atk　てい" )
+                await atk_ch.send( "::atk　てい" )
             else:
-                await message.channel.send( "::atk　てい" )
+                await atk_ch.send( "::atk　てい" )
 
         
      
@@ -402,11 +402,11 @@ url_embed] #ヘルプの各ページ内容
                 title = embed.title
                 if 'が待ち構えている' in title and message.channel==atk_ch:
                     await asyncio.sleep(2)
-                    await message.channel.send( "::atk 1" )                 
+                    await atk_ch.send( "::atk 1" )                 
    
                 elif f'{client.user.display_name}はエリクサーを使った' in description:
                     await asyncio.sleep(2)
-                    await message.channel.send( "::atk 2") 
+                    await atk_ch.send( "::atk 2") 
 
                 else:
                     pass               
