@@ -376,7 +376,7 @@ url_embed] #ヘルプの各ページ内容
             else:
                 await message.channel.send( "::i e refill" )
 
-        elif "の攻撃" in message.content and 'のHP' in message.content:
+        elif 'のHP' in message.content:
       
             def  hellocheck(m):
                 return m.content == "の攻撃" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
