@@ -400,8 +400,7 @@ url_embed] #ヘルプの各ページ内容
            
             for embed in message.embeds:
                 description = embed.description
-                title = embed.title
-                name = embed.name
+                title = embed.tite
                 print('check a')
                 if 'が待ち構えている' in title and message.channel==atk_ch:
                     print('check b')
