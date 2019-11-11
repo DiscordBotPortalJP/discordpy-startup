@@ -353,7 +353,7 @@ url_embed] #ヘルプの各ページ内容
     if message.content.startswith("y!atkch "):
         print('got the commond')
         atk_ch_id = message.content.split('y!atkch ')[1]
-        atk_ch = discord.utils.get(client.guild.text_channels, mention=atk_ch_id)    
+        atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)    
     
     if message.content.startswith("y!atkch "):
         print('got the commond')
