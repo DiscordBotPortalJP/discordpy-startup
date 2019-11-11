@@ -402,25 +402,17 @@ url_embed] #ヘルプの各ページ内容
                 title = embed.title
                 if not embed.title:
                     pass
-                else:
-                    pass
-                    if title.find("が待ち構えている") and message.channel==atk_ch:
-                        await asyncio.sleep(2)
-                        def  hellocheck(m):
-                            return m.content == "攻撃失敗" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
-                        try:
-                            reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
-                        except asyncio.TimeoutError:
-                            await message.channel.send( "::atk 1" )
-                        else:
-                            await message.channel.send( "::atk 2")                    
-                    elif description.find(f"{client.user.mention}はエリクサーを使った") and message.channel==atk_ch:
-                        await asyncio.sleep(2)
-         
-                        await message.channel.send( "::atk 3" )
-    
+                elif title.find("が待ち構えている") and message.channel==atk_ch:
+                    await asyncio.sleep(2)
+                    def  hellocheck(m):
+                        return m.content == "攻撃失敗" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                    except asyncio.TimeoutError:
+                        await message.channel.send( "::atk 1" )
                     else:
-                        pass
+                        await message.channel.send( "::atk 2")                   
+   
 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         if len(message.embeds) != 0:
@@ -446,6 +438,7 @@ url_embed] #ヘルプの各ページ内容
 
     if message.content=='y!atkstop':
         atk_ch_id = '#tao-yui₀₀₀'
+        atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
 
