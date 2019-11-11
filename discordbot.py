@@ -405,9 +405,13 @@ url_embed] #ヘルプの各ページ内容
                 if 'が待ち構えている' in title and message.channel==atk_ch:
                     print('check b')
                     await asyncio.sleep(2)
-                    await atk_ch.send( "::atk 零-zero-" )                 
-   
-                elif f'{client.user.display_name}はエリクサーを使った' in name:
+                    await atk_ch.send( "::atk 零-zero-" ) 
+                else:
+                    pass              
+            for field in embed.fields:
+                name = field.name
+                value = field.value
+                if f'{client.user.display_name}はエリクサーを使った' in name:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 壱-one-") 
 
