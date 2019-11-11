@@ -229,6 +229,9 @@ async def looop():
                 client.loop.create_task(c.send(embed=em))
         print("チャンネル判定終了")
 
+        login_ch = client.get_channel(643466975745540096)
+        await login_ch.send('::login')
+
 @client.event
 async def on_disconnect():
     print("YUI was death")
