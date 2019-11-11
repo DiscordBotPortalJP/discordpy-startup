@@ -409,13 +409,13 @@ url_embed] #ヘルプの各ページ内容
                         try:
                             reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                         except asyncio.TimeoutError:
-                            await message.channel.send( "::atk" )
+                            await message.channel.send( "::atk 1" )
                         else:
-                            await message.channel.send( "::atk")                    
+                            await message.channel.send( "::atk 2")                    
                     elif title.find(f"{client.user.mention}はエリクサーを使った") and message.channel==atk_ch:
                         await asyncio.sleep(2)
          
-                        await message.channel.send( "::atk" )
+                        await message.channel.send( "::atk 3" )
     
                     else:
                         pass
