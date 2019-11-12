@@ -429,8 +429,8 @@ url_embed] #ヘルプの各ページ内容
         if len(message.embeds) != 0:             
 #            for field in embed.fields:
             for embed in message.embeds:
-                name = field.name
-                value = field.value
+#                name = field.name
+ #               value = field.value
                 description = embed.description 
                 if 'レベルアップした！' in vdescription :
                     print("LvUP")
