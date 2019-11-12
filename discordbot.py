@@ -432,7 +432,7 @@ url_embed] #ヘルプの各ページ内容
 #                name = field.name
  #               value = field.value
                 description = embed.description 
-                if 'レベルアップした！' in vdescription :
+                if 'レベルアップした！' in description :
                     print("LvUP")
                     level_up=message.content.split("レベルアップした！")[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
