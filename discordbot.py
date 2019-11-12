@@ -418,7 +418,7 @@ url_embed] #ヘルプの各ページ内容
                 if f'{client.user.display_name}はエリクサーを使った' in name:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 壱-one-") 
-                elif f'{client.user.mention}はレベルアップした！' in description:
+                elif f'{client.user.mention}はレベルアップした！' in value:
                     print("LvUP")
                     level_up=message.content.split(f"{client.user.mention}はレベルアップした！")[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
