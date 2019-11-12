@@ -427,12 +427,12 @@ url_embed] #ヘルプの各ページ内容
                     pass 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 and message.channel == atk_ch:
         if len(message.embeds) != 0:             
-            for field in embed.fields:
-
+#            for field in embed.fields:
+            for embed in message.embeds:
                 name = field.name
                 value = field.value
                 description = embed.description 
-                if 'レベルアップした！' in value :
+                if 'レベルアップした！' in vdescription :
                     print("LvUP")
                     level_up=message.content.split("レベルアップした！")[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
