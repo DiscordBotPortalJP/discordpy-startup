@@ -430,7 +430,7 @@ url_embed] #ヘルプの各ページ内容
                         level_up=message.content.split(f"{client.user.mention}はレベルアップした！")[1]
                         embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
                         await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuiLvUPログ'))
-                   else:
+                    else:
                         pass               
                     
     if message.content=='y!atkstop':
