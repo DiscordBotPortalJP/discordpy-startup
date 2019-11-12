@@ -442,6 +442,22 @@ url_embed] #ヘルプの各ページ内容
                 else:
                     print("wow")
                     pass               
+
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+        
+        if len(message.embeds) != 0:
+            
+            for embed in message.embeds:
+                print(embed.to_dict())
+                description = embed.description
+                title = embed.title
+                print('check a')
+                if 'エリクサーを使った' in description and message.channel==atk_ch:
+                    await asyncio.sleep(2)
+                    await atk_ch.send( "::atk 陀-seven-" ) 
+                else:
+                    pass 
+
                     
     if message.content=='y!atkstop':
         atk_ch_id = '#tao-yui₀₀₀'
