@@ -425,16 +425,16 @@ url_embed] #ヘルプの各ページ内容
                     await atk_ch.send( "::atk 零-zero-" ) 
                 else:
                     pass 
-    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 and message.channel = atk_ch:
         if len(message.embeds) != 0:             
             for field in embed.fields:
 
                 name = field.name
                 value = field.value
                 description = embed.description 
-                if f'{client.user.mention}はレベルアップした！' in value:
+                if 'レベルアップした！' in value :
                     print("LvUP")
-                    level_up=message.content.split(f"{client.user.mention}はレベルアップした！")[1]
+                    level_up=message.content.split("レベルアップした！")[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
                     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuiLvUPログ'))
                 else:
