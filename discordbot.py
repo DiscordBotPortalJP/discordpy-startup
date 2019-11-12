@@ -375,6 +375,18 @@ url_embed] #ヘルプの各ページ内容
 #                await atk_ch.send('::atk 四-four-')
 
 
+    if "このチャンネルの仲間全員が全回復した！" in message.content and message.channel==atk_ch:
+            def  hellocheck(m):
+                return m.content == "ペット" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+            try:
+                reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+            except asyncio.TimeoutError:
+                await atk_ch.send( "::atk　伍-five-" )
+            else:
+                await atk_ch.send( "::atk　陸-six-" )
+
+        await atk_ch.xend("::atk")
+
     if f'{client.user.display_name}' in message.content:
         if "やられてしまった" in message.content:#🔷YUIの自動復活条件
             def  hellocheck(m):
@@ -421,11 +433,8 @@ url_embed] #ヘルプの各ページ内容
                 for embed in message.embeds:
                     name = field.name
                     value = field.value
-                    description = embed.description
-                    if f'{client.user.display_name}はエリクサーを使った' in description:
-                        await asyncio.sleep(2)
-                        await atk_ch.send( "::atk 壱-one-") 
-                    elif f'{client.user.mention}はレベルアップした！' in value:
+                    description = embed.description 
+                    if f'{client.user.mention}はレベルアップした！' in value:
                         print("LvUP")
                         level_up=message.content.split(f"{client.user.mention}はレベルアップした！")[1]
                         embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
