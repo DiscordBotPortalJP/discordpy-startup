@@ -365,7 +365,7 @@ url_embed] #ヘルプの各ページ内容
         print('got the commond')
         atk_ch_id = message.content.split('y!atkch ')[1]
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)    
-        await atk_ch.send('check channel')
+        await atk_ch.send(f"{message.author.mention}\nチャンネル指定完了\n`y!atk` てうってね")
 
 
 #        if message.channel.id == atk_ch_id:
@@ -384,9 +384,7 @@ url_embed] #ヘルプの各ページ内容
                 await atk_ch.send( "::atk　伍-five-" )
             else:
                 await atk_ch.send( "::atk　陸-six-" )
-
-        await atk_ch.xend("::atk")
-
+                
     if f'{client.user.display_name}' in message.content:
         if "やられてしまった" in message.content:#🔷YUIの自動復活条件
             def  hellocheck(m):
