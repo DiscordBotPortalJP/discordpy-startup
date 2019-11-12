@@ -411,11 +411,11 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         if len(message.embeds) != 0:             
             for field in embed.fields:
-#            for embed in message.embeds:
+            for embed in message.embeds:
                 name = field.name
                 value = field.value
                 description = embed.description
-                if f'{client.user.display_name}はエリクサーを使った' in name:
+                if f'{client.user.display_name}はエリクサーを使った' in description:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 壱-one-") 
                 elif f'{client.user.mention}はレベルアップした！' in value:
