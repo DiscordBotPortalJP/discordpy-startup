@@ -420,6 +420,8 @@ url_embed] #ヘルプの各ページ内容
                         await atk_ch.send("::atk 壱-one-")
                     else:
                         await atk_ch.send("::atk 弐-two-")
+                else:
+                    pass
 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
