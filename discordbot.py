@@ -463,6 +463,7 @@ url_embed] #ヘルプの各ページ内容
         if len(message.embeds) != 0:            
             for embed in message.embeds:                       
                 if f"Quiz│{client.user}さんのクイズ" == title and message.channel==q_ch:
+                    print('a')
                     await asyncio.sleep(3)
                     await message.add_reaction('1️⃣')
                     def  hellocheck(m):
@@ -1147,7 +1148,7 @@ url_embed] #ヘルプの各ページ内容
 
 
 
-#        kakuritu = random.randint(1, 50)
+#        kakuritu = random.randint(1, 100)
      #   slot_list = [':eggplant:', ':cherries:', ':large_orange_diamond:', ':large_blue_diamond:', ':seven:',':gem:',':bell:',':eggplant:',':eggplant:',':eggplant:']
    #     A = random.choice(slot_list)
 #        B = random.choice(slot_list)
