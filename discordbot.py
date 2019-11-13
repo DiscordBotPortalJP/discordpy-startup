@@ -436,7 +436,7 @@ url_embed] #ヘルプの各ページ内容
                 else:
                     pass 
                 
-    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 and message.channel == atk_ch:
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         print("lv check")
         if len(message.embeds) != 0:             
 #            for field in embed.fields:
@@ -445,9 +445,9 @@ url_embed] #ヘルプの各ページ内容
   #              value = field.value
                 print("lv check 2")
                 description = embed.description 
-                if 'レベルアップした！' in description :
+                if f'{client.user.mention}はレベルアップした！' in description :
                     print("LvUP")
-                    level_up=description.split("レベルアップした！")[1]
+                    level_up=description.split(f'{client.user.mention}はレベルアップした！)[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
                     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'ログ'))
                 else:
