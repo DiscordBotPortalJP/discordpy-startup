@@ -464,8 +464,8 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
         if len(message.embeds) != 0:            
-            for embed in message.embeds:                       
-                if "Quiz" in title and message.channel==q_ch:
+            for fields in message.fields:                       
+                if "Quiz" in name and message.channel==q_ch:
                     print('a')
                     await q_ch.send('クイズチェック')
                     await message.add_reaction('1️⃣')
