@@ -425,9 +425,9 @@ url_embed] #ヘルプの各ページ内容
         
         if len(message.embeds) != 0:            
             for embed in message.embeds:                       
-                if "このチャンネルの仲間全員が全回復した！" in description and message.channel==atk_ch:
+                if f"{client.user.mention}はエリクサーを使った！このチャンネルの仲間全員が全回復した！" == description and message.channel==atk_ch:
                     def  hellocheck(m):
-                        return  "ペット" in description and m.author == message.author  and message.channel == atk_ch
+                        return  "PET" in description and m.author == message.author  and message.channel == atk_ch
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                     except asyncio.TimeoutError:
