@@ -443,9 +443,9 @@ url_embed] #ヘルプの各ページ内容
                 name = field.name
                 value = field.value
                 description = embed.description 
-                if 'レベルアップした！' in value :
+                if 'レベルアップした！' in name :
                     print("LvUP")
-                    level_up=value.split("レベルアップした！")[1]
+                    level_up=name.split("レベルアップした！")[1]
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
                     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuilvupログ'))
                 else:
@@ -460,7 +460,7 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description
                 title = embed.title
                 print('check a')
-                if 'エリクサーを使った' in description and message.channel==atk_ch:
+                if 'エリクサーを使った' in title and message.channel==atk_ch:
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 陀-seven-" ) 
                 else:
