@@ -431,7 +431,7 @@ url_embed] #ヘルプの各ページ内容
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                     except asyncio.TimeoutError:
                         await atk_ch.send( "::atk　伍-five-" )
-                   else:
+                    else:
                         await atk_ch.send( "::atk　陸-six-" )
                 else:
                     pass 
