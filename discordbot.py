@@ -82,6 +82,11 @@ help_embed_0 = discord.Embed(title="⚠️YUI注意事項一覧⚠️",descripti
 help_embed = discord.Embed(title="TAOコマンド系ヘルプ━第２項",description="TAOで使うコマンドを使うヘルプだよ",color=discord.Colour.green())
 #help_embed.add_field(name="```y!ch [channel ID]```",value='このコマンドを使った後に**ゆいがんばれ**って言ってくれたら指定したチャンネルでアタックをするから\n後でスイーツおごってもらうからね\n止めてほしいときは**ゆいおつかれ**って言って')
 help_embed.add_field(
+name='y!atkch [チャンネルメンション]'
+,value='`指定した場所を対象に設定\n指定の場所でy!atk`'
+,inline=True)
+
+help_embed.add_field(
 name='y!login'
 ,value='`ログインする`'
 ,inline=True)
