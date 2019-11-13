@@ -21,7 +21,7 @@ dateTime = datetime.datetime.now()
 server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
 atk_ch_id = "#掃き溜め"
-atk_ch = client.get_channel(str(643461030692782081))
+atk_ch = client.get_channel(643461030692782081)
 
 help_ch = 642578258743001088
 ModeFlag = 0
