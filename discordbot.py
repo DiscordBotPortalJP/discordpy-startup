@@ -362,7 +362,6 @@ url_embed] #ヘルプの各ページ内容
     global atk_ch
 
     if message.content.startswith("y!atkch "):
-        await atk_ch.send("::re")
         print('got the commond')
         atk_ch_id = message.content.split('y!atkch ')[1]
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)    
