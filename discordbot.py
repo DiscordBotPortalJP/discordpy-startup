@@ -22,7 +22,7 @@ server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
 atk_ch_id = "#掃き溜め"
 atk_ch = client.get_channel(643461030692782081)
-
+q_ch = client.get_channel=(644199380764721152)
 help_ch = 642578258743001088
 ModeFlag = 0
 
@@ -457,6 +457,22 @@ url_embed] #ヘルプの各ページ内容
         atk_ch_id = '#tao-yui₀₀₀'
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
 
+
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
+        
+        if len(message.embeds) != 0:            
+            for embed in message.embeds:                       
+                if f"Quiz│{client.user}さんのクイズ" == title and message.channel==q_ch:
+                    await asyncio.sleep(3)
+                    await message.add_reaction('1️⃣')
+                    def  hellocheck(m):
+                        return  "！" in description and m.author == message.author  and message.channel == q_ch
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 8.0 )
+                    except asyncio.TimeoutError:
+                        await atk_ch.send( "::q" )
+                    else:
+                        await atk_ch.send( "::q" )
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
 
 
