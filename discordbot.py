@@ -428,9 +428,9 @@ url_embed] #ヘルプの各ページ内容
                         await atk_ch.send("::atk 壱-one-")
                     else:
                         await atk_ch.send("::atk 壱-one-")
-                elif "このチャンネルの仲間全員が全回復した！" in title and message.channel==atk_ch:
+                elif "このチャンネルの仲間全員が全回復した！" in description and message.channel==atk_ch:
                     def  hellocheck(m):
-                        return title == "ペット" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                        return  "ペット" in description and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                     except asyncio.TimeoutError:
@@ -1112,16 +1112,9 @@ url_embed] #ヘルプの各ページ内容
 
 
 
-
-    if client.user != message.author and message.channel.name == "global_yui" and not "discord.gg" in message.author.name:
-        content = ""
-        for msg in message.content.split():
-            if "http://" in message.content or"https://" in message.content or"discord.gg" in message.content:
-                re.sub(r"(https://discord.gg/)([a-zA-Z]*)",r"||\1\2||",message.content)
-                content = f"{message.content} ||{msg}||"
-            else:
-                content = f"{message.content} {msg}"
-        embed = discord.Embed(title=f'送信者│{message.author}',description=f"{message.content}",color=discord.Color(random.randint(0, 0xFFFFFF)))
+    if (len(message.embeds) == 0) and (message.channel.name == "global_yui") and (not "discord.gg" in message.author.name):
+        content = re.sub(r"(https://discord.gg/)([a-zA-Z]*)",r"||\1\2||",message.content)
+        embed = discord.Embed(title=f'送信者│{message.author}',description=f"{content}",color=discord.Color(random.randint(0, 0xFFFFFF)))
         embed.set_thumbnail(url = message.author.avatar_url)
         embed.set_author(icon_url=message.guild.icon_url, name=f"{message.guild.name}")
         embed.set_footer(icon_url=client.user.avatar_url, text=f"YUI global chat system")
