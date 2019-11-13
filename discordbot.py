@@ -420,7 +420,7 @@ url_embed] #ヘルプの各ページ内容
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                     except asyncio.TimeoutError:
-                        await atk_ch.send( "::atk　弐-two-" )
+                        pass
                     else:
                         pass
                 elif "このチャンネルの仲間全員が全回復した！" in title and message.channel==atk_ch:
@@ -711,30 +711,18 @@ url_embed] #ヘルプの各ページ内容
                               color=0x2ECC69)
         embed.set_thumbnail(url="https://yahoo.jp/box/HYqbOS")
         embed.set_image(url=random.choice(("https://yahoo.jp/box/tpeHgW",
-        "https://yahoo.jp/box/roWwt8",
-        "https://yahoo.jp/box/M8DDfm",
-        "https://yahoo.jp/box/5yaQwS",
-        "https://yahoo.jp/box/snmtCk",
-        "https://yahoo.jp/box/WI0bCW",
-        "https://yahoo.jp/box/2DeZEI",
-        "https://yahoo.jp/box/seZwkN",
-        "https://yahoo.jp/box/UHhqck",
-        "https://yahoo.jp/box/ZdKwTS",
-        "https://yahoo.jp/box/coBg_L",
-        "https://yahoo.jp/box/D8lFL8",
-        "https://yahoo.jp/box/LU1JLi",
-        "https://yahoo.jp/box/xfDFnC",
-        "https://yahoo.jp/box/2tGQPm",
-        "https://yahoo.jp/box/2tGQPm",
-        "https://yahoo.jp/box/W6sq6m",
-        "https://yahoo.jp/box/o8_WCa",
-        "https://yahoo.jp/box/bnadWl",
-        "https://yahoo.jp/box/wvFtaX",
-        "https://yahoo.jp/box/t6DACy",
-        "https://yahoo.jp/box/Iz8VoJ",
-        "https://yahoo.jp/box/QqiwDa",
-        "https://yahoo.jp/box/XMZ_-6",
-        "https://yahoo.jp/box/HYqbOS",
+        "https://yahoo.jp/box/roWwt8","https://yahoo.jp/box/M8DDfm",
+        "https://yahoo.jp/box/5yaQwS","https://yahoo.jp/box/snmtCk",
+        "https://yahoo.jp/box/WI0bCW","https://yahoo.jp/box/2DeZEI",
+        "https://yahoo.jp/box/seZwkN","https://yahoo.jp/box/UHhqck",
+        "https://yahoo.jp/box/ZdKwTS","https://yahoo.jp/box/coBg_L",
+        "https://yahoo.jp/box/D8lFL8","https://yahoo.jp/box/LU1JLi",
+        "https://yahoo.jp/box/xfDFnC","https://yahoo.jp/box/2tGQPm",
+        "https://yahoo.jp/box/2tGQPm","https://yahoo.jp/box/W6sq6m",
+        "https://yahoo.jp/box/o8_WCa","https://yahoo.jp/box/bnadWl",
+        "https://yahoo.jp/box/wvFtaX","https://yahoo.jp/box/t6DACy",
+        "https://yahoo.jp/box/Iz8VoJ","https://yahoo.jp/box/QqiwDa",
+        "https://yahoo.jp/box/XMZ_-6","https://yahoo.jp/box/HYqbOS",
         "https://media.discordapp.net/attachments/635993816297504809/636080181991178250/20_20191022145513.png",
         "https://media.discordapp.net/attachments/635993816297504809/636080191499927552/20_20191022145257.png")))
         embed.add_field(name=random.choice(('最高に需要無いんだけど……', 'うわ何これ……いる？', '……こんなのガチャガチャから出てこないよね普通', 'ごめんちょっと意味わからないんだけどナニコレ', "これもらって喜ぶ人いるのかな", '………ノーコメント')), value='YUIは出てきたものをそっとポッケに入れた', inline=False)
