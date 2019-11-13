@@ -425,7 +425,7 @@ url_embed] #ヘルプの各ページ内容
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
                     except asyncio.TimeoutError:
-                        pass
+                        await atk_ch.send("::atk 壱-one-")
                     else:
                         await atk_ch.send("::atk 壱-one-")
                 elif "このチャンネルの仲間全員が全回復した！" in title and message.channel==atk_ch:
