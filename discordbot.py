@@ -375,16 +375,6 @@ url_embed] #ヘルプの各ページ内容
 #                await asyncio.sleep(5)
 #                await atk_ch.send('::atk 四-four-')
 
-
-    if "このチャンネルの仲間全員が全回復した！" in message.content and message.channel==atk_ch:
-            def  hellocheck(m):
-                return m.content == "ペット" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
-            try:
-                reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
-            except asyncio.TimeoutError:
-                await atk_ch.send( "::atk　伍-five-" )
-            else:
-                await atk_ch.send( "::atk　陸-six-" )
                 
     if f'{client.user.display_name}' in message.content:
         if "やられてしまった" in message.content:#🔷YUIの自動復活条件
@@ -434,6 +424,15 @@ url_embed] #ヘルプの各ページ内容
                         await atk_ch.send( "::atk　弐-two-" )
                     else:
                         pass
+                elif "このチャンネルの仲間全員が全回復した！" in title and message.channel==atk_ch:
+                    def  hellocheck(m):
+                        return title == "ペット" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                    except asyncio.TimeoutError:
+                        await atk_ch.send( "::atk　伍-five-" )
+                   else:
+                        await atk_ch.send( "::atk　陸-six-" )
                 else:
                     pass 
                 
@@ -453,7 +452,7 @@ url_embed] #ヘルプの各ページ内容
                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif?width=375&height=375")
                     embed.add_field(name="━時刻━", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"\n "+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 
-                    await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'ログ'))
+                    await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuiレベルアップログ'))
                 else:
                     print("wow")             
 
