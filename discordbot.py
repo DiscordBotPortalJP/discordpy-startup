@@ -361,7 +361,7 @@ url_embed] #ヘルプの各ページ内容
 
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖オートアタック改➖➖➖➖➖➖➖➖➖➖➖➖🔷
-     global atk_ch_id
+    global atk_ch_id
     global atk_ch
 
     if message.content.startswith("y!atkch "):
