@@ -425,8 +425,17 @@ url_embed] #ヘルプの各ページ内容
                     print('check b')
                     await asyncio.sleep(2)
                     await atk_ch.send( "::atk 零-zero-" ) 
+                    def  hellocheck(m):
+                        return m.content == "攻撃失敗" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 5.0 )
+                    except asyncio.TimeoutError:
+                        await atk_ch.send( "::atk　弐-two-" )
+                    else:
+                        pass
                 else:
                     pass 
+                
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 and message.channel == atk_ch:
         if len(message.embeds) != 0:             
 #            for field in embed.fields:
@@ -440,8 +449,7 @@ url_embed] #ヘルプの各ページ内容
                     embed = discord.Embed(title='YUIがレベルアップ!!\n'+(level_up),color=discord.Colour.green())
                     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuilvupログ'))
                 else:
-                    print("wow")
-                    pass               
+                    print("wow")             
 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
