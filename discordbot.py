@@ -363,6 +363,7 @@ url_embed] #ヘルプの各ページ内容
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖オートアタック改➖➖➖➖➖➖➖➖➖➖➖➖🔷
     global atk_ch_id
     global atk_ch
+    global q_ch
 
     if message.content.startswith("y!atkch "):
         print('got the commond')
@@ -462,7 +463,7 @@ url_embed] #ヘルプの各ページ内容
         
         if len(message.embeds) != 0:            
             for embed in message.embeds:                       
-                if f"Quiz│{client.user}さんのクイズ" == title and message.channel==q_ch:
+                if "Quiz" in title and message.channel==q_ch:
                     print('a')
                     await q_ch.send('クイズチェック')
                     await message.add_reaction('1️⃣')
