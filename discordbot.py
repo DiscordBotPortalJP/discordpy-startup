@@ -464,7 +464,7 @@ url_embed] #ヘルプの各ページ内容
             for embed in message.embeds:                       
                 if f"Quiz│{client.user}さんのクイズ" == title and message.channel==q_ch:
                     print('a')
-
+                    await q_ch.send('クイズチェック')
                     await message.add_reaction('1️⃣')
                     def  hellocheck(m):
                         return  "！" in description and m.author == message.author  and message.channel == q_ch
