@@ -427,7 +427,7 @@ url_embed] #ヘルプの各ページ内容
                     except asyncio.TimeoutError:
                         pass
                     else:
-                        pass
+                        await atk_ch.send("::atk 壱-one-")
                 elif "このチャンネルの仲間全員が全回復した！" in title and message.channel==atk_ch:
                     def  hellocheck(m):
                         return title == "ペット" and m.author == message.author  and message.channel == atk_ch#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
