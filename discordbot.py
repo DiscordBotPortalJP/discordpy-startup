@@ -452,7 +452,7 @@ url_embed] #ヘルプの各ページ内容
                 if f'{client.user.mention}はレベルアップした！' in description :
                     print("LvUP")
                     level_up=description.split(f'{client.user.mention}はレベルアップした！')[1]
-                    embed = discord.Embed(title='━LvUP━\n'+(level_up),color=discord.Colour.green())
+                    embed = discord.Embed(title='━ :Lv: :UP: ━\n'+(level_up),color=discord.Colour.green())
                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif?width=375&height=375")
                     embed.add_field(name="━時刻━", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"\n "+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 
