@@ -204,6 +204,10 @@ async def on_ready():
     embed.add_field(name="起動時刻", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"\n "+str(dateTime.hour+9)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == '管理者用yui起動ログ'))
 
+    client.ch = client.get_channel(644199380764721152)
+    client.already_quiz = {}
+
+    await client.ch.send("::q")
 
 
 flag = False
@@ -211,10 +215,6 @@ flag = False
 yt_channel_id = CHANNEL_ID # 最初のチャンネルの
 
 
-    client.ch = client.get_channel(チャンネルID)
-    client.already_quiz = {}
-
-    await client.ch.send("::q")
 
 @tasks.loop(seconds=30)
 async def loop():
