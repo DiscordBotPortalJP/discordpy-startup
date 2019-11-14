@@ -408,7 +408,7 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 :
         if len(message.embeds) != 0:             
             for embed in message.embeds:
-                discription = embed.discription
+                description = embed.description
                 if '?' in embed.description and message.channel == q_ch: 
                     await message.add_reaction("1️⃣")
                     def  hellocheck(m):
