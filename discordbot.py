@@ -22,7 +22,7 @@ server_number = len(client.guilds)
 client.global_list = [] #グローバルチャット参加チャンネルのリスト
 atk_ch_id = "#掃き溜め"
 atk_ch = client.get_channel(643461030692782081)
-q_ch = client.get_channel=(644199380764721152)
+q_ch = client.get_channel(644199380764721152)
 help_ch = 642578258743001088
 ModeFlag = 0
 
@@ -464,7 +464,7 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
         if len(message.embeds) != 0:            
-            for author in embed.author:                       
+            for embed in message.embeds:                       
                 if "Quiz" in author.name and message.channel==q_ch:
                     print('a')
                     await q_ch.send('クイズチェック')
@@ -478,8 +478,6 @@ url_embed] #ヘルプの各ページ内容
                     else:
                         await atk_ch.send( "::q" )
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
-
-
     if message.author != client.user:
         reg_res = re.compile(u"y!wt (.+)").search(message.content)
         if reg_res:
