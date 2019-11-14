@@ -465,6 +465,7 @@ url_embed] #ヘルプの各ページ内容
         atk_ch_id = '#tao-yui₀₀₀'
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
         
+        
 
     if embeds.author.name == f"Quizt│{client.user}さんのクイズ":
         await message.add_reaction("1️⃣")
