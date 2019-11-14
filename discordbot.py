@@ -466,11 +466,13 @@ url_embed] #ヘルプの各ページ内容
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
         
         
-
-    if embeds.author.name == f"Quizt│{client.user}さんのクイズ":
-        await message.add_reaction("1️⃣")
-        await asyncio.sleep(5)
-        await q_ch.send('::q')
+    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 :
+        if len(message.embeds) != 0:             
+            for embed in message.embeds:
+                if '?' in embed.description and message.channel == q_ch: 
+                    await message.add_reaction("1️⃣")
+                    await asyncio.sleep(5)
+                    await q_ch.send('::q')
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
     if message.author != client.user:
         reg_res = re.compile(u"y!wt (.+)").search(message.content)
