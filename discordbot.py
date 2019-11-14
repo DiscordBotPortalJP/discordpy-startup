@@ -406,26 +406,10 @@ url_embed] #ヘルプの各ページ内容
         
         
     if message.author.id == 526620171658330112 and message.channel == q_ch:
-        
-        if len(message.embeds) != 0:
-            await message.add_reaction(':one:')
-            for embed in message.embeds:
-                description = embed.description
-                
-                if '?' in embed.description :
-                    await message.add_reaction(':one:')
-                    def  hellocheck(m):
-                        
-                        return m.author == message.author  and message.channel == atk_ch  and "正解" in description 
-                    try:
-                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 20.0 )
-                    except asyncio.TimeoutError:
-                        await q_ch.send('::q')
-                    else:
-                        await asyncio.sleep(5)
-                        await q_ch.send('::q')
-                else:
-                    pass     
+        await message.add_reaction(':one:')
+        await q_ch.send('::q')
+    else:
+        pass     
 
 
 
