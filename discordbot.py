@@ -474,7 +474,7 @@ url_embed] #ヘルプの各ページ内容
                 return 0
             elif not tao_msg.embeds and not tao_msg.embeds[0].description:
                 return 0
-            elif tao_msg.embeds[0].author.name != "Quiz":
+            elif tao_msg.embeds[0].author.name != f"**Quizt│{client.user}**"さんのクイズ:
                 return 0
             return 1
 
