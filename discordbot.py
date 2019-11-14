@@ -469,10 +469,21 @@ url_embed] #ヘルプの各ページ内容
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 :
         if len(message.embeds) != 0:             
             for embed in message.embeds:
+                discription = embed.discription
                 if '?' in embed.description and message.channel == q_ch: 
                     await message.add_reaction("1️⃣")
-                    await asyncio.sleep(5)
-                    await q_ch.send('::q')
+                    def  hellocheck(m):
+                        return m.author == message.author  and message.channel == atk_ch  and "正解" in description or "時間切れ" in description 
+                    try:
+                        reply = await client.wait_for( "message" , check = hellocheck , timeout = 20.0 )
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        await asyncio.sleep(5)
+                        await q_ch.send('::q')
+                else:
+                    pass
+
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
     if message.author != client.user:
         reg_res = re.compile(u"y!wt (.+)").search(message.content)
