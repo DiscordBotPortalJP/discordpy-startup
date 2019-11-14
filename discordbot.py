@@ -411,13 +411,13 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description
                 await message.add_reaction("one")
                 if '？' in embed.description : 
-                    await message.add_reaction("one")
                     def  hellocheck(m):
+                        await message.add_reaction(":one:")
                         return m.author == message.author  and message.channel == atk_ch  and "正解" in description or "時間切れ" in description 
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 20.0 )
                     except asyncio.TimeoutError:
-                        return
+                        await q_ch.send('::q')
                     else:
                         await asyncio.sleep(5)
                         await q_ch.send('::q')
