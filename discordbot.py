@@ -406,8 +406,8 @@ url_embed] #ヘルプの各ページ内容
         
         
     if message.author.id == 526620171658330112 and message.channel == q_ch:
-        if len(message.embeds) != 0:
-            await message.add_reaction("one")    
+        await message.add_reaction("one")    
+        if len(message.embeds) != 0
             for embed in message.embeds:
                 description = embed.description
                 
