@@ -466,8 +466,8 @@ url_embed] #ヘルプの各ページ内容
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
         
 
-    if message.embeds.author.name == f"Quizt│{client.user}"さんのクイズ:
-        await message.add_reaction("⬅")
+    if message.embeds.author.name == f"Quizt│{client.user}"さんのクイズ':
+        await message.add_reaction("1️⃣")
         await asyncio.sleep(5)
         await q_ch.send('::q')
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
