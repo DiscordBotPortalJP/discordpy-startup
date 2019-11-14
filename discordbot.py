@@ -501,7 +501,6 @@ url_embed] #ヘルプの各ページ内容
         if answer:
             react += true_choice.index(answer)        
         await quiz_msg.add_reaction(str(react).encode().decode('unicode-escape')+"\u20e3")
-        await quiz_msg.add_reaction("1️⃣")
 
         try:
             ans_msg = await client.wait_for("message",check=ans_check)
