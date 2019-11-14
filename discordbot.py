@@ -405,11 +405,12 @@ url_embed] #ヘルプの各ページ内容
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
         
         
-    if message.author.id == 526620171658330112 or message.author.id == 642271360667877386 :
+    if message.author.id == 526620171658330112 and message.channel == q_ch:
         if len(message.embeds) != 0:             
             for embed in message.embeds:
                 description = embed.description
-                if '？' in embed.description and message.channel == q_ch: 
+                await message.add_reaction("one")
+                if '？' in embed.description : 
                     await message.add_reaction("one")
                     def  hellocheck(m):
                         return m.author == message.author  and message.channel == atk_ch  and "正解" in description or "時間切れ" in description 
