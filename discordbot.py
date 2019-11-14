@@ -405,7 +405,7 @@ url_embed] #ヘルプの各ページ内容
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
         
         
-    if message.author.id == 526620171658330112 and message.channel == q_ch:
+    if message.channel == q_ch:
         print("q")
         await message.add_reaction('1⃣')
         await q_ch.send('::q')
