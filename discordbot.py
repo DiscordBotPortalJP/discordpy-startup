@@ -406,15 +406,15 @@ url_embed] #ヘルプの各ページ内容
         
         
     if message.author.id == 526620171658330112 and message.channel == q_ch:
-          
+        
         if len(message.embeds) != 0:
-
+            await message.add_reaction(':one:')
             for embed in message.embeds:
                 description = embed.description
                 
                 if '？' in embed.description : 
                     def  hellocheck(m):
-                        await message.add_reaction(":one:")
+                        
                         return m.author == message.author  and message.channel == atk_ch  and "正解" in description or "時間切れ" in description 
                     try:
                         reply = await client.wait_for( "message" , check = hellocheck , timeout = 20.0 )
