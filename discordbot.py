@@ -409,9 +409,8 @@ url_embed] #ヘルプの各ページ内容
         if len(message.embeds) != 0:             
             for embed in message.embeds:
                 description = embed.description
-                await message.add_reaction("1️⃣")
-                if '?' in embed.description and message.channel == q_ch: 
-                    await message.add_reaction("1️⃣")
+                if '？' in embed.description and message.channel == q_ch: 
+                    await message.add_reaction("one")
                     def  hellocheck(m):
                         return m.author == message.author  and message.channel == atk_ch  and "正解" in description or "時間切れ" in description 
                     try:
