@@ -407,7 +407,7 @@ url_embed] #ヘルプの各ページ内容
         
     if message.channel == q_ch:
         print("q")
-        await message.add_reaction('1⃣')
+        await message.add_reaction('👍')
         await q_ch.send('::q')
     else:
         pass     
