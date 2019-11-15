@@ -466,14 +466,15 @@ url_embed] #ヘルプの各ページ内容
                 print("lv check 2")
                 description = embed.description 
                 if f'{client.user.mention}はレベルアップした！' in description : 
+                    print('lv check 3')
                     level_up=description.split(f'{client.user.mention}はレベルアップした！')[1]
-                    embed = discord.Embed(title=' :lvup: ',description = (level_up),color=discord.Colour.green())
+                    embed = discord.Embed(title=':lvup:',description = (level_up),color=discord.Colour.green())
                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif?width=375&height=375")
                     embed.add_field(name="━時刻━", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 
                     await asyncio.gather(*(c.send(embed=embed) for c in client.get_all_channels() if c.name == 'yuiレベルアップログ'))
                 else:
-                    pass         
+                    print('not level up')  
                    
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖
     me = message.guild.me
@@ -497,7 +498,7 @@ url_embed] #ヘルプの各ページ内容
             return 1
         
         try:
-            quiz_msg = await client.wait_for("message",timeout=30,check=quiz_check)
+            quiz_msg = await client.wait_for("message",timeout=100,check=quiz_check)
         except asyncio.TimeoutError:
             await message.channel.send("::q")
             return
