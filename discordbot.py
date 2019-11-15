@@ -1167,7 +1167,7 @@ url_embed] #ヘルプの各ページ内容
             await message.channel.send(text_random)
             print('selected')
 
-    if client.user != message.author and message.author != bot:
+    if client.user != message.author and message.author.bot:
     	if 'だよ' in message.content:
             aaa = ["そうなの？","そうだよ(便乗)"]
             AAA = random.choice(aaa)
