@@ -528,7 +528,7 @@ url_embed] #ヘルプの各ページ内容
                 tmp = true_choice[0]
             client.already_quiz[quiz] = tmp
 
-        await message.channel.send("::q")
+            await message.channel.send("::q")
 
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
