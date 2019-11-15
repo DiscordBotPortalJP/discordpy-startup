@@ -467,7 +467,7 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description 
                 if f'{client.user.mention}はレベルアップした！' in description : 
                     level_up=description.split(f'{client.user.mention}はレベルアップした！')[1]
-                    embed = discord.Embed(title=' :lvup: ',description = (level_up)color=discord.Colour.green())
+                    embed = discord.Embed(title=' :lvup: ',description = (level_up),color=discord.Colour.green())
                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/635993816297504809/643091559142916109/videotogif_2019.11.10_23.14.46.gif?width=375&height=375")
                     embed.add_field(name="━時刻━", value=str(dateTime.year)+"/"+str(dateTime.month)+"/"+str(dateTime.day)+"/"+str(dateTime.hour)+"時"+str(dateTime.minute)+"分"+str(dateTime.second)+"秒", inline=False)
 
@@ -1190,24 +1190,8 @@ url_embed] #ヘルプの各ページ内容
         riptext2 = int(x[2])
         channel = client.get_channel(riptext2)
         riptext = x[1]
-#        riptext3 = x[3]
-#        riptext4 = x[4]
-#        riptext5 = x[5]
- #       embed = discord.Embed(title = riptext,description = riptext2,color=random.randint(0x000000, 0xFFFFFF))
-#        embed.add_field(name = riptext2 , value = riptext3)
-#        embed.add_field(name = riptext4 , value = riptext5)
 
         await channel.send(riptext)
-
-
-
-
-#        kakuritu = random.randint(1, 100)
-     #   slot_list = [':eggplant:', ':cherries:', ':large_orange_diamond:', ':large_blue_diamond:', ':seven:',':gem:',':bell:',':eggplant:',':eggplant:',':eggplant:']
-   #     A = random.choice(slot_list)
-#        B = random.choice(slot_list)
-      #  C = random.choice(slot_list)
-
 
 
     if client.user != message.author:
