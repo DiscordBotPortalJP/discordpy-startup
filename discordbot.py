@@ -12,6 +12,11 @@ import json
 import re
 import os
 import traceback
+
+import gspread-asyncio
+from oauth2client.service_account import ServiceAccountCredentials
+
+
 from discord.ext import tasks
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
@@ -503,10 +508,10 @@ url_embed] #ヘルプの各ページ内容
                 else:
                     print('not level up') 
                     
-    AIzaSyCKKWw8f4kvyNQbIe87XpC3A9FXLYKwrBM                
+    #AIzaSyCKKWw8f4kvyNQbIe87XpC3A9FXLYKwrBM                
                     
                     
-#🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+#🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
     me = message.guild.me
     tao = client.ch.guild.get_member(526620171658330112)
 
@@ -1193,7 +1198,7 @@ url_embed] #ヘルプの各ページ内容
 
 
     if (len(message.embeds) == 0) and (message.channel.name == "global_yui") and (not "discord.gg" in message.author.name):
-        content = re.sub(r"(https://discord.gg/)([a-zA-Z]*)",r"||\1\2||",message.content)
+        content = re.sub(r"(https://discord.gg/)([a-zA-Z./%=]*)", r"||\1\2||", message.content)
         embed = discord.Embed(title=f'送信者│{message.author}',description=f"{content}",color=discord.Color(random.randint(0, 0xFFFFFF)))
         embed.set_thumbnail(url = message.author.avatar_url)
         embed.set_author(icon_url=message.guild.icon_url, name=f"{message.guild.name}")
