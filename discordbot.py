@@ -13,9 +13,6 @@ import re
 import os
 import traceback
 
-import gspread-asyncio
-from oauth2client.service_account import ServiceAccountCredentials
-
 
 from discord.ext import tasks
 
