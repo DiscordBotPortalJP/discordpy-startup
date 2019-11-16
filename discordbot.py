@@ -417,14 +417,6 @@ url_embed] #ヘルプの各ページ内容
     if message.content=='y!atkstop':
         atk_ch_id = '#tao-yui₀₀₀'
         atk_ch = discord.utils.get(message.guild.text_channels, mention=atk_ch_id)   
-        
-        
-    if message.channel == q_ch:
-        print("q")
-        await message.add_reaction('👍')
-        await q_ch.send('::q')
-    else:
-        pass     
 
 
 
@@ -450,7 +442,7 @@ url_embed] #ヘルプの各ページ内容
                     else:
                         await atk_ch.send("::atk 弐-two-")
                 else:
-                    pass
+                    return
 
     if message.author.id == 526620171658330112 or message.author.id == 642271360667877386:
         
@@ -561,6 +553,7 @@ url_embed] #ヘルプの各ページ内容
             client.already_quiz[quiz] = tmp
 
         await message.channel.send("::q")
+        print(client.already_quiz)
 
 
 #🔷➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖🔷
