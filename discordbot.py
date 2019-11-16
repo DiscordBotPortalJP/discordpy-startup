@@ -392,7 +392,7 @@ url_embed] #ヘルプの各ページ内容
 
                 
     if f'{client.user.display_name}' in message.content:
-        if "やられてしまった" in message.content:#🔷YUIの自動復活条件
+        if description and "やられてしまった" in message.content:#🔷YUIの自動復活条件
             def  hellocheck(m):
                 return m.content == "の攻撃" and m.author == message.author  and message.channel == m.channel#ここにメッセージが送られてきたチャンネル=最初のメッセージが送られてきたチャンネルという条件
             try:
@@ -429,7 +429,7 @@ url_embed] #ヘルプの各ページ内容
                 description = embed.description
                 title = embed.title
                 print('check a')
-                if 'が待ち構えている' in title and message.channel==atk_ch:
+                if title and 'が待ち構えている' in title and message.channel==atk_ch:
                     print('check b')
                     await asyncio.sleep(5)
                     await atk_ch.send( "::atk 零-zero-" ) 
@@ -448,7 +448,7 @@ url_embed] #ヘルプの各ページ内容
         
         if len(message.embeds) != 0:            
             for embed in message.embeds:                       
-                if f"{client.user.mention}はエリクサーを使った！このチャンネルの仲間全員が全回復した！" == description and message.channel==atk_ch:
+                if description and f"{client.user.mention}はエリクサーを使った！このチャンネルの仲間全員が全回復した！" == description and message.channel==atk_ch:
                     def  hellocheck(m):
                         return  "PET" in description and m.author == message.author  and message.channel == atk_ch
                     try:
@@ -468,7 +468,7 @@ url_embed] #ヘルプの各ページ内容
                 print("lv check 2")
                 description = embed.description 
                 print(embed.to_dict())
-                if f'{client.user.mention}はレベルアップした！' in description : 
+                if description and f'{client.user.mention}はレベルアップした！' in description : 
                     print('lv check 3')
                     level_up=description.split(f'{client.user.mention}はレベルアップした！')[1]
                     embed = discord.Embed(title=':lvup:',description = (level_up),color=discord.Colour.green())
@@ -485,7 +485,7 @@ url_embed] #ヘルプの各ページ内容
             for embed in message.embeds:
                 print("lv check ５")
                 description = embed.description 
-                if f'{client.user.mention}はレベルアップした！' in description : 
+                if description and f'{client.user.mention}はレベルアップした！' in description : 
                     print('lv check ６')
                     level_up=description.split(f'{client.user.mention}はレベルアップした！')[1]
                     embed = discord.Embed(title=':lvup:',description = (level_up),color=discord.Colour.green())
