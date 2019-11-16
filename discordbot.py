@@ -227,8 +227,7 @@ async def check_last():
     tmp_timediff = datetime.datetime.now() - q_ch.last_message.created_at
     last_message_time = tmp_timediff.total_seconds()
     if last_message_time > 300: # もし最後のメッセージから5分以上経過していたら復帰する
-        if q_ch.last_message.content != "::q":
-            await q_ch.send("::q")
+        await q_ch.send("::q")
 
 
 @tasks.loop(seconds=30)
@@ -550,6 +549,7 @@ url_embed] #ヘルプの各ページ内容
             ans_msg = await client.wait_for("message",check=ans_check)
         except asyncio.TimeoutError:
             await message.channel.send("::q")
+            print(client.already_quiz)
             return
 
         tmp_embed = ans_msg.embeds[0].description
