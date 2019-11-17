@@ -494,7 +494,7 @@ yt_channel_id = CHANNEL_ID # 最初のチャンネルの
 
 
 
-@tasks.loop(minutes=3)
+@tasks.loop(30)
 async def check_last(): 
     tmp_timediff = datetime.datetime.now() - q_ch.last_message.created_at
     last_message_time = tmp_timediff.total_seconds()
