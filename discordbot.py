@@ -463,7 +463,7 @@ async def on_ready():
 
     loop.start()
     looop.start()
-    check_last.start()
+    last_q.start()
     
     channel_id_report = 629327961132236800
     print('We have logged in as {0.user}'.format(client))
@@ -495,12 +495,12 @@ yt_channel_id = CHANNEL_ID # 最初のチャンネルの
 
 
 
-@tasks.loop(30)
-async def check_last(): 
+@tasks.loop(second = 30)
+async def last_q(): 
     tmp_timediff = datetime.datetime.now() - q_ch.last_message.created_at
     last_message_time = tmp_timediff.total_seconds()
-    if last_message_time > 300: # もし最後のメッセージから5分以上経過していたら復帰する
-        await q_ch.send("::q")
+    if last_message_time > 600: 
+        await q_ch.send("::q なぜに止まったかなぁ……")
 
 
 @tasks.loop(seconds=30)
