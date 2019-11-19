@@ -540,13 +540,6 @@ yt_channel_id = CHANNEL_ID # 最初のチャンネルの
 
 
 
-@tasks.loop(seconds = 30)
-async def last_q(): 
-    tmp_timediff = datetime.datetime.now() - q_ch.last_message.created_at
-    last_message_time = tmp_timediff.total_seconds()
-    await q_ch.send("チェック")
-    if last_message_time > 600: 
-        await q_ch.send("::q なぜに止まったかなぁ……")
 
 
 @tasks.loop(seconds=30)
