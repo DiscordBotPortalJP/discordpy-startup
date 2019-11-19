@@ -508,7 +508,6 @@ async def on_ready():
 
     loop.start()
     looop.start()
-    last_q.start()
     
     channel_id_report = 629327961132236800
     print('We have logged in as {0.user}'.format(client))
