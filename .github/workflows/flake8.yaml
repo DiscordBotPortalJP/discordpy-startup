@@ -11,11 +11,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: Install pipenv and dependencies
+    - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install pipenv
-        pipenv install --dev
+        python -m pip install -r requirements.txt
     - name: Run flake8
       run: |
-        pipenv run pytest --flake8
+        pytest --flake8
