@@ -1,2 +1,1 @@
 discord.py[voice]>=1.2.5
-flake8
