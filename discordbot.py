@@ -1,26 +1,18 @@
 from discord.ext import commands
 import os
 import traceback
+import discord
 
-bot = commands.Bot(command_prefix='あおいちゃん、')
+client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
-# 起動時のあいさつ
-@bot.event
-async def on_ready():
-    print('ログインしました')
+async def reply(message):
+    reply = f'{message.author.mention}呼んだかな？'
+    await message.channel.send(reply)
 
-# デフォルト
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-# デフォルト
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
+@client.event
+async def on_message(message):
+    if client.user in message.mentions:
+        await reply(message)
 
 bot.run(token)
