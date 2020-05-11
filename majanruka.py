@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix="!")
 # 本番用
 #旧トークン
 #token = "NzA4OTg0MDU4Njc1MzMxMTIz.Xrf-3w.L-A8xBGpgCBzdO6TQ9U_BvA4Nvc"
-token = "NzA4OTg0MDU4Njc1MzMxMTIz.XrjVaQ.r9FUwPqNOi5pi23jYQ3Xbno_1BY"
+token = os.environ['DISCORD_BOT_TOKEN']
 
 # テスト用
 # token = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
