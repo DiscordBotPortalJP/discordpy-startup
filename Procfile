@@ -1,1 +1,1 @@
-discordbot: python discordbot.py
+discordbot: python ma-jan_ruka.py
