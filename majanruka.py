@@ -9,7 +9,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix="!")
 
 # 本番用
-token = "NzA4OTg0MDU4Njc1MzMxMTIz.Xrf-3w.L-A8xBGpgCBzdO6TQ9U_BvA4Nvc"
+token = "NzA4OTg0MDU4Njc1MzMxMTIz.XrjOIg.ISq7JO6b1Ibvfsy67roW1mknoGU"
 
 # テスト用
 # token = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
