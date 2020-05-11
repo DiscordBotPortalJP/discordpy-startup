@@ -1,1 +1,1 @@
-discordbot: python discord.py
+discordbot: python majanruka.py
