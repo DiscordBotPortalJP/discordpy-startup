@@ -1,2 +1,2 @@
 discord.py[voice]>=1.3.2
-mojimoji.py
+mojimoji.py[voice]>=0.0.10
