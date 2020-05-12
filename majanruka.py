@@ -116,7 +116,7 @@ async def reserv(message):
     # 重複チェック
     for item in turn_list:
         if message.author.name in item.author.name:
-            await message.channel.send(f"{message.author.name}" + "さん予約済みなのだわ。")
+            await message.channel.send(f"{message.author.name}" + "さん予約済みなのだわ")
             return
 
     turn_list.append(message)
@@ -124,10 +124,10 @@ async def reserv(message):
     if len(turn_list) > 3:
         if len(turn_list) == n:
             await message.channel.send(
-                f"いっぱい入ってきてこわれるぅ～！\n({message.author.name}さんの予約はちゃんと受け付けておいたわに。　" + str(len(turn_list)) + "番目だよ。)")
+                f"いっぱい入ってきてこわれるぅ～！\n({message.author.name}さんの予約はちゃんと受け付けておいたわに。　" + str(len(turn_list)) + "番目だよ)")
             return
 
-    await message.channel.send(f"{message.author.name}さんの予約を受け付けておいたわ。　" + str(len(turn_list)) + "番目だよ。")
+    await message.channel.send(f"{message.author.name}さんの予約を受け付けておいたわ。　" + str(len(turn_list)) + "番目だよ")
 
 
 # 予約処理関数
@@ -163,7 +163,7 @@ async def show(ctx):
 @bot.command(name='nuclear')
 async def clear(ctx):
         turn_list.clear()
-        await ctx.send("予約中の人に核兵器使うの気持ちいい～")
+        await ctx.send("あぁ～:heart: 予約中の人に核兵器使うの気持ちいい:heart:")
 
 # 予約処理実行用関数
 @bot.command()
@@ -183,6 +183,4 @@ async def help(message):
     embed.add_field(name="!show", value="予約の列を確認するわに", inline=False)
     embed.add_field(name="!nuclear", value="予約の列に核兵器打ち込むわに", inline=False)
     await message.channel.send(embed=embed)
-
-
 bot.run(token)
