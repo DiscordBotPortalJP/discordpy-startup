@@ -52,6 +52,10 @@ async def on_message(message):
     # ボットのメッセージを除外
     if message.author.bot:
         return
+    
+    #冗長
+    if re.search(r'(ママ|まま)(おねがい|お願い)', message.content):
+        await message.channel.send("ママじゃないよ")
 
     # メッセージからのハンドル(予約)
     if re.search(r'(まー|マー|麻)(じゃん|ジャン|雀).*(予約|よやく)', message.content):
