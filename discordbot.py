@@ -55,7 +55,10 @@ async def on_message(message):
     
     #冗長
     if re.search(r'(ママ|まま)(おねがい|お願い)', message.content):
-        await message.channel.send("ママじゃないよ")
+        if message.author.name == 'GESU':
+            await message.channel.send("はいはい、ファラリスの雄牛に入りたいのね")
+        else:
+            await message.channel.send("ママじゃないよ")
 
     # メッセージからのハンドル(予約)
     if re.search(r'(まー|マー|麻)(じゃん|ジャン|雀).*(予約|よやく)', message.content):
