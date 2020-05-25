@@ -26,7 +26,7 @@ async def on_message(message):
             return
         GLOBAL_CH_NAME = "mikan-global" # グローバルチャットのチャンネル名
 
-        if message.channel.name == GLOBAL_CH_NAME:
+        if message.channel.name == mikan-global:
             # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
             await message.delete() # 元のメッセージは削除しておく
@@ -36,7 +36,7 @@ async def on_message(message):
             # channelsはbotの取得できるチャンネルのイテレーター
             # global_channelsは hoge-global の名前を持つチャンネルのリスト
 
-            embed = discord.Embed(title=GLOBAL_CH_NAME,
+            embed = discord.Embed(title=mikan-global,
                 description=message.content, color=0x00bfff)
 
             embed.set_author(name=message.author.display_name, 
