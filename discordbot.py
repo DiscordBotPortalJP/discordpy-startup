@@ -49,6 +49,8 @@ async def on_message(message):
             for channel in global_channels:
                 # メッセージを埋め込み形式で転送
                 await channel.send(embed=embed)
+        else:
+            bot.process_commands(message)
     except Exception as error:
         await on_command_error(message.channel,error)
 
