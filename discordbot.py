@@ -50,7 +50,7 @@ async def on_message(message):
                 # メッセージを埋め込み形式で転送
                 await channel.send(embed=embed)
         else:
-            bot.process_commands(message)
+            await bot.process_commands(message)
     except Exception as error:
         await on_command_error(message.channel,error)
 
