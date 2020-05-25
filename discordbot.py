@@ -27,7 +27,7 @@ async def on_message(message):
             return
         GLOBAL_CH_NAME = "mikan-global" # グローバルチャットのチャンネル名
 
-        if message.channel.name == GLOBAL_CH_NAME:
+        if isinstance(message.channel,discord.TextChannel) and message.channel.name == GLOBAL_CH_NAME:
             # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
             await message.delete() # 元のメッセージは削除しておく
