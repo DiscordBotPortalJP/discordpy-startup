@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 import traceback
 import time
+from cogs import evals
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -55,26 +56,11 @@ async def on_message(message):
     except Exception as error:
         await on_command_error(message.channel,error)
 
-@bot.command()
-async def eval(ctx,*,cmd):
-    if ctx.author.id in bot.teams:
-        kg="\n"
-        txt=f'async def evdf(ctx,bot):{kg}{kg.join([f" {i}" for i in cmd.replace("py","").replace("","").split(kg)])}'
-        try:
-            exec(txt)
-            await eval("evdf(ctx,bot)")
-            await ctx.message.add_reaction("✅")
-        except:
-            await ctx.message.add_reaction("❌")
-            await ctx.send(embed=discord.Embed(title="Error",description=f"{traceback.format_exc(3)}"))
-    else:
-        await ctx.send("このコマンドは使用できません。")
-        return
-
 @bot.command(pass_context=True)
 async def ping2(ctx):  # 処理時間を返す
     startt = time.time()
     tmp = await ctx.send("計測中……!")
     await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
 
+evals.setup(bot)
 bot.run(token)
