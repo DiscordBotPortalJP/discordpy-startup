@@ -4,12 +4,6 @@ import os
 import traceback
 import time
 
-@bot.command()(pass_context=True)
-async def ping2(ctx):  # 処理時間を返す
-    startt = time.time()
-    tmp = await ctx.send("計測中……!")
-    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
-
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 bot.teams = [546682137240403984]
@@ -76,5 +70,11 @@ async def eval(ctx,*,cmd):
     else:
         await ctx.send("このコマンドは使用できません。")
         return
+
+@bot.command(pass_context=True)
+async def ping2(ctx):  # 処理時間を返す
+    startt = time.time()
+    tmp = await ctx.send("計測中……!")
+    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
 
 bot.run(token)
