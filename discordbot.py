@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 import os
 import traceback
@@ -26,17 +27,17 @@ async def on_message(message):
             return
         GLOBAL_CH_NAME = "mikan-global" # グローバルチャットのチャンネル名
 
-        if message.channel.name == mikan-global:
+        if message.channel.name == GLOBAL_CH_NAME:
             # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
             await message.delete() # 元のメッセージは削除しておく
 
             channels = bot.get_all_channels()
-            global_channels = [ch for ch in channels if ch.name == mikan-global]
+            global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
             # channelsはbotの取得できるチャンネルのイテレーター
             # global_channelsは hoge-global の名前を持つチャンネルのリスト
 
-            embed = discord.Embed(title=mikan-global,
+            embed = discord.Embed(title=GLOBAL_CH_NAME,
                 description=message.content, color=0x00bfff)
 
             embed.set_author(name=message.author.display_name, 
