@@ -51,7 +51,7 @@ async def on_message(message):
     except Exception as error:
         await on_command_error(message.channel,error)
 
-@bot.commands()
+@bot.command()
 async def eval(ctx,*,cmd):
     if ctx.author.id in bot.teams:
         kg="\n"
