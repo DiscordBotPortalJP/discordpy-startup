@@ -2,6 +2,13 @@ import discord
 from discord.ext import commands
 import os
 import traceback
+import time
+
+@bot.command()(pass_context=True)
+async def ping2(ctx):  # 処理時間を返す
+    startt = time.time()
+    tmp = await ctx.send("計測中……!")
+    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
