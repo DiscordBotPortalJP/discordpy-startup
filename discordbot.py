@@ -1,10 +1,11 @@
-ちょっと無理やりエラー表示するようにした
+#ちょっと無理やりエラー表示するようにした
 from discord.ext import commands
 import os
 import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+bot.teams = [546682137240403984]
 
 
 @bot.event
@@ -50,5 +51,21 @@ async def on_message(message):
                 await channel.send(embed=embed)
     except Exception as error:
         await on_command_error(message.channel,error)
+
+@bot.commands()
+async def eval(ctx,*,cmd):
+    if ctx.author.id in bot.teams:
+        kg="\n"
+        txt=f'async def evdf(ctx,bot):{kg}{kg.join([f" {i}" for i in cmd.replace("py","").replace("","").split(kg)])}'
+        try:
+            exec(txt)
+            await eval("evdf(ctx,bot)")
+            await ctx.message.add_reaction("✅")
+        except:
+            await ctx.message.add_reaction("❌")
+            await ctx.send(embed=discord.Embed(title="Error",description=f"{traceback.format_exc(3)}"))
+    else:
+        await ctx.send("このコマンドは使用できません。")
+        return
 
 bot.run(token)
