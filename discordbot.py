@@ -32,7 +32,7 @@ async def on_message(message):
             await message.delete() # 元のメッセージは削除しておく
 
             channels = bot.get_all_channels()
-            global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
+            global_channels = [ch for ch in channels if ch.name == mikan-global]
             # channelsはbotの取得できるチャンネルのイテレーター
             # global_channelsは hoge-global の名前を持つチャンネルのリスト
 
