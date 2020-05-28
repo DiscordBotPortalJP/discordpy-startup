@@ -4,7 +4,7 @@ import os
 import traceback
 import time
 from cogs import evals
-from cogs import global
+from cogs import globalchat
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
