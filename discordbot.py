@@ -69,4 +69,5 @@ async def ping2(ctx):  # 処理時間を返す
     await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
 
 evals.setup(bot)
+globalchat.setup(bot)
 bot.run(token)
