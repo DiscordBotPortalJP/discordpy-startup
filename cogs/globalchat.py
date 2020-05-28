@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import json
 
-class global(commands.Cog):
+class globalchat(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
@@ -100,4 +100,4 @@ class global(commands.Cog):
                 await msg.edit(embed=e)
 
 def setup(bot):
-    bot.add_cog(global(bot))
+    bot.add_cog(globalchat(bot))
