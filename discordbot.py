@@ -4,6 +4,7 @@ import os
 import traceback
 import time
 from cogs import evals
+from cogs import global
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -55,7 +56,11 @@ async def on_message(message):
         except Exception as error:
             await on_command_error(message.channel,error)
     else:
-        return
+        for g in bot.channels:
+            if g.name == "mikan-global":
+                return
+            else:
+                pass
 
 @bot.command(pass_context=True)
 async def ping2(ctx):  # 処理時間を返す
