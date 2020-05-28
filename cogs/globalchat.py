@@ -96,7 +96,7 @@ class globalchat(commands.Cog):
                     json.dump(gb ,fr)
             except:
                 e.description = None
-                e.add_field(name="エラー", value="グローバルBanできませんでした。)
+                e.add_field(name="エラー", value="グローバルBanできませんでした。")
                 await msg.edit(embed=e)
 
 def setup(bot):
