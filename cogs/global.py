@@ -35,7 +35,7 @@ class global(commands.Cog):
             await msg.edit(embed=e)
             return
         
-        with open("globalban.json", 'r', encoding="utf-8") as f:
+        with open("gban_data.json", 'r', encoding="utf-8") as f:
             gb = json.load(f)
         
         if uid == None:
@@ -76,7 +76,7 @@ class global(commands.Cog):
                 e.add_field(name="新規グローバルBan", value=f"{u} ({u.id}) をグローバルBanしました。")
                 gb[uid] = {'name':u, 'ban':True, 'reason':reason}
                 await msg.edit(embed=e)
-                with open("globalban.json", 'w', encoding="utf-8") as fr:
+                with open("gban_data.json", 'w', encoding="utf-8") as fr:
                     json.dump(gb, fr)
             except:
                 e.description = None
@@ -92,7 +92,7 @@ class global(commands.Cog):
                 gb[uid]['name'] = u
                 gb[uid]['ban'] = bool
                 gb[uid]['reason'] = reason
-                with open("globalban.json", 'w', encoding="utf-8") as fr:
+                with open("gban_data.json", 'w', encoding="utf-8") as fr:
                     json.dump(gb ,fr)
             except:
                 e.description = None
