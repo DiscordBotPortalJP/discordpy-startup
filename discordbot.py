@@ -18,7 +18,14 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
+@bot.command(name="プレイ変更")
+#@commands.is_owner()
+@commands.has_permissions(administrator=True)
+async def pureityuu(ctx, *, st):
+    stni = f"{st}"
+    await bot.change_presence(activity=discord.Game(name=stni))
+    await ctx.send(embed=discord.Embed(title="変更しました！", description=f"{stni}"))
+ 
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -35,7 +42,7 @@ async def on_message(message):
             if isinstance(message.channel,discord.TextChannel) and message.channel.name == GLOBAL_CH_NAME:
             # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
-                await message.delete() # 元のメッセージは削除しておく
+                await .delete() # 元のメッセージは削除しておく
 
                 channels = bot.get_all_channels()
                 global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
