@@ -42,7 +42,7 @@ async def on_message(message):
             if isinstance(message.channel,discord.TextChannel) and message.channel.name == GLOBAL_CH_NAME:
             # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
-                await .delete() # 元のメッセージは削除しておく
+                await message.delete() # 元のメッセージは削除しておく
 
                 channels = bot.get_all_channels()
                 global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
