@@ -361,5 +361,13 @@ async def pureityuudadada(ctx, *, st):
     else:
         await ctx.send(embed=discord.Embed(title="あなたは違いますよ！？", description="何しているんですか！？"))
 
-
+import random
+@bot.command(name='バグ報告')
+async def bug(ctx, *, text):
+    color = random.randint(0x000000, 0xffffff)
+    ch = bot.get_channel(718054242065055747)
+    await ch.send(embed=discord.Embed(title="意見ありがとうございます。", description=f"報告内容：{text}\n報告者：{ctx.author.name}({ctx.author.id})\nサーバー：{ctx.guild.name}:{ctx.guild.id}", color=color))
+    await ctx.send("参考にします。")
+    await ctx.message.delete()
+                            
 bot.run(token)
