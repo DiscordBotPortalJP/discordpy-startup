@@ -11,7 +11,7 @@ import psutil
 
 
 bot = commands.Bot(command_prefix='/')
-token = ''
+token = os.environ['DISCORD_BOT_TOKEN']
 
 bot.remove_command('help')
 
