@@ -73,7 +73,7 @@ async def on_message(message):
 async def ping2(ctx):  # 処理時間を返す
     startt = time.time()
     tmp = await ctx.send("計測中……!")
-    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒だ！")
+    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒です。です。！")
 
 evals.setup(bot)
 globalchat.setup(bot)
