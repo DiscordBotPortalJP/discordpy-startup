@@ -74,25 +74,29 @@ async def ping2(ctx):  # 処理時間を返す
     startt = time.time()
     tmp = await ctx.send("計測中……!")
     await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒です。！")
-    @bot.command(name="チャンネル確認")
+
+@bot.command(name="チャンネル確認")
 async def channelchannel(ctx):
     girudo = ctx.guild.channels
     channelcount = len(girudo)
     await ctx.send(embed=discord.Embed(title=f"チャンネル数：{channelcount}", description="500になったら作れません。"))
-    @bot.command(name="bot人数")
+
+@bot.command(name="bot人数")
 # @commands.has_permissions(administrator=True)
 async def botninzuu(ctx):
     guild = ctx.guild
     bot_count = sum(1 for member in guild.members if member.bot)
     # bot_count = sum(1 for member in guild.memers if member.bot) #間違い
     await ctx.send(f'BOT数：{bot_count}')
-    @bot.command(name="ユーザー人数")
+
+@bot.command(name="ユーザー人数")
 # @commands.has_permissions(administrator=True)
 async def yuzaninzuu(ctx):
     guild = ctx.guild
     user_count = sum(1 for member in guild.members if not member.bot)
     await ctx.send(f'ユーザ数：{user_count}')
-    @bot.command(name="合計人数")
+
+@bot.command(name="合計人数")
 # @commands.has_permissions(administrator=True)
 async def ninzuuzentai(ctx):
     guild = ctx.guild
