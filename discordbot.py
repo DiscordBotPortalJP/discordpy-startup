@@ -18,7 +18,7 @@ bot.remove_command('help')
 
 @bot.command()
 async def help(ctx):
-    await ctx.send(embed=discord.Embed(title="ヘルプコマンドです！", description=f"bot人数：botの数を調べます\npin：ピン留めします\nping：確認します\nping2：確認します\nui：ユーザーを調べます(使い方：ui ユーザーID)\n uuser：ユーザー調査です！(使い方：uuser ユーザーID)\nサイコロをふる：サイコロをふります！(使い方：サイコロをふる 1d6)\nチャンネル：指定したチャンネルに書き込みます！(使い方：チャンネル #(チャンネル名) てすと)\nチャンネル確認：チャンネルを確認します！\nチャンネル２：その場のチャンネルに書き込みます！(使い方：チャンネル２ てすと)\nユーザー人数：ユーザー人数を調べます！\nリンク：短縮リンクを作ります！(使い方：リンク URL)\n全体人数：サーバー人数を調べます！\n役職持ち確認：役職所持者を確認します！(使い方：役職持ち確認 役職名)\n時間確認：時間を確認します！\n野生：ネタコマンドです！\n鯖知りたい：サーバーの情報を知ることができます！(使い方：鯖知りたい サーバーID)"))
+    await ctx.send(embed=discord.Embed(title="ヘルプコマンドです！", description=f"bot人数：botの数を調べます\npin：ピン留めします\nping：確認します\nping2：確認します\nui：ユーザーを調べます(使い方：ui ユーザーID)\n uuser：ユーザー調査です！(使い方：uuser ユーザーID)\nサイコロをふる：サイコロをふります！(使い方：サイコロをふる 1d6)\nチャンネル：指定したチャンネルに書き込みます！(使い方：チャンネル #(チャンネル名) てすと)\nチャンネル確認：チャンネルを確認します！\nチャンネル２：その場のチャンネルに書き込みます！(使い方：チャンネル２ てすと)\nユーザー人数：ユーザー人数を調べます！\nリンク：短縮リンクを作ります！(使い方：リンク URL)\n全体人数：サーバー人数を調べます！\n役職持ち確認：役職所持者を確認します！(使い方：役職持ち確認 役職名)\n時間確認：時間を確認します！\n野生：ネタコマンドです！\n鯖知りたい：サーバーの情報を知ることができます！(使い方：鯖知りたい サーバーID)"\nバグ報告 (バグ報告します)
 
 
 @bot.command()
@@ -365,8 +365,9 @@ import random
 @bot.command(name='バグ報告')
 async def bug(ctx, *, text):
     color = random.randint(0x000000, 0xffffff)
-    ch = bot.get_channel(718139987266109480 718054242065055747)
-    await ch.send(embed=discord.Embed(title="意見ありがとうございます。", description=f"報告内容：{text}\n報告者：{ctx.author.name}({ctx.author.id})\nサーバー：{ctx.guild.name}:{ctx.guild.id}", color=color))
+    for i in [718139987266109480 718054242065055747]:
+        ch = bot.get_channel(i)
+        await ch.send(embed=discord.Embed(title="意見ありがとうございます。", description=f"報告内容：{text}\n報告者：{ctx.author.name}({ctx.author.id})\nサーバー：{ctx.guild.name}:{ctx.guild.id}", color=color))
     await ctx.send("参考にします。")
     await ctx.message.delete()
                             
