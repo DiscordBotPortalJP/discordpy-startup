@@ -1,30 +1,18 @@
-import discord
+import import time
 from discord.ext import commands
 import os
+import random
 import traceback
+import discord
 import time
-from cogs import evals
-from cogs import globalchat
+import datetime
+import requests
+import psutil
+
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-bot.teams = [546682137240403984]
 
-bot.globalc = True
-
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-@bot.command(name="プレイ変更")
-#@commands.is_owner()
-@commands.has_permissions(administrator=True)
-async def pureityuu(ctx, *, st):
-    stni = f"{st}"
-    await bot.change_presence(activity=discord.Game(name=stni))
-    await ctx.send(embed=discord.Embed(title="変更しました！", description=f"{stni}"))
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -51,7 +39,7 @@ async def on_message(message):
 
             await message.delete()  # 元のメッセージは削除しておく
 
-            channels = client.get_all_channels()
+            channels = bot.get_all_channels()
             global_channels = [
                 ch for ch in channels if ch.name == GLOBAL_CH_NAME]
             # channelsはbotの取得できるチャンネルのイテレーター
@@ -169,7 +157,7 @@ async def _zikannnnnnn(ctx):
     # t = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
     now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
     color = random.randint(0x000000, 0xffffff)
-    await ctx.send(embed=discord.Embed(title="時間だ。よく見てください。", description=f"{now}", color=color))
+    await ctx.send(embed=discord.Embed(title="時間だ。よく見ておいてくれ。", description=f"{now}", color=color))
 
 
 @bot.command()
@@ -341,8 +329,3 @@ async def pureityuu(ctx, *, st):
 
 
 bot.run(token)
- 
-
-evals.setup(bot)
-globalchat.setup(bot)
-bot.
