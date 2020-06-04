@@ -25,89 +25,6 @@ async def pureityuu(ctx, *, st):
     stni = f"{st}"
     await bot.change_presence(activity=discord.Game(name=stni))
     await ctx.send(embed=discord.Embed(title="変更しました！", description=f"{stni}"))
- 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-@bot.event
-async def on_message(message):
-    if bot.globalc == True:
-        try:
-            if message.author.bot
-            # もし、送信者がbotなら無視する
-                return
-            GLOBAL_CH_NAME = "mikan-global" # グローバルチャットのチャンネル名
-
-            if isinstance(message.channel,discord.TextChannel) and message.channel.name == GLOBAL_CH_NAME:
-            # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
-
-                await message.delete() # 元のメッセージは削除しておく
-
-                channels = bot.get_all_channels()
-                global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
-            # channelsはbotの取得できるチャンネルのイテレーター
-            # global_channelsは hoge-global の名前を持つチャンネルのリスト
-
-                embed = discord.Embed(title=GLOBAL_CH_NAME, description=message.content, color=0x00bfff)
-
-                embed.set_author(name=message.author.display_name, icon_url=message.author.avatar_url_as(format="png"
-                embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",icon_url=message.guild.icon_url_as(format="png"))
-            # Embedインスタンスを生成、投稿者、投稿場所などの設定
-
-                for channel in global_channels:
-                # メッセージを埋め込み形式で転送
-                    await channel.send(embed=embed)
-            else:
-                await bot.process_commands(message)
-        except Exception as error:
-            await on_command_error(message.channel,error)
-    else:
-        for g in bot.channels:
-            if g.name == "mikan-global":
-                return
-            else:
-                
-                pass
-
-@bot.command(pass_context=True)
-async def ping2(ctx):  # 処理時間を返す
-    startt = time.time()
-    tmp = await ctx.send("計測中……!")
-    await tmp.edit(content="pong！\n結果:**" + str(round(time.time()-startt, 3))+"**秒です。！")
-    @bot.command(name="チャンネル確認")
-async def channelchannel(ctx):
-    girudo = ctx.guild.channels
-    channelcount = len(girudo)
-    await ctx.send(embed=discord.Embed(title=f"チャンネル数：{channelcount}", description="500になったら作れません。"))
-    @bot.command(name="bot人数")
-# @commands.has_permissions(administrator=True)
-async def botninzuu(ctx):
-    guild = ctx.guild
-    bot_count = sum(1 for member in guild.members if member.bot)
-    # bot_count = sum(1 for member in guild.memers if member.bot) #間違い
-    await ctx.send(f'BOT数：{bot_count}')
-    @bot.command(name="ユーザー人数")
-# @commands.has_permissions(administrator=True)
-async def yuzaninzuu(ctx):
-    guild = ctx.guild
-    user_count = sum(1 for member in guild.members if not member.bot)
-    await ctx.send(f'ユーザ数：{user_count}')
-    @bot.command(name="合計人数")
-# @commands.has_permissions(administrator=True)
-async def ninzuuzentai(ctx):
-    guild = ctx.guild
-    member_count = guild.member_count
-    await ctx.send(f'メンバー数：{member_count}')import time
-from discord.ext import commands
-import os
-import random
-import traceback
-
-
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
-
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -252,7 +169,7 @@ async def _zikannnnnnn(ctx):
     # t = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
     now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
     color = random.randint(0x000000, 0xffffff)
-    await ctx.send(embed=discord.Embed(title="時間だ。よく見ておいてくれ。", description=f"{now}", color=color))
+    await ctx.send(embed=discord.Embed(title="時間だ。よく見てください。", description=f"{now}", color=color))
 
 
 @bot.command()
