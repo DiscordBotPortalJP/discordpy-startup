@@ -28,6 +28,10 @@ async def on_message(message):
     if message.content == 'あああ':
         vc.play('./SE/aaa.wav')
     
+    if message.content == 'cwd':
+        path = os.getcwd()
+        await message.channel.send(path)
+        
     if message.content.startswith('!se'):
         if message.author.voice == None:
             await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
