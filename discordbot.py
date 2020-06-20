@@ -46,6 +46,16 @@ async def on_message(message):
         vc.play(ffmpeg_audio_source)
         await asyncio.sleep(sound.duration_seconds+1)
         await vc.disconnect()
+      
+    if message.content == 'イキスギ':
+        channel =  client.get_channel(voice_id)
+        vc = await channel.connect()
+        File="./SE/ikisugi.mp3"
+        ffmpeg_audio_source = discord.FFmpegPCMAudio(File)
+        sound = AudioSegment.from_file(File, "mp3")
+        vc.play(ffmpeg_audio_source)
+        await asyncio.sleep(sound.duration_seconds+1)
+        await vc.disconnect()
         
 
 # Botの起動とDiscordサーバーへの接続
