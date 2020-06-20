@@ -30,8 +30,9 @@ async def on_message(message):
     if message.content == 'あああ':
         channel =  client.get_channel(voice_id)
         vc = await channel.connect()
-        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
-        sound = AudioSegment.from_file("./SE/aaa.wav", "wav")
+        File="./SE/aaa.wav"
+        ffmpeg_audio_source = discord.FFmpegPCMAudio(File)
+        sound = AudioSegment.from_file(File, "wav")
         vc.play(ffmpeg_audio_source)
         await asyncio.sleep(sound.duration_seconds+1)
         await vc.disconnect()
