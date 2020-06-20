@@ -2,6 +2,7 @@ import discord
 import os
 import traceback
 import asyncio
+from pydub import AudioSegment
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -19,7 +20,7 @@ async def on_message(message):
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
-        await message.channel.send('にーん')
+        await message.channel.send('にゃーん')
     
     if message.content.startswith('calc'):
         phrase=message.content.split()
@@ -29,9 +30,9 @@ async def on_message(message):
     if message.content == 'あああ':
         channel =  client.get_channel(voice_id)
         vc = await channel.connect()
-        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/ジャカジャカジャンケンハードコア.mp3")
+        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
         vc.play(ffmpeg_audio_source)
-        await asyncio.sleep(10)
+        await asyncio.sleep(2)
         await vc.disconnect()
         
     """
