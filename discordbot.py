@@ -6,16 +6,10 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-if not discord.opus.is_loaded(): 
-    #もし未ロードだったら
+if not discord.opus.is_loaded():
     discord.opus.load_opus("heroku-buildpack-libopus")
-# メッセージ受信時に動作する処理
-
-@client.event
-async def on_ready():
-    channel = client.get_channel(723932721281499217)
-    await channel.send("Botが起動しました！")
     
+# メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
