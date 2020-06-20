@@ -6,7 +6,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-
+if not discord.opus.is_loaded(): 
+    #もし未ロードだったら
+    discord.opus.load_opus("heroku-buildpack-libopus")
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
@@ -26,7 +28,8 @@ async def on_message(message):
         await message.channel.send(eval(formula))
     
     if message.content == 'あああ':
-        vc.play(/app/SE/aaa.wav)
+        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
+        vc.play(ffmpeg_audio_source)
     
     if message.content == 'cwd':
         path = os.getcwd()
