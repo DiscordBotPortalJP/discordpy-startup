@@ -26,7 +26,7 @@ async def on_message(message):
         await message.channel.send(eval(formula))
     
     if message.content == 'あああ':
-        vc.play('./SE/aaa.wav')
+        vc.play(/app/SE/aaa.wav)
     
     if message.content == 'cwd':
         path = os.getcwd()
