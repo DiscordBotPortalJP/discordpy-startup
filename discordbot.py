@@ -11,6 +11,8 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
+    server_id = message.author.guild.id
+    voice_id = message.author.voice.channel.id
     if message.author.bot:
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
@@ -21,6 +23,18 @@ async def on_message(message):
         phrase=message.content.split()
         formula=phrase[1]
         await message.channel.send(eval(formula))
+        
+    if message.content == 'iIDinfo':
+        await message.channel.send(server_id+'\n'+voice_id)
+    
+    if message.content.startswith('!se'):
+        if message.author.voice == None:
+            await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
+            return
+        phrase=message.content.split()
+        
+        if phrase[1] == "cn" :
+            return
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
