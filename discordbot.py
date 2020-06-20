@@ -10,6 +10,12 @@ if not discord.opus.is_loaded():
     #もし未ロードだったら
     discord.opus.load_opus("heroku-buildpack-libopus")
 # メッセージ受信時に動作する処理
+
+@client.event
+async def on_ready():
+    channel = client.get_channel(723932721281499217)
+    await channel.send("Botが起動しました！")
+    
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
