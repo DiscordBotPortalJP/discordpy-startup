@@ -32,7 +32,7 @@ async def on_message(message):
         path = os.getcwd()
         await message.channel.send(path)
         
-    if message.content == 'cwd':
+    if message.content == 'ls':
         path = os.listdir()
         await message.channel.send(path)
         
