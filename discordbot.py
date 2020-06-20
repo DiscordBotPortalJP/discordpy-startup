@@ -14,8 +14,9 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
+on_message(message):
+    
+    if message.content.startswith('ねこ'):
+        await message.channel.send('にゃーん')
 
 bot.run(token)
