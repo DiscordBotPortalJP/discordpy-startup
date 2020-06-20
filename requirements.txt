@@ -1,2 +1,2 @@
 discord.py[voice]>=1.3.2
-pydub>=0.24.0
+pydub==0.24.1
