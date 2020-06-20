@@ -36,18 +36,6 @@ async def on_message(message):
         await asyncio.sleep(sound.duration_seconds+1)
         await vc.disconnect()
         
-    """
-    if message.content.startswith('!se'):
-        if message.author.voice == None:
-            await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
-            return
-        phrase=message.content.split()
-        
-        if phrase[1] == "cn" :
-            channel =  client.get_channel(voice_id)
-            vc = await channel.connect()
-            return
-    """
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
