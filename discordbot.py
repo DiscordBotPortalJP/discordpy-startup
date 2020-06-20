@@ -19,7 +19,7 @@ async def on_message(message):
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
-        await message.channel.send('にゃーん')
+        await message.channel.send('にーん')
     
     if message.content.startswith('calc'):
         phrase=message.content.split()
