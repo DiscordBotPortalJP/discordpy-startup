@@ -56,6 +56,14 @@ async def on_message(message):
         vc.play(ffmpeg_audio_source)
         await asyncio.sleep(sound.duration_seconds+1)
         await vc.disconnect()
+      
+    if message.content == "/list":
+      list  = "```"
+      list += "にゃーん"
+      list += "あああ"
+      list += "イキスギ"
+      list += "```"
+      await message.channel.send(list)
         
 
 # Botの起動とDiscordサーバーへの接続
