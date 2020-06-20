@@ -25,7 +25,7 @@ async def on_message(message):
         await message.channel.send(eval(formula))
         
     if message.content == 'IDinfo':
-        await message.channel.send(str(server_id)+'\n'+str(voice_id))
+        await message.channel.send(str(voice_id))
     
     if message.content.startswith('!se'):
         if message.author.voice == None:
