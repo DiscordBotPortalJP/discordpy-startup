@@ -43,7 +43,7 @@ async def on_message(message):
             channel =  client.get_channel(voice_id)
             vc = await channel.connect()
             return
-    """"
+    """
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
