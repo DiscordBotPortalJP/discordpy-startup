@@ -25,6 +25,9 @@ async def on_message(message):
         formula=phrase[1]
         await message.channel.send(eval(formula))
     
+    if message.content == 'あああ':
+        vc.play('./SE/aaa.wav')
+    
     if message.content.startswith('!se'):
         if message.author.voice == None:
             await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
