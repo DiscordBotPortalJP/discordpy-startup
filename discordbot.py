@@ -28,7 +28,7 @@ async def on_message(message):
     if message.content == 'あああ':
         channel =  client.get_channel(voice_id)
         vc = await channel.connect()
-        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
+        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/ジャカジャカジャンケンハードコア.mp3")
         vc.play(ffmpeg_audio_source)
         await vc.disconnect()
         
