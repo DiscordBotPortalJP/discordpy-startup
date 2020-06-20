@@ -58,7 +58,7 @@ async def on_message(message):
         await vc.disconnect()
       
     if message.content == "/list":
-      with open(path) as f:
+      with open("./list.txt") as f:
          list = f.read()
       await message.channel.send(list)
         
