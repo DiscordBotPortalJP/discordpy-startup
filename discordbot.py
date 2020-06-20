@@ -1,6 +1,7 @@
 import discord
 import os
 import traceback
+import asyncio
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -30,6 +31,7 @@ async def on_message(message):
         vc = await channel.connect()
         ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/ジャカジャカジャンケンハードコア.mp3")
         vc.play(ffmpeg_audio_source)
+        await asyncio.sleep(10)
         await vc.disconnect()
         
     """
