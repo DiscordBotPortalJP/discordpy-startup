@@ -26,17 +26,13 @@ async def on_message(message):
         await message.channel.send(eval(formula))
     
     if message.content == 'あああ':
-        ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
+        channel =  client.get_channel(voice_id)
+        vc = await channel.connect()
+        ffmpeg_audio_source = discord.FFmpegPCMAudio("/app/SE/aaa.wav")
         vc.play(ffmpeg_audio_source)
-    
-    if message.content == 'cwd':
-        path = os.getcwd()
-        await message.channel.send(path)
+        await vc.disconnect()
         
-    if message.content == 'ls':
-        path = os.listdir()
-        await message.channel.send(path)
-        
+    """
     if message.content.startswith('!se'):
         if message.author.voice == None:
             await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
@@ -47,6 +43,7 @@ async def on_message(message):
             channel =  client.get_channel(voice_id)
             vc = await channel.connect()
             return
+    """"
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
