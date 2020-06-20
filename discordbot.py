@@ -31,8 +31,9 @@ async def on_message(message):
         channel =  client.get_channel(voice_id)
         vc = await channel.connect()
         ffmpeg_audio_source = discord.FFmpegPCMAudio("./SE/aaa.wav")
+        sound = AudioSegment.from_file("./SE/aaa.wav", "wav")
         vc.play(ffmpeg_audio_source)
-        await asyncio.sleep(2)
+        await asyncio.sleep(sound.duration_seconds+1)
         await vc.disconnect()
         
     """
