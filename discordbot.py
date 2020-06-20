@@ -32,6 +32,10 @@ async def on_message(message):
         path = os.getcwd()
         await message.channel.send(path)
         
+    if message.content == 'cwd':
+        path = os.listdir()
+        await message.channel.send(path)
+        
     if message.content.startswith('!se'):
         if message.author.voice == None:
             await message.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
