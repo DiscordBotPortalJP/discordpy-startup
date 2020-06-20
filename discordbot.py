@@ -6,8 +6,6 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-if not discord.opus.is_loaded():
-    discord.opus.load_opus("heroku-buildpack-libopus")
     
 # メッセージ受信時に動作する処理
 @client.event
