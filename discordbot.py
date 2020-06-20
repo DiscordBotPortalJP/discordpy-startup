@@ -58,11 +58,8 @@ async def on_message(message):
         await vc.disconnect()
       
     if message.content == "/list":
-      list  = "```"
-      list += "にゃーん"
-      list += "あああ"
-      list += "イキスギ"
-      list += "```"
+      with open(path) as f:
+         list = f.read()
       await message.channel.send(list)
         
 
