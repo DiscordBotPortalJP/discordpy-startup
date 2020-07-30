@@ -30,9 +30,9 @@ async def on_message(message):
 
     
 @bot.command()
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-    await message.channel.send('にゃーん')
+    # 「／neko」と発言したら「にゃーん」が返る処理
+    async def neko(ctx):
+    await ctx.send('にゃーん')
 
 
 
