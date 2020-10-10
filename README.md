@@ -12,7 +12,7 @@
 PythonによるDiscordBotのアプリケーションファイルです。
 
 ### requirements.txt
-Pythonのライブラリ情報の設定ファイルです。
+使用しているPythonのライブラリ情報の設定ファイルです。
 
 ### Procfile
 Herokuでのプロセス実行コマンドの設定ファイルです。
