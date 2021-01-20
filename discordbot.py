@@ -17,7 +17,7 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('chinpong')
     
-@bot.command()
+@bot.event
     client.on('message', message =>{
   if (message.author.id == client.user.id || message.author.bot){
     return;
