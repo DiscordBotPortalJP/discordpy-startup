@@ -31,6 +31,7 @@ async def on_message(message):
 	# INCLUDES THE COMMANDS FOR THE BOT. WITHOUT THIS LINE, YOU CANNOT TRIGGER YOUR COMMANDS.
 	await bot.process_commands(message)
     """
+"""
 @bot.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
@@ -39,8 +40,10 @@ async def on_message(message):
     if message.content == "アナル":
         await message.channel.send("アナル！")
 #    if "アナル" in message.content
-    
-
+    """
+@bot.event
+async def on_message(message):
+	return
 
     
 bot.run(token)
