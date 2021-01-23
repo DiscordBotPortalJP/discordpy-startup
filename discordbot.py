@@ -1,7 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
-import harapan
+import harapan_quotes
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -25,8 +25,8 @@ async def omanko(ctx):
     await ctx.send("おまんこ！")
 
 @bot.command()
-async def harapan1(ctx):
-    await ctx.send(harapan.get_harapan())
+async def harapan(ctx):
+    await ctx.send(harapan_quotes.get_harapan())
 """
 @bot.event
 async def on_message(message):
