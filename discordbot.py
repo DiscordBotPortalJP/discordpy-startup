@@ -15,7 +15,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    msg = "そんなの知らないです"
+    msg = "そんなの知らないです・・・"
     await ctx.send(msg)
 #await ctx.send(error_msg)
 
@@ -37,7 +37,7 @@ async def harapan(ctx):
 async def on_message(message):
 	if message.author.bot:
         	return
-	msg = bot_reaction.get_bot_reaction(message.content)
+	msg = bot_reaction.get_bot_reaction(message)
 	if msg != "":
 		await message.channel.send(msg)
 	#if "アナル" in message.content:
