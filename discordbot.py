@@ -27,6 +27,12 @@ async def omanko(ctx):
 @bot.command()
 async def harapan(ctx):
     await ctx.send(harapan_quotes.get_harapan())
+
+@bot.event
+async def on_message(message):
+	if message.content == "アナル"
+		await ctx.send("アナル！")
+	
 """
 @bot.event
 async def on_message(message):
