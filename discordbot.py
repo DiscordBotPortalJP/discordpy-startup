@@ -44,6 +44,6 @@ async def on_message(message):
 async def on_message(message):
 	if message.content == "アナル":
 	await message.channel.send("アナル！"):
-
+await bot.process_commands(message)
     
 bot.run(token)
