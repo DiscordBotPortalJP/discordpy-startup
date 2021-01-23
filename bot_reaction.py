@@ -1,3 +1,4 @@
+import random
 def get_bot_reaction(msg) :
     reaction = ""
     if random.randint(0, 100) < 30:
