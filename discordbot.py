@@ -43,7 +43,6 @@ async def on_message(message):
 @bot.event
 async def on_message(message):
 	if message.content == "アナル":
-	await message.channel.send("アナル！"):
-await bot.process_commands(message)
+	await message.channel.send("アナル！")
     
 bot.run(token)
