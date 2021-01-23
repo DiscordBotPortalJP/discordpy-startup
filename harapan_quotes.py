@@ -18,7 +18,7 @@ def get_harapan():
     #順番に確率に当てはまるかやっていく
     target = msg_list[0]
     for i in msg_list:
-        if  random.randint(0, total_weight) <= i[0]):
+        if  random.randint(0, total_weight) <= i[0]:
             target = i
             break
         total_weight -= i[0]
