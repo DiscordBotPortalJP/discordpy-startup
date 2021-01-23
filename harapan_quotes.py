@@ -21,9 +21,9 @@ def get_harapan():
         if  random.randint(0, total_weight) <= i[0]):
             target = i
             break
-        else:
-            total_weight -= i[0]
+        total_weight -= i[0]
      
+    #セリフ部分を返す
     return target[1]
 """
 
