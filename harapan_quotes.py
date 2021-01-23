@@ -1,8 +1,13 @@
-async def get_harapan():
-    await "ごふっぁ！！・・・な、何するんですか・・・！"
+#asyncだとだめっぽい
+#async def get_harapan():
+#    await "ごふっぁ！！・・・な、何するんですか・・・！"
     
-#def get_harapan():
-#    return "ごふっぁ！！・・・な、何するんですか・・・！"
+def get_harapan():
+    msg_list = [
+        [100, "いっっ・・・た！！げほっ、ごほっ！"],
+        [100. "ごふっぁ！！・・・な、何するんですか・・・！"]
+    ]
+    return msg_list[0][1]
 """
 
 client.on('message', message =>{
