@@ -1,3 +1,4 @@
+import random
 #asyncだとだめっぽい
 #async def get_harapan():
 #    await "ごふっぁ！！・・・な、何するんですか・・・！"
@@ -13,7 +14,7 @@ def get_harapan():
     total_weight = 0
     for i in msg_list:
         total_weight += i[0]
-    """
+    
     #順番に確率に当てはまるかやっていく
     target = msg_list[0]
     for i in msg_list:
@@ -23,9 +24,7 @@ def get_harapan():
         else:
             total_weight -= i[0]
      
-     """
-    return random.randint(0, 100)
-    #return target[1]
+    return target[1]
 """
 
 client.on('message', message =>{
