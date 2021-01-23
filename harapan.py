@@ -1,5 +1,5 @@
-async def get_harapan():
-    await "ごふっぁ！！・・・な、何するんですか・・・！"
+def get_harapan():
+    return "ごふっぁ！！・・・な、何するんですか・・・！"
 
 """
 
