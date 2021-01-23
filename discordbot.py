@@ -10,7 +10,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+    let msg = "そんなの知らないです"
+    await msg
+#await ctx.send(error_msg)
 
 
 @bot.command()
