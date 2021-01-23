@@ -26,7 +26,7 @@ async def omanko(ctx):
 
 @bot.command()
 async def harapan(ctx):
-    await ctx.send(get_harapan())
+    await ctx.send(harapan.get_harapan())
 """
 @bot.event
 async def on_message(message):
