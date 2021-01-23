@@ -10,9 +10,9 @@ def get_harapan():
     ]
     
     #総重み
-    total_weight = 0;
+    total_weight = 0
     for i in msg_list:
-        total_weight += i[0];
+        total_weight += i[0]
     
     
     #順番に確率に当てはまるかやっていく
@@ -22,8 +22,7 @@ def get_harapan():
             target = i
             break
         else:
-            total_weight -= i[0];
-    
+            total_weight -= i[0]
     return target[1]
 """
 
