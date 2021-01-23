@@ -1,3 +1,4 @@
+bot = commands.Bot(command_prefix='/')
 @bot.command()
 async def harapan(ctx):
     await ctx.send("ごふっぁ！！・・・な、何するんですか・・・！")
