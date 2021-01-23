@@ -7,7 +7,7 @@ def get_bot_reaction(msg) :
     if reaction != "":
         return reaction
     
-    #下ネタは30%の確率で反応
+    #下ネタは30%の確率で反応あるいは１００％でも別にいいか
     if random.randint(0, 100) < 100:
         reaction = shimoneta(msg)
     
@@ -16,18 +16,45 @@ def get_bot_reaction(msg) :
 #挨拶
 def greetings(m):
     t = ""
-    if m.content == "おはー":
-        t = m.author.name + "さんおはー"
-    if "おはよ" in m.content:
-        t = "おはようございます！"
+    if m.content == "おはー" or "おはよ" in m.content:
+        quotes = [
+            [100, "おはー"],
+            [100, m.author.name + "さんおはー"],
+            [100, "おはよ～"]
+        ]
+        t = get_quotes(quotes)
+        
     if m.content == "こんー":
-        t = "こん～"
+        quotes = [
+            [100, "こんー"],
+            [100, "こんこん"],
+            [100, "こん～"]
+        ]
+        t = get_quotes(quotes)
+        
     if "こんにち" in m.content:
-        t = "こんにちは！"
+        quotes = [
+            [100, "こんにちは！"],
+            [100, "こんにちー"]
+        ]
+        t = get_quotes(quotes)
+        
     if "こんば" in m.content:
-        t = "こんばんは！"
+        quotes = [
+            [100, "こんばんは！"],
+            [100, "こんばんはー"],
+            [100, "こん～"]
+        ]
+        t = get_quotes(quotes)
+        
     if "おやす" in m.content:
-        t = "寝るんですか？私も寝たい！おやすみ！"
+        quotes = [
+            [100, "おやすみなさい～"],
+            [100, "寝るんですか？私も寝たい！おやすみ！"],
+            [100, "睡眠は大事ですよ！"],
+            [100, "寝るおやす！"]
+        ]
+        t = get_quotes(quotes)
     return t
 
 #下ネタ
