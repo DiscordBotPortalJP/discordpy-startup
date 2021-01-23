@@ -16,7 +16,7 @@ def get_bot_reaction(msg) :
 def greetings(m):
     t = ""
     if m.content == "おはー":
-        t = "おはー"
+        t = m.author + "さんおはー"
     if "おはよ" in m.content:
         t = "おはようございます！"
     if m.content == "こんー":
@@ -25,6 +25,8 @@ def greetings(m):
         t = "こんにちは！"
     if "こんば" in m.content:
         t = "こんばんは！"
+    if "おやす" in m.content:
+        t = "寝るんですか？私も寝たい！おやすみ！"
     return t
 
 def shimoneta(m):
