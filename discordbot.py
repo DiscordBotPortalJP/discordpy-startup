@@ -5,7 +5,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#import harapan(bot)
+import harapan(bot)
 
 @bot.event
 async def on_command_error(ctx, error):
