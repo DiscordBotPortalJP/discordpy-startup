@@ -61,7 +61,8 @@ def shimoneta(m):
         t = get_quotes(quotes)
         
     if "アヌス" in m.content:
-        t = "アヌスってアナルの名詞だって知ってました？でももうアナルだって普通に名詞として使われてますよね"
+        t = "アヌスってアナルの名詞だって知ってました？でももう普通に名詞として使われてますよね"
+        
     if "リョナ" in m.content:
         quotes = [
             [100, "リョナしゅき！"],
@@ -71,6 +72,7 @@ def shimoneta(m):
             [100, "版権キャラをリョナる時は色々慎重に、注意してくださいね？え、私・・・？"],
             [100, m.author.name + "さんも好きですか？リョナ"]
         ]
+        t = get_quotes(quotes)
         
     return t
 
