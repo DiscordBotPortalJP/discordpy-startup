@@ -1,4 +1,5 @@
-from discord.ext import commands
+#from discord.ext import commands
+import discord
 import os
 import traceback
 
@@ -19,7 +20,7 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('chinpong')
-
+"""
 @bot.event
 async def on_message(message):
 	# CHECK IF THE MESSAGE SENT TO THE CHANNEL IS "HELLO".
@@ -38,7 +39,7 @@ async def on_message(message):
     if message.content == "アナル":
         await message.channel.send("アナル！")
 #    if "アナル" in message.content
-       """ 
+    
 
 
     
