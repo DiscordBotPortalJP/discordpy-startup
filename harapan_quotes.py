@@ -3,11 +3,28 @@
 #    await "ごふっぁ！！・・・な、何するんですか・・・！"
     
 def get_harapan():
+    #確率の重みとセリフリスト
     msg_list = [
         [100, "いっっ・・・た！！げほっ、ごほっ！"],
         [100, "ごふっぁ！！・・・な、何するんですか・・・！"]
     ]
-    return msg_list[0][1]
+    
+    #総重み
+    total_weight = 0;
+    for i in msg_list:
+        total_weight += i[0];
+    
+    
+    #順番に確率に当てはまるかやっていく
+    target = 0
+    for i in msg_list:
+        if  random.randint(0, total_weight) <= i[0]):
+            target = i
+            break
+        else:
+            total_weight -= i[0];
+    
+    return target[1]
 """
 
 client.on('message', message =>{
