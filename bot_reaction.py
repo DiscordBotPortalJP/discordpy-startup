@@ -1,7 +1,7 @@
 import random
 def get_bot_reaction(msg) :
     reaction = ""
-    if random.randint(0, 100):
+    if 30 < random.randint(0, 100):
         return reaction
     if "おっぱい" in msg:
         reaction = "おっぱい！"
