@@ -13,7 +13,7 @@ def get_harapan():
     total_weight = 0
     for i in msg_list:
         total_weight += i[0]
-    
+    """
     
     #順番に確率に当てはまるかやっていく
     target = 0
@@ -23,7 +23,9 @@ def get_harapan():
             break
         else:
             total_weight -= i[0]
-    return target[1]
+            """
+    return total_weight
+#    return target[1]
 """
 
 client.on('message', message =>{
