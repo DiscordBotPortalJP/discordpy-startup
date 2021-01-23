@@ -2,6 +2,8 @@ from discord.ext import commands
 import os
 import traceback
 
+import random
+
 import harapan_quotes
 import bot_reaction
 
