@@ -3,9 +3,11 @@ def get_bot_reaction(msg) :
     reaction = ""
     #挨拶
     reaction = greetings(msg)
+    if reaction != "":
+        return reaction
     
     #下ネタは30%の確率で反応
-    if 30 < random.randint(0, 100):
+    if random.randint(0, 100) < 30:
         return shimoneta(msg)
     
     return reaction
