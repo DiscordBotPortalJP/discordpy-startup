@@ -23,6 +23,10 @@ async def ping(ctx):
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
+
+@bot.command()
+async def harapan(ctx):
+    await ctx.send(get_harapan())
 """
 @bot.event
 async def on_message(message):
