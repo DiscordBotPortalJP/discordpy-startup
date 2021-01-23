@@ -1,4 +1,3 @@
-import random
 #asyncだとだめっぽい
 #async def get_harapan():
 #    await "ごふっぁ！！・・・な、何するんですか・・・！"
