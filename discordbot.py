@@ -19,6 +19,10 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('chinpong')
+
+@bot.command()
+async def omanko(ctx):
+    await ctx.send('おまんこ！')
 """
 @bot.event
 async def on_message(message):
