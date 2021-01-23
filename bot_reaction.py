@@ -1,4 +1,5 @@
 import random
+
 def get_bot_reaction(msg) :
     reaction = ""
     #挨拶
@@ -8,28 +9,30 @@ def get_bot_reaction(msg) :
     
     #下ネタは30%の確率で反応
     if random.randint(0, 100) < 30:
-        return shimoneta(msg)
+        reaction = shimoneta(msg)
     
     return reaction
 
 def greetings(m):
+    t = ""
     if m.content == "おはー":
-        return "おはー"
+        t = "おはー"
     if "おはよ" in m.content:
-        return "おはようございます！"
+        t = "おはようございます！"
     if m.content == "こんー":
-        return "こん～"
+        t = "こん～"
     if "こんにち" in m.content:
-        return "こんにちは！"
+        t = "こんにちは！"
     if "こんば" in m.content:
-        return "こんばんは！"
-    return ""
+        t = "こんばんは！"
+    return t
 
 def shimoneta(m):
+    t = ""
     if "おっぱい" in m.content:
-        return "おっぱい！"
+        t = "おっぱい！"
     if "まんこ" in m.content:
-        return "おまんこ！"
+        t = "おまんこ！"
     if "アナル" in m.content:
-        return "アナル！"
-    return ""
+        t = "アナル！"
+    return t
