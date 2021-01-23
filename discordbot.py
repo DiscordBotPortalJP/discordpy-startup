@@ -19,6 +19,14 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('chinpong')
     
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+
+    if "アナル" in message.content
+        await message.channel.send("アナル！")
     
 """
 
