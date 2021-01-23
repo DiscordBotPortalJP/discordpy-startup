@@ -41,9 +41,7 @@ async def on_message(message):
         await message.channel.send("アナル！")
 #    if "アナル" in message.content
     """
-@bot.event
-async def on_message(message):
-	return
+
 
     
 bot.run(token)
