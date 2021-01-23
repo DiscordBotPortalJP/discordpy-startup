@@ -5,7 +5,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-import harapan(bot)
+#import harapan(bot)
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -18,11 +18,11 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('chinpong')
+    await ctx.send("chinpong")
 
 @bot.command()
 async def omanko(ctx):
-    await ctx.send('おまんこ！')
+    await ctx.send("おまんこ！")
 """
 @bot.event
 async def on_message(message):
