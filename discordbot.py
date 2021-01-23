@@ -31,7 +31,7 @@ async def harapan(ctx):
 @bot.event
 async def on_message(message):
 	if message.content == "アナル":
-		await ctx.send("アナル！")
+		await message.channel.send("アナル！")
 	await bot.process_commands(message)
 	
 """
