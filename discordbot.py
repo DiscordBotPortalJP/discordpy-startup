@@ -25,7 +25,7 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    if message == "アナル":
+    if message.content == "アナル":
 #    if "アナル" in message.content
         await message.channel.send("アナル！")
 
