@@ -24,7 +24,7 @@ def get_harapan():
             total_weight -= i[0]
      
      """
-    return random.randint(0,30)
+    return random.randint(0, 100)
     #return target[1]
 """
 
