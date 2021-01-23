@@ -1,5 +1,4 @@
 from discord.ext import commands
-import discord
 import os
 import traceback
 
@@ -41,7 +40,10 @@ async def on_message(message):
         await message.channel.send("アナル！")
 #    if "アナル" in message.content
     """
-
+@bot.event
+async def on_message(message):
+	if message.content == "アナル":
+	await message.channel.send("アナル！"):
 
     
 bot.run(token)
