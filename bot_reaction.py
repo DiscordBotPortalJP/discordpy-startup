@@ -16,7 +16,7 @@ def get_bot_reaction(msg) :
 def greetings(m):
     t = ""
     if m.content == "おはー":
-        t = m.author.id + "さんおはー"
+        t = m.author.name + "さんおはー"
     if "おはよ" in m.content:
         t = "おはようございます！"
     if m.content == "こんー":
