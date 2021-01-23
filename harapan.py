@@ -1,6 +1,5 @@
-@bot.command()
-async def harapan(ctx):
-    await ctx.send("ごふっぁ！！・・・な、何するんですか・・・！")
+async def get_harapan():
+    await "ごふっぁ！！・・・な、何するんですか・・・！"
 
 """
 
