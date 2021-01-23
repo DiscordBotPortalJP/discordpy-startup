@@ -15,6 +15,7 @@ def get_harapan():
         [100 , "ぐあっ！・・・ぐえぇ・・・"],
         [100 , "やあや、やめ・・・うぐううっっ！！"],
         [100 , "女の子のお腹をそうやって殴っちゃだｍがふっっ！！"],
+        [100 , "ぐえぇ・・・げほっげほっ、げぼ、おええぇ・・・！"],
         [100 , "赤ちゃん産めなくなっちゃうぅ・・・"]
     ]
     
@@ -33,36 +34,3 @@ def get_harapan():
      
     #セリフ部分を返す
     return target[1]
-"""
-
-client.on('message', message =>{
-  if (message.author.id == client.user.id || message.author.bot){
-    return;
-  }
-  if (message.content.match(/^！おみくじ/) ||
-      (message.isMemberMentioned(client.user) && message.content.match(/おみくじ/))){
-    let arr = ["大吉", "吉", "凶", "ぽてと", "にゃ～ん", "しゅうまい君"];
-    let weight = [5, 30, 10, 15, 20, 20];
-    lotteryByWeight(message.channel.id, arr, weight);
-  }else if (message.isMemberMentioned(client.user)){
-    sendReply(message, "呼びましたか？");
-  }
-});
-
-function lotteryByWeight(channelId, arr, weight){
-  let totalWeight = 0;
-  for (var i = 0; i < weight.length; i++){
-    totalWeight += weight[i];
-  }
-  let random = Math.floor(Math.random() * totalWeight);
-  for (var i = 0; i < weight.length; i++){
-    if (random < weight[i]){
-      sendMsg(channelId, arr[i]);
-      return;
-    }else{
-      random -= weight[i];
-    }
-  }
-  console.log("lottery error");
-}
-"""
