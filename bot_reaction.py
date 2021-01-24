@@ -101,6 +101,7 @@ def shimoneta(m):
             [100, m.author.name + "さんも好きですか？リョナ"]
         ]
         t = get_quotes(quotes)
+        
     if "リョナラー" in m.content:
         quotes = [
             [100, m.author.name + "さんもリョナラーなんですか？"],
