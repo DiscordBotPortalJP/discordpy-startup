@@ -126,7 +126,7 @@ def shimoneta1(m):
         ]
         t = get_quotes(quotes)
             """
-        if "ちんこ" in m.content:
+        if "チンチン" in m.content:
         quotes = [
             [100, "え、おちんちん・・・？],
             [100, "ちーんちん"],
