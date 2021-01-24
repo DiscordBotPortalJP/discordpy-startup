@@ -30,11 +30,11 @@ async def ping(ctx):
 
 @bot.command()
 async def omanko(ctx):
-    await ctx.send("おまんこ！")
+    await ctx.send(ctx.author.name + "さんのおまんこ！")
 
 @bot.command()
 async def harapan(ctx):
-    await ctx.send(bot_reaction.get_harapan(ctx.author.name))
+    await ctx.send(bot_reaction.get_harapan())
 
 #発言に反応する
 @bot.event
