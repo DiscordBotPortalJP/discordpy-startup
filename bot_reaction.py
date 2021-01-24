@@ -30,7 +30,7 @@ def get_bot_reaction(msg) :
     
     return reaction
 
-def get_harapan(name):
+def get_harapan():
     t = ""
     """
     quotes = [
@@ -49,7 +49,7 @@ def get_harapan(name):
     t = get_quotes(quotes)
     return t
     """
-    t = name + "さんのテストですよ"
+    t = "さんのテストですよ"
     return t
 
 #挨拶
