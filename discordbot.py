@@ -34,6 +34,8 @@ async def omanko(ctx):
 
 @bot.command()
 async def harapan(ctx):
+	if ctx.message.author.name == "sumaneko":
+		await ctx.send("ok")
     await ctx.send(harapan_quotes.get_harapan())
 
 #発言に反応する
