@@ -30,7 +30,8 @@ async def ping(ctx):
 
 @bot.command()
 async def omanko(ctx):
-    await ctx.send(ctx.author.name + "さんのおまんこ！")
+    #await ctx.send(ctx.author.name + "さんのおまんこ！")
+    await ctx.send("おまんこ！")
 
 @bot.command()
 async def harapan(ctx):
