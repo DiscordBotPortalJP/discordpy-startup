@@ -9,7 +9,7 @@ def get_bot_reaction(msg) :
         return reaction
     
     #慰める
-    #reaction = cheer(msg)
+    reaction = cheer(msg)
     #合致したら終了
     if reaction != "":
         return reaction
@@ -165,7 +165,7 @@ def shimoneta(m):
         t = get_quotes(quotes)
         
     return t
-"""
+
 #慰める
 def cheer(m):
     if m.content == "疲れた" or m.content == "もう疲れた" or "もうやだ" in m.content or "もうだめ" in m.content:
@@ -185,7 +185,7 @@ def cheer(m):
         t = get_quotes(quotes)
         
     return t
-
+"""
 def ryona(m):
     if "四肢切断" in m.content:
         quotes = [
