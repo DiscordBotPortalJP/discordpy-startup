@@ -37,11 +37,11 @@ async def harapan(ctx):
 async def on_message(message):
 	if message.author.bot:
         	return
-	msg = bot_reaction.get_bot_reaction(message)
+	msg = bot_reaction.get_greetings(message)
+	if msg == "":
+		msg = bot_reaction.get_shimoneta(message)
 	if msg != "":
 		await message.channel.send(msg)
-	#if "アナル" in message.content:
-	#	await message.channel.send("アナル！")
 	await bot.process_commands(message)
 	
 """
