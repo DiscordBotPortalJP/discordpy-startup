@@ -39,7 +39,6 @@ async def on_message(message):
         	return
 	#どうも呼び出し先が長過ぎるとエラーになって止まる模様
 	msg = bot_reaction.get_greetings(message)
-	await bot.process_commands(message)
 	if msg == "":
 		msg = bot_reaction.get_shimoneta(message)
 	if msg != "":
