@@ -37,7 +37,8 @@ async def harapan(ctx):
 async def on_message(message):
 	if message.author.bot:
         	return
-	await msg = bot_reaction.get_greetings(message)
+	#どうも呼び出し先が長過ぎるとエラーになって止まる模様
+	msg = bot_reaction.get_greetings(message)
 	if msg == "":
 		msg = bot_reaction.get_shimoneta(message)
 	if msg != "":
