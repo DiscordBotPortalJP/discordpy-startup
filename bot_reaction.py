@@ -215,6 +215,14 @@ def ryona(m):
         ]        
         t = get_quotes(quotes)
         
+    if "腹パン" in m.content:
+        quotes = [
+            [100, "腹パンいいですよね・・・ん、その手は何ですか"],
+            [100, "お腹といっても鳩尾や下腹などありますが、どこ殴られても痛いんですよ"],
+            [100, "また殴るつもりですか！私を！"]
+        ]        
+        t = get_quotes(quotes)
+        
     return t 
     
 #趣味
