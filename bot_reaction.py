@@ -49,7 +49,8 @@ def get_harapan(m):
     t = get_quotes(quotes)
     return t
     """
-    return m.author.name + "さんのテストですよ"
+    t = m.author.name + "さんのテストですよ"
+    return t
 
 #挨拶
 def greetings(m):
