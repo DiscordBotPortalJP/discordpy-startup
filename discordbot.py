@@ -6,7 +6,6 @@ import traceback
 import random
 
 #自作モジュール
-import harapan_quotes
 import bot_reaction
 
 #BOTをコンストラクト
@@ -30,13 +29,11 @@ async def ping(ctx):
 
 @bot.command()
 async def omanko(ctx):
-    #await ctx.send(ctx.author.name + "さんのおまんこ！")
     await ctx.send("おまんこ！")
 
 @bot.command()
 async def harapan(ctx):
-    #await ctx.send(bot_reaction.get_harapan())
-    await ctx.send("おまんこ！")
+    await ctx.send(bot_reaction.get_harapan(ctx.message))
 
 #発言に反応する
 @bot.event
