@@ -1,16 +1,15 @@
 import random
 
-def get_greetings(msg) :
-    #挨拶
-    return greetings(msg)
-    
-def get_shimoneta(msg):
+def get_bot_reaction(msg) :
     reaction = ""
+    #挨拶
+    reaction = greetings(msg)
+    if reaction != "":
+        return reaction
+    
     #下ネタは30%の確率で反応あるいは１００％でも別にいいか
     if random.randint(0, 100) < 100:
-        reaction = shimoneta1(msg)
-        if reaction == "":
-            reaction = shimoneta2(msg)
+        reaction = shimoneta(msg)
     
     return reaction
 
@@ -59,7 +58,7 @@ def greetings(m):
     return t
 
 #下ネタ
-def shimoneta1(m):
+def shimoneta(m):
     t = ""
     #コピペ用[100, ""],
     if "おっぱい" in m.content or "乳首" in m.content:
@@ -126,36 +125,6 @@ def shimoneta1(m):
         ]
         t = get_quotes(quotes)
         
-    return t
-"""
-if "ちんこ" in m.content or "チンチン" in m.content:
-        quotes = [
-            [100, "え、おちんちん・・・？],
-            [100, "ちーんちん"],
-            [100, "ち・・・チンポ"]
-        ]
-        t = get_quotes(quotes)
-            
-             if "ちんちん" in m.content or "チンポ" in m.content:
-        quotes = [
-            [100, "え、おちんちん・・・？],
-            [100, "ちーんちん"],
-            [100, "ち・・・チンポ"]
-        ]
-        t = get_quotes(quotes)
-"""
-
-def shimoneta2(m):
-    t = ""
-    """
-    if "ちんこ" in m.content or "チンチン" in m.content or"ちんちん" in m.content or "チンポ" in m.content:
-        quotes = [
-            [100, "え、おちんちん・・・？],
-            [100, "ちーんちん"],
-            [100, "ち・・・チンポ"]
-        ]
-        t = get_quotes(quotes)
-        """
     return t
 
 #配列から確率でセリフを取り出す
