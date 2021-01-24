@@ -1,12 +1,11 @@
 import random
 
-def get_bot_reaction(msg) :
-    reaction = ""
+def get_greetings(msg) :
     #挨拶
-    reaction = greetings(msg)
-    if reaction != "":
-        return reaction
+    return greetings(msg)
     
+def get_shimoneta(msg):
+    reaction = ""
     #下ネタは30%の確率で反応あるいは１００％でも別にいいか
     if random.randint(0, 100) < 100:
         reaction = shimoneta1(msg)
