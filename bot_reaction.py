@@ -26,6 +26,8 @@ def get_bot_reaction(msg) :
     #趣味関連
     reaction = hobby(msg)
     
+    reaction = call_bot(msg)
+    
     return reaction
 
 #挨拶
@@ -177,6 +179,14 @@ def cheer(m):
         ]        
         t = get_quotes(quotes)
         
+    if "褒めて" in m.content or "褒めろ" in m.content:
+        quotes = [
+            [100, "えらいっ"],
+            [100, "すごいですね！"],
+            [100, "よくやった！"]
+        ]        
+        t = get_quotes(quotes)
+        
     if m.content == "死にたい" or m.content == "もう死にたい":
         quotes = [
             [100, "そんなこと言わないでください・・・"],
@@ -214,6 +224,19 @@ def hobby(m):
         quotes = [
             [100, "ドーモ、" + m.author.name + "＝サン。リョナゲボットです。"],
             [100, "ニンジャナンデ！？"]
+        ]        
+        t = get_quotes(quotes)
+        
+    return t
+
+#呼びかける
+def call_bot(m):
+    t = ""
+    if "BOTちゃん" in m.content or "ＢＯＴちゃん" in m.content or "botちゃん" in m.content or "ボットちゃん" in m.content:
+        quotes = [
+            [100, "呼びました？"],
+            [100, "私ですか？"],
+            [100, "なんですか？"]
         ]        
         t = get_quotes(quotes)
         
