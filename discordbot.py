@@ -5,7 +5,7 @@ import traceback
 #汎用モジュール
 import random
 
-#次作モジュール
+#自作モジュール
 import harapan_quotes
 import bot_reaction
 
@@ -36,6 +36,7 @@ async def omanko(ctx):
 async def harapan(ctx):
 	if ctx.message.author.name == "sumaneko":
 		await ctx.send("ok")
+		return
     await ctx.send(harapan_quotes.get_harapan())
 
 #発言に反応する
