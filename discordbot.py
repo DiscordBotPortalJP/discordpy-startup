@@ -37,34 +37,12 @@ async def harapan(ctx):
 async def on_message(message):
 	if message.author.bot:
         	return
-	msg = bot_reaction.get_greetings(message)
+	await msg = bot_reaction.get_greetings(message)
 	if msg == "":
 		msg = bot_reaction.get_shimoneta(message)
 	if msg != "":
 		await message.channel.send(msg)
 	await bot.process_commands(message)
 	
-"""
-@bot.event
-async def on_message(message):
-	# CHECK IF THE MESSAGE SENT TO THE CHANNEL IS "HELLO".
-	if message.content == "hello":
-		# SENDS A MESSAGE TO THE CHANNEL.
-		await message.channel.send("pies are better than cakes. change my mind.")
 
-	# INCLUDES THE COMMANDS FOR THE BOT. WITHOUT THIS LINE, YOU CANNOT TRIGGER YOUR COMMANDS.
-	await bot.process_commands(message)
-    """
-"""
-@bot.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    if message.content == "アナル":
-        await message.channel.send("アナル！")
-#    if "アナル" in message.content
-    """
-
-    
 bot.run(token)
