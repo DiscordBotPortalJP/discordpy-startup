@@ -15,7 +15,7 @@ def get_bot_reaction(msg) :
         return reaction
     
     #リョナ
-    reaction = ryona(msg)
+    #reaction = ryona(msg)
     
     #下ネタは30%の確率で反応あるいは１００％でも別にいいか
     if random.randint(0, 100) < 100:
@@ -24,7 +24,7 @@ def get_bot_reaction(msg) :
             return reaction
     
     #趣味関連
-    #reaction = hobby(msg)
+    reaction = hobby(msg)
     
     return reaction
 
@@ -186,7 +186,7 @@ def cheer(m):
         t = get_quotes(quotes)
         
     return t
-"""
+    
 def ryona(m):
     if "四肢切断" in m.content:
         quotes = [
@@ -216,7 +216,7 @@ def hobby(m):
         t = get_quotes(quotes)
         
     return t
-"""
+
 #配列から確率でセリフを取り出す
 def get_quotes(q_list):
     total_weight = 0
