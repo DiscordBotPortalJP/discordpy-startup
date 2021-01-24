@@ -61,7 +61,7 @@ def greetings(m):
 def shimoneta(m):
     t = ""
     #コピペ用[100, ""],
-    if "おっぱい" in m.content:
+    if "おっぱい" in m.content or "乳首" in m.content:
         quotes = [
             [100, "おっぱい！"],
             [100, "おっぱいおっぱい"],
@@ -97,7 +97,30 @@ def shimoneta(m):
             [100, "ここならいいんですけど、リョナの話題はてぃーぴーおーを弁えてくださいね"],
             [100, "女の子が痛めつけられるところとか・・・フフ、興奮しちゃうんですよね"],
             [100, "版権キャラをリョナる時は色々慎重に、注意してくださいね？え、私・・・？"],
+            [100, "リョナっていいのは非現実の子だけですからね？"],
             [100, m.author.name + "さんも好きですか？リョナ"]
+        ]
+        t = get_quotes(quotes)
+    if "リョナラー" in m.content:
+        quotes = [
+            [100, m.author.name + "さんもリョナラーなんですか？"],
+            [100, "ここにはリョナラーしかいないな！？"]
+        ]        
+        t = get_quotes(quotes)
+        
+    if "ロリ" in m.content:
+        quotes = [
+            [100, "いいですよねロリ"],
+            [100, "ロリ好き！"],
+            [100, "このロリコン！"]
+        ]
+        t = get_quotes(quotes)
+        
+    if "ちんこ" in m.content or "チンチン" in m.content or "ちんちん" in m.content or "おちんちん" in m.content or "チンポ" in m.content:
+        quotes = [
+            [100, "え、おちんちん・・・？],
+            [100, "ちーんちん"],
+            [100, "ち・・・チンポ"]
         ]
         t = get_quotes(quotes)
         
