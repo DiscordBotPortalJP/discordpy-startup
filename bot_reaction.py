@@ -119,6 +119,7 @@ def shimoneta1(m):
         ]
         t = get_quotes(quotes)
         
+    return t
 """
 if "ちんこ" in m.content or "チンチン" in m.content:
         quotes = [
@@ -136,7 +137,6 @@ if "ちんこ" in m.content or "チンチン" in m.content:
         ]
         t = get_quotes(quotes)
 """
-    return t
 
 def shimoneta2(m):
     t = ""
