@@ -9,13 +9,13 @@ def get_bot_reaction(msg) :
         return reaction
     
     #慰める
-    #reaction = cheer(msg)
+    reaction = cheer(msg)
     #合致したら終了
     if reaction != "":
         return reaction
     
     #リョナ
-    #reaction = ryona(msg)
+    reaction = ryona(msg)
     
     #下ネタは30%の確率で反応あるいは１００％でも別にいいか
     if random.randint(0, 100) < 100:
@@ -166,9 +166,9 @@ def shimoneta(m):
         
     return t
 
-"""
 #慰める
 def cheer(m):
+    t = ""
     if m.content == "疲れた" or m.content == "もう疲れた" or "もうやだ" in m.content or "もうだめ" in m.content:
         quotes = [
             [100, "休むのは大事ですよ"],
@@ -188,6 +188,7 @@ def cheer(m):
     return t
     
 def ryona(m):
+    t = ""
     if "四肢切断" in m.content:
         quotes = [
             [100, "四肢がなければ軽くなりますね！"],
@@ -205,9 +206,10 @@ def ryona(m):
         t = get_quotes(quotes)
         
     return t 
-"""
+    
 #趣味
 def hobby(m):
+    t = ""
     if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content:
         quotes = [
             [100, "ドーモ、" + m.author.name + "＝サン。リョナゲボットです。"],
