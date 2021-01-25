@@ -17,8 +17,8 @@ def get_bot_reaction(msg) :
     #リョナ
     reaction = ryona(msg)
     
-    #下ネタは30%の確率で反応あるいは１００％でも別にいいか
-    if random.randint(0, 100) < 100:
+    #下ネタは確率操作して下げる
+    if random.randint(0, 100) < 50:
         reaction = shimoneta(msg)
         if reaction != "":
             return reaction
