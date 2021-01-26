@@ -44,8 +44,8 @@ async def harapan(ctx):
     await ctx.send(bot_reaction.get_harapan(ctx.message))
 
 #発言に反応する
-#@bot.event
-#async def on_message(message):
+@bot.event
+async def on_message(message):
 	global locked
 	if locked:
 		return
