@@ -12,7 +12,6 @@ import bot_reaction
 bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
-test = 0
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -36,13 +35,6 @@ async def omanko(ctx):
 @bot.command()
 async def harapan(ctx):
     await ctx.send(bot_reaction.get_harapan(ctx.message))
-
-@bot.command()
-async def gtest(ctx):
-	if test == 0:
-		test = 1
-	#test += 1
-	await ctx.send(test)
 
 #発言に反応する
 @bot.event
