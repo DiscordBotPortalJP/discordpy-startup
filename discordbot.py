@@ -15,8 +15,10 @@ bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#BOT前回の発言イベント時間
-prev_time = datetime.datetime.now()
+#BOTクールタイム（秒）
+ct = 30
+#BOT前回の発言イベント時間（初期ct秒黙るためあらかじめ引く）
+prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -48,7 +50,6 @@ async def on_message(message):
 	if message.author.bot:
 		return
 	
-	ct = 30 #クールタイム（秒）
 	global prev_time
 	t = prev_time
 	#ct経ってなければ落とす
