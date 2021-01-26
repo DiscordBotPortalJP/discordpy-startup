@@ -15,8 +15,7 @@ bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#連続発言させないためのフラグ
-#locked = False
+#BOT前回の発言イベント時間
 prev_time = datetime.datetime.now()
 
 #エラーだけど吐かせないでコメントで終わり
@@ -45,28 +44,26 @@ async def harapan(ctx):
 #発言に反応する
 @bot.event
 async def on_message(message):
-    if message.author.bot:
-        return
-    global prev_time
-    t = prev_time
-    prev_time = datetime.datetime.now()
-    #await message.channel.send(t)
-    #ct = 30 #クールタイム（秒）
-    #global locked
-    #if locked:
-    #    return
-    #locked = True
-    """
-    msg = bot_reaction.get_bot_reaction(message)
+	#botは即落ち
+	if message.author.bot:
+		return
+	
+	ct = 30 #クールタイム（秒）
+	global prev_time
+	t = prev_time
+	prev_time = datetime.datetime.now()
+	
+	#ct経ってなければ落とす
+	if prev_time < t + timedelta(second = ct):
+		return
+	
+	#セリフの文字列取得
+	msg = bot_reaction.get_bot_reaction(message)
 
-    if msg != "":
-        await message.channel.send(msg)
-    """    
-    await bot.process_commands(message)
-    
-    #await asyncio.sleep(ct)
-    #locked = False
-    
+	if msg != "":
+		await message.channel.send(msg)
+	await bot.process_commands(message)
+
 
 #起動
 bot.run(token)
