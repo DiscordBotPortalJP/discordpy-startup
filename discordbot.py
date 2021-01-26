@@ -18,7 +18,7 @@ bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
-locked = false
+#locked = false
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
