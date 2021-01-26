@@ -36,11 +36,10 @@ async def test(ctx):
 	s = 'New file'
 	with open(path, mode='w') as f:
     		f.write(s)
-		f.close()
 	with open(path) as f:
-	    s = f.read()
+		s = f.read()
 	await ctx.send(s)
-
+"""
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
