@@ -7,7 +7,7 @@ import random
 
 #自作モジュール
 import bot_reaction
-
+#test = int()
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
@@ -37,7 +37,7 @@ async def harapan(ctx):
 
 #発言に反応する
 @bot.event
-@events.cooldown(1, 30, commands.BucketType.user)
+#@commands.cooldown(1, 30, commands.BucketType.user)
 async def on_message(message):
 	#発言者がBOTなら即終了
 	if message.author.bot:
