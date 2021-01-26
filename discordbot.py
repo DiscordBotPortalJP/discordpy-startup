@@ -7,7 +7,7 @@ import random
 
 #自作モジュール
 import bot_reaction
-test = int()
+test = 0
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
@@ -40,7 +40,7 @@ async def harapan(ctx):
 async def gtest(ctx):
 	if test == 0:
 		test = 1
-	test += 1
+	#test += 1
 	await ctx.send(test)
 
 #発言に反応する
