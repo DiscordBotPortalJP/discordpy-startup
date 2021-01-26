@@ -54,7 +54,7 @@ async def on_message(message):
 	prev_time = datetime.datetime.now()
 	
 	#ct経ってなければ落とす
-	if prev_time < t + timedelta(seconds = ct):
+	if prev_time < t + datetime.timedelta(seconds = ct):
 		return
 	
 	#セリフの文字列取得
