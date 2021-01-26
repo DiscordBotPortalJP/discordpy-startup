@@ -52,7 +52,7 @@ async def on_message(message):
 	global prev_time
 	t = prev_time
 	#ct経ってなければ落とす
-	if datetime.datetime.now() + datetime.timedelta(seconds=ct) < t:
+	if t + datetime.timedelta(seconds=ct) < datetime.datetime.now():
 		return
 	prev_time = datetime.datetime.now()
 	
