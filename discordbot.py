@@ -31,6 +31,15 @@ async def ping(ctx):
     await ctx.send("chinpong")
 
 @bot.command()
+async def test(ctx):
+	path = 'test.txt'
+
+	s = 'New file'
+
+	with open(path, mode='w') as f:
+    		f.write(s)
+
+@bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
 
