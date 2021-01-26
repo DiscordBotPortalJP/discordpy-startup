@@ -7,7 +7,6 @@ import random
 
 #自作モジュール
 import bot_reaction
-testnum = 0
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
@@ -25,20 +24,13 @@ async def on_command_error(ctx, error):
 
 #自分でコマンドを作れる
 @bot.command()
+@commands.cooldown(1, 30, commands.BucketType.user)
 async def ping(ctx):
     await ctx.send("chinpong")
 
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
-
-@bot.command()
-async def gtest():
-	if testnum == null:
-		testnum = 0
-	testnum++
-	await ctx.send(testnum)
-
 
 @bot.command()
 async def harapan(ctx):
