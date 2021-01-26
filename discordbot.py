@@ -39,7 +39,7 @@ async def test(ctx):
 	with open(path) as f:
 		s = f.read()
 	await ctx.send(s)
-"""
+	
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
