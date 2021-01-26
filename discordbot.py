@@ -6,6 +6,7 @@ import traceback
 
 #汎用モジュール
 import random
+import datetime
 
 #自作モジュール
 import bot_reaction
@@ -35,6 +36,11 @@ async def ping(ctx):
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
+
+@bot.command()
+async def test(ctx):
+	#mes_time[1] = 
+    await ctx.send("")
 
 @bot.command()
 async def harapan(ctx):
