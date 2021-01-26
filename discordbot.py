@@ -40,7 +40,7 @@ async def omanko(ctx):
 @bot.command()
 async def test(ctx):
 	#mes_time[1] = datetime.
-	await ctx.send(str(datetime.now()))
+	await ctx.send(datetime.datetime.now())
 
 @bot.command()
 async def harapan(ctx):
