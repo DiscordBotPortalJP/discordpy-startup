@@ -3,6 +3,7 @@ import os
 import traceback
 #heroku ポスグレのためのライブラリ
 #import psycopg2
+import sqlalchemy
 
 #汎用モジュール
 import random
@@ -36,14 +37,6 @@ async def ping(ctx):
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
-
-@bot.command()
-async def test(ctx):
-	if mes_time == null:
-		mes_time[1] = datetime.datetime.now()
-	prev_time = mes_time[1]
-	mes_time[1] = datetime.datetime.now()
-	await ctx.send(prev_time)
 
 @bot.command()
 async def harapan(ctx):
