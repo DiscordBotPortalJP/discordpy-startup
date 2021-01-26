@@ -38,8 +38,8 @@ async def harapan(ctx):
 
 @bot.command()
 async def gtest(ctx):
-	t += 1
-	await ctx.send(test)
+    test += 1
+    await ctx.send(test)
 
 #発言に反応する
 @bot.event
