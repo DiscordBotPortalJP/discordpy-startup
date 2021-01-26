@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#locked = false
+locked = false
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -45,15 +45,28 @@ async def harapan(ctx):
 #発言に反応する
 @bot.event
 async def on_message(message):
+	"""
 	#発言者がBOTなら即終了
 	if message.author.bot:
         	return
-
+	
 	msg = bot_reaction.get_bot_reaction(message)
 	
 	if msg != "":
 		await message.channel.send(msg)
 	await bot.process_commands(message)	
+	"""
+	global locked
+	if locked:
+		return
+
+	locked = True
+    	await ctx.send("テスト中")
+    	await asyncio.sleep(100)
+    	locked = False
+		
+	return
+	
 
 #起動
 bot.run(token)
