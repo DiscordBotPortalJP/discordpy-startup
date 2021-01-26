@@ -36,6 +36,11 @@ async def omanko(ctx):
 async def harapan(ctx):
     await ctx.send(bot_reaction.get_harapan(ctx.message))
 
+@bot.command()
+async def gtest(ctx):
+	text += 1
+	await ctx.send(test)
+
 #発言に反応する
 @bot.event
 async def on_message(message):
