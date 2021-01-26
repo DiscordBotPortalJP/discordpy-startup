@@ -7,7 +7,7 @@ import random
 
 #自作モジュール
 import bot_reaction
-global testnum = 0
+#global testnum = 0
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
@@ -31,13 +31,14 @@ async def ping(ctx):
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
-
+"""
 @bot.command()
 async def gtest():
 	if testnum == null:
 		testnum = 0
 	testnum++
 	await ctx.send(testnum)
+"""
 
 @bot.command()
 async def harapan(ctx):
