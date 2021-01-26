@@ -3,7 +3,7 @@ import os
 import traceback
 #heroku ポスグレのためのライブラリ
 #import psycopg2
-import sqlalchemy
+#import sqlalchemy
 
 #汎用モジュール
 import random
