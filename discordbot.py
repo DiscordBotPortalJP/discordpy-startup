@@ -1,8 +1,5 @@
 #heroku ポスグレのためのライブラリ
-from flask import Flask, render_template, g
-from hamlish_jinja import HamlishExtension
-from werkzeug import ImmutableDict
-from flask_sqlalchemy import SQLAlchemy
+import psycopg2
 
 from discord.ext import commands
 import os
