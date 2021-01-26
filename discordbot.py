@@ -49,7 +49,7 @@ async def on_message(message):
         return
     global prev_time
     t = prev_time
-    preb_time = datetime.datetime.now()
+    prev_time = datetime.datetime.now()
     await message.channel.send(t)
     #ct = 30 #クールタイム（秒）
     #global locked
