@@ -24,7 +24,6 @@ async def on_command_error(ctx, error):
 
 #自分でコマンドを作れる
 @bot.command()
-@commands.cooldown(1, 30, commands.BucketType.user)
 async def ping(ctx):
     await ctx.send("chinpong")
 
@@ -38,6 +37,7 @@ async def harapan(ctx):
 
 #発言に反応する
 @bot.event
+@commands.cooldown(1, 30, commands.BucketType.user)
 async def on_message(message):
 	#発言者がBOTなら即終了
 	if message.author.bot:
