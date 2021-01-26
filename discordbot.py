@@ -51,11 +51,10 @@ async def on_message(message):
 	ct = 30 #クールタイム（秒）
 	global prev_time
 	t = prev_time
-	prev_time = datetime.datetime.now()
-	
 	#ct経ってなければ落とす
-	if prev_time < t + datetime.timedelta(seconds = ct):
+	if datetime.now() < t + datetime.timedelta(seconds = ct):
 		return
+	prev_time = datetime.datetime.now()
 	
 	#セリフの文字列取得
 	msg = bot_reaction.get_bot_reaction(message)
