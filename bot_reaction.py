@@ -16,10 +16,14 @@ def get_bot_reaction(msg):
 
     #リョナ
     reaction = ryona(msg)
+    #中身入ったら終了
+    if reaction != "":
+        return reaction
 
     #下ネタは確率操作して下げる
     if random.randint(0, 100) < 100:
         reaction = shimoneta(msg)
+    #中身入ったら終了
     if reaction != "":
         return reaction
 
@@ -263,7 +267,11 @@ def hobby(m):
         ]        
         t = get_quotes(quotes)
     if m.content == "ぼふんぼふん":
-        t = "ぼふんぼふん"
+        quotes = [
+            [100, "ぼふんぼふん"],
+            [100, "ヴォフンヴォフン"]
+        ]
+        t = get_quotes(quotes)
     return t
 
 #呼びかける
