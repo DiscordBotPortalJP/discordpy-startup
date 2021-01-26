@@ -15,15 +15,15 @@ locked = false
 #発言に反応する
 @bot.event
 async def on_message(message):
-	global locked
-	if locked:
-		return
+        global locked
+        if locked:
+            return
 
-	locked = True
-    	await ctx.send("テスト中")
-    	await asyncio.sleep(100)
-    	locked = False
-	return
+        locked = True
+        await ctx.send("テスト中")
+        await asyncio.sleep(100)
+        locked = False
+        return
 
 #起動
 bot.run(token)
