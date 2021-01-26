@@ -32,6 +32,17 @@ async def omanko(ctx):
     await ctx.send("おまんこ！")
 
 @bot.command()
+async def wrtest():
+	path = 'test.txt'
+	s = 'New file'
+
+	with open(path, mode='w') as f:
+	    f.write(s)
+	with open(path) as f:
+    	     await ctx.send(f.read())
+	return
+
+@bot.command()
 async def harapan(ctx):
     await ctx.send(bot_reaction.get_harapan(ctx.message))
 
