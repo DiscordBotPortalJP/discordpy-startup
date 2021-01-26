@@ -16,7 +16,7 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 #連続発言させないためのフラグ
-locked = false
+locked = False
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
