@@ -33,11 +33,10 @@ async def ping(ctx):
 @bot.command()
 async def test(ctx):
 	path = 'test.txt'
-
 	s = 'New file'
-
 	with open(path, mode='w') as f:
     		f.write(s)
+	return
 
 @bot.command()
 async def omanko(ctx):
