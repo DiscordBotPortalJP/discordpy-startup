@@ -34,11 +34,9 @@ async def ping(ctx):
 async def test(ctx):
 	path = 'test.txt'
 	s = 'New file'
-	"""
 	with open(path, mode='w') as f:
     		f.write(s)
-	return
-"""
+		f.close()
 	with open(path) as f:
 	    s = f.read()
 	await ctx.send(s)
