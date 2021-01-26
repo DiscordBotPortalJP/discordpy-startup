@@ -7,11 +7,12 @@ import random
 
 #自作モジュール
 import bot_reaction
-test = 0
+
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
+test = 0
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
