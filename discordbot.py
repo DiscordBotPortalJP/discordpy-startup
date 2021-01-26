@@ -53,7 +53,7 @@ async def on_message(message):
 	t = prev_time
 	#ct経ってなければ落とす
 	if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
-		await message.channel.send("ct中です")
+		#await message.channel.send("ct中です")
 		return
 	prev_time = datetime.datetime.now()
 	
