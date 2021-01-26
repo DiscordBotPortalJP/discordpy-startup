@@ -37,7 +37,7 @@ async def harapan(ctx):
 
 #発言に反応する
 @bot.event
-@commands.cooldown(1, 30, commands.BucketType.user)
+@events.cooldown(1, 30, commands.BucketType.user)
 async def on_message(message):
 	#発言者がBOTなら即終了
 	if message.author.bot:
