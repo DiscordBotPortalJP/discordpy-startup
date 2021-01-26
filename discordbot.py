@@ -67,6 +67,8 @@ async def on_message(message):
 			prev_time = datetime.datetime.now()
 
 		await bot.process_commands(message)
+	else:
+		await message.channel.send("コマンドです")
 
 
 #起動
