@@ -260,7 +260,8 @@ def hobby(m):
             [100, "ニンジャナンデ！？"]
         ]        
         t = get_quotes(quotes)
-        
+    if m.content == "ぼふんぼふん":
+        t = "ぼふんぼふん"
     return t
 
 #呼びかける
