@@ -40,7 +40,7 @@ async def wrtest():
 	    f.write(s)
 	with open(path) as f:
     	     await ctx.send(f.read())
-	return
+	
 
 @bot.command()
 async def harapan(ctx):
