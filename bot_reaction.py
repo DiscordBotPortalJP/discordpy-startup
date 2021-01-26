@@ -1,33 +1,35 @@
 import random
 
-def get_bot_reaction(msg) :
+def get_bot_reaction(msg):
     reaction = ""
     #挨拶
     reaction = greetings(msg)
-    #合致したら強制終了
+    #中身入ったら終了
     if reaction != "":
         return reaction
-    
+
     #慰める
     reaction = cheer(msg)
-    #合致したら終了
+    #中身入ったら終了
     if reaction != "":
         return reaction
-    
+
     #リョナ
     reaction = ryona(msg)
-    
+
     #下ネタは確率操作して下げる
     if random.randint(0, 100) < 100:
         reaction = shimoneta(msg)
-        if reaction != "":
-            return reaction
-    
+    if reaction != "":
+        return reaction
+
     #趣味関連
     reaction = hobby(msg)
+    #中身入ったら終了
+    if reaction != "":
+        return reaction
     
     reaction = call_bot(msg)
-    
     return reaction
 
 def get_harapan(m):
