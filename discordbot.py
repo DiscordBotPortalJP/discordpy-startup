@@ -16,7 +16,8 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 #連続発言させないためのフラグ
-locked = False
+#locked = False
+prev_time = datetime.datetime()
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -46,11 +47,12 @@ async def harapan(ctx):
 async def on_message(message):
     if message.author.bot:
         return
-    ct = 30 #クールタイム（秒）
-    global locked
-    if locked:
-        return
-    locked = True
+    global prev_time
+    #ct = 30 #クールタイム（秒）
+    #global locked
+    #if locked:
+    #    return
+    #locked = True
     
     msg = bot_reaction.get_bot_reaction(message)
 
@@ -59,8 +61,8 @@ async def on_message(message):
         
     await bot.process_commands(message)
     
-    await asyncio.sleep(ct)
-    locked = False
+    #await asyncio.sleep(ct)
+    #locked = False
     
 
 #起動
