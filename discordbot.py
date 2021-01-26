@@ -55,13 +55,14 @@ async def on_message(message):
 	if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
 		#await message.channel.send("ct中です")
 		return
-	prev_time = datetime.datetime.now()
 	
 	#セリフの文字列取得
 	msg = bot_reaction.get_bot_reaction(message)
 
 	if msg != "":
 		await message.channel.send(msg)
+		prev_time = datetime.datetime.now()
+	
 	await bot.process_commands(message)
 
 
