@@ -20,7 +20,7 @@ async def on_message(message):
         return
 
     locked = True
-    await ctx.send("テスト中")
+    await message.channel.send("テスト中")
     await asyncio.sleep(100)
     locked = False
     return
