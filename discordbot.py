@@ -17,7 +17,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 #連続発言させないためのフラグ
 #locked = False
-prev_time = datetime.datetime()
+prev_time = datetime.datetime.now()
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -48,17 +48,18 @@ async def on_message(message):
     if message.author.bot:
         return
     global prev_time
+    await message.channel.send(prev_time)
     #ct = 30 #クールタイム（秒）
     #global locked
     #if locked:
     #    return
     #locked = True
-    
+    """
     msg = bot_reaction.get_bot_reaction(message)
 
     if msg != "":
         await message.channel.send(msg)
-        
+    """    
     await bot.process_commands(message)
     
     #await asyncio.sleep(ct)
