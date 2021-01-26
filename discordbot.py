@@ -7,7 +7,7 @@ import random
 
 #自作モジュール
 import bot_reaction
-global testnum
+global testnum = 0
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
