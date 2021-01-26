@@ -48,7 +48,9 @@ async def on_message(message):
     if message.author.bot:
         return
     global prev_time
-    await message.channel.send(prev_time)
+    t = prev_time
+    preb_time = datetime.datetime.now()
+    await message.channel.send(t)
     #ct = 30 #クールタイム（秒）
     #global locked
     #if locked:
