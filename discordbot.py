@@ -8,6 +8,7 @@ import traceback
 #汎用モジュール
 import random
 import datetime
+import asyncio
 
 #自作モジュール
 import bot_reaction
