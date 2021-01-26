@@ -7,7 +7,7 @@ import random
 
 #自作モジュール
 import bot_reaction
-#test = int()
+test = int()
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
