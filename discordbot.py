@@ -1,8 +1,8 @@
 from discord.ext import commands
-import os
+import psycopg2,os
 import traceback
 #heroku ポスグレのためのライブラリ
-import psycopg2
+
 
 #汎用モジュール
 import random
