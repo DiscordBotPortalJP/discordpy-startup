@@ -49,22 +49,24 @@ async def on_message(message):
 	#botは即落ち
 	if message.author.bot:
 		return
-	
-	global prev_time
-	t = prev_time
-	#ct経ってなければ落とす
-	if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
-		#await message.channel.send("ct中です")
-		return
-	
-	#セリフの文字列取得
-	msg = bot_reaction.get_bot_reaction(message)
+	#コマンドなら何もしないためのif
+	if message.content[0] != "/":
+		global prev_time
+		t = prev_time
 
-	if msg != "":
-		await message.channel.send(msg)
-		prev_time = datetime.datetime.now()
-	
-	await bot.process_commands(message)
+		#ct経ってなければ落とす
+		if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
+			#await message.channel.send("ct中です")
+			return
+
+		#セリフの文字列取得
+		msg = bot_reaction.get_bot_reaction(message)
+
+		if msg != "":
+			await message.channel.send(msg)
+			prev_time = datetime.datetime.now()
+
+		await bot.process_commands(message)
 
 
 #起動
