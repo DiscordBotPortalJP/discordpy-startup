@@ -8,7 +8,7 @@ import datetime
 import asyncio
 
 #自作モジュール
-import mymodule.bot_reaction
+from module.bot_reacton import get_bot_reaction,get_harapan
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
@@ -44,7 +44,8 @@ async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=3)
-	await ctx.send(bot_reaction.get_harapan(ctx.message))
+	#await ctx.send(bot_reaction.get_harapan(ctx.message))
+	await ctx.send(get_harapan(ctx.message))
 	
 @bot.command()
 async def syabette(ctx):
@@ -69,7 +70,8 @@ async def on_message(message):
 			return
 
 		#セリフの文字列取得
-		msg = bot_reaction.get_bot_reaction(message)
+		#msg = bot_reaction.get_bot_reaction(message)
+		msg = get_bot_reaction(message)
 
 		if msg != "":
 			await message.channel.send(msg)
