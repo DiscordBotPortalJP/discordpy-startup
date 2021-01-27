@@ -8,6 +8,7 @@ def get_bot_reaction(msg):
     reaction = ""
     #挨拶
     reaction = get_greetings(msg)
+    print("aisatu")
     #中身入ったら終了
     if reaction != "":
         return reaction
@@ -26,6 +27,7 @@ def get_bot_reaction(msg):
 
     #下ネタは確率操作して下げる
     if random.randint(0, 100) < 100:
+        print("manko")
         reaction = get_shimoneta(msg)
     #中身入ったら終了
     if reaction != "":
