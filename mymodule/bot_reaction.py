@@ -1,11 +1,12 @@
 #汎用モジュール
 import random
 #セリフモジュール
+from quotes.greetings import get_greetings
 
 def get_bot_reaction(msg):
     reaction = ""
     #挨拶
-    reaction = greetings(msg)
+    reaction = get_greetings(msg)
     #中身入ったら終了
     if reaction != "":
         return reaction
