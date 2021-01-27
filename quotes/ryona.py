@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes
 #リョナ
-def ryona(m):
+def get_ryona(m):
     t = ""
     if "四肢切断" in m.content:
         quotes = [
