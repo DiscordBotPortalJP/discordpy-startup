@@ -33,7 +33,7 @@ async def on_command_error(ctx, error):
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
 @bot.command()
 async def ping(ctx):
-    await ctx.send("chin\npong")
+    await ctx.send("chinpong")
 	
 @bot.command()
 async def omanko(ctx):
@@ -41,16 +41,16 @@ async def omanko(ctx):
 
 @bot.command()
 async def harapan(ctx):
+	global prev_time
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=3)
 	await ctx.send(bot_reaction.get_harapan(ctx.message))
 	
 @bot.command()
 async def syabette(ctx):
+	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(day=1)
-
-	
 
 #発言に反応する
 @bot.event
