@@ -51,6 +51,7 @@ async def syabette(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(day=1)
+	return
 
 #発言に反応する
 @bot.event
