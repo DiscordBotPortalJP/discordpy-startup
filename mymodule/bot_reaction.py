@@ -8,7 +8,6 @@ def get_bot_reaction(msg):
     reaction = ""
     #挨拶
     reaction = get_greetings(msg)
-    print("aisatu")
     #中身入ったら終了
     if reaction != "":
         return reaction
@@ -25,10 +24,9 @@ def get_bot_reaction(msg):
     if reaction != "":
         return reaction
 
-    #下ネタは確率操作して下げる
-    if random.randint(0, 100) < 100:
-        print("manko")
-        reaction = get_shimoneta(msg)
+    #下ネタは確率操作して下げることも可能
+    if random.randint(0, 100) < 101:
+        reaction = shimoneta(msg)
     #中身入ったら終了
     if reaction != "":
         return reaction
@@ -38,7 +36,7 @@ def get_bot_reaction(msg):
     #中身入ったら終了
     if reaction != "":
         return reaction
-    
+
     reaction = call_bot(msg)
     return reaction
 
@@ -56,7 +54,7 @@ def get_harapan(m):
         [100 , "ぐえぇ・・・げほっげほっ、げぼ、おええぇ・・・！"],
         [50 , "痛い・・・痛いぃ！なんでこんなことされなきゃいけないの！大嫌い！！・・・・・・なーんちゃって　冗談ですよ！冗・談！" + m.author.name + "さん好きですよ、構ってくれるから"],
         [100 , "赤ちゃん産めなくなっちゃうぅ・・・"]
-    ]
+        ]
     t = get_quotes(quotes)
     return t
 
