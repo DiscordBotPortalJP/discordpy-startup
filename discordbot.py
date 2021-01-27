@@ -30,7 +30,7 @@ async def on_command_error(ctx, error):
     await ctx.send(msg)
     #await ctx.send(error_msg)
 
-#自分でコマンドを作れる
+#自分でコマンドを作れる helpなどはオーバライドできない
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
 @bot.command()
 async def ping(ctx):
@@ -39,11 +39,11 @@ async def ping(ctx):
 @bot.command()
 async def omanko(ctx):
     await ctx.send("おまんこ！")
-"""
+
 @bot.command()
-async def help(ctx):
-    await ctx.send("へるぷ！")
-"""
+async def syabutte(ctx):
+    await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
+
 @bot.command()
 async def harapan(ctx):
 	global prev_time
