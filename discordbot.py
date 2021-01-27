@@ -44,7 +44,6 @@ async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=3)
-	#await ctx.send(bot_reaction.get_harapan(ctx.message))
 	await ctx.send(get_harapan(ctx.message))
 	
 @bot.command()
@@ -66,11 +65,9 @@ async def on_message(message):
 
 		#ct経ってなければ落とす
 		if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
-			#await message.channel.send("ct中です")
 			return
 
 		#セリフの文字列取得
-		#msg = bot_reaction.get_bot_reaction(message)
 		msg = get_bot_reaction(message)
 
 		if msg != "":
