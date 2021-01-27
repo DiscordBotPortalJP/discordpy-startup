@@ -1,7 +1,6 @@
 #汎用モジュール
 import random
 #セリフモジュール
-from 
 from quotes.greetings import get_greetings
 from quotes.shimoneta import get_shimoneta
 from quotes.cheer import get_cheer
