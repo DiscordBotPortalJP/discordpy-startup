@@ -1,6 +1,7 @@
 #汎用モジュール
 import random
 #セリフモジュール
+from 
 from quotes.greetings import get_greetings
 from quotes.shimoneta import get_shimoneta
 from quotes.cheer import get_cheer
@@ -43,21 +44,3 @@ def get_bot_reaction(msg):
 
     reaction = get_calling_bot(msg)
     return reaction
-
-def get_harapan(m):
-    t = ""
-    quotes = [
-        [100, "いっっ・・・た！！げほっ、ごほっ！"],
-        [100, "ごふっぁ！！・・・な、何するんですか・・・！"],
-        [50 ,"ひらりと　みをかわした！"],
-        [50 , "MISS!!"],
-        [100 ,"痛い痛い！殴らないでっ！！"],
-        [100 , "ぐあっ！・・・ぐえぇ・・・"],
-        [100 , "やあや、やめ・・・うぐううっっ！！"],
-        [100 , "女の子のお腹をそうやって殴っちゃだｍがふっっ！！"],
-        [100 , "ぐえぇ・・・げほっげほっ、げぼ、おええぇ・・・！"],
-        [50 , "痛い・・・痛ぃよぉぉ・・・なんでこんなことされなきゃいけないの！大ッッ嫌い！！\n\n・・・・・・なーんちゃって　冗談ですよ！冗・談！\n" + m.author.name + "さん好きですよ、構ってくれるから"],
-        [100 , "赤ちゃん産めなくなっちゃうぅ・・・"]
-        ]
-    t = get_quotes(quotes)
-    return t
