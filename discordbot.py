@@ -41,6 +41,10 @@ async def omanko(ctx):
     await ctx.send("おまんこ！")
 
 @bot.command()
+async def help(ctx):
+    await ctx.send("へるぷ！")
+
+@bot.command()
 async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
