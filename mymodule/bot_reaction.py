@@ -2,6 +2,7 @@
 import random
 #セリフモジュール
 from quotes.greetings import get_greetings
+from quotes.shimoneta import get_shimoneta
 
 def get_bot_reaction(msg):
     reaction = ""
@@ -25,7 +26,7 @@ def get_bot_reaction(msg):
 
     #下ネタは確率操作して下げる
     if random.randint(0, 100) < 100:
-        reaction = shimoneta(msg)
+        reaction = get_shimoneta(msg)
     #中身入ったら終了
     if reaction != "":
         return reaction
@@ -55,57 +56,6 @@ def get_harapan(m):
         [100 , "赤ちゃん産めなくなっちゃうぅ・・・"]
     ]
     t = get_quotes(quotes)
-    return t
-
-#挨拶
-def greetings(m):
-    t = ""
-    if m.content == "おはー" or "おはよ" in m.content:
-        quotes = [
-            [100, "おはー"],
-            [100, m.author.name + "さんおはー"],
-            [100, "おはよ～"]
-        ]
-        t = get_quotes(quotes)
-        
-    if m.content == "こんー":
-        quotes = [
-            [100, "こんー"],
-            [100, "こんこん"],
-            [100, "こん～"]
-        ]
-        t = get_quotes(quotes)
-        
-    if "こんにち" in m.content:
-        quotes = [
-            [100, "こんにちは！"],
-            [100, "こんにちー"]
-        ]
-        t = get_quotes(quotes)
-        
-    if "こんば" in m.content:
-        quotes = [
-            [100, "こんばんは！"],
-            [100, "こんばんはー"],
-            [100, "こん～"]
-        ]
-        t = get_quotes(quotes)
-        
-    if "はじめまして" in m.content:
-        quotes = [
-            [100, "はじめまして！よろしくね！"],
-            [100, "はじめまして～"]
-        ]
-        t = get_quotes(quotes)
-        
-    if "おやす" in m.content:
-        quotes = [
-            [100, "おやすみなさい～"],
-            [100, "寝るんですか？私も寝たい！おやすみ！"],
-            [100, "睡眠は大事ですよ！"],
-            [100, "寝るおやす！"]
-        ]
-        t = get_quotes(quotes)
     return t
 
 #下ネタ
