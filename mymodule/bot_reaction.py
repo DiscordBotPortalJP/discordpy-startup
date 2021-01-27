@@ -1,4 +1,6 @@
+#汎用モジュール
 import random
+#セリフモジュール
 
 def get_bot_reaction(msg):
     reaction = ""
