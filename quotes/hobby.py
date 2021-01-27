@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes
 #趣味
-def hobby(m):
+def get_hobby(m):
     t = ""
     if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content:
         quotes = [
