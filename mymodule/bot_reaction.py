@@ -4,6 +4,7 @@ import random
 from quotes.greetings import get_greetings
 from quotes.shimoneta import get_shimoneta
 from quotes.cheer import get_cheer
+from quotes.ryona import get_ryona
 
 def get_bot_reaction(msg):
     reaction = ""
@@ -20,7 +21,7 @@ def get_bot_reaction(msg):
         return reaction
 
     #リョナ
-    reaction = ryona(msg)
+    reaction = get_ryona(msg)
     #中身入ったら終了
     if reaction != "":
         return reaction
@@ -58,36 +59,8 @@ def get_harapan(m):
         ]
     t = get_quotes(quotes)
     return t
-
-#慰める
-def cheer(m):
-    t = ""
-    if m.content == "疲れた" or m.content == "もう疲れた" or "もうやだ" in m.content or "もうだめ" in m.content:
-        quotes = [
-            [100, "休むのは大事ですよ"],
-            [100, "頑張ってください！"],
-            [100, "気分転換でもしましょう？"]
-        ]        
-        t = get_quotes(quotes)
-        
-    if "褒めて" in m.content or "褒めろ" in m.content:
-        quotes = [
-            [100, "えらいっ"],
-            [100, "すごいですね！"],
-            [100, "よくやった！"]
-        ]        
-        t = get_quotes(quotes)
-        
-    if m.content == "死にたい" or m.content == "もう死にたい":
-        quotes = [
-            [100, "そんなこと言わないでください・・・"],
-            [100, m.author.name + "さんに死んでほしくない人はきっとたくさんいますよ"],
-            [100, "死んじゃだめですよ・・・"]
-        ]        
-        t = get_quotes(quotes)
-        
-    return t
     
+#リョナ
 def ryona(m):
     t = ""
     if "四肢切断" in m.content:
