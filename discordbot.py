@@ -41,14 +41,14 @@ async def omanko(ctx):
 
 @bot.command()
 async def harapan(ctx):
-	#global prev_time
+	global prev_time
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=3)
 	await ctx.send(bot_reaction.get_harapan(ctx.message))
 	
 @bot.command()
 async def syabette(ctx):
-	#global prev_time
+	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 
