@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes
-#呼びかける
-def calling_bot(m):
+#BOTちゃんに呼びかける
+def get_calling_bot(m):
     t = ""
     if "BOTちゃん" in m.content or "ＢＯＴちゃん" in m.content or "botちゃん" in m.content or "ボットちゃん" in m.content:
         quotes = [
