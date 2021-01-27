@@ -3,6 +3,7 @@ import random
 #セリフモジュール
 from quotes.greetings import get_greetings
 from quotes.shimoneta import get_shimoneta
+from quotes.cheer import get_cheer
 
 def get_bot_reaction(msg):
     reaction = ""
@@ -13,7 +14,7 @@ def get_bot_reaction(msg):
         return reaction
 
     #慰める
-    reaction = cheer(msg)
+    reaction = get_cheer(msg)
     #中身入ったら終了
     if reaction != "":
         return reaction
