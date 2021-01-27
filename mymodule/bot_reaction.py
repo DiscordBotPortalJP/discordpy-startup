@@ -6,6 +6,7 @@ from quotes.shimoneta import get_shimoneta
 from quotes.cheer import get_cheer
 from quotes.ryona import get_ryona
 from quotes.hobby import get_hobby
+from quotes.calling_bot import get_calling_bot
 
 def get_bot_reaction(msg):
     reaction = ""
@@ -40,7 +41,7 @@ def get_bot_reaction(msg):
     if reaction != "":
         return reaction
 
-    reaction = call_bot(msg)
+    reaction = get_calling_bot(msg)
     return reaction
 
 def get_harapan(m):
@@ -60,50 +61,3 @@ def get_harapan(m):
         ]
     t = get_quotes(quotes)
     return t
-    
-#趣味
-def hobby(m):
-    t = ""
-    if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content:
-        quotes = [
-            [100, "ドーモ、" + m.author.name + "＝サン。リョナゲボットです。"],
-            [100, "ニンジャナンデ！？"]
-        ]        
-        t = get_quotes(quotes)
-    if m.content == "ぼふんぼふん":
-        quotes = [
-            [100, "ぼふんぼふん"],
-            [30, "ほらもっと啼いてごらんなさい？厚かましいげっ歯類めが！！"],
-            [100, "ヴォフンヴォフン"]
-        ]
-        t = get_quotes(quotes)
-    return t
-
-#呼びかける
-def call_bot(m):
-    t = ""
-    if "BOTちゃん" in m.content or "ＢＯＴちゃん" in m.content or "botちゃん" in m.content or "ボットちゃん" in m.content:
-        quotes = [
-            [100, "呼びました？"],
-            [100, "私ですか？"],
-            [100, "なんですか？"]
-        ]        
-        t = get_quotes(quotes)
-        
-    return t
-
-#配列から確率でセリフを取り出す
-def get_quotes(q_list):
-    total_weight = 0
-    for i in q_list:
-        total_weight += i[0]
-    
-    #順番に確率に当てはまるかやっていく
-    target = q_list[0]
-    for i in q_list:
-        if  random.randint(0, total_weight) <= i[0]:
-            target = i
-            break
-        total_weight -= i[0]
-    return target[1]
-        
