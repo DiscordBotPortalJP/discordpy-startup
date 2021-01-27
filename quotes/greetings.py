@@ -1,4 +1,4 @@
-import ../mylib/mymodule
+import ..mylib.mymodule
 #挨拶
 def greetings(m):
     t = ""
