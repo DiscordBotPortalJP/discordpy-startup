@@ -8,7 +8,7 @@ import datetime
 import asyncio
 
 #自作モジュール
-import mymodule/bot_reaction
+import mymodulebot_reaction
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
