@@ -39,7 +39,7 @@ async def on_command_error(ctx, error):
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
 @bot.command()
 async def ping(ctx):
-    await ctx.send("chinpong")
+    await ctx.send("_chinpong_")
 	
 @bot.command()
 async def omanko(ctx):
@@ -58,7 +58,12 @@ async def harapan(ctx):
 	
 @bot.command()
 async def nadenade(ctx):
+	bot_chan.heal(15)
 	await ctx.send(get_nadenade(ctx.message))
+	
+@bot.command()
+async def rkey(ctx):
+	bot_chan.heal(9999)
 	
 @bot.command()
 async def syabette(ctx):
