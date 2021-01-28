@@ -1,5 +1,6 @@
 class RyonageBot:
 	max_hp = 150
+	dying_hp = 70
 	def __init__(self):
 		self.hp = 150
 		
