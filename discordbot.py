@@ -23,7 +23,7 @@ ct = 30
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 
 #ボットちゃん
-#bot_chan = RyonageBot()
+bot_chan = RyonageBot()
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
