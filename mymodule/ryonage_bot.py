@@ -3,7 +3,7 @@ class RyonageBot:
 	max_hp = 150
 	dying_hp = 70
 	def __init__(self):
-		self.hp = 150
+		self.hp = max_hp
 		
 	def get_hp(self):
 		return self.hp
@@ -16,5 +16,5 @@ class RyonageBot:
 	def heal(self, n):
 		self.hp += n
 		if max_hp < self.hp:
-			self.hp = 150
+			self.hp = max_hp
 		return self.hp
