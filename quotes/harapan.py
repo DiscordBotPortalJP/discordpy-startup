@@ -39,4 +39,4 @@ def get_harapan(bot: RyonageBot, m):
     
     return l[0]
     """
-    return "test"
+    return bot.gethp()
