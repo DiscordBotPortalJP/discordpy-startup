@@ -1,3 +1,4 @@
+import random
 class RyonageBot:
 	max_hp = 150
 	dying_hp = 70
@@ -8,7 +9,8 @@ class RyonageBot:
 		return self.hp
 	
 	def damage(self, n):
-		self.hp -= n
+		#85%～115%までの乱数
+		self.hp -= n *(85 + random.randint(0,30))/100 
 		return self.hp
 	
 	def heal(self, n):
