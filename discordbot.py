@@ -57,7 +57,7 @@ async def harapan(ctx):
 	await ctx.send(get_harapan(ctx.message))
 	
 @bot.command()
-async def harapan(ctx):
+async def nadenade(ctx):
 	await ctx.send(get_nadenade(ctx.message))
 	
 @bot.command()
