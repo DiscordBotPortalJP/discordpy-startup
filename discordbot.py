@@ -54,7 +54,7 @@ async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
-	await ctx.send(get_harapan(ctx.message))
+	await ctx.send(get_harapan(bot_chan, ctx.message))
 	
 @bot.command()
 async def nadenade(ctx):
@@ -72,6 +72,8 @@ async def okiro(ctx):
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 
+	
+	
 #発言に反応する
 @bot.event
 async def on_message(message):
