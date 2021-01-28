@@ -11,6 +11,7 @@ import asyncio
 from mymodule.bot_reaction import get_bot_reaction
 from mymodule.ryonage_bot import RyonageBot
 from quotes.harapan import get_harapan
+from quotes.nadenade import get_nadenade
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
@@ -56,6 +57,10 @@ async def harapan(ctx):
 	await ctx.send(get_harapan(ctx.message))
 	
 @bot.command()
+async def harapan(ctx):
+	await ctx.send(get_nadenade(ctx.message))
+	
+@bot.command()
 async def syabette(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
@@ -66,10 +71,6 @@ async def okiro(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
-	
-@bot.command()
-async def ikura(ctx):
-	await ctx.send(bot_chan.get_hp())
 
 #発言に反応する
 @bot.event
