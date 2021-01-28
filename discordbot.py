@@ -9,6 +9,7 @@ import asyncio
 
 #自作モジュール
 from mymodule.bot_reaction import get_bot_reaction
+import mymodule.ryonage_bot
 from quotes.harapan import get_harapan
 
 #BOTをコンストラクト
@@ -20,6 +21,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 ct = 30
 #BOT前回の発言イベント時間（初期ct秒黙るためあらかじめ引く）
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
+
+#ボットちゃん
+bot_chan = RyonageBot()
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -62,6 +66,10 @@ async def okiro(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
+	
+@bot.command()
+async def ikura(ctx):
+	await ctx.send(bot_chan.get_hp())
 
 #発言に反応する
 @bot.event
