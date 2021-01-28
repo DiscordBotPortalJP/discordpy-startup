@@ -23,7 +23,7 @@ ct = 30
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 
 #ボットちゃん
-bot_chan = RyonageBot()
+#bot_chan = RyonageBot()
 
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
@@ -69,7 +69,7 @@ async def okiro(ctx):
 	
 @bot.command()
 async def ikura(ctx):
-	await ctx.send(bot_chan.get_hp())
+	#await ctx.send(bot_chan.get_hp())
 
 #発言に反応する
 @bot.event
