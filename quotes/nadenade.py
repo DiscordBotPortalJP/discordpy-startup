@@ -31,7 +31,7 @@ def get_nadenade(bot, m):
 		]
 	
 	t = get_quotes(quotes)
-	hp = bot.damage(l[1])
+	hp = bot.get_hp()
 	#if hp < 0:
 
 	return t
