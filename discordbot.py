@@ -48,7 +48,7 @@ async def syabutte(ctx):
 async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
-	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=3)
+	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
 	await ctx.send(get_harapan(ctx.message))
 	
 @bot.command()
