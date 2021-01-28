@@ -3,6 +3,7 @@ from mymodule.ryonage_bot import RyonageBot
 def get_harapan(bot: RyonageBot, m):
     t = ""
     l = []
+    """
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
         quotes = [
@@ -37,3 +38,5 @@ def get_harapan(bot: RyonageBot, m):
     #if hp < 0:
     
     return l[0]
+    """
+    return "test"
