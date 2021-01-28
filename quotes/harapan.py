@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes_with_damage
 from mymodule.ryonage_bot import RyonageBot
-def get_harapan(bot: RyonageBot, m):
+def get_harapan(bot, m):
     t = ""
     l = []
     """
