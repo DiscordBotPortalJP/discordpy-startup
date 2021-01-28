@@ -59,7 +59,7 @@ async def harapan(ctx):
 @bot.command()
 async def nadenade(ctx):
 	bot_chan.heal(15)
-	await ctx.send(get_nadenade(ctx.message))
+	await ctx.send(get_nadenade(bot_chan, ctx.message))
 	
 @bot.command()
 async def rkey(ctx):
