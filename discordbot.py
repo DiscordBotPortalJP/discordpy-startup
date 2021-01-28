@@ -67,9 +67,9 @@ async def okiro(ctx):
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 	
-#@bot.command()
-#async def ikura(ctx):
-	#await ctx.send(bot_chan.get_hp())
+@bot.command()
+async def ikura(ctx):
+	await ctx.send(bot_chan.get_hp())
 
 #発言に反応する
 @bot.event
