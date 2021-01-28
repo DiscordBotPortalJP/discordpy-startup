@@ -1,8 +1,7 @@
-from mylib.mymodule import get_quotes_with_damage
+from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
 def get_nadenade(bot, m):
 	t = ""
-	l = []
 	#元気状態なら
 	if bot.dying_hp < bot.get_hp():
 		quotes = [
@@ -30,8 +29,8 @@ def get_nadenade(bot, m):
 			[100 , "なんでもしますからもう痛いことしないで！"]
 		]
 	
-	l = get_quotes_with_damage(quotes)
+	t = get_quotes(quotes)
 	hp = bot.damage(l[1])
 	#if hp < 0:
 
-	return l[0]
+	return t
