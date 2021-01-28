@@ -3,7 +3,6 @@ from mymodule.ryonage_bot import RyonageBot
 def get_harapan(bot, m):
     t = ""
     l = []
-    """
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
         quotes = [
@@ -34,9 +33,7 @@ def get_harapan(bot, m):
             [100 , m.author.name + "さん、そんなに・・・私、のこと、嫌いだった、の・・・？", 30]
             ]
     l = get_quotes_with_damage(quotes)
-    hp = bot.damage()
+    hp = bot.damage(l[1])
     #if hp < 0:
     
     return l[0]
-    """
-    return bot.get_hp()
