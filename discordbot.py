@@ -9,7 +9,7 @@ import asyncio
 
 #自作モジュール
 from mymodule.bot_reaction import get_bot_reaction
-from mymodule.ryonage_bot import ryonagebot
+from mymodule.ryonage_bot import RyonageBot
 from quotes.harapan import get_harapan
 
 #BOTをコンストラクト
