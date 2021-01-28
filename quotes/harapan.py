@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes_with_damage
 from mymodule.ryonage_bot import RyonageBot
-def get_harapan(bot, m):
+def get_harapan(bot: RyonageBot, m):
     t = ""
     l = []
     #元気状態なら
