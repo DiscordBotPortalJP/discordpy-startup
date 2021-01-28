@@ -11,7 +11,7 @@ class RyonageBot:
 	def damage(self, n):
 		#85%～115%までの乱数
 		self.hp -= n *(85 + random.randint(0,30))/100 
-		if self.hp < 0
+		if self.hp < 0:
 			self.hp = 0
 		return self.hp
 	
