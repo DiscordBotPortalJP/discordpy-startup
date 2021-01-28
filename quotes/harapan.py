@@ -1,5 +1,5 @@
 from mylib.mymodule import get_quotes
-def get_harapan(m):
+def get_harapan(bot, m):
     t = ""
     quotes = [
         [100, "いっっ・・・た！！げほっ、ごほっ！"],
