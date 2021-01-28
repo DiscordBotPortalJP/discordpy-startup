@@ -85,21 +85,24 @@ async def on_message(message):
 	#botは即落ち
 	if message.author.bot:
 		return
-	#コマンドなら何もしないためのif
-	if message.content[0] != "/":
-		global prev_time
-		t = prev_time
+	bot_chan.heal(1)
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		#コマンドなら何もしないためのif
+		if message.content[0] != "/":
+			global prev_time
+			t = prev_time
 
-		#ct経ってなければ落とす
-		if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
-			return
+			#ct経ってなければ落とす
+			if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
+				return
 
-		#セリフの文字列取得
-		msg = get_bot_reaction(message)
+			#セリフの文字列取得
+			msg = get_bot_reaction(message)
 
-		if msg != "":
-			await message.channel.send(msg)
-			prev_time = datetime.datetime.now()
+			if msg != "":
+				await message.channel.send(msg)
+				prev_time = datetime.datetime.now()
 
 	await bot.process_commands(message)
 
