@@ -118,6 +118,6 @@ async def on_message(message):
 @bot.event
 async def on_member_join(message):
 	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
-	await bot.process_commands(message)
+	#await bot.process_commands(message)
 #起動
 bot.run(token)
