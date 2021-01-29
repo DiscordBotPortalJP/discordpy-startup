@@ -14,5 +14,5 @@ def get_omorashi(rate):
 			[100, "想像を絶する痛みに緩んだ尿道が、　膀胱に溜まった全てをだらしなく垂れ流す！"]
 		]
 		#斜め文字にする
-		t = "\n_" + get_quotes(quotes) + "_"
+		t = "\n**" + get_quotes(quotes) + "**"
 	return t
