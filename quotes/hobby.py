@@ -2,9 +2,11 @@ from mylib.mymodule import get_quotes
 #趣味
 def get_hobby(m):
     t = ""
-    if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content:
+    if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content or "アイエ" in m.content:
         quotes = [
             [100, "ドーモ、" + m.author.name + "＝サン。リョナゲボットです。"],
+            [100, "ワッザ！？"],
+            [100, "アイエッ！？"],
             [100, "ニンジャナンデ！？"]
         ]        
         t = get_quotes(quotes)
