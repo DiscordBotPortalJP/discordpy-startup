@@ -118,20 +118,15 @@ async def on_message(message):
 
 	await bot.process_commands(message)
 
-
-#発言に反応する
-@bot.event
-async def on_member_update(mem1, mem2):
-	await bot.get_channel(802397211144093746).send("update")
 	
-#発言に反応する
+#メンバー加入
 @bot.event
 async def on_member_join(member):
 	print("member")
 	#雑談チャンネルで発言
 	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 
-#発言に反応する
+#メンバー加入
 @bot.event
 async def on_guild_join(member):
 	#雑談チャンネルで発言
