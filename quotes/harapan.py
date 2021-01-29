@@ -35,9 +35,10 @@ def get_harapan(bot, m):
             [100 , "ほんと、に・・・ごめんなさい・・・もう、黙ってるからぁ・・・", 30],
             [100 , m.author.name + "さん、そんなに・・・私、のこと、嫌いだった、の・・・？", 30]
             ]
-        sikko = get_omorashi(10)
+        
     l = get_quotes_with_damage(quotes)
     hp = bot.damage(l[1])
+    sikko = get_omorashi(bot, 10)
     #if hp < 0:
     
     return l[0] + sikko
