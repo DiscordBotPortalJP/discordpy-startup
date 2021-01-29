@@ -40,15 +40,19 @@ async def on_command_error(ctx, error):
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
 @bot.command()
 async def ping(ctx):
-    await ctx.send("_chinpong_")
+    await ctx.send("_chinpong_#サーバーについてへのリンク")
 	
 @bot.command()
 async def omanko(ctx):
-    await ctx.send("おまんこ！")
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send("おまんこ！")
 
 @bot.command()
 async def syabutte(ctx):
-    await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
 
 @bot.command()
 async def harapan(ctx):
@@ -117,7 +121,15 @@ async def on_message(message):
 #発言に反応する
 @bot.event
 async def on_member_join(message):
+	print("member")
 	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
 	#await bot.process_commands(message)
+
+#発言に反応する
+@bot.event
+async def on_guild_join(message):
+	print("guild")
+	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
+	
 #起動
 bot.run(token)
