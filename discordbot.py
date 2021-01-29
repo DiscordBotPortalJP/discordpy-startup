@@ -122,14 +122,14 @@ async def on_message(message):
 @bot.event
 async def on_member_join(message):
 	print("member")
-	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
+	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	#await bot.process_commands(message)
 
 #発言に反応する
 @bot.event
 async def on_guild_join(message):
 	print("guild")
-	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
+	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
 #起動
 bot.run(token)
