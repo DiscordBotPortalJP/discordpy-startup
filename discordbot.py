@@ -11,6 +11,7 @@ import asyncio
 from mymodule.bot_reaction import get_bot_reaction
 from mymodule.ryonage_bot import RyonageBot
 from quotes.harapan import get_harapan
+from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
 
 #BOTをコンストラクト
