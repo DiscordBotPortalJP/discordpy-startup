@@ -114,5 +114,10 @@ async def on_message(message):
 
 	await bot.process_commands(message)
 
+#発言に反応する
+@bot.event
+async def on_member_join(message):
+	await ctx.send(message.author.name + "さんはじめまして！お暇なときに#サーバーについてを一読しておいてくださいね！")
+	await bot.process_commands(message)
 #起動
 bot.run(token)
