@@ -121,8 +121,7 @@ async def on_message(message):
 	
 @bot.command()
 async def test(ctx):
-	channel = client.get_channel("802397211144093746")
-	await channel.send("test")
+	await bot.get_channel("802397211144093746").send("test")
 
 #発言に反応する
 @bot.event
