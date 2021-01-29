@@ -120,16 +120,23 @@ async def on_message(message):
 
 #発言に反応する
 @bot.event
-async def on_member_join(message):
+async def on_member_update(mem1, mem2):
+	channel = client.get_channel("802397211144093746")
+	await channel.send(mem2.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+	
+#発言に反応する
+@bot.event
+async def on_member_join(member):
 	print("member")
-	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+	channel = client.get_channel("798189252080435231")
+	await channel.send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	#await bot.process_commands(message)
 
 #発言に反応する
 @bot.event
-async def on_guild_join(message):
-	print("guild")
-	await message.channel.send(message.author.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+async def on_guild_join(member):
+	channel = client.get_channel("798189252080435231")
+	await channel.send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
 #起動
 bot.run(token)
