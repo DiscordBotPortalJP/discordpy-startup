@@ -122,7 +122,7 @@ async def on_message(message):
 #発言に反応する
 @bot.event
 async def on_member_update(mem1, mem2):
-	await bot.get_channel(802397211144093746).send("")
+	await bot.get_channel(802397211144093746).send("update")
 	
 #発言に反応する
 @bot.event
