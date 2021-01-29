@@ -1,8 +1,10 @@
 from mylib.mymodule import get_quotes_with_damage
 from mymodule.ryonage_bot import RyonageBot
+from quotes.omorashi import get_omorashi
 def get_yakigote(bot, m):
     t = ""
     l = []
+    sikko = ""
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
         quotes = [
@@ -19,8 +21,9 @@ def get_yakigote(bot, m):
             [100 , "楽し・・・ですか・・・？えへへ・・・なら、よかった", 80],
             [100 , "私・・・ここまでされるほど・・・嫌われてた、んだ・・・ごめ・・・なさ・・・", 80]
             ]
+        sikko = get_omorashi(30)
     l = get_quotes_with_damage(quotes)
     hp = bot.damage(l[1])
     #if hp < 0:
     
-    return l[0]
+    return l[0] + sikko
