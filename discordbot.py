@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 #BOTクールタイム（秒）
-ct = 30
+ct = 60
 #BOT前回の発言イベント時間（初期ct秒黙るためあらかじめ引く）
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 
@@ -55,6 +55,13 @@ async def harapan(ctx):
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
 	await ctx.send(get_harapan(bot_chan, ctx.message))
+
+@bot.command()
+async def yakigote(ctx):
+	global prev_time
+	#焼きごてはさらにCT延長
+	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=60)
+	await ctx.send(get_yakigote(bot_chan, ctx.message))
 	
 @bot.command()
 async def nadenade(ctx):
