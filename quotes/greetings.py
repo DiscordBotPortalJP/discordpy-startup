@@ -33,13 +33,6 @@ def get_greetings(m):
         ]
         t = get_quotes(quotes)
         
-    if "はじめまして" in m.content:
-        quotes = [
-            [100, "はじめまして！よろしくね！"],
-            [100, "はじめまして～"]
-        ]
-        t = get_quotes(quotes)
-        
     if "おやす" in m.content:
         quotes = [
             [100, "おやすみなさい～"],
