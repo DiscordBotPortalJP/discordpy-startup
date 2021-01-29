@@ -1,8 +1,10 @@
 from mylib.mymodule import get_quotes_with_damage
 from mymodule.ryonage_bot import RyonageBot
+from quotes.omorashi import get_omorashi
 def get_harapan(bot, m):
     t = ""
     l = []
+    sikko = ""
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
         quotes = [
@@ -33,8 +35,9 @@ def get_harapan(bot, m):
             [100 , "ほんと、に・・・ごめんなさい・・・もう、黙ってるからぁ・・・", 30],
             [100 , m.author.name + "さん、そんなに・・・私、のこと、嫌いだった、の・・・？", 30]
             ]
+        sikko = get_omorashi(10)
     l = get_quotes_with_damage(quotes)
     hp = bot.damage(l[1])
     #if hp < 0:
     
-    return l[0]
+    return l[0] + sikko
