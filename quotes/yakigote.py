@@ -24,7 +24,7 @@ def get_yakigote(bot, m):
     
     l = get_quotes_with_damage(quotes)
     hp = bot.damage(l[1])
-    sikko = get_omorashi(30)
+    sikko = get_omorashi(bot, 30)
     #if hp < 0:
     
     return l[0] + sikko
