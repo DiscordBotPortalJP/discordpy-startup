@@ -30,11 +30,12 @@ bot_chan = RyonageBot()
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
 async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    msg = "そんなの知らないです・・・"
-    await ctx.send(msg)
-    #await ctx.send(error_msg)
+	orig_error = getattr(error, "original", error)
+	error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send("そんなの知らないです・・・")
+#await ctx.send(error_msg)
 
 #自分でコマンドを作れる helpなどはオーバライドできない
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
