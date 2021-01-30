@@ -13,6 +13,7 @@ from mymodule.ryonage_bot import RyonageBot
 from quotes.harapan import get_harapan
 from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
+from quotes.morase import get_morase
 
 #BOTをコンストラクト
 bot = commands.Bot(command_prefix='/')
@@ -73,6 +74,10 @@ async def yakigote(ctx):
 async def nadenade(ctx):
 	bot_chan.heal(15)
 	await ctx.send(get_nadenade(bot_chan, ctx.message))
+
+@bot.command()
+async def morase(ctx):
+	await ctx.send(get_morase(bot_chan, ctx.message))
 	
 @bot.command()
 async def rkey(ctx):
