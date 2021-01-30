@@ -37,10 +37,11 @@ def get_harapan(bot, m):
             ]
         
     l = get_quotes_with_damage(quotes)
-    hp = bot.damage(l[1])
     #回避があるのでダメージで場合分け
     if 0 < l[1]:
         sikko = get_omorashi(bot, 10)
+    hp = bot.damage(l[1])
+    
     #if hp < 0:
     
     return l[0] + sikko
