@@ -2,7 +2,7 @@ from mylib.mymodule import get_quotes
 #趣味
 def get_hobby(m):
     t = ""
-    if "寒い" in m.content or "寒くない？" in m.content:
+    if "寒い" in m.content or "寒くない？" in m.content or "さむい" in m.content or "さむくない？" in m.content:
         quotes = [
             [100, "寒いなら一緒にくっつき合ってみますか・・・？なんちゃって"],
             [100, "私も寒いからこたつで丸くなりたいです・・・"]
