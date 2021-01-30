@@ -40,6 +40,7 @@ def get_harapan(bot, m):
     #回避があるのでダメージで場合分け
     if 0 < l[1]:
         sikko = get_omorashi(bot, 10)
+    #おしっこ判定後にダメージ
     hp = bot.damage(l[1])
     
     #if hp < 0:
