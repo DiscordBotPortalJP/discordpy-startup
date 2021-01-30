@@ -15,7 +15,7 @@ def get_omorashi(bot, rate):
 				[100, "あはは・・・痛くておしっこ漏れちゃうだなんて、ほんとに、あるん・・・ですね"],			
 				[100, "だ、だめぇぇ・・・お漏らしするところなんて見ちゃダメなのぉ・・・"]
 			]
-			t = "\n" + get_quotes(quotes)
+			t = "\n・・・・\n" + get_quotes(quotes)
 	else:
 		#瀕死のとき
 		#確率で漏らす
@@ -28,5 +28,5 @@ def get_omorashi(bot, rate):
 				[100, "想像を絶する痛みに緩んだ尿道が、　膀胱に溜まった全てをだらしなく垂れ流す！"]
 			]
 			#地の文なので太字にする
-			t = "\n**" + get_quotes(quotes) + "**"
+			t = "\n・・・・\n**" + get_quotes(quotes) + "**"
 	return t
