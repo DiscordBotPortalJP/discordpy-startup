@@ -96,13 +96,12 @@ async def okiro(ctx):
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 
 	
-	
+"""
 #発言に反応する
 @bot.event
 async def on_message(message):
 	#botならスルー
 	if message.author.bot:
-		print("he is bot")	
 		pass
 	else:
 		bot_chan.heal(1)
@@ -125,7 +124,7 @@ async def on_message(message):
 					prev_time = datetime.datetime.now()
 			await bot.process_commands(message)
 
-	
+"""	
 #メンバー加入
 @bot.event
 async def on_member_join(member):
