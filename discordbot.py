@@ -102,6 +102,7 @@ async def okiro(ctx):
 async def on_message(message):
 	#botならスルー
 	if message.author.bot:
+		print("he is bot")	
 		pass
 	else:
 		bot_chan.heal(1)
@@ -122,8 +123,7 @@ async def on_message(message):
 				if msg != "":
 					await message.channel.send(msg)
 					prev_time = datetime.datetime.now()
-
-	await bot.process_commands(message)
+			await bot.process_commands(message)
 
 	
 #メンバー加入
