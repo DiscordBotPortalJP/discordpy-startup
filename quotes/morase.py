@@ -2,8 +2,6 @@ from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
 def get_morase(bot, m):
     t = ""
-    l = []
-    sikko = ""
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
         quotes = [
