@@ -138,6 +138,11 @@ async def on_guild_join(member):
 	print("guild")
 	#雑談チャンネルで発言
 	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+
+#メンバー加入
+@bot.event
+async def on_group_join(channel, user):
+	print("group")
 	
 #起動
 bot.run(token)
