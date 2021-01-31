@@ -17,9 +17,10 @@ from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
 
 #BOTをコンストラクト
-intents = discord.Intents.default()
-intents.members = True
-bot = commands.Bot(command_prefix='/', intents=intents)
+#intents = discord.Intents.default()
+#intents.members = True
+#bot = commands.Bot(command_prefix='/', intents=intents)
+bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -33,7 +34,7 @@ bot_chan = RyonageBot()
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("_chinpong_")
+    await ctx.send(bot.intents.members)
 """
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
