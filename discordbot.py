@@ -16,11 +16,11 @@ from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
 
-#BOTをコンストラクト
+#デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
 inte.members = True
+#BOTをコンストラクト
 bot = commands.Bot(command_prefix='/', intents=inte)
-#bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -32,10 +32,6 @@ prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 #ボットちゃん
 bot_chan = RyonageBot()
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send(bot.intents.members)
-"""
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
 async def on_command_error(ctx, error):
@@ -103,8 +99,6 @@ async def okiro(ctx):
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 
-"""
-"""
 #発言に反応する
 @bot.event
 async def on_message(message):
@@ -132,25 +126,12 @@ async def on_message(message):
 					prev_time = datetime.datetime.now()
 			await bot.process_commands(message)
 
-"""	
+
 #メンバー加入
 @bot.event
 async def on_member_join(member):
-	print("member")
 	#雑談チャンネルで発言
-	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
-
-#メンバー加入
-@bot.event
-async def on_guild_join(guild):
-	print("guild")
-	#雑談チャンネルで発言
-	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
-
-#メンバー加入
-@bot.event
-async def on_group_join(channel, user):
-	print("group")
+	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
 #起動
 bot.run(token)
