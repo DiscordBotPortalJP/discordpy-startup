@@ -108,9 +108,9 @@ async def on_message(message):
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		#コマンドなら何もしないためのif
 		if message.content[0] == "/":
-			print("onmsg")
 			pass
 		else:
+			print("onmsg")
 			global prev_time
 			t = prev_time
 
