@@ -108,6 +108,7 @@ async def on_message(message):
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		#コマンドなら何もしないためのif
 		if message.content[0] == "/":
+			print("onmsg")
 			pass
 		else:
 			global prev_time
@@ -132,13 +133,14 @@ async def on_message(message):
 async def on_member_join(member):
 	print("member")
 	#雑談チャンネルで発言
-	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 
 #メンバー加入
 @bot.event
 async def on_guild_join(member):
+	print("guild")
 	#雑談チャンネルで発言
-	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
 #起動
 bot.run(token)
