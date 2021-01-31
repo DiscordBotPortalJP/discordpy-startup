@@ -28,6 +28,7 @@ prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 #ボットちゃん
 bot_chan = RyonageBot()
 
+"""
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
 async def on_command_error(ctx, error):
@@ -95,7 +96,7 @@ async def okiro(ctx):
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
 
-	
+"""
 """
 #発言に反応する
 @bot.event
@@ -134,7 +135,7 @@ async def on_member_join(member):
 
 #メンバー加入
 @bot.event
-async def on_guild_join(member):
+async def on_guild_join(guild):
 	print("guild")
 	#雑談チャンネルで発言
 	#await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
