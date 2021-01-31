@@ -29,6 +29,9 @@ prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 #ボットちゃん
 bot_chan = RyonageBot()
 
+@bot.command()
+async def ping(ctx):
+    await ctx.send("_chinpong_")
 """
 #エラーだけど吐かせないでコメントで終わり
 @bot.event
