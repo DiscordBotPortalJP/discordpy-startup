@@ -17,10 +17,10 @@ from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
 
 #BOTをコンストラクト
-#intents = discord.Intents.default()
-#intents.members = True
-#bot = commands.Bot(command_prefix='/', intents=intents)
-bot = commands.Bot(command_prefix='/')
+inte = discord.Intents.default()
+inte.members = True
+bot = commands.Bot(command_prefix='/', intents=inte)
+#bot = commands.Bot(command_prefix='/')
 #動かすにはトークンが必要
 token = os.environ['DISCORD_BOT_TOKEN']
 
