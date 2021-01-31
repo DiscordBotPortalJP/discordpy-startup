@@ -124,7 +124,7 @@ async def on_message(message):
 				if msg != "":
 					await message.channel.send(msg)
 					prev_time = datetime.datetime.now()
-			await bot.process_commands(message)
+	await bot.process_commands(message)
 
 
 #メンバー加入
