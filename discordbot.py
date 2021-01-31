@@ -130,6 +130,7 @@ async def on_message(message):
 #メンバー加入
 @bot.event
 async def on_member_join(member):
+	await asyncio.sleep(1)
 	#雑談チャンネルで発言
 	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
