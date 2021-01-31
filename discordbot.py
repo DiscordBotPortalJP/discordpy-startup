@@ -100,6 +100,7 @@ async def okiro(ctx):
 #発言に反応する
 @bot.event
 async def on_message(message):
+	print("onmsg")
 	#botは即落ち
 	if message.author.bot:
 		return
