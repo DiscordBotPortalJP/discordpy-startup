@@ -32,7 +32,13 @@ def get_greetings(m):
             [100, "こん～"]
         ]
         t = get_quotes(quotes)
-        
+    if "落ちます" in m.content or "おちます" in m.content:
+        quotes = [
+            [100, "落ちるんですか？おつかれー"],
+            [100, "お疲れ様です"],
+            [100, "おつー"]
+        ]
+        t = get_quotes(quotes)
     if "おやす" in m.content:
         quotes = [
             [100, "おやすみなさい～"],
