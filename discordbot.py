@@ -46,8 +46,7 @@ async def on_command_error(ctx, error):
 #@commands.cooldown(1, 30, commands.BucketType.user（とかchannelとかserver）)でクールダウン仕込める
 @bot.command()
 async def ping(ctx):
-	await ctx.send("<:standup:805846231851073647> ")
-	#await ctx.send("_chinpong_")
+	await ctx.send("_chinpong_")
 	
 @bot.command()
 async def omanko(ctx):
