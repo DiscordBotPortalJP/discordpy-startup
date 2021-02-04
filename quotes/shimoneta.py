@@ -160,7 +160,7 @@ def get_shimoneta(m):
         
     if "リョナ" in m.content:
         #あまりに反応するから確率を下げる
-        if random.randint(1,50) < 100:
+        if random.randint(0, 99) < 50:
             quotes = [
                 [100, "リョナしゅき！"],
                 [100, "リョナが好きだなんてすっっごい変態さんですね！"],
