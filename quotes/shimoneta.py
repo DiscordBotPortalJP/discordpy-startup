@@ -1,4 +1,4 @@
-
+import random
 from mylib.mymodule import get_quotes
 #下ネタ
 def get_shimoneta(m):
