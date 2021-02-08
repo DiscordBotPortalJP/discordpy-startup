@@ -59,12 +59,6 @@ async def syabutte(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
-
-@bot.command()
-async def test(ctx):
-	embed = discord.Embed(title="リンク集",description=f"メッセージのURLはこちら をクリックしてください。")
-	embed.add_field(name="テスト",value="改変勇者のリンクは [こちら](https://seesaawiki.jp/ryonage_seisaku/d/%b2%fe%ca%d1%cd%a6%bc%d4) をクリックしてください。")
-	await ctx.send(embed=embed)
 		
 @bot.command()
 async def harapan(ctx):
