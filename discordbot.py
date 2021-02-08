@@ -61,8 +61,10 @@ async def syabutte(ctx):
 		await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
 
 @bot.command()
-async def test(ctx, arg):
-	await ctx.send(arg)
+async def test(ctx):
+	embed = discord.Embed(title="リンク集",description=f"メッセージのURLは [こちら]({message.jump_url}) をクリックしてください。")
+        embed.add_field(name="Google",value="Googleのリンクは [こちら](https://google.com) をクリックしてください。")
+	await ctx.send(embed=embed)
 		
 @bot.command()
 async def harapan(ctx):
