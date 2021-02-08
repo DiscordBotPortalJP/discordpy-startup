@@ -63,7 +63,7 @@ async def syabutte(ctx):
 @bot.command()
 async def test(ctx):
 	embed = discord.Embed(title="リンク集",description=f"メッセージのURLはこちら をクリックしてください。")
-	embed.add_field(name="Google",value="Googleのリンクは [こちら](https://google.com) をクリックしてください。")
+	embed.add_field(name="テスト",value="改変勇者のリンクは [こちら](https://seesaawiki.jp/ryonage_seisaku/d/%b2%fe%ca%d1%cd%a6%bc%d4) をクリックしてください。")
 	await ctx.send(embed=embed)
 		
 @bot.command()
