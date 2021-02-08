@@ -63,7 +63,7 @@ async def syabutte(ctx):
 @bot.command()
 async def test(ctx):
 	embed = discord.Embed(title="リンク集",description=f"メッセージのURLは [こちら]({message.jump_url}) をクリックしてください。")
-        embed.add_field(name="Google",value="Googleのリンクは [こちら](https://google.com) をクリックしてください。")
+	embed.add_field(name="Google",value="Googleのリンクは [こちら](https://google.com) をクリックしてください。")
 	await ctx.send(embed=embed)
 		
 @bot.command()
