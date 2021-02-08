@@ -61,6 +61,10 @@ async def syabutte(ctx):
 		await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
 
 @bot.command()
+async def test(ctx, arg):
+	await ctx.send(arg)
+		
+@bot.command()
 async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
