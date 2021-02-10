@@ -61,6 +61,12 @@ async def syabutte(ctx):
 		await ctx.send("私に喋って欲しい時は/syabetteですよ？\nえ？本当にしゃぶれ・・・？")
 		
 @bot.command()
+async def aisatsu(ctx):
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(f"ドーモ、{ctx.message.author.name}＝サン。リョナゲボットです。")
+
+@bot.command()
 async def harapan(ctx):
 	global prev_time
 	#殴るとCT延長
