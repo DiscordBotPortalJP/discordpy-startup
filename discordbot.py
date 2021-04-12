@@ -5,9 +5,9 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#if not discord.opus.is_loaded(): 
-#    #もし未ロードだったら
-#    discord.opus.load_opus("heroku-buildpack-libopus")
+if not discord.opus.is_loaded(): 
+    #もし未ロードだったら
+    discord.opus.load_opus("heroku-buildpack-libopus")
     
 #@bot.command() 
 #async def join(ctx):
@@ -33,10 +33,13 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+    
 
 @bot.command()
 async def pi(ctx):
     await ctx.send('p')
-
+    voice_state = ctx.author.voice
+    channel = voice_state.channel #送信者のチャンネル
+    await channel.connect() #VoiceChannel.connect()を使用
 
 bot.run(token)
