@@ -24,7 +24,7 @@ chnnel_sent = None
 async def send_message_every_6hour():
     await channel_sent.send("レイド攻撃準備完了！いざ出陣！")
     
-@bot.event
+@bot.command()
 async def start():
     global channel_sent
     channel_sent = bot.get_channel("#general")
