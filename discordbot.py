@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import asyncio
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -17,17 +18,15 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-#client = discord.Client()    
-chnnel_sent = None
+client = discord.Client()    
 
-@tasks.loop(seconds=10)
-async def send_message_every_6hour():
-    await channel_sent.send("レイド攻撃準備完了！いざ出陣！")
-    
-@bot.command()
+@client.command()
 async def start():
-    global channel_sent
-    channel_sent = bot.get_channel("#general")
-    send_message_every_6hour.start() 
-
+    asyncio.ensure_future(greeting_gm())
+    
+async def greeting_gm():
+    await client.send_message(channel 'test')
+    await asyncio.sleep(10)
+    
+client.run(token)
 bot.run(token)
