@@ -1,8 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
-import discord
-import asyncio
+
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -19,15 +18,4 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-client = discord.Client()    
-
-@client.command()
-async def start():
-    asyncio.ensure_future(greeting_gm())
-    
-async def greeting_gm():
-    await client.send_message(channel 'test')
-    await asyncio.sleep(10)
-    
-client.run(token)
 bot.run(token)
