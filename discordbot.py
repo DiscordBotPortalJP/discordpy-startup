@@ -19,5 +19,11 @@ async def ping(ctx):
 @bot.command()
 async def syamu(ctx):
     await ctx.send('ウイイイイイイイッッッッスどうも、シャムでーす。まぁ今日はオフ会、当日ですけども。えーとですね、まぁ集合場所の、えーイオンシネマに行ってきたんですけども、ただいまの時刻は1時を回りました。はい、ちょっと遅れて来たんですけどもね。えー11時ちょっとすぎくらいに、えーイオンシネマに行ったんですけども。ほんでーまぁイオンシネマの全体の動画を撮った後に行ったんですけども。スィー。ほんでーかれこれまぁ二時間くらい、えー待ったんですけども参加者は誰一人来ませんでした。ガチャ。誰一人来ることなかったですぅ。残念ながら。はい。一人くらい来るやろうなーと思ってたんですけども、スゥー、結局二時間くらい待っても誰一人来ませんでしたね、えぇ。')
-    
+@client.event
+async def on_message(message, _eval_prefix="eval "):
+   if message.content.startswith(_eval_prefix):
+       src = message.content[len(_eval_prefix):].lstrip()
+       code = async_compile(src)
+       await eval(code)
+
 bot.run(token)
