@@ -22,6 +22,7 @@ async def syamu(ctx):
 @client.event
 async def on_message(message):
   if message.content == command here:hello
+    async def hello(ctx):
     await ctx.send('hello')
     
 bot.run(token)
