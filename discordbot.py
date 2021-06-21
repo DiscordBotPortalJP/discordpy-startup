@@ -28,7 +28,7 @@ async def on_message_delete(message):
 client = discord.Client()
 @client.event
 async def on_message(message):
- if message.content == (hello):
+ if message.content == 'hello':
     message.channel.send('hello')
     
 bot.run(token)
