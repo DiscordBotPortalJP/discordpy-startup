@@ -15,6 +15,7 @@ from quotes.harapan import get_harapan
 from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
+from quotes.omikuji import get_omikuji
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -112,6 +113,10 @@ async def nadenade(ctx):
 @bot.command()
 async def morase(ctx):
 	await ctx.send(get_morase(bot_chan, ctx.message))
+	
+@bot.command()
+async def omikuji(ctx):
+	await ctx.send(get_omikuji(bot_chan, ctx.message))
 	
 @bot.command()
 async def rkey(ctx):
