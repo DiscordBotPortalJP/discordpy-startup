@@ -65,6 +65,30 @@ async def aisatsu(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		await ctx.send(f"ドーモ、{ctx.message.author.name}＝サン。リョナゲボットです。")
+		
+@bot.command()
+async def oppai(ctx):
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(f"おっぱいおっぱい！")
+		
+@bot.command()
+async def anal(ctx):
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(f"アナルの話しました？")
+		
+@bot.command()
+async def anus(ctx):
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(f"本当はアヌスでもアナルはもはや名詞になってますよね")
+		
+@bot.command()
+async def sex(ctx):
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(f"せっくす！")
 
 @bot.command()
 async def harapan(ctx):
