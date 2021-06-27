@@ -25,10 +25,11 @@ def get_omikuji(bot, m):
             ]
     else:
         #瀕死の時
+        pre = ""
         quotes = [
             [100 , "そこに、あるの、で・・・勝手に引いてください・・・"],
             [100 , "今無理で、す・・・"],
             [100 , "動けなくて・・・ごめん・・・なさい"]
             ]
         
-    return get_quotes(quotes)
+    return pre + get_quotes(quotes)
