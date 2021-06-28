@@ -1,4 +1,4 @@
-from mylib.mymodule import get_quotes_with_damage
+from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
 def get_lucky(bot, m):
     pre = ""
