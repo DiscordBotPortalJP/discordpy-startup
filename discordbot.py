@@ -16,6 +16,7 @@ from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
 from quotes.omikuji import get_omikuji
+from quotes.luckyitem import get_lucky
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -117,6 +118,10 @@ async def morase(ctx):
 @bot.command()
 async def omikuji(ctx):
 	await ctx.send(get_omikuji(bot_chan, ctx.message))
+	
+@bot.command()
+async def lucky(ctx):
+	await ctx.send(get_lucky(bot_chan, ctx.message))
 	
 @bot.command()
 async def rkey(ctx):
