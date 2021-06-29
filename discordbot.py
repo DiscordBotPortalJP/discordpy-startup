@@ -49,7 +49,7 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
 	#await ctx.send("_chinpong_")
-	await bot.change_presence(activity=discord.Game(f"テスト")
+	await bot.change_presence(activity=discord.Game(f"テスト"))
 	
 @bot.command()
 async def omanko(ctx):
