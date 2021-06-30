@@ -32,15 +32,22 @@ def get_hobby(m):
         ]
         t = get_quotes(quotes)
         
-    if "尻尾" in m.content or "しっぽ" in m.content:
+    if "尻尾" in m.content or "しっぽ" in m.content or "シッポ" in m.content:
         quotes = [
             [100, "尻尾があると走る時結構便利なんですよ"],
             [100, "尻尾は背骨の延長なので、強く引っ張らないでくださいね？死んじゃうから"],
             [100, "ほら尻尾ありますよ？もふもふですよ？"]
         ]
         t = get_quotes(quotes)
-        
-    if "ネコ" in m.content or "猫" in m.content or "にゃー" in m.content or "にゃん" in m.content:
+    
+    if "犬" in m.content or "イヌ" in m.content or "わんわん" in m.content or "ワンワン" in m.content:
+        quotes = [
+            [100, "わんわんお！"],
+            [100, "わんこも好きですよ！"]
+        ]
+        t = get_quotes(quotes)
+    
+    if "ネコ" in m.content or "猫" in m.content or "にゃー" in m.content or "にゃん" in m.content or "ニャー" in m.content or "ニャン" in m.content:
         quotes = [
             [100, "にゃー！"],
             [100, "にゃんにゃん！"]
