@@ -84,7 +84,15 @@ def get_shimoneta(m):
             [100, "このロリコン！"]
         ]
         t = get_quotes(quotes)
-        
+    
+    if "キンタマ" in m.content or "金玉" in m.content or "タマタマ" in m.content:
+        quotes = [
+            [100, "本当に金で出来てるのか切開して確かめてもいいですか？"],
+            [100, "タマタマを舐めて欲しいんですか？"],
+            [100, "左右で玉の大きさが違うから位置が逆にならないらしいですよ"]
+        ]
+        t = get_quotes(quotes)
+    
     if "ちんこ" in m.content or "チンチン" in m.content or "ちんちん" in m.content or "チンポ" in m.content or "ちんぽ" in m.content:
         quotes = [
             [100, "え、おちんちん・・・？"],
@@ -128,7 +136,7 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
-    if "まんこ" in m.content or "マンコ" in m.content or "まんまん" in m.content:
+    if "まんこ" in m.content or "マンコ" in m.content or "まんまん" in m.content or "陰唇" in m.content:
         quotes = [
             [100, "おまんこ！"],
             [100, "やだなぁエッチなんだから・・・"],
