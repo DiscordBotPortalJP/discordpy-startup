@@ -8,6 +8,14 @@ def get_hobby(m):
             [100, "私も寒いからこたつで丸くなりたいです・・・"]
         ]
         t = get_quotes(quotes)
+        
+    if "暑い" in m.content or "暑くない？" in m.content or "あつい" in m.content or "あつくない？" in m.content:
+        quotes = [
+            [100, "暑いのきらーい"],
+            [100, "暑い時はエアコンに限りますよ！"]
+        ]
+        t = get_quotes(quotes)
+        
     if "ドーモ" in m.content or "ニンジャ" in m.content or "アイサツ" in m.content or "アイエ" in m.content:
         quotes = [
             [100, "ドーモ、" + m.author.name + "＝サン。リョナゲボットです。"],
@@ -32,17 +40,17 @@ def get_hobby(m):
         ]
         t = get_quotes(quotes)
         
-    if "ネコミミ" in m.content or "猫耳" in m.content or "ネコ耳" in m.content or "獣耳" in m.content or "ケモミミ" in m.content or "ケモノミミ" in m.content:
-        quotes = [
-            [100, "私にも猫耳生えてますよ！ほらほら、触りますか？"],
-            [100, "ケモミミとか好きなんですか？"],
-            [100, "猫耳生えてる分脳みそ少ないんじゃないの？とか言う人がいるんですよね！失礼しちゃう！"]
-        ]
-        
     if "ネコ" in m.content or "猫" in m.content or "にゃー" in m.content or "にゃん" in m.content:
         quotes = [
             [100, "にゃー！"],
             [100, "にゃんにゃん！"]
         ]
         t = get_quotes(quotes)
+        
+    if "ネコミミ" in m.content or "猫耳" in m.content or "ネコ耳" in m.content or "獣耳" in m.content or "ケモミミ" in m.content or "ケモノミミ" in m.content:
+        quotes = [
+            [100, "私にも猫耳生えてますよ！ほらほら、触りますか？"],
+            [100, "ケモミミとか好きなんですか？"],
+            [100, "猫耳生えてる分脳みそ少ないんじゃないの？とか言う人がいるんですよね！失礼しちゃう！"]
+        ]
     return t
