@@ -18,6 +18,14 @@ def get_ryona(m):
         ]        
         t = get_quotes(quotes)
         
+    if "処刑" in m.content:
+        quotes = [
+            [100, "処刑って響きがカッコいいですよね"],
+            [100, "電気椅子で水スポンジ無しでやってほしい～"],
+            [100, "中世は色んなリョナい処刑があってすごいと思います"]
+        ]        
+        t = get_quotes(quotes)
+        
     if "首絞め" in m.content:
         quotes = [
             [100, "首を絞めてエッチするとなんか脳内物質が出て気持ちいいんですって！"],
@@ -25,6 +33,14 @@ def get_ryona(m):
         ]        
         t = get_quotes(quotes)
         
+    if "拷問" in m.content:
+        quotes = [
+            [100, "拷問だったらえっちいのが好きですか？ガチなのが好きですか？"],
+            [100, "とにかく拷問だ　拷問にかけろ！"],
+            [100, "拷問にも長年の経験と熟練した技術が必要なんですって！"]
+        ]        
+        t = get_quotes(quotes)
+    
     if "腹パン" in m.content:
         quotes = [
             [100, "腹パンいいですよね・・・ん、その手は何ですか"],
