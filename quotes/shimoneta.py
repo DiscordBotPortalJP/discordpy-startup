@@ -12,6 +12,14 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
+    if "イラマ" in m.content:
+        quotes = [
+            [100, "おちんちんを喉奥に突っ込まれると本当に苦しいんですからねっ"],
+            [100, "頭をしっかり掴まれておちんちんを打ち付けられちゃったら、それはもう人間オナホですよね"],
+            [100, "無理やりおちんちん突っ込まれてオエェってなっちゃうんだ・・・"]
+        ]
+        t = get_quotes(quotes)
+    
     if "クンニ" in m.content:
         quotes = [
             [100, "まんまんぺろぺろ"],
@@ -19,7 +27,15 @@ def get_shimoneta(m):
             [100, "ぺろぺろしたいんですか？"]
         ]
         t = get_quotes(quotes)
-        
+    
+    if "ドS" in m.content or "サド" in m.content:
+        quotes = [
+            [100, "リョナラーたるものみんなきっとサドなんですよ！"],
+            [100, "や、優しくしてね・・・？"],
+            [100, "SMってSの方が気を遣うんですって！"]
+        ]
+        t = get_quotes(quotes)
+    
     if "ドM" in m.content or "マゾ" in m.content:
         quotes = [
             [100, m.author.name + "さんはドMなんですか？"],
@@ -69,7 +85,7 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
-    if "ちんこ" in m.content or "チンチン" in m.content or "ちんちん" in m.content or "チンポ" in m.content:
+    if "ちんこ" in m.content or "チンチン" in m.content or "ちんちん" in m.content or "チンポ" in m.content or "ちんぽ" in m.content:
         quotes = [
             [100, "え、おちんちん・・・？"],
             [100, "ちーんちん"],
@@ -104,6 +120,14 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
+    if "お尻" in m.content or "ケツ" in m.content:
+        quotes = [
+            [100, "お尻！"],
+            [100, "ムチムチなお尻が好きなんですか？"],
+            [100, "お尻は揉んでもいいし叩いてもいいんですよ！"]
+        ]
+        t = get_quotes(quotes)
+        
     if "まんこ" in m.content or "マンコ" in m.content or "まんまん" in m.content:
         quotes = [
             [100, "おまんこ！"],
@@ -112,7 +136,7 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
-    if "セックス" in m.content or "おせっせ" in m.content:
+    if "セックス" in m.content or "おせっせ" in m.content or "sex" in m.content:
         quotes = [
             [100, "せっくす！"],
             [100, "え、セックス？・・・ドキドキ"],
