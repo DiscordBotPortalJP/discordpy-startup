@@ -12,7 +12,7 @@ def get_calling_bot(m):
         t = get_quotes(quotes)
         
         #更になにか入っていたら反応
-        if "かわいい" in m.content or "可愛い":
+        if "かわいい" in m.content or "可愛い" in m.content:
             quotes = [
                 [100, "いやだな照れちゃうじゃないですか！"],
                 [100, "かわいいって言われるの・・・嬉しいな・・・"],
