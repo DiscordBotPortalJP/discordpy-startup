@@ -18,5 +18,6 @@ def get_calling_bot(m):
                 [100, "かわいいって言われるの・・・嬉しいな・・・"],
                 [100, "ほんとにかわいいって思ってくれてます～？ほんとにぃ～？"]
             ]
+            t = get_quotes(quotes)
         
     return t
