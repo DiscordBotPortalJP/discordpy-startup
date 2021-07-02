@@ -1,6 +1,7 @@
 
 from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
+import random
 def get_omikuji(bot, m):
     t = ""
     #元気状態なら
@@ -26,7 +27,6 @@ def get_omikuji(bot, m):
         if random.randint(0,100) < 5:
             pre = ""
             quotes = [[1, "いやでプー！"]]
-        
     else:
         #瀕死の時
         pre = ""
