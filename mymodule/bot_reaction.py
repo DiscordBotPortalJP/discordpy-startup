@@ -13,7 +13,7 @@ def get_bot_reaction(msg):
     #CTセットするかどうか
     global ct_flag
     ct_flag = True
-    
+    print(ct_flag)
     #挨拶
     reaction = get_greetings(msg)
     #中身入ったら終了
@@ -48,4 +48,5 @@ def get_bot_reaction(msg):
     reaction = get_calling_bot(msg)
     if reaction != "":
         ct_flag = False
+        print(ct_flag)
     return reaction
