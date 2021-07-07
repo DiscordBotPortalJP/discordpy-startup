@@ -169,7 +169,6 @@ async def on_message(message):
 				if msg != "":
 					await message.channel.send(msg)
 					
-					global ct_flag
 					#trueならCTセット
 					if ct_flag:
 						prev_time = datetime.datetime.now()
