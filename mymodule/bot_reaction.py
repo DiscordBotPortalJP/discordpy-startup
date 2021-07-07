@@ -8,8 +8,10 @@ from quotes.ryona import get_ryona
 from quotes.hobby import get_hobby
 from quotes.calling_bot import get_calling_bot
 
-def get_bot_reaction(msg, ct_flag):
+def get_bot_reaction(msg):
     reaction = ""
+    #CTセットするかどうか
+    global ct_flag
     ct_flag = True
     #挨拶
     reaction = get_greetings(msg)
