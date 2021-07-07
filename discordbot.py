@@ -163,7 +163,7 @@ async def on_message(message):
 				#セリフの文字列取得["セリフ", flag]で返る
 				msg = get_bot_reaction(message)
 
-				if msg != "":
+				if msg[0] != "":
 					await message.channel.send(msg[0])
 					
 					#trueならCTセット
