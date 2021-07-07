@@ -8,6 +8,9 @@ import random
 import datetime
 import asyncio
 
+#trueならCTを設定ここじゃないと見えてない
+ct_flag = True
+
 #自作モジュール
 from mymodule.bot_reaction import get_bot_reaction
 from mymodule.ryonage_bot import RyonageBot
@@ -30,9 +33,6 @@ token = os.environ['DISCORD_BOT_TOKEN']
 ct = 60
 #BOT前回の発言イベント時間（初期ct秒黙るためあらかじめ引く）
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
-
-#trueならCTを設定
-ct_flag = True
 
 #ボットちゃん
 bot_chan = RyonageBot()
