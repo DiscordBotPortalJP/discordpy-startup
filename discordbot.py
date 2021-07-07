@@ -8,9 +8,6 @@ import random
 import datetime
 import asyncio
 
-#trueならCTを設定ここじゃないと見えてない
-ct_flag = True
-
 #自作モジュール
 from mymodule.bot_reaction import get_bot_reaction
 from mymodule.ryonage_bot import RyonageBot
@@ -163,15 +160,14 @@ async def on_message(message):
 				if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
 					return
 				
-				#セリフの文字列取得
+				#セリフの文字列取得["セリフ", flag]で返る
 				msg = get_bot_reaction(message)
 
 				if msg != "":
-					await message.channel.send(msg)
+					await message.channel.send(msg[0])
 					
 					#trueならCTセット
-					print(ct_flag)
-					if ct_flag:
+					if msg[1]:
 						prev_time = datetime.datetime.now()
 	await bot.process_commands(message)
 
