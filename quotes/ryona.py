@@ -10,6 +10,14 @@ def get_ryona(m):
         ]        
         t = get_quotes(quotes)
         
+    if "だるま" in m.content or "ダルマ" in m.content or "達磨" in m.content:
+        quotes = [
+            [100, "ダルマってあれですか？手足のないオナホみたいなやつですか？"],
+            [100, "ダルマさんって座禅しすぎて手足が腐った人がモデルなんですって！セルフリョナだったんですかね？"],
+            [100, "手足を落とすならやっぱりナタとかノコギリとかですかね！？"]
+        ]        
+        t = get_quotes(quotes)
+        
     if "ギロチン" in m.content or "クビチョンパ" in m.content or "首チョンパ" in m.content or "斬首" in m.content:
         quotes = [
             [100, "首チョンパいいですよね・・・なんというか「死んだ」って感じで"],
