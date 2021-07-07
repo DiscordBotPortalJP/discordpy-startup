@@ -170,7 +170,7 @@ async def on_message(message):
 				if msg != "":
 					await message.channel.send(msg)
 					#trueならCTセット
-					if ct_flag
+					if ct_flag:
 						prev_time = datetime.datetime.now()
 	await bot.process_commands(message)
 
