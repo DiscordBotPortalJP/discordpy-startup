@@ -11,20 +11,18 @@ from quotes.calling_bot import get_calling_bot
 def get_bot_reaction(msg):
     reaction = ""
     #CTセットするかどうか
-    global ct_flag
     ct_flag = True
-    print(ct_flag)
     #挨拶
     reaction = get_greetings(msg)
     #中身入ったら終了
     if reaction != "":
-        return reaction
+        return [[reaction, ct_flag]]
 
     #慰める
     reaction = get_cheer(msg)
     #中身入ったら終了
     if reaction != "":
-        return reaction
+        return [[reaction, ct_flag]]
 
     #リョナ
     reaction = get_ryona(msg)
@@ -37,16 +35,15 @@ def get_bot_reaction(msg):
         reaction = get_shimoneta(msg)
     #中身入ったら終了
     if reaction != "":
-        return reaction
+        return [[reaction, ct_flag]]
 
     #趣味関連
     reaction = get_hobby(msg)
     #中身入ったら終了
     if reaction != "":
-        return reaction
+        return [[reaction, ct_flag]]
 
     reaction = get_calling_bot(msg)
     if reaction != "":
         ct_flag = False
-        print(ct_flag)
-    return reaction
+    return [[reaction, ct_flag]]
