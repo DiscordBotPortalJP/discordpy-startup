@@ -163,7 +163,7 @@ async def on_message(message):
 				if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
 					return
 				#global ct_flag
-				ct_flag = true
+				ct_flag = True
 				#セリフの文字列取得
 				msg = get_bot_reaction(message, ct_flag)
 
