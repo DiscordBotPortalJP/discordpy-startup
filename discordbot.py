@@ -134,6 +134,7 @@ async def syabette(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
+	await ctx.send(f"もー、しょうがないなぁ～")
 	
 @bot.command()
 async def okiro(ctx):
@@ -165,10 +166,7 @@ async def on_message(message):
 				
 				if msg[0] != "":
 					await message.channel.send(msg[0])
-					
-					#trueならCTセット
-					if msg[1]:
-						prev_time = datetime.datetime.now()
+					prev_time = datetime.datetime.now()
 	await bot.process_commands(message)
 
 
