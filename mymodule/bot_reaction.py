@@ -11,6 +11,7 @@ from quotes.calling_bot import get_calling_bot
 def get_bot_reaction(msg):
     reaction = ""
     #CTセットするかどうか
+    global ct_flag
     ct_flag = True
     
     #挨拶
