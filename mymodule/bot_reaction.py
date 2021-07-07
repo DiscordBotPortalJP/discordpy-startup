@@ -28,7 +28,7 @@ def get_bot_reaction(msg):
     reaction = get_ryona(msg)
     #中身入ったら終了
     if reaction != "":
-        return reaction
+        return reaction, ct_flag
 
     #下ネタは確率操作して下げることも可能
     if random.randint(0, 100) < 101:
