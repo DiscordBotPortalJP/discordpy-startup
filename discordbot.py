@@ -156,13 +156,13 @@ async def on_message(message):
 				global prev_time
 				t = prev_time
 
-				#ct経ってなければ落とす
-				if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
+				#セリフの文字列取得["セリフ", flag]で返る　BOTちゃん反応のために仕方なく順序をずらす
+				msg = get_bot_reaction(message)
+				
+				#ct経ってないかつflagがTrue（通常の反応）なら落とす
+				if datetime.datetime.now() < t + datetime.timedelta(seconds=ct) and msg[1]:
 					return
 				
-				#セリフの文字列取得["セリフ", flag]で返る
-				msg = get_bot_reaction(message)
-
 				if msg[0] != "":
 					await message.channel.send(msg[0])
 					
