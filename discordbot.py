@@ -31,6 +31,9 @@ ct = 60
 #BOT前回の発言イベント時間（初期ct秒黙るためあらかじめ引く）
 prev_time = datetime.datetime.now() - datetime.timedelta(seconds=ct)
 
+#trueならCTを設定
+#ct_flag = true
+
 #ボットちゃん
 bot_chan = RyonageBot()
 
@@ -159,13 +162,15 @@ async def on_message(message):
 				#ct経ってなければ落とす
 				if datetime.datetime.now() < t + datetime.timedelta(seconds=ct):
 					return
-
+				#global ct_flag
 				#セリフの文字列取得
-				msg = get_bot_reaction(message)
+				msg = get_bot_reaction(message, ct_flag)
 
 				if msg != "":
 					await message.channel.send(msg)
-					prev_time = datetime.datetime.now()
+					#trueならCTセット
+					if ct_flag
+						prev_time = datetime.datetime.now()
 	await bot.process_commands(message)
 
 
