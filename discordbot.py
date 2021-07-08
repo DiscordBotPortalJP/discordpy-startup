@@ -17,6 +17,7 @@ from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
 from quotes.omikuji import get_omikuji
 from quotes.luckyitem import get_lucky
+from quotes.syabette import get_syabette
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -134,7 +135,7 @@ async def syabette(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
-	await ctx.send(f"もー、しょうがないなぁ～")
+	await ctx.send(get_syabette(bot_chan, ctx.message))
 	
 @bot.command()
 async def okiro(ctx):
