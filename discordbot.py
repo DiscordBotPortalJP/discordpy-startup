@@ -183,7 +183,7 @@ async def on_member_join(member):
 #アンケートゾーン*************************************************************************************************************
 @bot.command()
 async def vote(ctx, *args):
-    if bot_chan.dying_hp > bot_chan.get_hp():
+    if bot_chan.dying_hp >= bot_chan.get_hp():
         await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
         return
     # 前文句
