@@ -94,6 +94,12 @@ async def sex(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		await ctx.send(f"せっくす！")
+@bot.command()
+async def test(ctx):
+	await ctx.send(ctx.message.author.nick)	
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		#await ctx.send(f"今はテストはないみたいです")
 
 @bot.command()
 async def harapan(ctx):
