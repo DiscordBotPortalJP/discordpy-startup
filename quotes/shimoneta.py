@@ -110,7 +110,7 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
-    if "おしっこ" in m.content or "シッコ" in m.content or "小便" in m.content:
+    if "おしっこ" in m.content or "シッコ" in m.content or "小便" in m.content or "尿" in m.content:
         quotes = [
             [100, "おしっこ！"],
             [100, "飲みますか？おしっこ"],
@@ -126,13 +126,22 @@ def get_shimoneta(m):
         ]
         t = get_quotes(quotes)
         
-    if "おっぱい" in m.content or "乳首" in m.content:
+    if "おっぱい" in m.content or "乳首" in m.content or "巨乳" in m.content:
         quotes = [
             [100, "おっぱい！"],
             [100, "おっぱいおっぱい"],
             [50, "<:oppaioppai:806106303025643531> "],
             [100, "私もおっぱいにはちょっと自信があるんですよ！"],
             [100, m.author.name + "さんっておっぱい大好きですよね"]
+        ]
+        t = get_quotes(quotes)
+        
+    if "ちっぱい" in m.content or "貧乳" in m.content or "まな板" in m.content:
+        quotes = [
+            [100, "ちっぱい！"],
+            [100, "ちっぱいちっぱい"],
+            [100, "小さいおっぱいもまたかわいいですよね！"],
+            [100, m.author.name + "さんは小さなおっぱいの方が好きなんですか？"]
         ]
         t = get_quotes(quotes)
         
@@ -148,10 +157,21 @@ def get_shimoneta(m):
         quotes = [
             [100, "おまんこ！"],
             [100, "やだなぁエッチなんだから・・・"],
+            [50, "<:suji:864157257175531560> "],
             [100, "おまんこなんて言ってたら引かれちゃいますよ？"]
         ]
         t = get_quotes(quotes)
         
+    
+    if "すじ" in m.content:
+        quotes = [
+            [100, "すじ！"],
+            [100, "すじは単線ならモザイクいらないって聞きますよ"],
+            [100, "<:suji:864157257175531560> "],
+            [100, "すじはいいですよね！"]
+        ]
+        t = get_quotes(quotes)
+    
     if "セックス" in m.content or "おせっせ" in m.content or "sex" in m.content or "SEX" in m.content:
         quotes = [
             [100, "せっくす！"],
