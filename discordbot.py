@@ -97,10 +97,12 @@ async def sex(ctx):
 @bot.command()
 async def test(ctx):
 	await ctx.send(ctx.message.author.nick)	
+	print(ctx.message.author.nick)
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
+		pass
 		#await ctx.send(f"今はテストはないみたいです")
-
+		
 @bot.command()
 async def harapan(ctx):
 	global prev_time
