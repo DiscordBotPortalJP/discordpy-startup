@@ -142,6 +142,12 @@ async def okiro(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
+	
+
+#アンケート
+@bot.command()
+async def vote(ctx):
+	await ctx.add_reaction(":one:")
 
 #発言に反応する
 @bot.event
@@ -178,6 +184,7 @@ async def on_member_join(member):
 	await asyncio.sleep(0.5)
 	#雑談チャンネルで発言
 	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
+	
 	
 #起動
 bot.run(token)
