@@ -96,8 +96,9 @@ async def sex(ctx):
 		await ctx.send(f"せっくす！")
 @bot.command()
 async def test(ctx):
-	await ctx.send(ctx.message.author.nick)	
-	print(ctx.message.author.nick)
+	name = ctx.message.author.name if ctx.message.author.nick == null else ctx.message.author.nick
+	await ctx.send(name)	
+	print(name)
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		pass
