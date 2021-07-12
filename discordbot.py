@@ -149,7 +149,7 @@ async def okiro(ctx):
 async def vote(ctx):
 	msg = await ctx.send("testtyu")
 	def check(m):
-		return ":one:" in m.content and m.channel == channel
+		return ":one:" in m.content.emoji and m.channel == channel
 	await msg.add_reaction(":one:")
 	await client.wait_for("reaction_add", check=check)
 
