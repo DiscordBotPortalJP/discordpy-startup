@@ -179,6 +179,38 @@ async def on_member_join(member):
 	#雑談チャンネルで発言
 	await bot.get_channel(798189252080435231).send(member.name + "さんはじめまして！お暇なときに<#798192857327992882>を一読しておいてくださいね！")
 	
+# 前文句
+vote_text_prefix = "アンケートです！\n"
+# 選択肢未指定の場合の絵文字
+vote_emoji_on_no_choice = ["⭕","❌"]
+# 選択肢指定の場合の絵文字
+vote_emoji_on_some_choice = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
+# 選択肢の数が↑のやつより多かった場合のメッセージ
+vote_text_choice_overflow_message = "選択肢の最大値を超えたため以下省略！"
+
+@bot.command()
+async def vote(ctx, *args):
+    commands = list(args)
+    if len(commands) <= 0:
+        return
+
+    text = vote_text_prefix + commands.pop(0)
+    if len(commands) <= 0:
+        #マルバツ
+        vote = await ctx.send(text)
+        for emoji in vote_emoji_on_no_choice:
+            await vote.add_reaction(emoji)
+    else:
+        for index in range(len(commands)):
+            if index < len(vote_emoji_on_some_choice):
+                text += "\n" + vote_emoji_on_some_choice[index] + ":" + commands[index]
+            else:
+                text += "\n" + vote_text_choice_overflow_message
+                break
+        vote = await ctx.send(text)
+        for index in range(len(commands)):
+            if index < len(vote_emoji_on_some_choice):
+                await vote.add_reaction(vote_emoji_on_some_choice[index])
 	
 #起動
 bot.run(token)
