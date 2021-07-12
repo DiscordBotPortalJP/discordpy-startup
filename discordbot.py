@@ -147,7 +147,7 @@ async def okiro(ctx):
 #アンケート
 @bot.command()
 async def vote(ctx):
-	await ctx.add_reaction(":one:")
+	await ctx.send(":one:")
 
 #発言に反応する
 @bot.event
