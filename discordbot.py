@@ -148,8 +148,10 @@ async def okiro(ctx):
 @bot.command()
 async def vote(ctx):
 	msg = await ctx.send("testtyu")
+	def check(m):
+		return ":one:" in m.content and m.channel == channel
 	await msg.add_reaction(":one:")
-	await client.wait_for("reaction_add")
+	await client.wait_for("reaction_add", check=check)
 
 #発言に反応する
 @bot.event
