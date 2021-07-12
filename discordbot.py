@@ -187,7 +187,7 @@ async def vote(ctx, *args):
         await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
         return
     # 前文句
-    vote_text_prefix = ":star:" + ctx.message.author.name + "さんのアンケートです！\n:regional_indicator_q:"
+    vote_text_prefix = ctx.message.author.name + "さんのアンケートです！\n:regional_indicator_q:"
     # 選択肢未指定の場合の絵文字
     vote_emoji_on_no_choice = ["⭕","❌"]
     # 選択肢指定の場合の絵文字
