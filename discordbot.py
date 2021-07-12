@@ -149,6 +149,7 @@ async def okiro(ctx):
 async def vote(ctx):
 	msg = await ctx.send("testtyu")
 	await msg.add_reaction(":one:")
+	await client.wait_for("reaction_add")
 
 #発言に反応する
 @bot.event
