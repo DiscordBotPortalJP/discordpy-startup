@@ -4,6 +4,14 @@ from mylib.mymodule import get_quotes
 def get_shimoneta(m):
     t = ""
     #コピペ用[100, ""],
+    if "嫌パン" in m.content or "嫌な顔しながらおパンツ見せてもらいたい" in m.content:
+        quotes = [
+            [100, "パンツが見たいんですか？"],
+            [100, "私に嫌パンしてもらいたいんですか？"],
+            [100, "本当に嫌だからおパンツなんて見せてあげませんよーだ！！"]
+        ]
+        t = get_quotes(quotes)
+    
     if "フェラ" in m.content:
         quotes = [
             [100, "おちんちん・・・舐めさせられるの苦手なんですよね・・・"],
