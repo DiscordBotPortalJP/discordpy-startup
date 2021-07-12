@@ -142,16 +142,6 @@ async def okiro(ctx):
 	global prev_time
 	#CTを大袈裟な数でリセット
 	prev_time = datetime.datetime.now() - datetime.timedelta(days=1)
-	
-
-#アンケート
-@bot.command()
-async def vote(ctx):
-	msg = await ctx.send("testtyu")
-	def check(m):
-		return ":one:" in m.content.emoji and m.channel == channel
-	await msg.add_reaction(":one:")
-	await client.wait_for("reaction_add", check=check)
 
 #発言に反応する
 @bot.event
