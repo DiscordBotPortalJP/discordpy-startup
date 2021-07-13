@@ -69,7 +69,8 @@ async def syabutte(ctx):
 async def aisatsu(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
-		await ctx.send(f"ドーモ、{ctx.message.author.name}＝サン。リョナゲボットです。")
+		name = ctx.message.author.name if ctx.message.author.nick is None else ctx.message.author.nick
+		await ctx.send(f"ドーモ、{name}＝サン。リョナゲボットです。")
 		
 @bot.command()
 async def oppai(ctx):
@@ -196,7 +197,8 @@ async def vote(ctx, *args):
 		await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
 		return
 	# 前文句
-	vote_text_prefix = ctx.message.author.name + "さんのアンケートです！\n:regional_indicator_q:"
+	name = ctx.message.author.name if ctx.message.author.nick is None else ctx.message.author.nick
+	vote_text_prefix = name + "さんのアンケートです！\n:regional_indicator_q:"
 	# 選択肢未指定の場合の絵文字
 	vote_emoji_on_no_choice = ["⭕","❌"]
 	# 選択肢指定の場合の絵文字
