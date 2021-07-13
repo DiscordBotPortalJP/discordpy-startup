@@ -57,7 +57,7 @@ def get_calling_bot(m):
 		if "アナル" in m.content or "ケツ穴" in m.content or "肛門" in m.content or "アヌス" in m.content or "あなる" in m.content:
 			quotes = [
 				[100, "アナルは好きだけど見せろと言われても・・・"],
-				[100, "だーれが準備いらずのガバガバアナルだーーーー！！！！"],
+				[100, "だーれが準備いらずの即ハメガバガバアナルだーーーー！！！！"],
 				[100, "ガバガバではない・・・はず・・・です　　柔らかいけど・・・"]
 			]
 			return get_quotes(quotes)
