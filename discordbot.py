@@ -192,41 +192,41 @@ async def on_member_join(member):
 #アンケートゾーン*************************************************************************************************************
 @bot.command()
 async def vote(ctx, *args):
-    if bot_chan.dying_hp >= bot_chan.get_hp():
-        await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
-        return
-    # 前文句
-    vote_text_prefix = ctx.message.author.name + "さんのアンケートです！\n:regional_indicator_q:"
-    # 選択肢未指定の場合の絵文字
-    vote_emoji_on_no_choice = ["⭕","❌"]
-    # 選択肢指定の場合の絵文字
-    vote_emoji_on_some_choice = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
-    # 選択肢の数が↑のやつより多かった場合のメッセージ
-    vote_text_choice_overflow_message = "選択肢はしよーじょー10個までです！"
-    
-    commands = list(args)
-    
-    if len(commands) <= 0:
-        await ctx.send("あの、本文がないとアンケート出来ませんケド・・・")
-        return
+	if bot_chan.dying_hp >= bot_chan.get_hp():
+		await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
+		return
+	# 前文句
+	vote_text_prefix = ctx.message.author.name + "さんのアンケートです！\n:regional_indicator_q:"
+	# 選択肢未指定の場合の絵文字
+	vote_emoji_on_no_choice = ["⭕","❌"]
+	# 選択肢指定の場合の絵文字
+	vote_emoji_on_some_choice = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
+	# 選択肢の数が↑のやつより多かった場合のメッセージ
+	vote_text_choice_overflow_message = "選択肢はしよーじょー10個までです！"
+	
+	commands = list(args)
+	
+	if len(commands) <= 0:
+		await ctx.send("あの、本文がないとアンケート出来ませんケド・・・")
+		return
 
-    text = vote_text_prefix + commands.pop(0)
-    if len(commands) <= 0:
-        #マルバツ
-        vote = await ctx.send(text)
-        for emoji in vote_emoji_on_no_choice:
-            await vote.add_reaction(emoji)
-    else:
-        for index in range(len(commands)):
-            if index < len(vote_emoji_on_some_choice):
-                text += "\n" + vote_emoji_on_some_choice[index] + ":" + commands[index]
-            else:
-                text += "\n" + vote_text_choice_overflow_message
-                break
-        vote = await ctx.send(text)
-        for index in range(len(commands)):
-            if index < len(vote_emoji_on_some_choice):
-                await vote.add_reaction(vote_emoji_on_some_choice[index])
+	text = vote_text_prefix + commands.pop(0)
+	if len(commands) <= 0:
+		#マルバツ
+		vote = await ctx.send(text)
+		for emoji in vote_emoji_on_no_choice:
+			await vote.add_reaction(emoji)
+	else:
+		for index in range(len(commands)):
+			if index < len(vote_emoji_on_some_choice):
+				text += "\n" + vote_emoji_on_some_choice[index] + ":" + commands[index]
+			else:
+				text += "\n" + vote_text_choice_overflow_message
+				break
+		vote = await ctx.send(text)
+		for index in range(len(commands)):
+			if index < len(vote_emoji_on_some_choice):
+				await vote.add_reaction(vote_emoji_on_some_choice[index])
 #アンケート終わり*************************************************************************************************************
 	
 #起動
