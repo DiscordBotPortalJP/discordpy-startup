@@ -76,34 +76,31 @@ async def aisatsu(ctx):
 async def oppai(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
-		await ctx.send(f"おっぱいおっぱい！")
+		await ctx.send("おっぱいおっぱい！")
 		
 @bot.command()
 async def anal(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
-		await ctx.send(f"アナルの話しました？")
+		await ctx.send("アナルの話しました？")
 		
 @bot.command()
 async def anus(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
-		await ctx.send(f"本当はアヌスでもアナルはもはや名詞になってますよね")
+		await ctx.send("本当はアヌスでもアナルはもはや名詞になってますよね")
 		
 @bot.command()
 async def sex(ctx):
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
-		await ctx.send(f"せっくす！")
+		await ctx.send("せっくす！")
 @bot.command()
 async def test(ctx):
-	name = ctx.message.author.name if ctx.message.author.nick is None else ctx.message.author.nick
-	await ctx.send(name)	
-	print(name)
 	#瀕死じゃないなら喋る
 	if bot_chan.dying_hp < bot_chan.get_hp():
 		pass
-		#await ctx.send(f"今はテストはないみたいです")
+		await ctx.send("今はテストはないみたいです")
 		
 @bot.command()
 async def harapan(ctx):
@@ -193,7 +190,7 @@ async def on_member_join(member):
 #アンケートゾーン*************************************************************************************************************
 @bot.command()
 async def vote(ctx, *args):
-	if bot_chan.dying_hp >= bot_chan.get_hp():
+	if bot_chan.get_hp() <= bot_chan.dying_hp:
 		await ctx.send("いま・・・そんな状態じゃ・・・ないです・・・")
 		return
 	# 前文句
