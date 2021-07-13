@@ -45,11 +45,36 @@ def get_calling_bot(m):
 			]
 			return get_quotes(quotes)
 
+		if "アナル" in m.content or "ケツ穴" in m.content or "肛門" in m.content or "アヌス" in m.content or "あなる" in m.content:
+			quotes = [
+				[100, "アナルは好きだけど見せろと言われても・・・"],
+				[100, "だーれが準備いらずのガバガバアナルだーーーー！！！！"],
+				[100, "ガバガバではないですよ一応・・・柔らかいけど・・・"]
+			]
+			return get_quotes(quotes)
+
+		if "まんこ" in m.content or "マンコ" in m.content or "すじ" in m.content or "まんまん" in m.content or "マンマン" in m.content:
+			quotes = [
+				[100, "おまんこ！・・・・・・え、お前のを見せろって・・・？"],
+				[100, "ど、どこ見てるんですか！そんなとこじっと見てもスカートしかありませんよ！"],
+				[100, "例え無理やり脱がされても尻尾で隠しますからねっ！"],
+				[100, "スカートに手を突っ込まないでくださいいぃ！！"]
+			]
+			return get_quotes(quotes)
+
 		if "乳首" in m.content or "おっぱい" in m.content or "巨乳" in m.content:
 			quotes = [
 				[100, "ちょっと！おっぱい見てるのバレバレですよ！"],
 				[100, "あの、私のおっぱいに何かご用でも・・・？"],
 				[100, "なんですかそのこっちに伸ばした手は・・・"]
+			]
+			return get_quotes(quotes)
+
+		if "ベロチュー" in m.content or "キス" in m.content:
+			quotes = [
+				[100, "歯磨きとデンタルフロスをちゃんと毎日してる人じゃないと、キスなんてしてあげませんからね"],
+				[100, "キスはけっこう特別なモノなので・・・無理やりはちょっと・・・"],
+				[100, "ほっぺくらいだったら・・・まだしてあげてもいいですよ"]
 			]
 			return get_quotes(quotes)
 
@@ -60,5 +85,4 @@ def get_calling_bot(m):
 				[100, "ほんとにかわいいって思ってくれてます～？ほんとにぃ～？"]
 			]
 			return get_quotes(quotes)
-
 	return t
