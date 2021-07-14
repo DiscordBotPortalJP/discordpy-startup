@@ -3,9 +3,11 @@ from mymodule.ryonage_bot import RyonageBot
 def get_lucky(bot, m):
     pre = ""
     suf = ""
+    name = m.author.name if m.author.nick is None else m.author.nick
+
     #元気状態なら
     if bot.dying_hp < bot.get_hp():
-        pre = m.author.name + "さんのラッキーアイテムは・・・・・・『"
+        pre = f"{name}さんのラッキーアイテムは・・・・・・『"
         quotes = [
             [100 , "アナルバイブ"],
             [100 , "湯呑"],
@@ -346,7 +348,7 @@ def get_lucky(bot, m):
         #瀕死の時
         quotes = [
             [100 , "知りま、せん・・・そんなの・・・"],
-            [100 , "私、を・・・虐める" + m.author.name + "さんに・・・ラッキーアイテムなん、て・・・無いです・・・"],
+            [100 , f"私、を・・・虐める{name}さんに・・・ラッキーアイテムなん、て・・・無いです・・・"],
             [100 , "私が欲しい、ですよ・・・そんなの・・・"]
             ]
         
