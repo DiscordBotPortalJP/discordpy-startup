@@ -55,13 +55,13 @@ def get_calling_bot(m):
 			return get_quotes(quotes)
 		
 		if "褒めて" in m.content or "褒めろ" in m.content:
-		quotes = [
-			[100, "えらいっ"],
-			[100, "すごいですね！"],
-			[100, "<:iizo:805748601972195328> "],
-			[100, "<:eraixtu:809118862259519548> "],
-			[100, "よくやった！"]
-		]
+			quotes = [
+				[100, "えらいっ"],
+				[100, "すごいですね！"],
+				[100, "<:iizo:805748601972195328> "],
+				[100, "<:eraixtu:809118862259519548> "],
+				[100, "よくやった！"]
+			]
 			return get_quotes(quotes)
 
 		if "アナル" in m.content or "ケツ穴" in m.content or "肛門" in m.content or "アヌス" in m.content or "あなる" in m.content:
