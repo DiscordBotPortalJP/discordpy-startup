@@ -46,7 +46,7 @@ def get_calling_bot(m):
 			]
 			return get_quotes(quotes)
 		
-		if "殴る" in m.content or "腹パン" in m.content or "殴らせろ" in m.content or "殴りたい" in m.content:
+		if "殴る" in m.content or "腹パン" in m.content or "殴らせろ" in m.content or "殴らせて" in m.content or "殴りたい" in m.content:
 			quotes = [
 				[100, "嫌ですよ！なんで私が殴られなきゃいけないんですか！！"],
 				[100, "いやあの・・・うるさかったなら謝るので、その拳を下ろしてもらえると・・・"],
