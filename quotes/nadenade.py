@@ -2,6 +2,7 @@ from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
 def get_nadenade(bot, m):
 	t = ""
+	name = m.author.name if m.author.nick is None else m.author.nick
 	#元気状態なら
 	if bot.dying_hp < bot.get_hp():
 		quotes = [
@@ -9,8 +10,8 @@ def get_nadenade(bot, m):
 			[100, "ひっ・・・虐めないで！\n・・・あれ？なでてくれるんですか？"],
 			[100 ,"やだな、急に優しくしないでくださいよ"],
 			[100 , "お返しですよ！なでなでー"],
-			[100 , m.author.name + "さんって優しいんですね・・・"],
-			[100 , m.author.name + "さんの手、あったかいです"],
+			[100 , f"{name}さんって優しいんですね・・・"],
+			[100 , f"{name}さんの手、あったかいです"],
 			[100 , "傷のところさすってくれるんですか？"],
 			[100 , "さっきのがすごく痛かったんですけどちょっと楽になりました・・・"],
 			[100 , "誰にでも触らせてあげるわけじゃないんですからね"],
