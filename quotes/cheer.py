@@ -3,10 +3,11 @@ from mylib.mymodule import get_quotes
 #慰める
 def get_cheer(m):
 	t = ""
+	name = m.author.name if m.author.nick is None else m.author.nick
 	if m.content == "死にたい" or m.content == "もう死にたい":
 		quotes = [
 			[100, "そんなこと言わないでください・・・"],
-			[100, m.author.name + "さんに死んでほしくない人はきっとたくさんいますよ"],
+			[100, f"{name}さんに死んでほしくない人はきっとたくさんいますよ"],
 			[100, "死んじゃだめですよ・・・"]
 		]
 		return get_quotes(quotes)
