@@ -150,7 +150,7 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if ("ロリ" in m.content and "カロリー" not in m.content) or "幼女" in m.content:
+	if ("ロリ" in m.content and "カロリー" not in m.content and "ブロリー" not in m.content) or "幼女" in m.content:
 		quotes = [
 			[100, "いいですよねロリ"],
 			[100, "幼女！幼女！"],
@@ -164,6 +164,14 @@ def get_shimoneta(m):
 			[100, "肉便器とか公衆便女とかひどいことしますよね全くぅ・・・"],
 			[100, "誰のかも分からない赤ちゃんができちゃう！"],
 			[100, "公衆便所に放置しておしっことか掛けてあげると更に屈辱的でいいと思います"]
+		]
+		return get_quotes(quotes)
+
+	if "ビッチ" in m.content or "淫乱" in m.content or "淫売" in m.content:
+		quotes = [
+			[100, "ビッチな子が好きなんですか？"],
+			[100, "人間の三大欲求に性欲がある以上　エッチなことが好きなのはしょうがないですよね・・・"],
+			[100, "私は淫乱じゃないですよ！"]
 		]
 		return get_quotes(quotes)
 
