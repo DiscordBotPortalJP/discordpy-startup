@@ -21,4 +21,8 @@ async def ping(ctx):
 async def neko(ctx):
     await ctx.send('にゃん') 
 
+@bot.command()
+async def チャーミィo(ctx):
+    await ctx.send('はじめまして！ボクCHARMの妖精チャーミィ☆') 
+    
 bot.run(token)
