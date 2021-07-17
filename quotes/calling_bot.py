@@ -98,6 +98,14 @@ def get_calling_bot(m):
 			]
 			return get_quotes(quotes)
 
+		if "脱げ" in m.content or "脱いで" in m.content:
+			quotes = [
+				[100, "や、いやですよ！なんで脱がなきゃいけないんですか！"],
+				[100, "私のハダカで一体ナニをするつもりですか！？"],
+				[100, "例え強引に脱がされたって、尻尾と手で隠せるんですからねっ！！"]
+			]
+			return get_quotes(quotes)
+
 		if "かわいい" in m.content or "可愛い" in m.content:
 			quotes = [
 				[100, "いやだな照れちゃうじゃないですか！"],
