@@ -22,7 +22,7 @@ async def neko(ctx):
     await ctx.send('にゃん') 
 
 @bot.command()
-async def チャーミィ(ctx):
+async def charmyィ(ctx):
     await ctx.send('はじめまして！ボクCHARMの妖精チャーミィ☆') 
     
 bot.run(token)
