@@ -29,4 +29,12 @@ async def チャーミィ(ctx):
 async def ヒーラー(ctx):
     await ctx.send('https://drive.google.com/file/d/17X1a_HkkNUOycIylK0g6yQQa1jeHxJx2/view?usp=sharing') 
     
+@bot.command()
+async def ヒーラー2(ctx):
+    await ctx.send('https://drive.google.com/file/d/1tqyVpv-fq072y5cEr0FboIsV9P3XmrnQ/view?usp=sharing') 
+    
+@bot.command()
+async def ヒーラー3(ctx):
+    await ctx.send('https://drive.google.com/file/d/1CmqSft5-7YsCYWiTKP14xHi0qhHbnGUd/view?usp=sharing') 
+    
 bot.run(token)
