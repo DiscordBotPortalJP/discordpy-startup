@@ -25,4 +25,8 @@ async def neko(ctx):
 async def チャーミィ(ctx):
     await ctx.send('はじめまして！ボクCHARMの妖精チャーミィ☆') 
     
+@bot.command()
+async def ヒーラー(ctx):
+    await ctx.send('https://drive.google.com/file/d/17X1a_HkkNUOycIylK0g6yQQa1jeHxJx2/view?usp=sharing') 
+    
 bot.run(token)
