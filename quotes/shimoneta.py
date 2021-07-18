@@ -150,7 +150,7 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if ("ロリ" in m.content and "カロリー" not in m.content and "ブロリー" not in m.content) or "幼女" in m.content:
+	if ("ロリ" in m.content and "カロリー" not in m.content and "ブロリー" not in m.content and "ポロリ" not in m.content) or "幼女" in m.content:
 		quotes = [
 			[100, "いいですよねロリ"],
 			[100, "幼女！幼女！"],
