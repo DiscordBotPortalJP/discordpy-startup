@@ -98,7 +98,7 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if "お尻" in m.content or "ケツ" in m.content:
+	if "お尻" in m.content or ("ケツ" in m.content and "バケツ" not in m.content):
 		quotes = [
 			[100, "お尻！"],
 			[100, "ムチムチなお尻が好きなんですか？"],
