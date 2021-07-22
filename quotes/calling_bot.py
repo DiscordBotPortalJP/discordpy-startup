@@ -90,6 +90,14 @@ def get_calling_bot(m):
 			]
 			return get_quotes(quotes)
 
+		if "お尻" in m.content or ("ケツ" in m.content and "バケツ" not in m.content):
+			quotes = [
+				[100, "ち、チカンってやつですか！？"],
+				[100, "私のお尻をどうするつもりですか！？"],
+				[100, "スカートめくってお尻をこっちに向けろですって！？"]
+			]
+			return get_quotes(quotes)
+
 		if "ベロチュー" in m.content or "キス" in m.content:
 			quotes = [
 				[100, "歯磨きとデンタルフロスをちゃんと毎日してる人じゃないと、キスなんてしてあげませんからね"],
@@ -113,5 +121,22 @@ def get_calling_bot(m):
 				[100, "ほんとにかわいいって思ってくれてます～？ほんとにぃ～？"]
 			]
 			return get_quotes(quotes)
+
+		if "かわいそう" in m.content or "可哀想" in m.content:
+			quotes = [
+				[100, "どうせ「かわいそうじゃないと抜けない～」とか言うんでしょ！"],
+				[100, "実は私としてはまんざらでも・・・いやなんでもないです"],
+				[100, "かわいそうとか言いながらめっちゃ笑顔じゃないですか！"]
+			]
+			return get_quotes(quotes)
+
+		if "シッポ" in m.content or "しっぽ" in m.content or "尻尾" in m.content:
+			quotes = [
+				[100, "私の尻尾が気になるんですか？"],
+				[100, "長くて先っぽまでまっすぐなのが自慢なんですよ！"],
+				[100, "触ってもいいですけど敏感だから優しくしてくださいね？"]
+			]
+			return get_quotes(quotes)
+
 	#BOTちゃんだけの時のreturn
 	return t
