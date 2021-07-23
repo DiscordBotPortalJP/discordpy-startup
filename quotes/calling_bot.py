@@ -114,6 +114,14 @@ def get_calling_bot(m):
 			]
 			return get_quotes(quotes)
 
+		if "変態" in m.content:
+			quotes = [
+				[100, "わわわたしは変態なんかじゃないですよ"],
+				[100, "よしんば私が変態だったら・・・嫌いになっちゃいますか・・・？"],
+				[100, "もしかして私を変態さんだと思ってます・・・？"]
+			]
+			return get_quotes(quotes)
+
 		if "かわいい" in m.content or "可愛い" in m.content:
 			quotes = [
 				[100, "いやだな照れちゃうじゃないですか！"],
