@@ -98,7 +98,7 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if "クリトリス" in m.content or ("クリ" in m.content and "クリスマス" not in m.content and "メリクリ" not in m.content and "クリック" not in m.content) or "陰核" in m.content:
+	if "クリトリス" in m.content or "クリちゃん" in m.content or "クリ勃起" in m.content or "クリ責め" in m.content or "陰核" in m.content:
 		quotes = [
 			[100, "クリトリスってあの大きさでおちんちんよりたくさんの神経が走ってるんですって！"],
 			[100, "クリトリスは本当に純粋に快感を感じるためだけの器官らしいですよ？"],
