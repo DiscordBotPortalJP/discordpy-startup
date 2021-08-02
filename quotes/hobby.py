@@ -12,7 +12,7 @@ def get_hobby(m):
 		]
 		return get_quotes(quotes)
 
-	if "ネコ" in m.content or "猫" in m.content or "にゃー" in m.content or "にゃん" in m.content or "ニャー" in m.content or "ニャン" in m.content:
+	if "ネコ" in m.content or "猫" in m.content or "にゃー" in m.content or ("にゃん" in m.content and "まどにゃん" not in m.content) or "ニャー" in m.content or "ニャン" in m.content:
 		quotes = [
 			[100, "にゃー！"],
 			[100, f"{name}さんもネコちゃん好きですか？だったら嬉しいなぁ"],
