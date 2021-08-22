@@ -12,6 +12,14 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
+	if "グロ" in m. content:
+		quotes = [
+			[100, "グロいのいいですよね、内臓とかっ"],
+			[100, "リョナどころかグロいやつが好きなんですか？"],
+			[100, "グロにモザイク掛けなきゃいけないこの世の中を許すなーーー！！"]
+		]
+		return get_quotes(quotes)
+	
 	if "リョナ" in m.content:
 		#あまりに反応するから確率を下げる
 		if random.randint(0, 99) < 50:
@@ -80,7 +88,7 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if "すじ" in m.content:
+	if ("すじ" in m.content and "あらすじ" not in m.content):
 		quotes = [
 			[100, "すじ！"],
 			[100, "すじは単線ならモザイクいらないって聞きますよ"],
