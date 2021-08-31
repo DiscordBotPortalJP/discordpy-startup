@@ -1,27 +1,71 @@
-# インストールした discord.py を読み込む
-import discord
+const http = require('http');
+const querystring = require('querystring');
+const discord = require('discord.js');
+const client = new discord.Client();
 
-# 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'THi5IsDuMMyaCCesSTOK3n00.Cl2FMQ.ThIsi5DUMMyAcc3s5ToKen0000'
+http.createServer(function(req, res){
+ if (req.method == 'POST'){
+   var data = "";
+   req.on('data', function(chunk){
+     data += chunk;
+   });
+   req.on('end', function(){
+     if(!data){
+        console.log("No post data");
+        res.end();
+        return;
+     }
+     var dataObject = querystring.parse(data);
+     console.log("post:" + dataObject.type);
+     if(dataObject.type == "wake"){
+       console.log("Woke up in post");
+       res.end();
+       return;
+     }
+     res.end();
+   });
+ }
+ else if (req.method == 'GET'){
+   res.writeHead(200, {'Content-Type': 'text/plain'});
+   res.end('Discord Bot is active now\n');
+ }
+}).listen(3000);
 
-# 接続に必要なオブジェクトを生成
-client = discord.Client()
+client.on('ready', message =>{
+ console.log('Bot準備完了～');
+ client.user.setPresence({ activity: { name: 'げーむ' } });
+});
 
-# 起動時に動作する処理
-@client.event
-async def on_ready():
-    # 起動したらターミナルにログイン通知が表示される
-    print('ログインしました')
+client.on('message', message =>{
+ if (message.author.id == client.user.id){
+   return;
+ }
+ if(message.isMemberMentioned(client.user)){
+   sendReply(message, "呼びましたか？");
+   return;
+ }
+ if (message.content.match(/にゃ～ん|にゃーん/)){
+   let text = "にゃ～ん";
+   sendMsg(message.channel.id, text);
+   return;
+ }
+});
 
-# メッセージ受信時に動作する処理
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
+if(process.env.DISCORD_BOT_TOKEN == undefined){
+console.log('DISCORD_BOT_TOKENが設定されていません。');
+process.exit(0);
+}
 
-# Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+client.login( process.env.DISCORD_BOT_TOKEN );
+
+function sendReply(message, text){
+ message.reply(text)
+   .then(console.log("リプライ送信: " + text))
+   .catch(console.error);
+}
+
+function sendMsg(channelId, text, option={}){
+ client.channels.get(channelId).send(text, option)
+   .then(console.log("メッセージ送信: " + text + JSON.stringify(option)))
+   .catch(console.error);
+}
