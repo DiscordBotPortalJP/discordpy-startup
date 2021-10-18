@@ -12,6 +12,7 @@ import asyncio
 from mymodule.bot_reaction import get_bot_reaction
 from mymodule.ryonage_bot import RyonageBot
 from quotes.harapan import get_harapan
+from quotes.dengeki import get_dengeki
 from quotes.yakigote import get_yakigote
 from quotes.nadenade import get_nadenade
 from quotes.morase import get_morase
@@ -109,6 +110,13 @@ async def harapan(ctx):
 	#殴るとCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
 	await ctx.send(get_harapan(bot_chan, ctx.message))
+	
+@bot.command()
+async def dengeki(ctx):
+	global prev_time
+	#スタンガンでCT延長
+	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=20)
+	await ctx.send(get_dengeki(bot_chan, ctx.message))
 
 @bot.command()
 async def yakigote(ctx):
