@@ -27,8 +27,8 @@ def get_dengeki(bot, m):
 			[100 , f"{name}さん・・・お願い・・・バチバチするの嫌・・・なの・・・　グァああ゛あ゛！！", 20],
 			[100 , f"スタンガ・・・持った{name}さんなん、て・・・嫌、い・・・　ア゛ギャッ゛ッ゛！！", 20]
 			]
-		
-		l = get_quotes_with_damage(quotes)
+	
+	l = get_quotes_with_damage(quotes)
 	#回避があるのでダメージで場合分け
 	if 0 < l[1]:
 		sikko = get_omorashi(bot, 20)
