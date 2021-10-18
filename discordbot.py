@@ -18,6 +18,7 @@ from quotes.morase import get_morase
 from quotes.omikuji import get_omikuji
 from quotes.luckyitem import get_lucky
 from quotes.syabette import get_syabette
+from quotes.momimomi import get_momimomi
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -120,6 +121,11 @@ async def yakigote(ctx):
 async def nadenade(ctx):
 	bot_chan.heal(15)
 	await ctx.send(get_nadenade(bot_chan, ctx.message))
+	
+@bot.command()
+async def momimomi(ctx):
+	bot_chan.heal(5)
+	await ctx.send(get_momimomi(bot_chan, ctx.message))
 
 @bot.command()
 async def morase(ctx):
