@@ -25,7 +25,6 @@ def get_feint(bot, m):
 		]
 		t = get_quotes(quotes) + "\n・・・・・・**" + get_quotes(suf) + "**"
 
-	else:
-		#瀕死の時はなにもしない
+	#瀕死の時はなにもしない
 
 	return t
