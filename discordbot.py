@@ -127,7 +127,7 @@ async def yakigote(ctx):
 	await ctx.send(get_yakigote(bot_chan, ctx.message))
 
 @bot.command()
-async def yakigote(ctx):
+async def feint(ctx):
 	global prev_time
 	#フェイントでCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
