@@ -20,6 +20,7 @@ from quotes.omikuji import get_omikuji
 from quotes.luckyitem import get_lucky
 from quotes.syabette import get_syabette
 from quotes.momimomi import get_momimomi
+from quotes.feint import get_feint
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -121,9 +122,18 @@ async def dengeki(ctx):
 @bot.command()
 async def yakigote(ctx):
 	global prev_time
-	#焼きごてはさらにCT延長
+	#焼きごてでCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=60)
 	await ctx.send(get_yakigote(bot_chan, ctx.message))
+
+@bot.command()
+async def yakigote(ctx):
+	global prev_time
+	#フェイントでCT延長
+	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
+	#瀕死じゃないなら喋る
+	if bot_chan.dying_hp < bot_chan.get_hp():
+		await ctx.send(get_feint(bot_chan, ctx.message))
 	
 @bot.command()
 async def nadenade(ctx):
