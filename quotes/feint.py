@@ -1,6 +1,6 @@
 from mylib.mymodule import get_quotes
 from mymodule.ryonage_bot import RyonageBot
-def get_morase(bot, m):
+def get_feint(bot, m):
 	t = ""
 	name = m.author.name if m.author.nick is None else m.author.nick
 	#元気状態なら
