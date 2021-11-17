@@ -5,7 +5,7 @@ def get_shimoneta(m):
 	t = ""
 	name = m.author.name if m.author.nick is None else m.author.nick
 	#コピペ用[100, ""],
-	if "リョナラーa" in m.content:
+	if "リョナラー" in m.content:
 		quotes = [
 			[100, f"{name}さんもリョナラーなんですか？"],
 			[100, "ここにはリョナラーしかいないな！？"]
@@ -287,19 +287,19 @@ def get_shimoneta(m):
 		]
 		return get_quotes(quotes)
 
-	if "催眠" in m.content:
-		quotes = [
-			[100, "催眠アプリなんて引っかかるわけ無いですよねーあんなの！"],
-			[100, "エッチになる催眠なんて本当にあるんですかー？うっそだー"],
-			[100, "催眠術なんてきっとやらせでしょ～？ウケるー！"]
-		]
-		return get_quotes(quotes)
-
 	if "嫌パン" in m.content or "嫌な顔しながらおパンツ見せてもらいたい" in m.content:
 		quotes = [
 			[100, "パンツが見たいんですか？"],
 			[100, "私に嫌パンしてもらいたいんですか？"],
 			[100, "本当に嫌だからおパンツなんて見せてあげませんよーだ！！"]
+		]
+		return get_quotes(quotes)
+	
+	if "催眠" in m.content:
+		quotes = [
+			[100, "催眠アプリなんて引っかかるわけ無いですよねーあんなの！"],
+			[100, "エッチになる催眠なんて本当にあるんですかー？うっそだー"],
+			[100, "催眠術なんてきっとやらせでしょ～？ウケるー！"]
 		]
 		return get_quotes(quotes)
 	
