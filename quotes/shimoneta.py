@@ -5,7 +5,7 @@ def get_shimoneta(m):
 	t = ""
 	name = m.author.name if m.author.nick is None else m.author.nick
 	#コピペ用[100, ""],
-	if "リョナラー" in m.content:
+	if "リョナラーa" in m.content:
 		quotes = [
 			[100, f"{name}さんもリョナラーなんですか？"],
 			[100, "ここにはリョナラーしかいないな！？"]
