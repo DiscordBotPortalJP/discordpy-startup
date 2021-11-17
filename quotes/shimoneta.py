@@ -294,5 +294,13 @@ def get_shimoneta(m):
 			[100, "本当に嫌だからおパンツなんて見せてあげませんよーだ！！"]
 		]
 		return get_quotes(quotes)
+
+	if "催眠" in m.content:
+		quotes = [
+			[100, "催眠アプリなんて引っかかるわけ無いですよねーあんなの！"],
+			[100, "エッチになる催眠なんて本当にあるんですかー？うっそだー"],
+			[100, "催眠術なんてきっとやらせでしょ～？ウケるー！"]
+		]
+		return get_quotes(quotes)
 		
 	return t
