@@ -9,7 +9,7 @@ def get_ryona(m):
 			[100, "腹パンいいですよね・・・ん、その手は何ですか"],
 			[100, "お腹といっても鳩尾や下腹などありますが、どこ殴られても痛いんですよ"],
 			[100, "腹パンはライトだから初心者にもオススメですよね！"],
-			[100, "http://sumalog.blog.jp/archives/1002478778.html"],
+			[100, "つ[http://sumalog.blog.jp/archives/1002478778.html]"],
 			[100, "また殴るつもりですか！私を！"]
 		]
 		return get_quotes(quotes)
