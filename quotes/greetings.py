@@ -51,4 +51,12 @@ def get_greetings(m):
 		]
 		return get_quotes(quotes)
 
+	if m.content == "あけおめ" or "あけましておめでとう" in m.content or "明けましておめでとう" in m.content:
+		quotes = [
+			[100, "あけおめですよ！"],
+			[100, "あけましておめでとうございます！"],
+			[100, "あけおめ～"]
+		]
+		return get_quotes(quotes)
+
 	return t
