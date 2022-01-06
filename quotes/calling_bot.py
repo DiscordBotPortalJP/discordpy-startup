@@ -14,6 +14,12 @@ def get_calling_bot(m):
 		t = get_quotes(quotes)
 		
 		#更になにか入っていたら反応
+		if m.content.endswith("しないで！"):
+			quotes = [
+				[100,"うるさいですね……"]
+			]
+			return get_quotes(quotes)
+
 		if "黙って" in m.content or "だまって" in m.content or "うるさい" in m.content or "静かに" in m.content or "しずかに" in m.content or "黙れ" in m.content or "だまれ" in m.content:
 			quotes = [
 				[100, "え、うるさかったですか・・・？ごめんなさい・・・"],
