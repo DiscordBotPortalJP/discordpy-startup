@@ -30,7 +30,7 @@ def get_cheer(m):
 		]
 		return get_quotes(quotes)
 
-	if name == "ぼっふん" and (m.content.endswith("助けて") or m.content.endswith("たすけて"))
+	if name == "ぼっふん" and (m.content.endswith("助けて") or m.content.endswith("たすけて")):
 		quotes = [
 			[100, "何？ぼふんぼふんじゃ分からないですけど"],
 			[100, "それは大変ですね"],
