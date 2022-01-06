@@ -38,5 +38,6 @@ def get_cheer(m):
 			[100, "かぴばらさんを虐めないであげてください！拗ねてしまいます！"],
 			[100, "助けてなんてあげませんよ♪"]
 		]
+		return get_quotes(quotes)
 
 	return t
