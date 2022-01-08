@@ -4,7 +4,7 @@ def get_hobby(m):
 	t = ""
 	name = m.author.name if m.author.nick is None else m.author.nick
 
-	if m.content.endswith("っふん"):
+	if m.content.endswith("っふん") and "ぼっふん" not in m.content:
 		quotes = [
 		[100, "は？"],
 		[100, "なんですかその語尾"],
