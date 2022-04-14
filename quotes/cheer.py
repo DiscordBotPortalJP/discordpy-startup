@@ -48,5 +48,6 @@ def get_cheer(m):
 			[100, f"誰か{name}さんを助けてあげてくださいー！"],
 			[100, "私に何かできることは・・・あ、あの、尻尾くらいなら触ってもいいですよ？"]
 		]
+		return get_quotes(quotes)
 
 	return t
