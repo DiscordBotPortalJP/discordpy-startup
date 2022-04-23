@@ -21,6 +21,7 @@ from quotes.luckyitem import get_lucky
 from quotes.syabette import get_syabette
 from quotes.momimomi import get_momimomi
 from quotes.feint import get_feint
+from quotes.kubishime import get_kubishime
 
 #デフォのintentではmemberにアクセスできないので、ここでTrueに（app画面からのserver members intent設定も必要）
 inte = discord.Intents.default()
@@ -125,6 +126,13 @@ async def yakigote(ctx):
 	#焼きごてでCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=60)
 	await ctx.send(get_yakigote(bot_chan, ctx.message))
+
+@bot.command()
+async def kubishime(ctx):
+	global prev_time
+	#焼きごてでCT延長
+	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
+	await ctx.send(get_kubishime(bot_chan, ctx.message))
 
 @bot.command()
 async def feint(ctx):
