@@ -130,7 +130,7 @@ async def yakigote(ctx):
 @bot.command()
 async def kubishime(ctx):
 	global prev_time
-	#焼きごてでCT延長
+	#首絞めでCT延長
 	prev_time = datetime.datetime.now() + datetime.timedelta(minutes=10)
 	await ctx.send(get_kubishime(bot_chan, ctx.message))
 
