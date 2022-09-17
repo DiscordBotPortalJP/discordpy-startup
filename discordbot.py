@@ -1,6 +1,7 @@
+import discord
+import traceback
 from discord.ext import commands
 from os import getenv
-import traceback
 
 intents = discord.Intents.default()
 intents.message_content = True
